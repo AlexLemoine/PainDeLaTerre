@@ -1,0 +1,17 @@
+{
+  "name": "site/pdlt",
+  "license": "proprietary",
+  "type": "project",
+  "require": {
+    "maximebf/debugbar": "^1.18",
+    "tecnickcom/tcpdf": "^6.6",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Blog\\": "src/"
+    }
+  },
+  "autoload-dev": {
+  }
+}

@@ -1,0 +1,14 @@
+# Fichiers temporaires
+logs/*
+!logs/.gitkeep
+
+cache/*
+!cache/.gitkeep
+
+data/pictures/*
+!data/pictures/.gitkeep
+
+# Fichiers sensibles
+config.php
+
+vendor/*
