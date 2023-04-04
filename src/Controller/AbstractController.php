@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Controller;
+namespace Pdlt\Controller;
 
 class AbstractController
 {

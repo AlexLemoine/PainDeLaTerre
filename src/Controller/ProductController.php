@@ -1,8 +1,8 @@
 <?php
 
-namespace Blog\Controller;
+namespace Pdlt\Controller;
 
-use Blog\Repository\{ProductRepository, ProductCategoryRepository};
+use Pdlt\Repository\{ProductRepository, ProductCategoryRepository};
 
 class ProductController extends AbstractController
 {

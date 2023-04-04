@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\Controller;
+namespace Pdlt\Controller;
 
 class DefaultController extends AbstractController
 {

@@ -9,7 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Blog\\": "src/"
+      "Pdlt\\": "src/"
     }
   },
   "autoload-dev": {

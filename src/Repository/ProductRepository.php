@@ -1,9 +1,9 @@
 <?php
 
-namespace Blog\Repository;
+namespace Pdlt\Repository;
 
-use Blog\Manager\DbManager;
-use Blog\Model\Product;
+use Pdlt\Manager\DbManager;
+use Pdlt\Model\Product;
 
 
 final class ProductRepository extends AbstractRepository

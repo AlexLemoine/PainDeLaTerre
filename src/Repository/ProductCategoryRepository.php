@@ -1,7 +1,7 @@
 <?php
-namespace Blog\Repository;
-use Blog\Manager\DbManager;
-use Blog\Model\ProductCategory;
+namespace Pdlt\Repository;
+use Pdlt\Manager\DbManager;
+use Pdlt\Model\ProductCategory;
 
 
 final class ProductCategoryRepository extends AbstractRepository

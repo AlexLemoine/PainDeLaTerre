@@ -1,4 +1,4 @@
-<?php use Blog\Repository\ProductRepository; ?>
+<?php use Pdlt\Repository\ProductRepository; ?>
 <main class="products">
     <h1>Découvrez nos produits</h1>
 

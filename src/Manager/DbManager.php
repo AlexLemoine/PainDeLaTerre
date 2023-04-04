@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Manager;
+namespace Pdlt\Manager;
 
 // Va servir à faire le lien et gérer la BDD
 // Avoir un accès rapide à notre BDD

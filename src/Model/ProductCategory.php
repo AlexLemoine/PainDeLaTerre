@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Model;
+namespace Pdlt\Model;
 
 class ProductCategory {
 

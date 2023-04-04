@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\Repository;
+namespace Pdlt\Repository;
 
 
 abstract class AbstractRepository
