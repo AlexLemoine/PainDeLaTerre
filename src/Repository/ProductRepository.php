@@ -99,9 +99,9 @@ final class ProductRepository extends AbstractRepository
 
         $oProduct->setIngredients($aDbProduct['ingredients']);
         $oProduct->setId($aDbProduct['id']);
-        if(! empty($aDbProduct['pictureExternal']))
+        if(! empty($aDbProduct['picture']))
         {
-            $oProduct->setExtPicture($aDbProduct['pictureExternal']);
+            $oProduct->setPicture($aDbProduct['picture']);
         };
         $oProduct->setStatus($aDbProduct['status']);
         $oProduct->setCreatedAt(new \DateTime($aDbProduct['created_at']));

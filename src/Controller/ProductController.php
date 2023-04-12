@@ -20,7 +20,7 @@ class ProductController extends AbstractController
     public function refreshProducts(): string
     {
         // Debug : On force un délai d'attente pour laisser le loader s'afficher
-        sleep(1);
+//        sleep(1);
 
         // (3) Récupération (+ nettoyage des données POST ou GET)
         $aCriterias = [];

@@ -1,0 +1,58 @@
+$backgroundColor: rgba(46, 50, 54, 1);
+$firstColor : rgba(224, 197, 176, 1);
+$firstDarkColor : rgba(186, 161, 140, 1);
+$secondColor : rgba(166, 52, 27, 1);
+$secondDarkColor : rgba(51, 26, 17, 1);
+$altColor : rgba(64, 1, 1, 1);
+$naturalDarkColor : rgba(64, 58, 40, 1);
+$whiteColor : rgba(242, 242, 242, 1);
+$blackColor : rgba(0, 0, 0, 1);
+
+$typoTitre : 'Rift', sans-serif;
+$typoTexte : 'Nunito', sans-serif, regular;
+
+$buttonShadow : 4px 4px 10px rgba(0, 0, 0, 0.25);
+$textShadow : 0 4px 4px rgba(0, 0, 0, 0.65);
+
+@keyframes showMenu {
+      0%{
+            transform:translateY(-250px);
+      }
+      100%{
+            transform:translateY(0px);
+            animation-timing-function: ease-out;
+      }
+}
+
+@keyframes displayNav {
+      0% {
+            height: 0;
+      }
+      100% {
+            height: 170px;
+      }
+}
+
+@keyframes hideELt {
+      0%{
+            opacity: 100%;
+      }
+      100% {
+            opacity: 0%;
+      }
+}
+
+@keyframes showELt {
+      0%{
+            opacity: 0%;
+      }
+      100% {
+            opacity: 100%;
+      }
+}
+
+
+
+      
+
+

@@ -45,12 +45,7 @@ class Product
     /**
      * @var string
      */
-    private string $extPicture;
-
-    /**
-     * @var string|null
-     */
-    private ?string $intPicture;
+    private string $picture;
 
     /** @var int  */
     protected int $frequency;
@@ -221,36 +216,24 @@ class Product
     /**
      * @return string
      */
-    public function getExtPicture(): string
+    public function getPicture(): string
     {
-        return $this->extPicture;
+        if(isset($this->picture))
+        {
+            return $this->picture;
+        } else {
+            return "pain ancien.jpg";
+        }
+
     }
 
     /**
-     * @param string $extPicture
+     * @param string $picture
      * @return Product
      */
-    public function setExtPicture(string $extPicture): Product
+    public function setPicture(string $picture): Product
     {
-        $this->extPicture = $extPicture;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getIntPicture(): ?string
-    {
-        return $this->intPicture;
-    }
-
-    /**
-     * @param string|null $intPicture
-     * @return Product
-     */
-    public function setIntPicture(?string $intPicture): Product
-    {
-        $this->intPicture = $intPicture;
+        $this->picture = $picture;
         return $this;
     }
 

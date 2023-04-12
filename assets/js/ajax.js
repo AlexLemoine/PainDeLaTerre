@@ -7,8 +7,6 @@ for (const link of categoryLinks)
     link.addEventListener("click", (e) => {
 
         const containerAjax = document.getElementById('container-ajax');
-        containerAjax.innerHTML =
-            `<div style="text-center; margin-top: 15px;"><img alt="" src="img/spinner.svg"></div>`;
 
         e.preventDefault();
 

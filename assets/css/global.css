@@ -1,0 +1,340 @@
+@keyframes showMenu {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes displayNav {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 170px;
+  }
+}
+@keyframes hideELt {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+@keyframes showELt {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+body {
+  background-color: rgb(46, 50, 54);
+  color: rgb(242, 242, 242);
+  text-align: center;
+  margin: 0;
+}
+
+h1, h2, h3, .Header {
+  font-family: "Rift", sans-serif;
+  Font-weight: bold;
+}
+
+h1 {
+  Font-size: 2em;
+}
+
+h2 {
+  Font-size: 1.6em;
+}
+
+h3 {
+  Font-size: 1.2em;
+}
+
+.layout {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+}
+
+button {
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  background-color: rgb(166, 52, 27);
+  border-radius: 6px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  color: rgb(242, 242, 242);
+  font-family: "Rift", sans-serif;
+  Font-size: 1em;
+}
+
+.Card-desc, .Card-recipe {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
+}
+
+.Header-logo-img source, .Header-logo-img img {
+  margin: 0;
+  max-width: 300px;
+}
+@media screen and (min-width: 550px) {
+  .Header-logo-img source, .Header-logo-img img {
+    display: inline-block;
+    min-width: 530px;
+    padding: 20px;
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 550px) {
+  .Header-menu-burger {
+    display: none;
+  }
+}
+.Header-menu-burger.opened img {
+  display: inline-block;
+  width: 25px;
+  margin-right: 0;
+  transform: rotate(0);
+}
+.Header-menu-burger.opened p {
+  display: block;
+  Font-size: 2em;
+  margin: 0;
+  padding-bottom: 20px;
+}
+.Header-menu-burger-img {
+  display: inline-block;
+  width: 25px;
+  transform: translateY(-5px) rotate(-90deg);
+  transition: transform 500ms 0s;
+}
+.Header-menu-burger-title {
+  font-family: "Rift", sans-serif;
+  display: inline;
+  Font-size: 2em;
+  margin: 0;
+}
+.Header-menu-links {
+  overflow: hidden;
+  height: 0;
+  transition: 0.3s;
+}
+@media screen and (max-width: 549px) {
+  .Header-menu-links {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+@media screen and (min-width: 550px) {
+  .Header-menu-links {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+  }
+}
+.Header-menu-links-link {
+  display: block;
+  padding: 5px;
+  color: rgb(242, 242, 242);
+  text-decoration: none;
+  Font-size: 1.6em;
+  transform: translateY(-250px);
+}
+@media screen and (min-width: 550px) {
+  .Header-menu-links-link {
+    transform: none;
+  }
+}
+@media screen and (max-width: 549px) {
+  .Header-menu-links.opened {
+    animation: displayNav 0.8s both;
+    padding: 1.5em 0;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(4) {
+    animation: showMenu 0.6s forwards;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(3) {
+    animation: showMenu 0.6s 0.2s forwards;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(2) {
+    animation: showMenu 0.6s 0.4s forwards;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(1) {
+    animation: showMenu 0.6s 0.6s forwards;
+  }
+}
+@media screen and (min-width: 550px) {
+  .Header {
+    background-color: rgb(51, 26, 17);
+  }
+}
+
+.MainContent-titleWrap {
+  text-align: center;
+}
+.MainContent-title {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+  padding: 20px 5px;
+  text-decoration: underline;
+}
+@media screen and (min-width: 550px) {
+  .MainContent-title {
+    background: url("../img/logoPainBlanc.svg") 7px 0 no-repeat;
+    background-size: 35px;
+    padding-top: 20px;
+    margin-top: 35px;
+  }
+}
+.MainContent-topBack {
+  font-family: "Nunito", sans-serif, regular;
+  font-style: italic;
+  text-align: right;
+}
+.MainContent-topBack img {
+  padding-left: 15px;
+  padding-right: 50px;
+  height: 15px;
+}
+
+.Products-filter-link {
+  font-family: "Rift", sans-serif;
+  color: rgb(242, 242, 242);
+  display: inline-block;
+  border: solid 1px rgb(242, 242, 242);
+  border-radius: 100px;
+  padding: 5px 10px;
+  margin: 5px;
+  text-decoration: none;
+}
+.Products-filter-link.filtered {
+  background-color: rgb(242, 242, 242);
+  color: rgb(0, 0, 0);
+}
+.Products-list {
+  padding: 1em;
+}
+@media screen and (min-width: 750px) {
+  .Products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+.Card {
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+  border-radius: 15px 15px 15px 15px;
+}
+.Card.selected .Card-desc {
+  animation: hideELt 0.8s both;
+  transition: 0.8s;
+}
+.Card.selected .Card-recipe {
+  animation: showELt 0.8s both;
+  transition: 0.8s;
+}
+.Card.unselected .Card-desc {
+  animation: showELt 0.8s both;
+  transition: 0.8s;
+}
+.Card.unselected .Card-recipe {
+  animation: hideELt 0.8s both;
+  transition: 0.8s;
+}
+.Card-imgBox {
+  margin: 0;
+}
+.Card-imgBox-img {
+  display: inline-block;
+  height: 350px;
+  width: 100%;
+  text-align: center;
+  object-fit: cover;
+  Opacity: 80%;
+}
+.Card-title {
+  margin: 0;
+  width: 90%;
+  padding: 5px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.Card-desc {
+  position: absolute;
+  min-width: 200px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Card-desc_text {
+  font-family: "Nunito", sans-serif, regular;
+}
+.Card-recipe {
+  opacity: 0;
+  position: absolute;
+  min-width: 200px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Card-recipe_text {
+  font-family: "Nunito", sans-serif, regular;
+}
+
+.Footer {
+  background-color: rgb(51, 26, 17);
+  padding: 10px;
+}
+@media screen and (min-width: 550px) {
+  .Footer .layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+.Footer-mentions {
+  padding: 5px;
+  color: rgb(242, 242, 242);
+  font-family: "Nunito", sans-serif, regular;
+  font-style: italic;
+}
+.Footer-mentions a {
+  color: rgb(242, 242, 242);
+  text-decoration: none;
+}
+
+.SiteMap, .Services, .Localisation {
+  padding: 10px;
+}
+.SiteMap-list_title, .Services-list_title, .Localisation-list_title {
+  color: rgb(242, 242, 242);
+  font-family: "Nunito", sans-serif, regular;
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+}
+
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,370 @@
+@import "mixins";
+
+// MOBIL-FIRST : MEDIA-SCREEN <= 400px
+// 1er point de rupture : MEDIA MEDIA-SCREEN <=550px
+// 2e point de rupture  : MEDIA-SCREEN <= 750px
+// 3e point de rupture : MEDIA-SCREEN <= 1050px
+
+
+body {
+    background-color: $backgroundColor;
+    color: $whiteColor;
+    text-align: center;
+    margin:0;
+}
+h1, h2, h3, .Header{
+    font-family: $typoTitre;
+    Font-weight: bold;
+   
+}
+h1{
+    Font-size: 2em;
+}
+h2{
+    Font-size: 1.6em;
+}
+h3{
+    Font-size: 1.2em;
+}
+
+.layout {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
+}
+
+button {
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    background-color: $secondColor;
+    border-radius: 6px;
+    box-shadow: $buttonShadow;
+    color: $whiteColor;
+    font-family: $typoTitre;
+    Font-size: 1em;
+}
+
+
+.Card-desc, .Card-recipe{
+    text-shadow: $textShadow;
+}
+
+.Header{
+    
+    &-logo{
+        
+        &-img source,
+        &-img img{
+            margin: 0;
+            max-width: 300px;
+            @media screen AND (min-width:550px){
+                display: inline-block;
+                min-width: 530px;
+                padding: 20px;
+                max-width: 100%;
+            }
+        }
+    }
+    
+    &-menu{
+        
+        &-burger{
+
+            @media screen AND (min-width:550px){
+                display: none;
+            }
+            &.opened{
+                
+                & img{
+                    display: inline-block;
+                    width: 25px;
+                    margin-right: 0;
+                    transform: rotate(0);
+
+                }
+                & p{
+                    display: block;
+                    Font-size: 2em;
+                    margin: 0;
+                    padding-bottom: 20px;
+                }
+                
+            }
+            
+            &-img{
+                display: inline-block;
+                width: 25px;
+                transform: translateY(-5px) rotate(-90deg);
+                transition: transform 500ms 0s;
+            }
+    
+            &-title{
+                font-family: $typoTitre;
+                display: inline;
+                Font-size: 2em;
+                margin: 0;
+            }
+    
+        }
+        &-links{
+            overflow:hidden;
+            height: 0;
+            transition:.3s;
+            @media screen AND (max-width:549px){
+                background-color: rgba(0,0,0,.3);
+            }
+    
+            @media screen AND (min-width:550px){
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 40px;
+            }
+            
+            &-link{
+                display: block;
+                padding: 5px;
+                color: $whiteColor;
+                text-decoration: none;
+                Font-size: 1.6em;
+                transform: translateY(-250px);
+                
+                @media screen AND (min-width:550px){
+                    transform: none;
+                }
+        
+            }
+            &.opened{
+                @media screen AND (max-width:549px){
+                    animation: displayNav .8s both;
+                    padding:1.5em 0;
+    
+                    .Header-menu-links-link{
+                        &:nth-child(4){
+                            animation:showMenu .6s forwards;
+                        }
+                        &:nth-child(3){
+                            animation:showMenu .6s .2s forwards;
+                        }
+                        &:nth-child(2){
+                            animation:showMenu .6s .4s forwards;
+                        }
+                        &:nth-child(1){
+                            animation:showMenu .6s .6s forwards;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen AND (min-width:550px){
+        background-color: $secondDarkColor;
+    }
+   
+}
+
+
+.MainContent {
+    &-titleWrap{
+        text-align:center;
+    }
+    &-title{
+        display:inline-block;
+        text-align: center;
+        margin: 10px;
+        padding: 20px 5px;
+        text-decoration: underline;
+        
+        @media screen AND (min-width:550px){
+            background: url("../img/logoPainBlanc.svg") 7px 0 no-repeat;
+            background-size: 35px;
+            padding-top: 20px;
+            margin-top: 35px;
+        }
+    }
+    
+    &-topBack{
+        font-family: $typoTexte;
+        font-style: italic;
+        text-align: right;
+        
+        & img{
+            padding-left: 15px;
+            padding-right: 50px;
+            height: 15px;
+        }
+
+    }
+}
+
+.Products{
+
+    &-filter{
+        
+        &-link{
+            font-family: $typoTitre;
+            color: $whiteColor;
+            display: inline-block;
+            border: solid 1px $whiteColor;
+            border-radius: 100px;
+            padding: 5px 10px;
+            margin: 5px;
+            text-decoration: none;
+            
+            &.filtered{
+                background-color: $whiteColor;
+                color: $blackColor;
+            }
+        }
+        
+    }
+    
+    &-list{
+        padding: 1em;
+    
+        @media screen AND (min-width:750px){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+    
+        @media screen AND (min-width: 1050px){
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+    }
+
+}
+
+.Card{
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    border-radius: 15px 15px 15px 15px;
+    
+
+    
+    &.selected{
+        .Card-desc{
+            animation: hideELt 0.8s both;
+            transition: 0.8s;
+        }
+        .Card-recipe{
+            animation: showELt 0.8s both;
+            transition: 0.8s;
+        }
+    }
+    
+    &.unselected{
+        .Card-desc{
+            animation: showELt 0.8s both;
+            transition: 0.8s;
+        }
+        .Card-recipe{
+            animation: hideELt 0.8s both;
+            transition: 0.8s;
+        }
+    }
+    
+    &-imgBox{
+        margin:0;
+        &-img{
+            display: inline-block;
+            height: 350px;
+            width: 100%;
+            text-align: center;
+            object-fit: cover;
+            Opacity: 80%
+        }
+
+    }
+    
+    &-title{
+        margin: 0;
+        width: 90%;
+        padding: 5px;
+        text-shadow: $textShadow;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    &-desc{
+        position: absolute;
+        min-width: 200px;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        
+        &_text{
+            font-family: $typoTexte;
+        }
+
+    }
+    
+    &-recipe{
+        opacity: 0;
+        position: absolute;
+        min-width: 200px;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+
+    
+        &_text{
+            font-family: $typoTexte;
+        }
+    }
+    
+
+    
+}
+
+.Footer{
+    background-color: $secondDarkColor;
+    padding: 10px;
+    
+    .layout{
+        @media screen AND (min-width:550px){
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+    }
+
+    &-mentions{
+        padding: 5px;
+        color: $whiteColor;
+        font-family: $typoTexte;
+        font-style: italic;
+        
+        & a{
+            color: $whiteColor;
+            text-decoration: none;
+        }
+    }
+    
+}
+
+.SiteMap, .Services, .Localisation{
+    padding: 10px;
+    
+    &-list{
+        &_title{
+            color: $whiteColor;
+            font-family: $typoTexte;
+            display: block;
+            text-decoration: none;
+            padding: 5px;
+        }
+    }
+}
