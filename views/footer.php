@@ -6,8 +6,8 @@
         <div class="Footer-SiteMap SiteMap">
             <h3 class="SiteMap-title">Plan du site</h3>
             <div class="SiteMap-list">
-                <a href="#" class="SiteMap-list_title">Qui sommes-nous ?</a>
-                <a href="#" class="SiteMap-list_title">Nos produits</a>
+                <a href="?page=<?php echo PAGE_HOME; ?>" class="SiteMap-list_title">Qui sommes-nous ?</a>
+                <a href="?page=<?php echo PAGE_PRODUCTS; ?>" class="SiteMap-list_title">Nos produits</a>
                 <a href="#" class="SiteMap-list_title">Les actualités</a>
                 <a href="#" class="SiteMap-list_title">Où nous trouver ?</a>
             </div>
@@ -20,10 +20,10 @@
                 <a href="#" class="Services-list_title">Nous contacter</a>
                 <a href="#" class="Services-list_title">Nous suivre</a>
 
-                <a href="#" class="Services-list_socialNetwork">
+                <a href="https://www.facebook.com/lepaindelaterre/" target="_blank" class="Services-list_socialNetwork">
                     <img src="assets/img/icon_Facebook.png">
                 </a>
-                <a href="#" class="Services-list_socialNetwork">
+                <a href="#" target="_blank" class="Services-list_socialNetwork">
                     <img src="assets/img/icon_Instagram.png">
                 </a>
 
@@ -52,73 +52,3 @@
     </div>
 
 </footer>
-
-<script>
-
-    function addClassOpened(element){
-        element.classList.toggle('opened');
-    }
-
-    function addClassSelected(element){
-        if(!element.classList.contains('selected') && !element.classList.contains('unselected'))
-        {
-            element.classList.add('selected')
-        }
-        else if(element.classList.contains('selected'))
-        {
-            element.classList.remove('selected');
-            element.classList.add('unselected');
-        }
-        else
-        {
-            element.classList.remove('unselected');
-            element.classList.add('selected');
-        }
-    }
-
-    function addClassFiltered(element){
-        element.classList.toggle('filtered');
-    }
-
-
-    let burgerMenu = document.querySelector('div.Header-menu-burger');
-    let burgerMenuLinks = document.querySelector('nav.Header-menu-links');
-    let cardButtonDesc = document.querySelectorAll('.Card-desc');
-    let cardButtonRecipe = document.querySelectorAll('.Card-recipe');
-    let filters = document.querySelectorAll('.Products-filter-link');
-
-    console.log(burgerMenu);
-    console.log(burgerMenuLinks);
-    console.log(cardButtonDesc);
-    console.log(cardButtonRecipe);
-
-    burgerMenu.addEventListener('click', function() {
-        addClassOpened(burgerMenu);
-        addClassOpened(burgerMenuLinks);
-    });
-
-    cardButtonDesc.forEach(elt=>{
-        elt.addEventListener('click', function (){
-            let targetCard = this.parentNode;
-            addClassSelected(targetCard);
-        });
-    });
-
-    cardButtonRecipe.forEach(elt=>{
-        elt.addEventListener('click', function (){
-            let targetCard = this.parentNode;
-            addClassSelected(targetCard);
-        });
-    });
-
-    filters.forEach(elt=>{
-        elt.addEventListener('click', function (){
-            let currentFilter = document.querySelector('.Products-filter-link.filtered');
-            if(currentFilter){
-                addClassFiltered(currentFilter);
-            }
-            addClassFiltered(elt);
-        });
-    });
-
-</script>

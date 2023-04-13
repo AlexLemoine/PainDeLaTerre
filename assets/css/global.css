@@ -146,6 +146,13 @@ button {
   Font-size: 1.6em;
   transform: translateY(-250px);
 }
+.Header-menu-links-link.selected {
+  font-size: 2em;
+  text-decoration: underline;
+}
+.Header-menu-links-link:hover {
+  text-decoration: underline;
+}
 @media screen and (min-width: 550px) {
   .Header-menu-links-link {
     transform: none;
@@ -306,6 +313,9 @@ button {
   background-color: rgb(51, 26, 17);
   padding: 10px;
 }
+.Footer a:hover {
+  text-decoration: underline;
+}
 @media screen and (min-width: 550px) {
   .Footer .layout {
     display: flex;
@@ -321,7 +331,14 @@ button {
   font-family: "Nunito", sans-serif, regular;
   font-style: italic;
 }
+.Footer-mentions nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .Footer-mentions a {
+  padding: 0 10px;
   color: rgb(242, 242, 242);
   text-decoration: none;
 }

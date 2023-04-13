@@ -111,6 +111,7 @@ button {
             overflow:hidden;
             height: 0;
             transition:.3s;
+            
             @media screen AND (max-width:549px){
                 background-color: rgba(0,0,0,.3);
             }
@@ -131,6 +132,15 @@ button {
                 text-decoration: none;
                 Font-size: 1.6em;
                 transform: translateY(-250px);
+    
+                &.selected{
+                    font-size: 2em;
+                    text-decoration: underline;
+                }
+                
+                &:hover{
+                    text-decoration: underline;
+                }
                 
                 @media screen AND (min-width:550px){
                     transform: none;
@@ -331,6 +341,12 @@ button {
     background-color: $secondDarkColor;
     padding: 10px;
     
+    a{
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    
     .layout{
         @media screen AND (min-width:550px){
             display: flex;
@@ -347,7 +363,15 @@ button {
         font-family: $typoTexte;
         font-style: italic;
         
+        & nav{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
         & a{
+            padding: 0 10px;
             color: $whiteColor;
             text-decoration: none;
         }

@@ -25,8 +25,9 @@ $oDebugbar['messages']->addMessage('hello world!');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- font-family: 'Nunito', sans-serif; -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
-
+    <!-- font-family: 'Rift', sans-serif; -->
+    <link rel="stylesheet" href="https://use.typekit.net/kxn4jzs.css »>
+   
     <link rel="icon" type="image/vnd.icon" href="Logo_pain.ico">
 
 
@@ -60,7 +61,11 @@ include 'footer.php';
 
 <?php echo $oDebugbarRenderer->render() ?>
 
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/products.js"></script>
+<script src="assets/js/ajax.js"></script>
+
 <script src="https://kit.fontawesome.com/f150580969.js" crossorigin="anonymous"></script>
-<!--<script src="js/main.js"></script>-->
+
 </body>
 </html>

@@ -27,4 +27,3 @@ foreach ($products as $oProduct) : ?>
     </div>
 
 <?php  endforeach; ?>
-

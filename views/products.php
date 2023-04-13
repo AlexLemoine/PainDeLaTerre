@@ -1,5 +1,5 @@
 <?php use Pdlt\Repository\ProductRepository; ?>
-<main class="MainContent Products layout">
+<main class="MainContent Products layout layout-front">
     <div class="MainContent-titleWrap">
         <h1 class="MainContent-title">Découvrez nos produits</h1>
     </div>
@@ -15,11 +15,10 @@
                 '</a>';
         }
         ?>
-        <?= '<a class="Products-filter-link" data-reset="all" href="?page='. PAGE_AJAX_PRODUCTS .'">Voir tout</a>'; ?>
+        <?= '<a class="Products-filter-link filtered" data-reset="all" href="?page='. PAGE_AJAX_PRODUCTS .'">Voir tout</a>'; ?>
 
     </nav>
-
-
+    
     <div class="Products-list" id="container-ajax" data-context="<?= PAGE_PRODUCTS ?>">
 
         <?php
@@ -54,4 +53,3 @@
 
 </main>
 
-<script src="assets/js/ajax.js"></script>

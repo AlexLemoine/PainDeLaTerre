@@ -13,8 +13,10 @@
                 <p class="Header-menu-burger-title">Menu</p>
             </div>
             <nav class="Header-menu-links">
-                <a class="Header-menu-links-link" href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
-                <a class="Header-menu-links-link" href="?page=<?php echo PAGE_PRODUCTS; ?>"><?= TITLE_PRODUCTS ?></a>
+                <a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
+                   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
+                <a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_PRODUCTS) ? 'selected' : '' ?>"
+                   href="?page=<?php echo PAGE_PRODUCTS; ?>"><?= TITLE_PRODUCTS ?></a>
                 <a class="Header-menu-links-link" href="#">Actualités</a>
                 <a class="Header-menu-links-link" href="#">Contact</a>
             </nav>
@@ -22,3 +24,4 @@
     </div>
 
 </header>
+
