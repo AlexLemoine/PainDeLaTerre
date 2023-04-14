@@ -63,7 +63,8 @@ include 'footer.php';
 
 <script type="module" src="assets/js/main.js"></script>
 <script type="module" src="assets/js/products.js"></script>
-<script src="assets/js/ajax.js"></script>
+<script type="module" src="assets/js/functions.js"></script>
+<script type="module" src="assets/js/ajax.js"></script>
 
 <script src="https://kit.fontawesome.com/f150580969.js" crossorigin="anonymous"></script>
 

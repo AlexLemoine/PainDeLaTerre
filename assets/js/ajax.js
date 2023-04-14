@@ -1,4 +1,4 @@
-
+import * as i from './functions.js';
 
 // Récupération de l'élément select
 const categoryLinks = document.querySelectorAll('#category a');
@@ -17,7 +17,7 @@ for (const link of categoryLinks)
             .then(data => {
                 console.log(data);
                 containerAjax.innerHTML=data;
-                listenCards();
+                i.listenCards();
             });
 
     });

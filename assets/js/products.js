@@ -1,54 +1,26 @@
-function toggleClassSelected(element){
-    if(!element.classList.contains('selected') && !element.classList.contains('unselected'))
-    {
-        element.classList.add('selected')
+import * as i from './functions.js';
+
+// Au chargement de la page, placer un écouteur sur les Cards
+i.listenCards();
+
+// Placer de nouveau l'écouteur lors du chargement du HTML avec ajax
+const containerAjax = document.getElementById('container-ajax');
+containerAjax.addEventListener("click", function (e) {
+    let target = e.target;
+    if (target.classList.contains('.Cards')) {
+        i.listenCards();
     }
-    else if(element.classList.contains('selected'))
-    {
-        element.classList.remove('selected');
-        element.classList.add('unselected');
-    }
-    else
-    {
-        element.classList.remove('unselected');
-        element.classList.add('selected');
-    }
-}
-
-function toggleClassFiltered(element){
-    element.classList.toggle('filtered');
-}
-
-window.listenCards = function listenCards(){
-    let cardButtonDesc = document.querySelectorAll('.layout-front .Card-desc');
-    let cardButtonRecipe = document.querySelectorAll('.layout-front .Card-recipe');
-
-    cardButtonDesc.forEach(elt=>{
-        elt.addEventListener('click', function (){
-            let targetCard = this.parentNode;
-            toggleClassSelected(targetCard);
-        });
-    });
-
-    cardButtonRecipe.forEach(elt=>{
-        elt.addEventListener('click', function (){
-            let targetCard = this.parentNode;
-            toggleClassSelected(targetCard);
-        });
-    });
-}
-
-listenCards();
+});
 
 
 let filters = document.querySelectorAll('.Products-filter-link');
 
-filters.forEach(elt=>{
-    elt.addEventListener('click', function (){
+filters.forEach(elt => {
+    elt.addEventListener('click', function () {
         let currentFilter = document.querySelector('.Products-filter-link.filtered');
-        if(currentFilter){
-            toggleClassFiltered(currentFilter);
+        if (currentFilter) {
+            i.toggleClassFiltered(currentFilter);
         }
-        toggleClassFiltered(elt);
+        i.toggleClassFiltered(elt);
     });
 });

@@ -6,10 +6,10 @@
         <div class="Footer-SiteMap SiteMap">
             <h3 class="SiteMap-title">Plan du site</h3>
             <div class="SiteMap-list">
-                <a href="?page=<?php echo PAGE_HOME; ?>" class="SiteMap-list_title">Qui sommes-nous ?</a>
-                <a href="?page=<?php echo PAGE_PRODUCTS; ?>" class="SiteMap-list_title">Nos produits</a>
-                <a href="#" class="SiteMap-list_title">Les actualités</a>
-                <a href="#" class="SiteMap-list_title">Où nous trouver ?</a>
+                <a href="?page=<?php echo PAGE_HOME; ?>" class="SiteMap-list-title">Qui sommes-nous ?</a>
+                <a href="?page=<?php echo PAGE_PRODUCTS; ?>" class="SiteMap-list-title">Nos produits</a>
+                <a href="#" class="SiteMap-list-title">Les actualités</a>
+                <a href="#" class="SiteMap-list-title">Où nous trouver ?</a>
             </div>
         </div>
 
@@ -17,13 +17,13 @@
             <h3 class="Services-title">Services</h3>
             <div class="Services-list">
 
-                <a href="#" class="Services-list_title">Nous contacter</a>
-                <a href="#" class="Services-list_title">Nous suivre</a>
+                <a href="#" class="Services-list-title">Nous contacter</a>
+                <a href="#" class="Services-list-title">Nous suivre</a>
 
-                <a href="https://www.facebook.com/lepaindelaterre/" target="_blank" class="Services-list_socialNetwork">
+                <a href="https://www.facebook.com/lepaindelaterre/" target="_blank" class="Services-list-socialNetwork">
                     <img src="assets/img/icon_Facebook.png">
                 </a>
-                <a href="#" target="_blank" class="Services-list_socialNetwork">
+                <a href="#" target="_blank" class="Services-list-socialNetwork">
                     <img src="assets/img/icon_Instagram.png">
                 </a>
 

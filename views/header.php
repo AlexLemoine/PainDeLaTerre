@@ -1,6 +1,5 @@
 <header class="Header">
 
-    <div class="layout">
         <div class="Header-logo">
             <picture class="Header-logo-img">
                 <source srcset="assets/img/logoBlancHorizontal.png" media="(min-width: 550px)">
@@ -21,7 +20,6 @@
                 <a class="Header-menu-links-link" href="#">Contact</a>
             </nav>
         </div>
-    </div>
 
 </header>
 
