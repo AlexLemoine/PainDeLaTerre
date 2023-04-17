@@ -1,4 +1,4 @@
-<header class="Header">
+<header class="Header layout-back">
 
         <div class="Header-logo">
             <picture class="Header-logo-img">
@@ -11,6 +11,13 @@
                 <img class="Header-menu-burger-img" src="assets/img/logoPainBlanc.svg" alt="logo pain blanc">
                 <p class="Header-menu-burger-title">Menu</p>
             </div>
+	      
+		<?php //if($_SESSION['user']['role'] == ROLE_ADMIN): ?>
+		  <nav class="Header-menu-links">
+		  	<a class="Header-menu-links-link" href="?page=<?php echo PAGE_ADMIN_PRODUCTS; ?>"><?= TITLE_ADMIN_PRODUCTS ?></a>
+			<a class="Header-menu-links-link" href="#">Admin Produits</a>
+		  </nav>
+	      <?php //else: ?>
             <nav class="Header-menu-links">
                 <a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
                    href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
@@ -19,6 +26,7 @@
                 <a class="Header-menu-links-link" href="#">Actualités</a>
                 <a class="Header-menu-links-link" href="#">Contact</a>
             </nav>
+	      <?php //endif; ?>
         </div>
 
 </header>

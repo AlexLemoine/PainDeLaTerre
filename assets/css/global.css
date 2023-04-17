@@ -31,6 +31,190 @@
     opacity: 100%;
   }
 }
+@keyframes showMenu {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes displayNav {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 170px;
+  }
+}
+@keyframes hideELt {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+@keyframes showELt {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.layout-back.Header .Header-menu-links {
+  justify-content: space-around;
+}
+
+.Search-title {
+  font-family: "Rift", sans-serif;
+}
+.Search .Cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media screen and (min-width: 550px) {
+  .Search .Cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+.Search .Card {
+  border: solid 2px;
+  height: auto;
+  width: 320px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card {
+    width: 360px;
+    text-align: left;
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-Header {
+    padding: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+.Search .Card-modify, .Search .Card-delete {
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+}
+.Search .Card-modify {
+  position: relative;
+  top: 10px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-modify {
+    position: absolute;
+    top: 20px;
+    right: 0;
+  }
+}
+.Search .Card-delete {
+  position: relative;
+  top: 10px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-delete {
+    position: absolute;
+    top: 80px;
+    right: 0;
+  }
+}
+.Search .Card-title {
+  margin: 5px;
+  position: relative;
+  top: 25px;
+  font-size: 1.6em;
+  padding: 10px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-title {
+    width: 100%;
+    padding: 5px;
+  }
+}
+.Search .Card-imgBox {
+  padding: 10px 0;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-imgBox {
+    padding: 5px;
+  }
+}
+.Search .Card-imgBox-img {
+  padding: 5px;
+  height: 100px;
+  width: 300px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-imgBox-img {
+    padding: 5px;
+    width: 85%;
+  }
+}
+.Search .Card-recipe {
+  text-shadow: none;
+  opacity: 100%;
+  position: relative;
+  top: 0;
+}
+.Search .Card-desc {
+  text-shadow: none;
+  position: relative;
+  top: 0;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-recipe, .Search .Card-desc {
+    left: 0;
+    transform: translateX(0%);
+  }
+}
+.Search .Card-category, .Search .Card-recipe, .Search .Card-desc, .Search .Card-status, .Search .Card-frequency {
+  display: block;
+  padding: 5px 0;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-category, .Search .Card-recipe, .Search .Card-desc, .Search .Card-status, .Search .Card-frequency {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.Search .Card-category-title, .Search .Card-category-text, .Search .Card-recipe-title, .Search .Card-recipe-text, .Search .Card-desc-title, .Search .Card-desc-text, .Search .Card-status-title, .Search .Card-status-text, .Search .Card-frequency-title, .Search .Card-frequency-text {
+  margin: 5px;
+}
+.Search .Card-category-text, .Search .Card-recipe-text, .Search .Card-desc-text, .Search .Card-status-text, .Search .Card-frequency-text {
+  font-family: "Nunito", sans-serif, regular;
+}
+
+.Filters-magic, .Filters-category, .Filters-status, .Filters-frequency {
+  width: auto;
+  font-family: "Rift", sans-serif;
+  color: rgb(0, 0, 0);
+  display: inline;
+  border: solid 1px rgb(242, 242, 242);
+  border-radius: 100px;
+  padding: 5px 10px;
+  margin: 5px;
+  text-decoration: none;
+  text-align: left;
+}
+
 body {
   background-color: rgb(46, 50, 54);
   color: rgb(242, 242, 242);
@@ -240,7 +424,7 @@ button {
 @media screen and (min-width: 1050px) {
   .Products-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 20px;
   }
 }

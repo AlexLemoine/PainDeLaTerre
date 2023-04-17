@@ -1,4 +1,6 @@
 @import "mixins";
+@import "adminProducts";
+
 
 // MOBIL-FIRST : MEDIA-SCREEN <= 400px
 // 1er point de rupture : MEDIA MEDIA-SCREEN <=550px
@@ -245,7 +247,7 @@ button {
     
         @media screen AND (min-width: 1050px){
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px,1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
             grid-gap: 20px;
         }
     }

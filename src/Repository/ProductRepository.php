@@ -4,6 +4,7 @@ namespace Pdlt\Repository;
 
 use Pdlt\Manager\DbManager;
 use Pdlt\Model\Product;
+use Pdlt\Model\ProductFrequency;
 
 
 final class ProductRepository extends AbstractRepository
@@ -95,7 +96,8 @@ final class ProductRepository extends AbstractRepository
         $oProduct = new Product(
             $aDbProduct['name'],
             $aDbProduct['description'],
-            ProductCategoryRepository::find($aDbProduct['productCategory_id']));
+            ProductCategoryRepository::find($aDbProduct['productCategory_id']),
+	  	ProductFrequencyRepository::find($aDbProduct['frequency']));
 
         $oProduct->setIngredients($aDbProduct['ingredients']);
         $oProduct->setId($aDbProduct['id']);
@@ -162,37 +164,17 @@ final class ProductRepository extends AbstractRepository
         // 2. Si "magic-search" est défini
         if(! empty($aCriterias['magic-search']))
         {
-            $aWhere[] = ' ((`title` LIKE :magicsearch) 
-                        OR (`content` LIKE :magicsearch))';
+            $aWhere[] = ' ((`name` LIKE :magicsearch)
+                        OR (`description` LIKE :magicsearch)
+                        OR (`ingredients` LIKE :magicsearch))';
             $aParams[':magicsearch'] =  '%' . $aCriterias['magic-search'] . '%';
         };
 
-        // 3. Si "from" est défini
-        if(! empty($aCriterias['fromProduct']))
+        // 3. Si "status" est défini
+        if(! empty($aCriterias['status']))
         {
-            $aWhere[] = '(createdAt >= :createdFrom)';
-            $aParams[':createdFrom'] = $aCriterias['fromProduct'];
-        };
-
-        // 4. Si "to"" est défini
-        if(! empty($aCriterias['toProduct']))
-        {
-            $aWhere[] = '(createdAt <= :createdTo)';
-            $aParams[':createdTo'] = $aCriterias['toProduct'];
-        };
-
-        // 5. Si "fréquence" est définie
-        if(! empty($aCriterias['frequency']))
-        {
-            $aWhere[] = '(frequency)';
-            $aParams[':frequency'] = $aCriterias['frequency'];
-        };
-
-        // 6. Si "fréquence" est définie
-        if(! empty($aCriterias['ingredients']))
-        {
-            $aWhere[] = '(ingredients)';
-            $aParams[':ingredients'] = $aCriterias['ingredients'];
+            $aWhere[] = '(status = :status)';
+            $aParams[':status'] = $aCriterias['status'];
         };
 
         if(count($aWhere)>0)

@@ -1,0 +1,181 @@
+@import "mixins";
+
+
+.layout-back.Header{
+      .Header-menu-links{
+                  justify-content: space-around;
+            }
+}
+
+.Search{
+      
+      &-title{
+            font-family: $typoTitre;
+      }
+      
+      .Cards{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            
+            @media screen AND (min-width:550px){
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: stretch;
+            }
+      }
+      
+      & .Card{
+            border: solid 2px;
+            height: auto;
+            width: 320px;
+      
+            @media screen AND (min-width:550px) {
+                  width: 360px;
+                  text-align: left;
+                  padding: 15px;
+            }
+            
+            &-Header{
+                  
+                  @media screen AND (min-width:550px) {
+                        padding: 5px;
+                        display: flex;
+                        flex-direction: column-reverse;
+                  }
+            }
+            
+            &-modify, &-delete{
+                  background-color: transparent;
+                  width: 35px;
+                  height: 35px;
+                  padding: 10px;
+                  
+            }
+            &-modify{
+                  position: relative;
+                  top: 10px;
+                  
+                  @media screen AND (min-width:550px) {
+                        position: absolute;
+                        top: 20px;
+                        right: 0;
+                  }
+            }
+            
+            &-delete{
+                  position: relative;
+                  top: 10px;
+      
+                  @media screen AND (min-width:550px) {
+                        position: absolute;
+                        top: 80px;
+                        right: 0;
+                  }
+            }
+      
+            &-title{
+                  margin: 5px;
+                  position: relative;
+                  top: 25px;
+                  font-size: 1.6em;
+                  padding: 10px;
+      
+                  @media screen AND (min-width:550px) {
+                        width: 100%;
+                        padding: 5px;
+                  }
+            }
+            
+            &-imgBox{
+                  padding: 10px 0;
+
+      
+                  @media screen AND (min-width:550px) {
+                        padding: 5px;
+                  }
+                  
+                  &-img{
+                        padding: 5px;
+                        height: 100px;
+                        width: 300px;
+      
+                        @media screen AND (min-width:550px) {
+                              padding: 5px;
+                              width: 85%;
+                        }
+                  }
+            }
+            
+            &-recipe{
+                  text-shadow: none;
+                  opacity: 100%;
+                  position: relative;
+                  top: 0;
+            }
+            
+            &-desc{
+                  text-shadow: none;
+                  position: relative;
+                  top: 0;
+            }
+            
+            &-recipe, &-desc {
+                  @media screen AND (min-width: 550px) {
+                        left: 0;
+                        transform: translateX(0%);
+                  }
+            }
+            
+            &-category,
+            &-recipe,
+            &-desc,
+            &-status,
+            &-frequency
+            {
+                  display: block;
+                  padding: 5px 0;
+                  
+                  @media screen AND (min-width:550px) {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        align-items: center;
+                  }
+                  
+                  &-title, &-text{
+                      margin: 5px;
+                  }
+                  
+                  &-text{
+                        font-family: $typoTexte;
+                  }
+            }
+
+      }
+}
+
+.Filters{
+
+      &-magic,
+      &-category,
+      &-status,
+      &-frequency{
+            width: auto;
+            font-family: $typoTitre;
+            color: $blackColor;
+            display: inline;
+            border: solid 1px $whiteColor;
+            border-radius: 100px;
+            padding: 5px 10px;
+            margin: 5px;
+            text-decoration: none;
+            text-align: left;
+      }
+}
+
+

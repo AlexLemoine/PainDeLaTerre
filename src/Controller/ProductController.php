@@ -6,7 +6,7 @@ use Pdlt\Repository\{ProductRepository, ProductCategoryRepository};
 
 class ProductController extends AbstractController
 {
-    public function product()
+    public function product(): string
     {
         return $this->render(
             'products.php',
