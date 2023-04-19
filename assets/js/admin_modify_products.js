@@ -1,6 +1,65 @@
 import {toggleClass} from "./functions.js";
 import {callDisplayProductAjax} from "./admin_ajax.js";
 
+function listenCreateButton() {
+    const createBtn = document.querySelector('.Card-create-button');
+
+    createBtn.addEventListener('click', function () {
+
+        // Récupération de l'élément qui contiendra le form de création
+        let containerAjax = document.querySelector('.Card-create-form');
+        toggleClass(containerAjax,'creating','uncreated');
+
+        // Création d'un nouvel objet FormData
+        const formData = new FormData();
+        formData.append('context', 'admin_modify_products');
+
+        // Envoi de la requête pour mettre à jour les cartes
+        fetch('ajax.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log('data = ' + data);
+
+                // Mise à jour des cartes avec les données reçues
+                containerAjax.innerHTML = data;
+
+                const targetCancelBtn = document.querySelector('.Card-create-form .Card-cancel');
+                targetCancelBtn.addEventListener('click', function(){
+                    this.parentNode.remove();
+                    toggleClass(containerAjax,'creating','uncreated');
+                })
+
+                const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
+                targetSaveBtn.addEventListener('click',function(){
+
+                    // Création d'un nouvel objet FormData
+                    const formData = new FormData(document.querySelector('.ModifyForm'));
+                    formData.append('context', 'admin_update_product');
+
+                    // Envoi de la requête pour créer le produit
+                    fetch('ajax.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            console.log('data = ' + data);
+
+                            // Mise à jour du listing de produits
+                            callDisplayProductAjax();
+
+                            // Suppression du formulaire de création de produit
+                            this.parentNode.remove();
+                        });
+
+                })
+            })
+    })
+}
+
 
 function listenCancelSaveBtns(){
     const cancelBtn = document.querySelector('.Card-cancel');
@@ -144,3 +203,4 @@ export function listenModifyDeleteBtns(){
 }
 
 listenModifyDeleteBtns();
+listenCreateButton();

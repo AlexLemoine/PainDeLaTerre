@@ -59,13 +59,15 @@ button {
         
         &-img source,
         &-img img{
-            margin: 0;
+            margin: auto;
+            display: block;
             max-width: 300px;
+            
             @media screen AND (min-width:550px){
-                display: inline-block;
                 min-width: 530px;
                 padding: 20px;
                 max-width: 90%;
+                max-height: 170px;
             }
         }
     }
@@ -202,9 +204,13 @@ button {
     }
     
     &-topBack{
+        display: block;
+        padding: 20px 60px;
         font-family: $typoTexte;
         font-style: italic;
         text-align: right;
+        text-decoration: none;
+        color: $whiteColor;
         
         & img{
             padding-left: 15px;

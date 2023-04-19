@@ -19,8 +19,8 @@ class Product
 	
 	// ATTRIBUTS
 	
-	/** @var int */
-	protected int $id;
+	/** @var int|NULL  */
+	protected int|NULL $id = NULL;
 	
 	/**
 	 * @var string
@@ -30,12 +30,12 @@ class Product
 	/**
 	 * @var string
 	 */
-	protected string $ingredients;
+	protected string $ingredients = '';
 	
 	/**
 	 * @var string
 	 */
-	protected string $description;
+	protected string $description = '';
 	
 	/**
 	 * @var ProductCategory
@@ -62,7 +62,10 @@ class Product
 	 * @param ProductCategory $category
 	 * @param ProductFrequency $frequency
 	 */
-	public function __construct(string $name, string $description, ProductCategory $category, ProductFrequency $frequency)
+	public function __construct(string $name = '',
+					    string $description = '',
+					    ProductCategory $category = new ProductCategory(),
+					    ProductFrequency $frequency = new ProductFrequency())
 	{
 		// infos à renseigner par user
 		$this->name = $name;
@@ -113,9 +116,9 @@ class Product
 	}
 	
 	/**
-	 * @return int
+	 * @return int|null
 	 */
-	public function getId(): int
+	public function getId(): ? int
 	{
 		return $this->id;
 	}
@@ -225,7 +228,8 @@ class Product
 	 */
 	public function getPicture(): string
 	{
-		if (isset($this->picture)) {
+		// TODO tester existence du fichier de la picture
+		if (!empty($this->picture)) {
 			return $this->picture;
 		} else {
 			return "pain ancien.jpg";

@@ -10,7 +10,7 @@ use Pdlt\Model\ProductFrequency;
 final class ProductRepository extends AbstractRepository
 {
     const TABLE = 'product';
-    const NB_ELT_PER_PAGE = 10;
+    const NB_ELT_PER_PAGE = 15;
 
 
     // FONCTIONS
@@ -68,9 +68,7 @@ final class ProductRepository extends AbstractRepository
             $iOffset = 0;
         };
 
-        if(! isset($aCriterias['category'])) {
-            $sQuery .= ' ORDER BY `productCategory_id`';
-        };
+	  $sQuery .= ' ORDER BY `productCategory_id`,`name`';
 
         $sQuery .= ' LIMIT ' . $iOffset . ' , ' . $iNbElts;
 

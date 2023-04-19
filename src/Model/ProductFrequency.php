@@ -20,7 +20,7 @@ class ProductFrequency {
     /**
      * @param string $designation
      */
-    public function __construct(string $designation)
+    public function __construct(string $designation = '')
     {
         $this->designation= $designation;
     }

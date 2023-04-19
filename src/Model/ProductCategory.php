@@ -20,7 +20,7 @@ class ProductCategory {
     /**
      * @param string $name
      */
-    public function __construct(string $name)
+    public function __construct(string $name = '')
     {
         $this->name = $name;
     }

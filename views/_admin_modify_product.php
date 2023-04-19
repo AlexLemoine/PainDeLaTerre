@@ -1,6 +1,6 @@
 <?php use Pdlt\Model\Product; ?>
 
-<form method="post" action="#" class="Card ModifyForm" data-id="<?= $product->getId(); ?>">
+<form method="post" action="#" class="Card ModifyForm" data-id="<?= $product->getId() ?? ''; ?>">
 		
 	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" data-action="cancel">
 	<img src="assets/img/saveButton.svg" class="Card-save" alt="save button" data-action="save">
@@ -8,16 +8,17 @@
 	<div>
 		<label for="picture"></label>
 		<figure class="Card-imgBox">
-			<img class="Card-imgBox-img" src="assets/img/<?= $product->getPicture(); ?>"
-			     alt="<?= $product->getName(); ?>">
+			<img class="Card-imgBox-img" src="assets/img/<?= !empty($product) ? $product->getPicture() : ''; ?>"
+			     alt="<?= !empty($product) ? $product->getName() : 'produit à créer'; ?>">
 		</figure>
-		<input type="hidden" name="picture" value="<?= $product->getPicture(); ?>">
+		<input type="hidden" name="picture" value="<?= !empty($product) ? $product->getPicture() : ''; ?>">
 		<input type="file" id="picture" name="picture" accept="image/*">
 	</div>
 
 	<div class="Card-Header">
+		<h3 class="Card-Header-title">Nom</h3>
 		<label for="name"></label>
-		<input class="Card-title" type="text" id="name" name="name" value="<?= $product->getName(); ?>">
+		<input class="Card-title" type="text" id="name" name="name" value="<?= !empty($product) ? $product->getName() : ''; ?>">
 	</div>
 	
 	<section class="Card-category">
@@ -25,7 +26,8 @@
 		<select class="Filters-category" id="category" name="category">
 			<?php
 			foreach ($categories as $oCategory) {
-				$bSelected = ($product->getCategory()->getId() === $oCategory->getId());
+				$bSelected='';
+				(!empty($product)) ?? $bSelected = ($product->getCategory()->getId() === $oCategory->getId());
 				
 				echo '<option class="Filters-category-option"' . ($bSelected ? ' selected="selected" ' : '') . ' value="'.$oCategory->getId().'">'.
 				    $oCategory->getName() .
@@ -38,13 +40,13 @@
 	<section class="Card-recipe">
 		<h3 class="Card-recipe-title">Ingrédients</h3>
 		<label for="ingredients"></label>
-		<textarea id="ingredients" name="ingredients"><?= $product->getIngredients(); ?></textarea>
+		<textarea id="ingredients" name="ingredients"><?= !empty($product) ? $product->getIngredients() : ''; ?></textarea>
 	</section>
 
 	<section class="Card-desc">
 		<h3 class="Card-desc-title">Description</h3>
 		<label for="description"></label>
-		<textarea id="description" name="description"><?= $product->getDescription(); ?></textarea>
+		<textarea id="description" name="description"><?= !empty($product) ? $product->getDescription() : ''; ?></textarea>
 	</section>
 	
 	<section class="Card-status">
@@ -52,7 +54,8 @@
 		<select class="Filters-status" id="status" name="status">
 			<?php
 			foreach (Product::STATUS as $key=>$oStatus) {
-				$bSelected = ($product->getStatus() === $key);
+				$bSelected = '';
+				!empty($product) ?? $bSelected = ($product->getStatus() === $key);
 				echo '<option class="Filters-status-option" '. ($bSelected ? ' selected="selected" ' : '') . ' value="'. $key .'">
 							'. $oStatus .'
 						</option>';

@@ -41,7 +41,7 @@ if(isset($_POST['context'])){
 		
 		// Retourne la vue d'un produit
 		// Vue: _admin_product
-		case PAGE_DELETE_PRODUCT:
+		case PAGE_ADMIN_DELETE_PRODUCT:
 			echo (new Pdlt\Controller\AdminProductsController)->deleteProduct();
 			break;
 	

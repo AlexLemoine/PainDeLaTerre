@@ -1,11 +1,20 @@
 <?php use Pdlt\Model\Product; ?>
-<main class="MainContent Search layout layout-back">
+<main class="MainContent Search layout layout-back" id="main">
 	<div class="MainContent-titleWrap">
 		<h1 class="MainContent-title">Gestion des produits</h1>
 	</div>
 
 	<!--  Filtre produits -->
 	<div class="Search layout">
+
+		<div class="Card-create">
+			<img src="assets/img/addButton.svg" class="Card-create-button">
+			<p class="Card-create-title">Créer un produit</p>
+		</div>
+		<div class="Card-create-form">
+		
+		</div>
+		
 		<div class="Search-title">Filtrage des résultats</div>
 
 		<form id="form" class="Search-form" action="?page=<?php echo $_GET['page']; ?>" method="POST">

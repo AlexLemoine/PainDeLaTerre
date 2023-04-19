@@ -1,4 +1,4 @@
-<p class="layout MainContent-topBack">Haut de page<img src="assets/img/FlecheHautDePage.png"></p>
+<a href="#main" class="layout MainContent-topBack">Haut de page<img src="assets/img/FlecheHautDePage.png"></a>
 
 <footer class="Footer">
     <div class="layout">

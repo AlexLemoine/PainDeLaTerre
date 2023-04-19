@@ -40,21 +40,29 @@ class AdminProductsController extends AbstractController
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Récupération de l'id de la card sélectionnée
-		$id = $_POST['id'];
-		$product = ProductRepository::find($id);
-		
-		// Si le produit n'existe pas, redirection vers page d'accueil
-		if(!$product instanceof Product)
-		{
-			$this->redirectAndDie();
+		if(isset($_POST['id'])) {
+			$id = $_POST['id'];
+			$product = ProductRepository::find($id);
+			
+			// Si le produit n'existe pas, redirection vers page d'accueil
+			if(!$product instanceof Product)
+			{
+				$this->redirectAndDie();
+			}
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_product.php',[
+			    'oProduct' => $product,
+			],
+			    true
+			);
+		} else {
+			return $this->render('_admin_product.php',[
+			    'oProduct' => new Product(),
+			],
+			    true
+			);
 		}
-		
-		// Renvoi de la vue partielle de la card en mode formulaire
-		return $this->render('_admin_product.php',[
-		    'oProduct' => $product,
-		],
-		    true
-		);
 		
 	}
 	
@@ -106,23 +114,38 @@ class AdminProductsController extends AbstractController
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Récupération de l'id de la card sélectionnée
-		$id = $_POST['id'];
-		$product = ProductRepository::find($id);
-		
-		// Si le produit n'existe pas, redirection vers page d'accueil
-		if(!$product instanceof Product)
-		{
-			$this->redirectAndDie();
-		}
-		
-		// Renvoi de la vue partielle de la card en mode formulaire
-		return $this->render('_admin_modify_product.php',[
+		if( isset($_POST['id'])){
+			$id = $_POST['id'];
+			$product = ProductRepository::find($id);
+			
+			// Si le produit n'existe pas, redirection vers page d'accueil
+			if(!$product instanceof Product)
+			{
+				$this->redirectAndDie();
+			}
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_modify_product.php',[
 			    'product' => $product,
 			    'categories' => ProductCategoryRepository::findAll(),
-		    		'frequencies' => ProductFrequencyRepository::findAll(),
+			    'frequencies' => ProductFrequencyRepository::findAll(),
 			],
-		    true
-		);
+			    true
+			);
+		} else {
+			// Créer un produit vide
+			$product = new Product();
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_modify_product.php',[
+			    'product' => $product,
+			    'categories' => ProductCategoryRepository::findAll(),
+			    'frequencies' => ProductFrequencyRepository::findAll(),
+			],
+			    true
+			);
+		}
+
 	}
 	
 	/**
@@ -139,37 +162,20 @@ class AdminProductsController extends AbstractController
 		$oPdo = DbManager::getInstance();
 		
 		// Récupération de l'id de la card sélectionnée
-		$id = $_POST['id'];
-		$product = ProductRepository::find($id);
+		$id = $_POST['id'] ?? NULL;
 		
-		// Si le produit n'existe pas, redirection vers page d'accueil
-		if(!$product instanceof Product)
-		{
-			$this->redirectAndDie();
-		}
-
+		// TODO Ajouter fonction save() dans Repo
 		// Gérer la soumission du formulaire
 		// Récupération (+ nettoyage des données POST)
 		$aCriterias = [
-		    'picture' => strip_tags($_POST['picture']),
 		    'name' => strip_tags($_POST['name']),
 		    'category' => strip_tags($_POST['category']),
 		    'ingredients' => strip_tags($_POST['ingredients']),
 		    'description' => strip_tags($_POST['description']),
 		    'status' => strip_tags($_POST['status']),
+		    'picture' => strip_tags($_POST['picture'] ?? ''),
 		    'frequency' => strip_tags($_POST['frequency']),
 		];
-
-		// update BDD
-		$sQuery = 'UPDATE ' . ProductRepository::TABLE . ' as p
-			SET p.productCategory_id = :category,
-			    p.name = :name,
-			    p.ingredients = :ingredients,
-			    p.description = :description,
-			    p.status = :status,
-			    p.picture = :picture,
-			    p.frequency = :frequency
-			WHERE p.id = :id ;' ;
 		
 		$aParams = [
 		    ':category' => $aCriterias['category'],
@@ -178,16 +184,67 @@ class AdminProductsController extends AbstractController
 		    ':description' => $aCriterias['description'],
 		    ':status' => $aCriterias['status'],
 		    ':picture' => $aCriterias['picture'],
-		    ':frequency' => $aCriterias['frequency'],
-		    ':id' => $id,
+		    ':frequency' => $aCriterias['frequency']
 		];
 		
+		// Si l'id existe
+		// update en BDD
+		if (isset($id)){
+			
+			$aParams[':id'] = $id;
+			
+			$product = ProductRepository::find($id);
+			
+			// Si le produit n'existe pas, redirection vers page d'accueil
+			if(!$product instanceof Product)
+			{
+				$this->redirectAndDie();
+			}
+			
+			$sQuery = 'UPDATE ' . ProductRepository::TABLE . ' as p
+			SET p.productCategory_id = :category,
+			    p.name = :name,
+			    p.ingredients = :ingredients,
+			    p.description = :description,
+			    p.status = :status,
+			    p.picture = :picture,
+			    p.frequency = :frequency
+			WHERE p.id = :id ;' ;
+		} else {
+			
+			// Si pas d'id,
+			// création du produit en BDD
+			
+			$sQuery = 'INSERT INTO `product`
+				    (`productCategory_id`,
+				     `name`,
+				     `ingredients`,
+				     `description`,
+				     `status`,
+				     `picture`,
+				     `frequency`)
+
+				     VALUES
+				     (:category,
+				     :name,
+				     :ingredients,
+				     :description,
+				     :status,
+				    	:picture,
+				      :frequency);';
+		
+		}
+		
 		$oPdoStatement = $oPdo->prepare($sQuery);
-		$oPdoStatement->bindValue('id', $id, \PDO::PARAM_INT);
 		$oPdoStatement->execute($aParams);
+		
+		if (!isset($id)){
+			$id = $oPdo->lastInsertId();
+		}
 
 		// render (vue partielle texte)
 		return $this->render('_admin_product.php',[
+		    // Rafraîchir les données du produit modifié
 		    'oProduct' => ProductRepository::find($id),
 		],
 		    true
