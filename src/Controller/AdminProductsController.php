@@ -17,6 +17,9 @@ class AdminProductsController extends AbstractController
 	 */
 	public function manageProducts(): string
 	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
 		return $this->render('admin_products.php',
 		[
 		    'seo_title' => TITLE_ADMIN_PRODUCTS,
@@ -33,6 +36,9 @@ class AdminProductsController extends AbstractController
 	 */
 	public function showProduct():string
 	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
 		// Récupération de l'id de la card sélectionnée
 		$id = $_POST['id'];
 		$product = ProductRepository::find($id);
@@ -60,6 +66,9 @@ class AdminProductsController extends AbstractController
 	 **/
 	public function refreshProducts(): string
 	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
 		// Récupération (+ nettoyage des données POST)
 		$aCriterias = [
 		    'magic-search' => strip_tags($_POST['magic-search']),
@@ -93,6 +102,9 @@ class AdminProductsController extends AbstractController
 	 */
 	public function modifyProduct():string
 	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
 		// Récupération de l'id de la card sélectionnée
 		$id = $_POST['id'];
 		$product = ProductRepository::find($id);
@@ -120,6 +132,9 @@ class AdminProductsController extends AbstractController
 	 */
 	public function updateProduct():string
 	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
 		
@@ -182,6 +197,9 @@ class AdminProductsController extends AbstractController
 	
 	public function deleteProduct(): string
 	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
 		
