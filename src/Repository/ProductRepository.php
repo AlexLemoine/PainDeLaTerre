@@ -140,7 +140,6 @@ final class ProductRepository extends AbstractRepository
 
     }
 
-
     /**
      * @param $aCriterias
      * @return array

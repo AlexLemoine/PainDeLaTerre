@@ -17,7 +17,7 @@ for (const link of categoryLinks)
             .then(data => {
                 console.log(data);
                 containerAjax.innerHTML=data;
-                i.listenCards();
+                i.switchDescRecipe();
             });
 
     });

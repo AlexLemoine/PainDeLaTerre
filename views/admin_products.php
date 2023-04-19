@@ -41,7 +41,6 @@
 					?>
 				</select>
 
-
 				<button value="reset">Reset</button>
 
 			</div>
@@ -50,7 +49,6 @@
 	</div>
 
 	<!--  Liste produits -->
-	<p class="Search-title">Produit(s) sélectionné(s)</p>
 
 	<div id= "Cards" class="Cards" data-context="<?= PAGE_ADMIN_PRODUCTS ?>">
 		<?php include '_admin_products.php'; ?>

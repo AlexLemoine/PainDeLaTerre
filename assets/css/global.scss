@@ -1,5 +1,6 @@
 @import "mixins";
 @import "adminProducts";
+@import "adminModifyProduct";
 
 
 // MOBIL-FIRST : MEDIA-SCREEN <= 400px
@@ -64,7 +65,7 @@ button {
                 display: inline-block;
                 min-width: 530px;
                 padding: 20px;
-                max-width: 100%;
+                max-width: 90%;
             }
         }
     }
@@ -261,8 +262,6 @@ button {
     margin: 20px;
     border-radius: 15px 15px 15px 15px;
     
-
-    
     &.selected{
         .Card-desc{
             animation: hideELt 0.8s both;
@@ -283,6 +282,9 @@ button {
             animation: hideELt 0.8s both;
             transition: 0.8s;
         }
+    }
+    &.modify{
+        border: solid $secondColor;
     }
     
     &-imgBox{

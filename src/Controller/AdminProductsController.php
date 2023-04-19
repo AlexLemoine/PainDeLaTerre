@@ -2,7 +2,10 @@
 
 namespace Pdlt\Controller;
 
+use Pdlt\Manager\DbManager;
+use Pdlt\Model\Product;
 use Pdlt\Repository\ProductCategoryRepository;
+use Pdlt\Repository\ProductFrequencyRepository;
 use Pdlt\Repository\ProductRepository;
 
 class AdminProductsController extends AbstractController
@@ -20,6 +23,32 @@ class AdminProductsController extends AbstractController
 			'products' => ProductRepository::findAll(),
 			'categories' => ProductCategoryRepository::findAll(),
 		]);
+		
+	}
+	
+	/**
+	 * Affiche la vue d'un produit si on clique sur le bouton Cancel
+	 * en mode modification de produit
+	 * @return string
+	 */
+	public function showProduct():string
+	{
+		// Récupération de l'id de la card sélectionnée
+		$id = $_POST['id'];
+		$product = ProductRepository::find($id);
+		
+		// Si le produit n'existe pas, redirection vers page d'accueil
+		if(!$product instanceof Product)
+		{
+			$this->redirectAndDie();
+		}
+		
+		// Renvoi de la vue partielle de la card en mode formulaire
+		return $this->render('_admin_product.php',[
+		    'oProduct' => $product,
+		],
+		    true
+		);
 		
 	}
 	
@@ -55,6 +84,135 @@ class AdminProductsController extends AbstractController
 		
 		// 2. Récupérer les produits et les renvoyer à la vue HTML
 		return $this->render('_admin_products.php', $aParams, true);
+	}
+	
+	/**
+	 * Fonction appelée en ajax
+	 * Permet de modifier un produit sélectionné
+	 * @return string
+	 */
+	public function modifyProduct():string
+	{
+		// Récupération de l'id de la card sélectionnée
+		$id = $_POST['id'];
+		$product = ProductRepository::find($id);
+		
+		// Si le produit n'existe pas, redirection vers page d'accueil
+		if(!$product instanceof Product)
+		{
+			$this->redirectAndDie();
+		}
+		
+		// Renvoi de la vue partielle de la card en mode formulaire
+		return $this->render('_admin_modify_product.php',[
+			    'product' => $product,
+			    'categories' => ProductCategoryRepository::findAll(),
+		    		'frequencies' => ProductFrequencyRepository::findAll(),
+			],
+		    true
+		);
+	}
+	
+	/**
+	 * Mettre à jour le produit en BDD
+	 * Retourner la vue partielle du produit modifié en AJAX
+	 * @return string
+	 */
+	public function updateProduct():string
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		// Récupération de l'id de la card sélectionnée
+		$id = $_POST['id'];
+		$product = ProductRepository::find($id);
+		
+		// Si le produit n'existe pas, redirection vers page d'accueil
+		if(!$product instanceof Product)
+		{
+			$this->redirectAndDie();
+		}
+
+		// Gérer la soumission du formulaire
+		// Récupération (+ nettoyage des données POST)
+		$aCriterias = [
+		    'picture' => strip_tags($_POST['picture']),
+		    'name' => strip_tags($_POST['name']),
+		    'category' => strip_tags($_POST['category']),
+		    'ingredients' => strip_tags($_POST['ingredients']),
+		    'description' => strip_tags($_POST['description']),
+		    'status' => strip_tags($_POST['status']),
+		    'frequency' => strip_tags($_POST['frequency']),
+		];
+
+		// update BDD
+		$sQuery = 'UPDATE ' . ProductRepository::TABLE . ' as p
+			SET p.productCategory_id = :category,
+			    p.name = :name,
+			    p.ingredients = :ingredients,
+			    p.description = :description,
+			    p.status = :status,
+			    p.picture = :picture,
+			    p.frequency = :frequency
+			WHERE p.id = :id ;' ;
+		
+		$aParams = [
+		    ':category' => $aCriterias['category'],
+		    ':name' => $aCriterias['name'],
+		    ':ingredients' => $aCriterias['ingredients'],
+		    ':description' => $aCriterias['description'],
+		    ':status' => $aCriterias['status'],
+		    ':picture' => $aCriterias['picture'],
+		    ':frequency' => $aCriterias['frequency'],
+		    ':id' => $id,
+		];
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->bindValue('id', $id, \PDO::PARAM_INT);
+		$oPdoStatement->execute($aParams);
+
+		// render (vue partielle texte)
+		return $this->render('_admin_product.php',[
+		    'oProduct' => ProductRepository::find($id),
+		],
+		    true
+		);
+		
+	}
+	
+	public function deleteProduct(): string
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		// Récupération de l'id de la card sélectionnée
+		$id = $_POST['id'];
+		$product = ProductRepository::find($id);
+		
+		// Si le produit n'existe pas, redirection vers page d'accueil
+		if(!$product instanceof Product)
+		{
+			$this->redirectAndDie();
+		}
+		
+		$sQuery = 'DELETE FROM '. ProductRepository::TABLE .'
+       	WHERE id = :id;';
+		
+		$aParams = [
+		    ':id' => $id,
+		];
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->bindValue('id', $id, \PDO::PARAM_INT);
+		$oPdoStatement->execute($aParams);
+		
+		// render (vue partielle texte)
+		return $this->render('_admin_products.php',[
+		    'products' => ProductRepository::findAll(),
+		],
+		    true
+		);
+		
 	}
 	
 }

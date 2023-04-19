@@ -1,0 +1,58 @@
+@import "mixins";
+
+form.Card.ModifyForm {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      text-align: center;
+      
+      input{
+            border: 0;
+            background-color: transparent;
+            color: $whiteColor;
+            font-family: $typoTitre;
+            Font-weight: bold;
+            
+            &#name{
+                  text-align: center;
+            }
+      }
+      
+      textarea{
+            min-width: 250px;
+            border-radius: 10px;
+            padding: 8px;
+            font-family: $typoTexte;
+      
+            @media screen AND (min-width:550px)  {
+                  width: 250px;
+                  height: 65px;
+            }
+      }
+
+      
+      .Card-imgBox{
+            @media screen AND (min-width:550px)  {
+                  text-align: left;
+            }
+      }
+      
+      .Card-cancel, .Card-save{
+            @media screen AND (min-width:550px)  {
+                  position: absolute;
+                  right: -5px;
+            }
+      }
+      .Card-cancel{
+            @media screen AND (min-width:550px)  {
+                  top: 0;
+            }
+      }
+      .Card-save{
+            @media screen AND (min-width:550px)  {
+                  top: 60px;
+            }
+      }
+
+      
+}

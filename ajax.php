@@ -15,13 +15,35 @@ require_once 'lib/config.php';
 if(isset($_POST['context'])){
 	switch ($_POST['context'])
 	{
+		// Retourne la vue lors de la sélection de filtres
+		// Vue: _admin_products
 		case PAGE_ADMIN_PRODUCTS:
 			echo (new Pdlt\Controller\AdminProductsController)->refreshProducts();
 			break;
 			
-//		case PAGE_ADMIN_COMPANY:
-//			echo (new Pdlt\Controller\AdminCompanyController)->refreshCompany();
-//			break;
+		// Retourne la vue d'un produit en mode formulaire pour la modification
+		// Vue: _admin_modify_product
+		case PAGE_ADMIN_MODIFY_PRODUCTS:
+			echo (new Pdlt\Controller\AdminProductsController)->modifyProduct();
+			break;
+		
+		// Met à jour le produit et affiche la vue du produit modifié
+		// Vue: _admin_product
+		case PAGE_ADMIN_UPDATE_PRODUCT:
+			echo (new Pdlt\Controller\AdminProductsController)->updateProduct();
+			break;
+			
+		// Retourne la vue d'un produit
+		// Vue: _admin_product
+		case PAGE_ADMIN_CANCEL_PRODUCT:
+			echo (new Pdlt\Controller\AdminProductsController)->showProduct();
+			break;
+		
+		// Retourne la vue d'un produit
+		// Vue: _admin_product
+		case PAGE_DELETE_PRODUCT:
+			echo (new Pdlt\Controller\AdminProductsController)->deleteProduct();
+			break;
 	
 	}
 }

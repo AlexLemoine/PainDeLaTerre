@@ -4,7 +4,7 @@ namespace Pdlt\Controller;
 class AbstractController
 {
 
-    protected function redirectAndDie(string $sUrl)
+    protected function redirectAndDie(string $sUrl = '?page=' . PAGE_HOME)
     {
         header('Location: ' . $sUrl);
         die;

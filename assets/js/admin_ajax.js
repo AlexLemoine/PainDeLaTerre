@@ -1,12 +1,6 @@
-// Récupération des éléments du formulaire
-const form = document.querySelector('.layout-back .Search .Search-form');
-console.log('form = ' + form);
+import {listenModifyDeleteBtns} from "./admin_modify_products.js";
 
-// Ajout d'un écouteur d'événements pour détecter les changements dans le formulaire
-form.addEventListener('change', (e) => {
-
-    e.preventDefault();
-
+export function callDisplayProductAjax(){
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
     const cards = document.querySelector('#Cards');
     console.log('cards = ' + cards);
@@ -28,6 +22,23 @@ form.addEventListener('change', (e) => {
 
             // Mise à jour des cartes avec les données reçues
             cards.innerHTML = data;
-
+            listenModifyDeleteBtns();
         })
-})
+}
+
+
+// Récupération des éléments du formulaire
+const form = document.querySelector('.layout-back .Search .Search-form');
+console.log('form = ' + form);
+
+if(form){
+
+    // Ajout d'un écouteur d'événements pour détecter les changements dans le formulaire
+    form.addEventListener('change', (e) => {
+
+        // Empêcher le comportement par défaut du formulaire
+        e.preventDefault();
+
+        callDisplayProductAjax();
+    });
+}

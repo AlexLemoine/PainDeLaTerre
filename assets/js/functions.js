@@ -1,21 +1,21 @@
 /**
  * Ajouter la classe "selected" ou "unselected" à un élément sélectionné
  * @param element
- */
-export function toggleClassSelected(element){
-    if(!element.classList.contains('selected') && !element.classList.contains('unselected'))
+ * **/
+export function toggleClass(element,classed,unclassed){
+    if(!element.classList.contains(classed) && !element.classList.contains(unclassed))
     {
-        element.classList.add('selected')
+        element.classList.add(classed)
     }
-    else if(element.classList.contains('selected'))
+    else if(element.classList.contains(classed))
     {
-        element.classList.remove('selected');
-        element.classList.add('unselected');
+        element.classList.remove(classed);
+        element.classList.add(unclassed);
     }
     else
     {
-        element.classList.remove('unselected');
-        element.classList.add('selected');
+        element.classList.remove(unclassed);
+        element.classList.add(classed);
     }
 }
 
@@ -29,26 +29,27 @@ export function toggleClassFiltered(element){
 }
 
 /**
- * Placer des écouteurs d'évènements sur les Cards sélectionnées
+ * Placer des écouteurs d'évènements sur les Desc ou Recipes des Cards sélectionnées
  * Utiliser l'ajout ou la suppression de la classe "selected"
  * pour faire apparaître la zone description à la place de la zone ingrédients
  * ou inversement
  */
-export function listenCards(){
+export function switchDescRecipe(){
     let cardButtonDesc = document.querySelectorAll('.layout-front .Card-desc');
     let cardButtonRecipe = document.querySelectorAll('.layout-front .Card-recipe');
 
     cardButtonDesc.forEach(elt=>{
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
-            toggleClassSelected(targetCard);
+            toggleClass(targetCard,'selected','unselected');
         });
     });
 
     cardButtonRecipe.forEach(elt=>{
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
-            toggleClassSelected(targetCard);
+            toggleClass(targetCard,'selected','unselected');
         });
     });
 }
+
