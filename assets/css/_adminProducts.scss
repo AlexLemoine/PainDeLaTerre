@@ -16,7 +16,15 @@
             align-items: center;
             margin: 15px;
             
+            &.hidden{
+                  display: none;
+            }
+            
             &-form{
+                  
+                  &.uncreated{
+                        display: none;
+                  }
                   
                   &.creating{
                         margin: 20px auto;

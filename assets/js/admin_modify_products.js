@@ -2,13 +2,15 @@ import {toggleClass} from "./functions.js";
 import {callDisplayProductAjax} from "./admin_ajax.js";
 
 function listenCreateButton() {
-    const createBtn = document.querySelector('.Card-create-button');
+    const createBtn = document.querySelector('.Card-create');
 
     createBtn.addEventListener('click', function () {
+        createBtn.classList.add('hidden');
 
         // Récupération de l'élément qui contiendra le form de création
         let containerAjax = document.querySelector('.Card-create-form');
         toggleClass(containerAjax,'creating','uncreated');
+        containerAjax.innerHTML = `<p class="Card-create-title">Création du produit</p>`
 
         // Création d'un nouvel objet FormData
         const formData = new FormData();
@@ -24,11 +26,12 @@ function listenCreateButton() {
                 console.log('data = ' + data);
 
                 // Mise à jour des cartes avec les données reçues
-                containerAjax.innerHTML = data;
+                containerAjax.innerHTML += data;
 
                 const targetCancelBtn = document.querySelector('.Card-create-form .Card-cancel');
                 targetCancelBtn.addEventListener('click', function(){
-                    this.parentNode.remove();
+                   this.parentNode.remove();
+                    createBtn.classList.remove('hidden');
                     toggleClass(containerAjax,'creating','uncreated');
                 })
 
@@ -62,8 +65,8 @@ function listenCreateButton() {
 
 
 function listenCancelSaveBtns(){
-    const cancelBtn = document.querySelector('.Card-cancel');
-    const saveBtn = document.querySelector('.Card-save');
+    const cancelBtn = document.querySelector('.Cards .Card-cancel');
+    const saveBtn = document.querySelector('.Cards .Card-save');
 
     cancelBtn.addEventListener('click', function (){
         // Récupération de l'élément qui contiendra les cartes à mettre à jour

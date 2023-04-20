@@ -57,18 +57,25 @@ button {
     
     &-logo{
         
-        &-img source,
-        &-img img{
-            margin: auto;
-            display: block;
-            max-width: 300px;
+        &-img {
             
-            @media screen AND (min-width:550px){
-                min-width: 530px;
-                padding: 20px;
-                max-width: 90%;
-                max-height: 170px;
+            source{
+                display: none;
             }
+            
+           img{
+                margin: auto;
+                display: block;
+                max-width: 300px;
+        
+                @media screen AND (min-width:550px){
+                    min-width: 530px;
+                    padding: 35px;
+                    max-width: 90%;
+                    max-height: 170px;
+                }
+            }
+
         }
     }
     

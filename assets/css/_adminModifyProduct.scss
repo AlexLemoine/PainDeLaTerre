@@ -18,7 +18,23 @@ form.Card.ModifyForm {
             }
       }
       
-      textarea{
+      input.Card-title{
+            background-color: $whiteColor;
+            color: $blackColor;
+            position: relative;
+            top: 25px;
+            left: 135px;
+      
+            @media screen AND (min-width:550px)  {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content: flex-start;
+                  align-items: center;
+            }
+      }
+      
+      textarea, input.Card-title{
             min-width: 250px;
             border-radius: 10px;
             padding: 8px;
@@ -29,12 +45,11 @@ form.Card.ModifyForm {
                   height: 65px;
             }
       }
-
       
-      .Card-imgBox{
-            @media screen AND (min-width:550px)  {
-                  text-align: left;
-            }
+      .Card-Header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
       }
       
       .Card-cancel, .Card-save{
@@ -53,6 +68,15 @@ form.Card.ModifyForm {
                   top: 60px;
             }
       }
-
+      
+      .Card-imgBox{
+            @media screen AND (min-width:550px)  {
+                  text-align: left;
+            }
+      }
+      
+      .Card-title{
+            width: 250px;
+      }
       
 }
