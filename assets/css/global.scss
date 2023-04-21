@@ -8,6 +8,10 @@
 // 2e point de rupture  : MEDIA-SCREEN <= 750px
 // 3e point de rupture : MEDIA-SCREEN <= 1050px
 
+// Pour atténuer le comportement brutal du bouton "Remonter en haut de page"
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: $backgroundColor;
@@ -44,12 +48,19 @@ button {
     width: auto;
     height: auto;
     padding: 5px 10px;
-    background-color: $secondColor;
+    background: linear-gradient(163deg, rgba(111, 33, 15, 1) 38%, $secondColor 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 0.5px rgba(0, 0, 0, 0.4);
+    border-bottom: 0.5px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 1px 3px 0 rgba(24, 27, 28, 0.94);
     border-radius: 6px;
-    box-shadow: $buttonShadow;
-    color: $whiteColor;
-    font-family: $typoTitre;
-    Font-size: 1em;
+    color: rgb(242, 242, 242);
+    font-family: "Rift", sans-serif;
+    font-size: 1em;
+    
+    &:hover{
+        background: linear-gradient(163deg, $altColor 38%, $secondColor 100%);
+    }
 }
 
 
@@ -128,6 +139,7 @@ button {
             height: 0;
             transition:.3s;
             
+            
             @media screen AND (max-width:549px){
                 background-color: rgba(0,0,0,.3);
             }
@@ -165,6 +177,8 @@ button {
                 }
         
             }
+            
+            
             &.opened{
                 @media screen AND (max-width:549px){
                     animation: displayNav .8s both;
@@ -233,6 +247,18 @@ button {
 }
 
 .Products{
+    
+    & .Card{
+    
+        &:hover{
+        
+            & .Card-imgBox{
+                background-color: $blackColor;
+                backdrop-filter: blur(20px);
+                transition: 0.5s;
+            }
+        }
+    }
 
     &-filter{
         
@@ -245,6 +271,16 @@ button {
             padding: 5px 10px;
             margin: 5px;
             text-decoration: none;
+            transition: 0.8s;
+            
+            &:hover{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-top: -10px;
+                margin-bottom: -10px;
+                box-sizing: border-box;
+                transition: 0.8s;
+            }
             
             &.filtered{
                 background-color: $whiteColor;
@@ -278,13 +314,16 @@ button {
     overflow: hidden;
     margin: 20px;
     border-radius: 15px 15px 15px 15px;
+
     
     &.selected{
         .Card-desc{
+            display: none;
             animation: hideELt 0.8s both;
             transition: 0.8s;
         }
         .Card-recipe{
+            display: block;
             animation: showELt 0.8s both;
             transition: 0.8s;
         }
@@ -292,20 +331,28 @@ button {
     
     &.unselected{
         .Card-desc{
+            display: block;
             animation: showELt 0.8s both;
             transition: 0.8s;
         }
         .Card-recipe{
+            display: none;
             animation: hideELt 0.8s both;
             transition: 0.8s;
         }
     }
+    
     &.modify{
         border: solid $secondColor;
     }
     
+
+    
     &-imgBox{
         margin:0;
+        
+
+        
         &-img{
             display: inline-block;
             height: 350px;
@@ -345,6 +392,7 @@ button {
     }
     
     &-recipe{
+        display: none;
         opacity: 0;
         position: absolute;
         width: 90%;

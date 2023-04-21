@@ -1,7 +1,7 @@
 <?php use Pdlt\Model\Product; ?>
 
-	<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" data-action="modify">
-	<img src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" data-action="delete">
+	<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
+	<img src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" title="Supprimer" data-action="delete">
 	
 	<div class="Card-Header">
 		<h2 class="Card-title"><?= $oProduct->getName(); ?></h2>

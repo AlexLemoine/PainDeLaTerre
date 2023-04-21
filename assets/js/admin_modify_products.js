@@ -176,7 +176,6 @@ export function listenModifyDeleteBtns(){
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
             console.log(targetCard);
-            toggleClass(targetCard,'delete','unmodified');
 
             let isToDelete = confirm('Souhaitez-vous supprimer ce produit ?');
             if(isToDelete === true) {

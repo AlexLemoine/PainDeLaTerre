@@ -8,7 +8,7 @@
 	<div class="Search layout">
 
 		<div class="Card-create">
-			<img src="assets/img/addButton.svg" class="Card-create-button">
+			<img src="assets/img/addButton.svg" class="Card-create-button" alt="addButton" title="Créer un produit">
 			<p class="Card-create-title">Créer un produit</p>
 		</div>
 		<div class="Card-create-form creating hidden">
@@ -51,7 +51,7 @@
 					?>
 				</select>
 
-				<button value="reset">Reset</button>
+				<button title="Reset" value="reset">Supprimer les filtres</button>
 
 			</div>
 

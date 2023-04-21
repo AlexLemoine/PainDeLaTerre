@@ -29,3 +29,5 @@ filters.forEach(elt => {
         i.toggleClass(elt,'filtered','unfiltered');
     });
 });
+
+

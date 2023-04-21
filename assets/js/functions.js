@@ -42,6 +42,9 @@ export function switchDescRecipe(){
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
             toggleClass(targetCard,'selected','unselected');
+
+            
+
         });
     });
 

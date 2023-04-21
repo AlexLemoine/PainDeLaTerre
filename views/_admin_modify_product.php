@@ -2,8 +2,8 @@
 
 <form method="post" action="#" class="Card ModifyForm" data-id="<?= !empty($product) ? $product->getId() : ''; ?>">
 		
-	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" data-action="cancel">
-	<img src="assets/img/saveButton.svg" class="Card-save" alt="save button" data-action="save">
+	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" title="Annuler" data-action="cancel">
+	<img src="assets/img/saveButton.svg" class="Card-save" alt="save button" title="Enregistrer les modifications" data-action="save">
 	
 	<div>
 		<label for="picture"></label>

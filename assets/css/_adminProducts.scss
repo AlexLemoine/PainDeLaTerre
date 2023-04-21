@@ -111,6 +111,13 @@
                   width: 35px;
                   height: 35px;
                   padding: 10px;
+                  transition: 0.5s;
+                  
+                  &:hover{
+                        width: 40px;
+                        height: 40px;
+                        transition: 0.5s;
+                  }
             }
             &-title{
                   padding-left: 5px;
@@ -164,6 +171,13 @@
                   width: 35px;
                   height: 35px;
                   padding: 10px;
+                  transition: 0.5s;
+                  
+                  &:hover{
+                        width: 40px;
+                        height: 40px;
+                        transition: 0.5s;
+                  }
                   
             }
             &-modify, &-cancel{
