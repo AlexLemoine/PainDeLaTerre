@@ -25,6 +25,7 @@ class AdminProductsController extends AbstractController
 		    'seo_title' => TITLE_ADMIN_PRODUCTS,
 			'products' => ProductRepository::findAll(),
 			'categories' => ProductCategoryRepository::findAll(),
+			'frequencies' => ProductFrequencyRepository::findAll(),
 		]);
 		
 	}
@@ -260,26 +261,30 @@ class AdminProductsController extends AbstractController
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
 		
-		// Récupération de l'id de la card sélectionnée
-		$id = $_POST['id'];
-		$product = ProductRepository::find($id);
-		
-		// Si le produit n'existe pas, redirection vers page d'accueil
-		if(!$product instanceof Product)
-		{
-			$this->redirectAndDie();
-		}
-		
-		$sQuery = 'DELETE FROM '. ProductRepository::TABLE .'
+		// Seulement si isToDelete
+		if($_POST['isToDelete'] === 'yes'){
+			
+			// Récupération de l'id de la card sélectionnée
+			$id = $_POST['id'];
+			$product = ProductRepository::find($id);
+			
+			// Si le produit n'existe pas, redirection vers page d'accueil
+			if(!$product instanceof Product)
+			{
+				$this->redirectAndDie();
+			}
+			
+			$sQuery = 'DELETE FROM '. ProductRepository::TABLE .'
        	WHERE id = :id;';
-		
-		$aParams = [
-		    ':id' => $id,
-		];
-		
-		$oPdoStatement = $oPdo->prepare($sQuery);
-		$oPdoStatement->bindValue('id', $id, \PDO::PARAM_INT);
-		$oPdoStatement->execute($aParams);
+			
+			$aParams = [
+			    ':id' => $id,
+			];
+			
+			$oPdoStatement = $oPdo->prepare($sQuery);
+			$oPdoStatement->bindValue('id', $id, \PDO::PARAM_INT);
+			$oPdoStatement->execute($aParams);
+		}
 		
 		// render (vue partielle texte)
 		return $this->render('_admin_products.php',[
@@ -287,6 +292,7 @@ class AdminProductsController extends AbstractController
 		],
 		    true
 		);
+		
 		
 	}
 	

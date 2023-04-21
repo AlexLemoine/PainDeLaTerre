@@ -15,6 +15,16 @@
 		<h3 class="Card-category-title">Catégorie</h3>
 		<p class="Card-category-text"><?= $oProduct->getCategory()->getName(); ?></p>
 	</section>
+
+	<section class="Card-status">
+		<h3 class="Card-status-title">Statut</h3>
+		<p class="Card-status-text"><?= Product::STATUS[$oProduct->getStatus()]; ?></p>
+	</section>
+	
+	<section class="Card-frequency">
+		<h3 class="Card-frequency-title">Fréquence</h3>
+		<p class="Card-frequency-text"><?= $oProduct->getFrequency()->getDesignation(); ?></p>
+	</section>
 	
 	<section class="Card-recipe">
 		<h3 class="Card-recipe-title">Ingrédients</h3>
@@ -35,13 +45,4 @@
 			?>
 		</p>
 	</section>
-	
-	<section class="Card-status">
-		<h3 class="Card-status-title">Statut</h3>
-		<p class="Card-status-text"><?= Product::STATUS[$oProduct->getStatus()]; ?></p>
-	</section>
-	
-	<section class="Card-frequency">
-		<h3 class="Card-frequency-title">Fréquence</h3>
-		<p class="Card-frequency-text"><?= $oProduct->getFrequency()->getDesignation(); ?></p>
-	</section>
+

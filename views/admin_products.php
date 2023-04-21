@@ -11,8 +11,9 @@
 			<img src="assets/img/addButton.svg" class="Card-create-button">
 			<p class="Card-create-title">Créer un produit</p>
 		</div>
-		<div class="Card-create-form">
-		
+		<div class="Card-create-form creating hidden">
+			<p class="Card-create-title">Création du produit</p>
+			<?php include '_admin_modify_product.php'; ?>
 		</div>
 		
 		<div class="Search-title">Filtrage des résultats</div>

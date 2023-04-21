@@ -78,10 +78,7 @@
 .Search .Card-create.hidden {
   display: none;
 }
-.Search .Card-create-form.uncreated {
-  display: none;
-}
-.Search .Card-create-form.creating {
+.Search .Card-create-form {
   margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
@@ -90,12 +87,71 @@
   border: solid rgb(186, 161, 140);
   max-width: 300px;
 }
+.Search .Card-create-form.hidden {
+  display: none;
+}
 @media screen and (min-width: 550px) {
-  .Search .Card-create-form.creating {
-    margin: 20px auto;
-    width: 500px;
-    padding: 10px;
+  .Search .Card-create-form {
+    text-align: left;
+    padding: 15px;
+    max-width: 360px;
   }
+}
+@media screen and (min-width: 750px) {
+  .Search .Card-create-form {
+    position: relative;
+    max-width: 700px;
+  }
+}
+.Search .Card-create-form .Card-create-title {
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 750px) {
+  .Search .Card-create-form .ModifyForm {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Search .Card-create-form .ModifyForm .group-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Search .Card-create-form .ModifyForm .group-list textarea {
+    width: 300px;
+  }
+}
+.Search .Card-create-form .ModifyForm .Card-Header {
+  margin: 0;
+  padding-top: 10px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-create-form .ModifyForm .Card-Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+  }
+}
+.Search .Card-create-form .ModifyForm .Card-Header .Card-title {
+  height: 20px;
+}
+@media screen and (min-width: 550px) {
+  .Search .Card-create-form .ModifyForm .Card-Header .Card-title {
+    position: relative;
+    width: 75%;
+    transform: translate(0%, 0%);
+    left: 0;
+    top: 10px;
+  }
+}
+.Search .Card-create-form .ModifyForm .Card-Header-title {
+  margin: 0;
+  height: 20px;
+}
+.Search .Card-create-form .ModifyForm .Card-recipe, .Search .Card-create-form .ModifyForm .Card-desc {
+  justify-content: center;
 }
 .Search .Card-create-button {
   width: 35px;
@@ -382,6 +438,10 @@ h2 {
 
 h3 {
   Font-size: 1.2em;
+}
+
+textarea {
+  resize: none;
 }
 
 .layout {

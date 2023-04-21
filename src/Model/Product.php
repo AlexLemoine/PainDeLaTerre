@@ -10,6 +10,8 @@ class Product
 	const STATUS_PUBLISHED = 2;
 	const STATUS_ASLEEP = 3;
 	
+	const DEFAULT_PICTURE = "pain ancien.jpg";
+	
 	const STATUS = [
 	    self::STATUS_DRAFT => 'brouillon',
 	    self::STATUS_PUBLISHED => 'publié',
@@ -232,7 +234,7 @@ class Product
 		if (!empty($this->picture)) {
 			return $this->picture;
 		} else {
-			return "pain ancien.jpg";
+			return self::DEFAULT_PICTURE;
 		}
 		
 	}

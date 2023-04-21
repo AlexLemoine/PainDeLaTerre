@@ -22,25 +22,89 @@
             
             &-form{
                   
-                  &.uncreated{
+                  &.hidden{
                         display: none;
                   }
                   
-                  &.creating{
-                        margin: 20px auto;
-                        display: flex;
-                        flex-wrap: wrap;
-                        align-items: center;
-                        justify-content: center;
-                        border: solid $firstDarkColor;
-                        max-width: 300px;
+                  margin: 20px auto;
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: center;
+                  justify-content: center;
+                  border: solid $firstDarkColor;
+                  max-width: 300px;
+
+                  @media screen AND (min-width:550px) {
+                        text-align: left;
+                        padding: 15px;
+                        max-width: 360px;
+                  }
       
-                        @media screen AND (min-width:550px) {
-                              margin: 20px auto;
-                              width: 500px;
-                              padding: 10px;
+                  @media screen AND (min-width:750px) {
+                        position: relative;
+                        max-width: 700px;
+                  }
+      
+                  & .Card-create-title{
+                        width: 100%;
+                        text-align: center;
+                  }
+      
+                  & .ModifyForm{
+      
+                        @media screen AND (min-width:750px) {
+                              width: 100%;
+                        }
+                        
+                        & .group-list{
+                              @media screen AND (min-width:750px) {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+      
+                                    textarea{
+                                          width: 300px;
+                                    }
+                              }
+                              
+
+                        }
+
+            
+                        & .Card-Header{
+      
+                              margin: 0;
+                              padding-top: 10px;
+                              
+                              @media screen AND (min-width:550px) {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    padding: 25px 0;
+                              }
+                              
+                              & .Card-title{
+                                    height: 20px;
+                                    @media screen AND (min-width:550px) {
+                                          position: relative;
+                                          width: 75%;
+                                          transform: translate(0%, 0%);
+                                          left: 0;
+                                          top: 10px;
+                                    }
+                              }
+                              
+                              &-title{
+                                    margin: 0;
+                                    height: 20px;
+                              }
+                        }
+                        
+                        & .Card-recipe, & .Card-desc{
+                              justify-content: center;
                         }
                   }
+                  
             }
             
             &-button{
@@ -83,6 +147,8 @@
                   text-align: left;
                   padding: 15px;
             }
+            
+           
             
             &-Header{
                   
