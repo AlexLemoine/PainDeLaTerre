@@ -240,12 +240,17 @@
                   opacity: 100%;
                   position: relative;
                   top: 0;
+                  &-text{
+                        text-align: center;
+                  }
+
             }
             
             &-desc{
                   text-shadow: none;
                   position: relative;
                   top: 0;
+
             }
             
             &-recipe, &-desc {

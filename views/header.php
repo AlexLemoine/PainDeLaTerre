@@ -1,9 +1,9 @@
 <header class="Header layout-back">
 
-        <div class="Header-logo">
+        <div class="Header-logo" onclick="window.location.href='?page=<?= PAGE_HOME; ?>'">
             <picture class="Header-logo-img">
                 <source srcset="assets/img/logoBlancHorizontal.png" media="(min-width: 550px)">
-                <img src="assets/img/logoBlanc.png" alt="logo pain">
+                <img src="assets/img/logoBlanc.png" alt="logo pain de la terre">
             </picture>
         </div>
         <div class="Header-menu">

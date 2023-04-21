@@ -31,7 +31,7 @@ $oDebugbar['messages']->addMessage('hello world!');
     <link rel="icon" type="image/vnd.icon" href="Logo_pain.ico">
 
 
-    <title>Mon site - <?= $seo_title ??''; ?></title>
+    <title>Pain de la Terre - <?= $seo_title ??''; ?></title>
 </head>
 
 <body>

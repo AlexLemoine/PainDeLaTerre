@@ -277,6 +277,9 @@
   position: relative;
   top: 0;
 }
+.Search .Card-recipe-text {
+  text-align: center;
+}
 .Search .Card-desc {
   text-shadow: none;
   position: relative;
@@ -313,7 +316,7 @@
   font-family: "Rift", sans-serif;
   color: rgb(0, 0, 0);
   display: inline;
-  border: solid 1px rgb(242, 242, 242);
+  border: solid 1px white;
   border-radius: 100px;
   padding: 5px 10px;
   margin: 5px;
@@ -363,7 +366,7 @@ form.Card.ModifyForm {
 form.Card.ModifyForm input {
   border: 0;
   background-color: transparent;
-  color: rgb(242, 242, 242);
+  color: white;
   font-family: "Rift", sans-serif;
   Font-weight: bold;
 }
@@ -371,7 +374,7 @@ form.Card.ModifyForm input#name {
   text-align: center;
 }
 form.Card.ModifyForm input.Card-title {
-  background-color: rgb(242, 242, 242);
+  background-color: white;
   color: rgb(0, 0, 0);
   position: relative;
   top: 25px;
@@ -434,7 +437,7 @@ html {
 
 body {
   background-color: rgb(46, 50, 54);
-  color: rgb(242, 242, 242);
+  color: white;
   text-align: center;
   margin: 0;
 }
@@ -484,7 +487,7 @@ button:hover {
   background: linear-gradient(163deg, rgb(70, 1, 1) 38%, rgb(166, 52, 27) 100%);
 }
 
-.Card-desc, .Card-recipe {
+.Card-desc {
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
 }
 
@@ -558,7 +561,7 @@ button:hover {
 .Header-menu-links-link {
   display: block;
   padding: 5px;
-  color: rgb(242, 242, 242);
+  color: white;
   text-decoration: none;
   Font-size: 1.6em;
   transform: translateY(-250px);
@@ -624,7 +627,7 @@ button:hover {
   font-style: italic;
   text-align: right;
   text-decoration: none;
-  color: rgb(242, 242, 242);
+  color: white;
 }
 .MainContent-topBack img {
   padding-left: 15px;
@@ -632,16 +635,33 @@ button:hover {
   height: 15px;
 }
 
-.Products .Card:hover .Card-imgBox {
+.Products .Card:hover .Card-imgBox, .Products .Card.selected .Card-imgBox {
   background-color: rgb(0, 0, 0);
   backdrop-filter: blur(20px);
   transition: 0.5s;
 }
+.Products .Card:hover .Card-recipe, .Products .Card.selected .Card-recipe {
+  display: block;
+  animation: showELt 0.8s both;
+  transition: 0.8s;
+  background-color: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(1px);
+}
+.Products .Card:hover .Card-recipe-title, .Products .Card.selected .Card-recipe-title {
+  font-family: "Rift", sans-serif;
+  position: absolute;
+  top: -45px;
+  color: white;
+}
+.Products .Card:hover .Card-recipe-text, .Products .Card.selected .Card-recipe-text {
+  color: rgb(0, 0, 0);
+  padding: 5px 15px;
+}
 .Products-filter-link {
   font-family: "Rift", sans-serif;
-  color: rgb(242, 242, 242);
+  color: white;
   display: inline-block;
-  border: solid 1px rgb(242, 242, 242);
+  border: solid 1px white;
   border-radius: 100px;
   padding: 5px 10px;
   margin: 5px;
@@ -657,7 +677,7 @@ button:hover {
   transition: 0.8s;
 }
 .Products-filter-link.filtered {
-  background-color: rgb(242, 242, 242);
+  background-color: white;
   color: rgb(0, 0, 0);
 }
 .Products-list {
@@ -685,26 +705,6 @@ button:hover {
   margin: 20px;
   border-radius: 15px 15px 15px 15px;
 }
-.Card.selected .Card-desc {
-  display: none;
-  animation: hideELt 0.8s both;
-  transition: 0.8s;
-}
-.Card.selected .Card-recipe {
-  display: block;
-  animation: showELt 0.8s both;
-  transition: 0.8s;
-}
-.Card.unselected .Card-desc {
-  display: block;
-  animation: showELt 0.8s both;
-  transition: 0.8s;
-}
-.Card.unselected .Card-recipe {
-  display: none;
-  animation: hideELt 0.8s both;
-  transition: 0.8s;
-}
 .Card.modify {
   border: solid rgb(166, 52, 27);
 }
@@ -725,21 +725,25 @@ button:hover {
   padding: 5px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .Card-desc {
-  position: absolute;
-  width: 90%;
-  min-width: 200px;
-  padding: 5px;
-  bottom: 20px;
+  position: relative;
+  top: -270px;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  font-family: "Nunito", sans-serif, regular;
 }
 .Card-desc-text {
-  font-family: "Nunito", sans-serif, regular;
+  margin: 0;
+  padding: 5px;
+}
+.Card-desc-frequency {
+  padding: 5px;
+  margin: 0;
 }
 .Card-recipe {
   display: none;
@@ -754,6 +758,7 @@ button:hover {
 }
 .Card-recipe-text {
   font-family: "Nunito", sans-serif, regular;
+  text-align: left;
 }
 
 .Footer {
@@ -774,7 +779,7 @@ button:hover {
 }
 .Footer-mentions {
   padding: 5px;
-  color: rgb(242, 242, 242);
+  color: white;
   font-family: "Nunito", sans-serif, regular;
   font-style: italic;
 }
@@ -786,7 +791,7 @@ button:hover {
 }
 .Footer-mentions a {
   padding: 0 10px;
-  color: rgb(242, 242, 242);
+  color: white;
   text-decoration: none;
 }
 
@@ -794,7 +799,7 @@ button:hover {
   padding: 10px;
 }
 .SiteMap-list-title, .Services-list-title, .Localisation-list-title {
-  color: rgb(242, 242, 242);
+  color: white;
   font-family: "Nunito", sans-serif, regular;
   display: block;
   text-decoration: none;

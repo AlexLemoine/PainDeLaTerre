@@ -64,7 +64,7 @@ button {
 }
 
 
-.Card-desc, .Card-recipe{
+.Card-desc{
     text-shadow: $textShadow;
 }
 
@@ -250,12 +250,32 @@ button {
     
     & .Card{
     
-        &:hover{
+        &:hover, &.selected{
         
             & .Card-imgBox{
                 background-color: $blackColor;
                 backdrop-filter: blur(20px);
                 transition: 0.5s;
+            }
+    
+            .Card-recipe{
+                display: block;
+                animation: showELt 0.8s both;
+                transition: 0.8s;
+                background-color: rgba(255, 255, 255, 0.32);
+                backdrop-filter: blur(1px);
+        
+                &-title{
+                    font-family: $typoTitre;
+                    position: absolute;
+                    top: -45px;
+                    color: $whiteColor;
+                }
+        
+                &-text{
+                    color: $blackColor;
+                    padding: 5px 15px;
+                }
             }
         }
     }
@@ -314,33 +334,7 @@ button {
     overflow: hidden;
     margin: 20px;
     border-radius: 15px 15px 15px 15px;
-
     
-    &.selected{
-        .Card-desc{
-            display: none;
-            animation: hideELt 0.8s both;
-            transition: 0.8s;
-        }
-        .Card-recipe{
-            display: block;
-            animation: showELt 0.8s both;
-            transition: 0.8s;
-        }
-    }
-    
-    &.unselected{
-        .Card-desc{
-            display: block;
-            animation: showELt 0.8s both;
-            transition: 0.8s;
-        }
-        .Card-recipe{
-            display: none;
-            animation: hideELt 0.8s both;
-            transition: 0.8s;
-        }
-    }
     
     &.modify{
         border: solid $secondColor;
@@ -370,26 +364,32 @@ button {
         padding: 5px;
         text-shadow: $textShadow;
         position: absolute;
-        top: 50px;
+        top: 60px;
         left: 50%;
         transform: translate(-50%, -50%);
     }
     
     &-desc{
-        position: absolute;
-        width: 90%;
-        min-width: 200px;
-        padding: 5px;
-        bottom: 20px;
+        position: relative;
+        top: -270px;
         left: 50%;
         transform: translateX(-50%);
-
+        width: 100%;
+        font-family: $typoTexte;
         
         &-text{
-            font-family: $typoTexte;
+            margin: 0;
+            padding: 5px;
         }
-
+        
+        &-frequency{
+                padding: 5px;
+                margin: 0;
+            }
+        
     }
+    
+
     
     &-recipe{
         display: none;
@@ -405,6 +405,7 @@ button {
     
         &-text{
             font-family: $typoTexte;
+            text-align: left;
         }
     }
     
