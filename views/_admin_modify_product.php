@@ -11,8 +11,7 @@
 			<img class="Card-imgBox-img" src="assets/img/<?= !empty($product) ? $product->getPicture() : Product::DEFAULT_PICTURE; ?>"
 			     alt="<?= !empty($product) ? $product->getName() : 'produit à créer'; ?>">
 		</figure>
-		<input type="hidden" name="picture" value="<?= !empty($product) ? $product->getPicture() : ''; ?>">
-		<input type="file" id="picture" name="picture" accept="image/*">
+		<input type="file" id="picture" value="<?= !empty($product) ? $product->getPicture() : ''; ?>" name="picture" accept="image/*">
 	</div>
 
 	<div class="Card-Header">

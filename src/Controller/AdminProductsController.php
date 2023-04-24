@@ -154,8 +154,8 @@ class AdminProductsController extends AbstractController
 	{
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
-		
-		var_dump($_POST);
+//
+//		var_dump($_POST);
 		
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();

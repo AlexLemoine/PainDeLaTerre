@@ -37,7 +37,7 @@ function listenCreateButton(){
     targetSaveBtn.addEventListener('click',function(){
 
         // Création d'un nouvel objet FormData
-        const formData = new FormData(document.querySelector('.ModifyForm'));
+        const formData = new FormData(document.querySelector('.Card-create-form .ModifyForm'));
         formData.append('context', 'admin_update_product');
 
         // Envoi de la requête pour créer le produit
@@ -102,7 +102,7 @@ function listenCancelSaveBtns(){
         event.preventDefault();
 
         // Création d'un nouvel objet FormData
-        const formData = new FormData(document.querySelector('.ModifyForm'));
+        const formData = new FormData(document.querySelector('.Card.modify .ModifyForm'));
         formData.append('context', 'admin_update_product');
         formData.append('id',targetCard.getAttribute('data-id'));
 
