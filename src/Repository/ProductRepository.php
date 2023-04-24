@@ -10,7 +10,7 @@ use Pdlt\Model\ProductFrequency;
 final class ProductRepository extends AbstractRepository
 {
     const TABLE = 'product';
-    const NB_ELT_PER_PAGE = 15;
+    const NB_ELT_PER_PAGE = 20;
 
 
     // FONCTIONS

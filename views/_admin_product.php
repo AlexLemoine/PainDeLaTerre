@@ -6,7 +6,7 @@
 	<div class="Card-Header">
 		<h2 class="Card-title"><?= $oProduct->getName(); ?></h2>
 		<figure class="Card-imgBox">
-			<img class="Card-imgBox-img" src="assets/img/<?= $oProduct->getPicture(); ?>"
+			<img class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPicture(); ?>"
 			     alt="<?= $oProduct->getName(); ?>">
 		</figure>
 	</div>

@@ -172,9 +172,27 @@ class AdminProductsController extends AbstractController
 		    'ingredients' => strip_tags($_POST['ingredients']),
 		    'description' => strip_tags($_POST['description']),
 		    'status' => strip_tags($_POST['status']),
-		    'picture' => strip_tags($_POST['picture'] ?? ''),
+		    'picture' => strip_tags($_FILES['picture']['tmp_name']),
 		    'frequency' => strip_tags($_POST['frequency']),
 		];
+		
+		if($_FILES['picture']['error'] === UPLOAD_ERR_OK) {
+			// Récupération des informations sur l'image
+			$aPictureInfo = getimagesize($_FILES['picture']['tmp_name']);
+			
+			// Vérification que le fichier est bien une image
+			if($aPictureInfo) {
+				// Nettoyage du nom de fichier et ajout de l'extension
+				$sFileNameNew = uniqid() . '.' . pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+				$sFilePathNew = DIR_UPLOADS . DIRECTORY_SEPARATOR . $sFileNameNew;
+				
+				// Déplacement du fichier téléchargé vers le dossier des uploads
+				if (move_uploaded_file($_FILES['picture']['tmp_name'], $sFilePathNew)) {
+					// Le fichier a été correctement déplacé, on l'ajoute aux critères de mise à jour
+					$aCriterias['picture'] = basename($sFilePathNew);
+				}
+			}
+		}
 		
 		$aParams = [
 		    ':category' => $aCriterias['category'],

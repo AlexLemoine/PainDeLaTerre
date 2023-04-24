@@ -34,30 +34,39 @@ function listenCreateButton(){
 
     // Appel ajax en cas de création de produit
     const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
-    targetSaveBtn.addEventListener('click',function(){
+    targetSaveBtn.addEventListener('click',callCreateProductAjax);
 
-        // Création d'un nouvel objet FormData
-        const formData = new FormData(document.querySelector('.Card-create-form .ModifyForm'));
-        formData.append('context', 'admin_update_product');
+}
 
-        // Envoi de la requête pour créer le produit
-        fetch('ajax.php', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.text())
-            .then(data => {
-                console.log('data = ' + data);
+function callCreateProductAjax(){
 
-                // Mise à jour du listing de produits
-                callDisplayProductAjax();
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(document.querySelector('.Card-create-form .ModifyForm'));
+    formData.append('context', 'admin_update_product');
 
-                // Suppression du formulaire de création de produit
-                this.parentNode.remove();
-            });
-
+    // Envoi de la requête pour créer le produit
+    fetch('ajax.php', {
+        method: 'POST',
+        body: formData
     })
+        .then(response => response.text())
+        .then(data => {
+            console.log('data = ' + data);
 
+            // Mise à jour du listing de produits
+            callDisplayProductAjax();
+
+            // Suppression du formulaire de création de produit
+            this.parentNode.reset();
+
+            // Ré-afficher le bouton de création de produit
+            createBtn.classList.remove('hidden');
+
+            // Masquer le formulaire
+            formContainer.classList.add('hidden');
+
+            listenCreateButton();
+        });
 
 }
 

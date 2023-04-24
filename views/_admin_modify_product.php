@@ -1,6 +1,7 @@
 <?php use Pdlt\Model\Product; ?>
 
-<form method="post" action="#" class="Card ModifyForm" data-id="<?= !empty($product) ? $product->getId() : ''; ?>">
+<!-- enctype permet l'upload de fichiers -->
+<form method="post" action="#" enctype="multipart/form-data" class="Card ModifyForm" data-id="<?= !empty($product) ? $product->getId() : ''; ?>">
 		
 	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" title="Annuler" data-action="cancel">
 	<img src="assets/img/saveButton.svg" class="Card-save" alt="save button" title="Enregistrer les modifications" data-action="save">
@@ -8,8 +9,10 @@
 	<div>
 		<label for="picture"></label>
 		<figure class="Card-imgBox">
-			<img class="Card-imgBox-img" src="assets/img/<?= !empty($product) ? $product->getPicture() : Product::DEFAULT_PICTURE; ?>"
-			     alt="<?= !empty($product) ? $product->getName() : 'produit à créer'; ?>">
+			<?php if(!empty($product)): ?>
+			<img class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
+			     alt="<?= $product->getName(); ?>">
+			<?php endif; ?>
 		</figure>
 		<input type="file" id="picture" value="<?= !empty($product) ? $product->getPicture() : ''; ?>" name="picture" accept="image/*">
 	</div>
