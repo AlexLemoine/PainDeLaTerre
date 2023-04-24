@@ -23,7 +23,7 @@
                 <a href="https://www.facebook.com/lepaindelaterre/" target="_blank" class="Services-list-socialNetwork">
                     <img src="assets/img/icon_Facebook.png">
                 </a>
-                <a href="#" target="_blank" class="Services-list-socialNetwork">
+                <a href="https://www.instagram.com/lepaindelaterre/" target="_blank" class="Services-list-socialNetwork">
                     <img src="assets/img/icon_Instagram.png">
                 </a>
 

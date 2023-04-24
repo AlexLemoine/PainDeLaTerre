@@ -115,7 +115,7 @@ class AdminProductsController extends AbstractController
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Récupération de l'id de la card sélectionnée
-		if( isset($_POST['id'])){
+		if(isset($_POST['id'])){
 			$id = $_POST['id'];
 			$product = ProductRepository::find($id);
 			
@@ -124,19 +124,6 @@ class AdminProductsController extends AbstractController
 			{
 				$this->redirectAndDie();
 			}
-			
-			// Renvoi de la vue partielle de la card en mode formulaire
-			return $this->render('_admin_modify_product.php',[
-			    'product' => $product,
-			    'categories' => ProductCategoryRepository::findAll(),
-			    'frequencies' => ProductFrequencyRepository::findAll(),
-			],
-			    true
-			);
-		} else {
-			// Créer un produit vide
-			$product = new Product();
-			
 			// Renvoi de la vue partielle de la card en mode formulaire
 			return $this->render('_admin_modify_product.php',[
 			    'product' => $product,
@@ -146,6 +133,15 @@ class AdminProductsController extends AbstractController
 			    true
 			);
 		}
+		
+		// Renvoi de la vue partielle de la card en mode formulaire
+		return $this->render('admin_products.php',[
+		    'products' => ProductRepository::findAll(),
+		    'categories' => ProductCategoryRepository::findAll(),
+		    'frequencies' => ProductFrequencyRepository::findAll(),
+		],
+		    true
+		);
 
 	}
 	
@@ -159,11 +155,13 @@ class AdminProductsController extends AbstractController
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
+		var_dump($_POST);
+		
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
 		
 		// Récupération de l'id de la card sélectionnée
-		$id = $_POST['id'] ?? NULL;
+		$id = $_POST['id'];
 		
 		// TODO Ajouter fonction save() dans Repo
 		// Gérer la soumission du formulaire
@@ -202,7 +200,7 @@ class AdminProductsController extends AbstractController
 				$this->redirectAndDie();
 			}
 			
-			$sQuery = 'UPDATE ' . ProductRepository::TABLE . ' as p
+			$sQuery = 'UPDATE `product` as p
 			SET p.productCategory_id = :category,
 			    p.name = :name,
 			    p.ingredients = :ingredients,

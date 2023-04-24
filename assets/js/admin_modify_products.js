@@ -28,7 +28,9 @@ function onClickCreateBtn () {
 
 function listenCreateButton(){
 
-    createBtn.addEventListener('click', onClickCreateBtn);
+    if(createBtn){
+        createBtn.addEventListener('click', onClickCreateBtn);
+    }
 
     // Appel ajax en cas de création de produit
     const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
@@ -93,9 +95,11 @@ function listenCancelSaveBtns(){
             })
     })
 
-    saveBtn.addEventListener('click', function (){
+    saveBtn.addEventListener('click', function (event){
         let targetCard = document.querySelector('.Card.modify');
         toggleClass(targetCard,'save','unmodified');
+
+        event.preventDefault();
 
         // Création d'un nouvel objet FormData
         const formData = new FormData(document.querySelector('.ModifyForm'));
@@ -202,4 +206,6 @@ export function listenModifyDeleteBtns(){
 }
 
 listenModifyDeleteBtns();
-listenCreateButton();
+if(createBtn){
+    listenCreateButton();
+}

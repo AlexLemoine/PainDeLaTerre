@@ -40,7 +40,7 @@ final class ProductRepository extends AbstractRepository
             ' WHERE product.id = :id';
 
         $oPdoStatement = $oPdo->prepare($sQuery);
-        $oPdoStatement->bindValue('id', $iId, \PDO::PARAM_INT);
+        $oPdoStatement->bindValue(':id', $iId, \PDO::PARAM_INT);
         $oPdoStatement->execute();
 
         $aDbProduct = $oPdoStatement->fetch();

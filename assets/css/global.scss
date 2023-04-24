@@ -10,461 +10,471 @@
 
 // Pour atténuer le comportement brutal du bouton "Remonter en haut de page"
 html {
-    scroll-behavior: smooth;
+      scroll-behavior: smooth;
 }
 
 body {
-    background-color: $backgroundColor;
-    color: $whiteColor;
-    text-align: center;
-    margin:0;
-}
-h1, h2, h3, .Header{
-    font-family: $typoTitre;
-    Font-weight: bold;
-   
-}
-h1{
-    Font-size: 2em;
-}
-h2{
-    Font-size: 1.6em;
-}
-h3{
-    Font-size: 1.2em;
+      background-color: $backgroundColor;
+      color: $whiteColor;
+      text-align: center;
+      margin: 0;
 }
 
-textarea{
-    resize: none;
+h1, h2, h3, .Header {
+      font-family: $typoTitre;
+      Font-weight: bold;
+      
+}
+
+h1 {
+      Font-size: 2em;
+}
+
+h2 {
+      Font-size: 1.6em;
+}
+
+h3 {
+      Font-size: 1.2em;
+}
+
+textarea {
+      resize: none;
 }
 
 .layout {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1400px;
 }
 
 button {
-    width: auto;
-    height: auto;
-    padding: 5px 10px;
-    background: linear-gradient(163deg, rgba(111, 33, 15, 1) 38%, $secondColor 100%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 0.5px rgba(0, 0, 0, 0.4);
-    border-bottom: 0.5px rgba(0, 0, 0, 0.4);
-    box-shadow: 2px 1px 3px 0 rgba(24, 27, 28, 0.94);
-    border-radius: 6px;
-    color: rgb(242, 242, 242);
-    font-family: "Rift", sans-serif;
-    font-size: 1em;
-    
-    &:hover{
-        background: linear-gradient(163deg, $altColor 38%, $secondColor 100%);
-    }
+      width: auto;
+      height: auto;
+      padding: 5px 10px;
+      background: linear-gradient(163deg, rgba(111, 33, 15, 1) 38%, $secondColor 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 0.5px rgba(0, 0, 0, 0.4);
+      border-bottom: 0.5px rgba(0, 0, 0, 0.4);
+      box-shadow: 2px 1px 3px 0 rgba(24, 27, 28, 0.94);
+      border-radius: 6px;
+      color: rgb(242, 242, 242);
+      font-family: "Rift", sans-serif;
+      font-size: 1em;
+      
+      &:hover {
+            background: linear-gradient(163deg, $altColor 38%, $secondColor 100%);
+      }
 }
 
 
-.Card-desc{
-    text-shadow: $textShadow;
+.Card-desc {
+      text-shadow: $textShadow;
 }
 
-.Header{
-    
-    &-logo{
-        
-        &-img {
+.Header {
+      
+      &-logo {
             
-            source{
-                display: none;
-            }
-            
-           img{
-                margin: auto;
-                display: block;
-                max-width: 300px;
-        
-                @media screen AND (min-width:550px){
-                    min-width: 530px;
-                    padding: 35px;
-                    max-width: 90%;
-                    max-height: 170px;
-                }
-            }
-
-        }
-    }
-    
-    &-menu{
-        
-        &-burger{
-
-            @media screen AND (min-width:550px){
-                display: none;
-            }
-            &.opened{
-                
-                & img{
-                    display: inline-block;
-                    width: 25px;
-                    margin-right: 0;
-                    transform: rotate(0);
-
-                }
-                & p{
-                    display: block;
-                    Font-size: 2em;
-                    margin: 0;
-                    padding-bottom: 20px;
-                }
-                
-            }
-            
-            &-img{
-                display: inline-block;
-                width: 25px;
-                transform: translateY(-5px) rotate(-90deg);
-                transition: transform 500ms 0s;
-            }
-    
-            &-title{
-                font-family: $typoTitre;
-                display: inline;
-                Font-size: 2em;
-                margin: 0;
-            }
-    
-        }
-        &-links{
-            overflow:hidden;
-            height: 0;
-            transition:.3s;
-            
-            
-            @media screen AND (max-width:549px){
-                background-color: rgba(0,0,0,.3);
-            }
-    
-            @media screen AND (min-width:550px){
-                background-color: #ffffff05;
-                box-shadow: $boxShadow;
-                height: auto;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                align-items: center;
-                padding: 16px 40px;
-            }
-            
-            &-link{
-                display: block;
-                padding: 5px;
-                color: $whiteColor;
-                text-decoration: none;
-                Font-size: 1.6em;
-                transform: translateY(-250px);
-    
-                &.selected{
-                    font-size: 2em;
-                    text-decoration: underline;
-                }
-                
-                &:hover{
-                    text-decoration: underline;
-                }
-                
-                @media screen AND (min-width:550px){
-                    transform: none;
-                }
-        
-            }
-            
-            
-            &.opened{
-                @media screen AND (max-width:549px){
-                    animation: displayNav .8s both;
-                    padding:1.5em 0;
-    
-                    .Header-menu-links-link{
-                        &:nth-child(4){
-                            animation:showMenu .6s forwards;
+            &-img {
+                  
+                  source {
+                        display: none;
+                  }
+                  
+                  img {
+                        margin: auto;
+                        display: block;
+                        max-width: 300px;
+                        
+                        @media screen AND (min-width: 550px) {
+                              min-width: 530px;
+                              padding: 35px;
+                              max-width: 90%;
+                              max-height: 170px;
                         }
-                        &:nth-child(3){
-                            animation:showMenu .6s .2s forwards;
-                        }
-                        &:nth-child(2){
-                            animation:showMenu .6s .4s forwards;
-                        }
-                        &:nth-child(1){
-                            animation:showMenu .6s .6s forwards;
-                        }
-                    }
-                }
+                  }
+                  
             }
-        }
-    }
-    @media screen AND (min-width:550px){
-        background-color: $secondDarkColor;
-    }
-   
+      }
+      
+      &-menu {
+            
+            &-burger {
+                  
+                  @media screen AND (min-width: 550px) {
+                        display: none;
+                  }
+                  
+                  &.opened {
+                        
+                        & img {
+                              display: inline-block;
+                              width: 25px;
+                              margin-right: 0;
+                              transform: rotate(0);
+                              
+                        }
+                        
+                        & p {
+                              display: block;
+                              Font-size: 2em;
+                              margin: 0;
+                              padding-bottom: 20px;
+                        }
+                        
+                  }
+                  
+                  &-img {
+                        display: inline-block;
+                        width: 25px;
+                        transform: translateY(-5px) rotate(-90deg);
+                        transition: transform 500ms 0s;
+                  }
+                  
+                  &-title {
+                        font-family: $typoTitre;
+                        display: inline;
+                        Font-size: 2em;
+                        margin: 0;
+                  }
+                  
+            }
+            
+            &-links {
+                  overflow: hidden;
+                  height: 0;
+                  transition: .3s;
+                  
+                  
+                  @media screen AND (max-width: 549px) {
+                        background-color: rgba(0, 0, 0, .3);
+                  }
+                  
+                  @media screen AND (min-width: 550px) {
+                        background-color: #ffffff05;
+                        box-shadow: $boxShadow;
+                        height: auto;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        padding: 16px 40px;
+                  }
+                  
+                  &-link {
+                        display: block;
+                        padding: 5px;
+                        color: $whiteColor;
+                        text-decoration: none;
+                        Font-size: 1.6em;
+                        transform: translateY(-250px);
+                        
+                        &.selected {
+                              font-size: 2em;
+                              text-decoration: underline;
+                        }
+                        
+                        &:hover {
+                              text-decoration: underline;
+                        }
+                        
+                        @media screen AND (min-width: 550px) {
+                              transform: none;
+                        }
+                        
+                  }
+                  
+                  
+                  &.opened {
+                        @media screen AND (max-width: 549px) {
+                              animation: displayNav .8s both;
+                              padding: 1.5em 0;
+                              
+                              .Header-menu-links-link {
+                                    &:nth-child(4) {
+                                          animation: showMenu .6s forwards;
+                                    }
+                                    
+                                    &:nth-child(3) {
+                                          animation: showMenu .6s .2s forwards;
+                                    }
+                                    
+                                    &:nth-child(2) {
+                                          animation: showMenu .6s .4s forwards;
+                                    }
+                                    
+                                    &:nth-child(1) {
+                                          animation: showMenu .6s .6s forwards;
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+      
+      @media screen AND (min-width: 550px) {
+            background-color: $secondDarkColor;
+      }
+      
 }
 
 
 .MainContent {
-    &-titleWrap{
-        text-align:center;
-    }
-    &-title{
-        display:inline-block;
-        text-align: center;
-        margin: 10px;
-        padding: 20px 5px;
-        text-decoration: underline;
-        
-        @media screen AND (min-width:550px){
-            background: url("../img/logoPainBlanc.svg") 7px 0 no-repeat;
-            background-size: 35px;
-            padding-top: 20px;
-            margin-top: 35px;
-        }
-    }
-    
-    &-topBack{
-        display: block;
-        padding: 20px 60px;
-        font-family: $typoTexte;
-        font-style: italic;
-        text-align: right;
-        text-decoration: none;
-        color: $whiteColor;
-        
-        & img{
-            padding-left: 15px;
-            padding-right: 50px;
-            height: 15px;
-        }
-
-    }
-}
-
-.Products{
-    
-    & .Card{
-    
-        &:hover, &.selected{
-        
-            & .Card-imgBox{
-                background-color: $blackColor;
-                backdrop-filter: blur(20px);
-                transition: 0.5s;
-            }
-    
-            .Card-recipe{
-                display: block;
-                animation: showELt 0.8s both;
-                transition: 0.8s;
-                background-color: rgba(255, 255, 255, 0.32);
-                backdrop-filter: blur(1px);
-        
-                &-title{
-                    font-family: $typoTitre;
-                    position: absolute;
-                    top: -45px;
-                    color: $whiteColor;
-                }
-        
-                &-text{
-                    color: $blackColor;
-                    padding: 5px 15px;
-                }
-            }
-        }
-    }
-
-    &-filter{
-        
-        &-link{
-            font-family: $typoTitre;
-            color: $whiteColor;
-            display: inline-block;
-            border: solid 1px $whiteColor;
-            border-radius: 100px;
-            padding: 5px 10px;
-            margin: 5px;
-            text-decoration: none;
-            transition: 0.8s;
-            
-            &:hover{
-                padding-top: 10px;
-                padding-bottom: 10px;
-                margin-top: -10px;
-                margin-bottom: -10px;
-                box-sizing: border-box;
-                transition: 0.8s;
-            }
-            
-            &.filtered{
-                background-color: $whiteColor;
-                color: $blackColor;
-            }
-        }
-        
-    }
-    
-    &-list{
-        padding: 1em;
-    
-        @media screen AND (min-width:750px){
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 10px;
-        }
-    
-        @media screen AND (min-width: 1050px){
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
-            grid-gap: 20px;
-        }
-    }
-
-}
-
-.Card{
-    height: 350px;
-    position: relative;
-    overflow: hidden;
-    margin: 20px;
-    border-radius: 15px 15px 15px 15px;
-    
-    
-    &.modify{
-        border: solid $secondColor;
-    }
-    
-
-    
-    &-imgBox{
-        margin:0;
-        
-
-        
-        &-img{
-            display: inline-block;
-            height: 350px;
-            width: 100%;
+      &-titleWrap {
             text-align: center;
-            object-fit: cover;
-            Opacity: 80%
-        }
-
-    }
-    
-    &-title{
-        margin: 0;
-        width: 90%;
-        padding: 5px;
-        text-shadow: $textShadow;
-        position: absolute;
-        top: 60px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    &-desc{
-        position: relative;
-        top: -270px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        font-family: $typoTexte;
-        
-        &-text{
-            margin: 0;
-            padding: 5px;
-        }
-        
-        &-frequency{
-                padding: 5px;
-                margin: 0;
-            }
-        
-    }
-    
-
-    
-    &-recipe{
-        display: none;
-        opacity: 0;
-        position: absolute;
-        width: 90%;
-        min-width: 200px;
-        padding: 5px;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-
-    
-        &-text{
-            font-family: $typoTexte;
-            text-align: left;
-        }
-    }
-    
-
-    
-}
-
-.Footer{
-    background-color: $secondDarkColor;
-    padding: 10px;
-    
-    a{
-        &:hover{
+      }
+      
+      &-title {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+            padding: 20px 5px;
             text-decoration: underline;
-        }
-    }
-    
-    .layout{
-        @media screen AND (min-width:550px){
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start;
-        }
-    }
-
-    &-mentions{
-        padding: 5px;
-        color: $whiteColor;
-        font-family: $typoTexte;
-        font-style: italic;
-        
-        & nav{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        & a{
-            padding: 0 10px;
-            color: $whiteColor;
+            
+            @media screen AND (min-width: 550px) {
+                  background: url("../img/logoPainBlanc.svg") 7px 0 no-repeat;
+                  background-size: 35px;
+                  padding-top: 20px;
+                  margin-top: 35px;
+            }
+      }
+      
+      &-topBack {
+            display: block;
+            padding: 20px 60px;
+            font-family: $typoTexte;
+            font-style: italic;
+            text-align: right;
             text-decoration: none;
-        }
-    }
-    
+            color: $whiteColor;
+            
+            & img {
+                  padding-left: 15px;
+                  padding-right: 50px;
+                  height: 15px;
+            }
+            
+      }
 }
 
-.SiteMap, .Services, .Localisation{
-    padding: 10px;
-    
-    &-list{
-        &-title{
+.Products {
+      
+      & .Card {
+            
+            &:hover, &.selected {
+                  
+                  & .Card-imgBox {
+                        background-color: $blackColor;
+                        backdrop-filter: blur(20px);
+                        transition: 0.5s;
+                  }
+                  
+                  .Card-recipe {
+                        display: block;
+                        animation: showELt 0.8s both;
+                        transition: 0.8s;
+                        background-color: rgba(255, 255, 255, 0.32);
+                        backdrop-filter: blur(1px);
+                        
+                        &-title {
+                              font-family: $typoTitre;
+                              position: absolute;
+                              top: -45px;
+                              color: $whiteColor;
+                        }
+                        
+                        &-text {
+                              color: $blackColor;
+                              padding: 5px 15px;
+                        }
+                  }
+            }
+      }
+      
+      &-filter {
+            
+            &-link {
+                  font-family: $typoTitre;
+                  color: $whiteColor;
+                  display: inline-block;
+                  border: solid 1px $whiteColor;
+                  border-radius: 100px;
+                  padding: 5px 10px;
+                  margin: 5px;
+                  text-decoration: none;
+                  transition: 0.8s;
+                  
+                  &:hover {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        margin-top: -10px;
+                        margin-bottom: -10px;
+                        box-sizing: border-box;
+                        transition: 0.8s;
+                  }
+                  
+                  &.filtered {
+                        background-color: $whiteColor;
+                        color: $blackColor;
+                  }
+            }
+            
+      }
+      
+      &-list {
+            padding: 1em;
+            
+            @media screen AND (min-width: 750px) {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  grid-gap: 10px;
+            }
+            
+            @media screen AND (min-width: 1050px) {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                  grid-gap: 20px;
+            }
+      }
+      
+}
+
+.Card {
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      margin: 20px;
+      border-radius: 15px 15px 15px 15px;
+      
+      
+      &.modify {
+            border: solid $secondColor;
+      }
+      
+      
+      &-imgBox {
+            margin: 0;
+            
+            
+            &-img {
+                  display: inline-block;
+                  height: 350px;
+                  width: 100%;
+                  text-align: center;
+                  object-fit: cover;
+                  Opacity: 80%
+            }
+            
+      }
+      
+      &-title {
+            margin: 0;
+            width: 90%;
+            padding: 5px;
+            text-shadow: $textShadow;
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+      }
+      
+      &-desc {
+            position: relative;
+            top: -270px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            font-family: $typoTexte;
+            
+            &-text {
+                  margin: 0;
+                  padding: 5px;
+            }
+            
+            &-frequency {
+                  padding: 5px;
+                  margin: 0;
+                  font-style: italic;
+                  font-size: 0.9em;
+            }
+            
+      }
+      
+      
+      &-recipe {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            width: 90%;
+            min-width: 200px;
+            padding: 5px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            
+            &-text {
+                  font-family: $typoTexte;
+                  text-align: left;
+            }
+      }
+      
+      
+}
+
+.Footer {
+      background-color: $secondDarkColor;
+      padding: 10px;
+      
+      a {
+            &:hover {
+                  text-decoration: underline;
+            }
+      }
+      
+      .layout {
+            @media screen AND (min-width: 550px) {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content: space-around;
+                  align-items: flex-start;
+            }
+      }
+      
+      &-mentions {
+            padding: 5px;
             color: $whiteColor;
             font-family: $typoTexte;
-            display: block;
-            text-decoration: none;
-            padding: 5px;
-        }
-    }
+            font-style: italic;
+            
+            & nav {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content: center;
+            }
+            
+            & a {
+                  padding: 0 10px;
+                  color: $whiteColor;
+                  text-decoration: none;
+            }
+      }
+      
+}
+
+.SiteMap, .Services, .Localisation {
+      padding: 10px;
+      
+      &-list {
+            &-title {
+                  color: $whiteColor;
+                  font-family: $typoTexte;
+                  display: block;
+                  text-decoration: none;
+                  padding: 5px;
+            }
+      }
 }

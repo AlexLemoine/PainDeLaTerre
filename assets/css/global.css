@@ -372,6 +372,9 @@ form.Card.ModifyForm input {
 }
 form.Card.ModifyForm input#name {
   text-align: center;
+  height: 20px;
+  font-family: "Rift", sans-serif;
+  text-shadow: none;
 }
 form.Card.ModifyForm input.Card-title {
   background-color: white;
@@ -401,10 +404,21 @@ form.Card.ModifyForm textarea, form.Card.ModifyForm input.Card-title {
     height: 65px;
   }
 }
+form.Card.ModifyForm textarea {
+  min-height: 60px;
+}
 form.Card.ModifyForm .Card-Header {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media screen and (min-width: 550px) {
+  form.Card.ModifyForm .Card-Header {
+    flex-direction: row;
+  }
+}
+form.Card.ModifyForm .Card-Header h3 {
+  margin: 0;
 }
 @media screen and (min-width: 550px) {
   form.Card.ModifyForm .Card-cancel, form.Card.ModifyForm .Card-save {
@@ -744,6 +758,8 @@ button:hover {
 .Card-desc-frequency {
   padding: 5px;
   margin: 0;
+  font-style: italic;
+  font-size: 0.9em;
 }
 .Card-recipe {
   display: none;
