@@ -21,15 +21,7 @@
 
 	<div class="Products-list" id="container-ajax" data-context="<?= PAGE_PRODUCTS ?>">
 		
-		<?php
-		
-		$products = ProductRepository::findAll();
-		
-		foreach ($products as $oProduct) : ?>
-
 			<?php include '_products.php'; ?>
-		
-		<?php endforeach; ?>
 
 	</div>
 

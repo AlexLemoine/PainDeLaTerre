@@ -173,6 +173,14 @@ final class ProductRepository extends AbstractRepository
             $aWhere[] = '(status = :status)';
             $aParams[':status'] = $aCriterias['status'];
         };
+	
+	    // 4. Si "id" est défini
+	    if(! empty($aCriterias['id']))
+	    {
+		    $aWhere[] = '(id = :id)';
+		    $aParams[':id'] = $aCriterias['id'];
+	    };
+	  
 
         if(count($aWhere)>0)
         {

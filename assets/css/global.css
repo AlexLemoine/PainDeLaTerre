@@ -445,6 +445,234 @@ form.Card.ModifyForm .Card-title {
   width: 250px;
 }
 
+@keyframes showMenu {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes displayNav {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 170px;
+  }
+}
+@keyframes hideELt {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+@keyframes showELt {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Home .CTA {
+    grid-column: 1/-1;
+  }
+}
+.Home .MainContent-slogan {
+  box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.4588235294);
+}
+@media screen and (min-width: 750px) {
+  .Home .MainContent-slogan {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+.Home-sections {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px 5px;
+  box-shadow: 0 9px 15px 2px rgba(0, 0, 0, 0.2);
+  margin: 45px auto;
+}
+@media screen and (min-width: 550px) {
+  .Home-sections {
+    flex-direction: row;
+    padding: 20px 0px;
+    justify-content: space-evenly;
+  }
+}
+.Home-sections-title {
+  padding: 5px;
+  text-decoration: none;
+  font-family: "Rift", sans-serif;
+  color: white;
+}
+@media screen and (min-width: 550px) {
+  .Home-sections-title {
+    padding: 25px 5px 5px 5px;
+  }
+}
+.Home-sections-title-selected {
+  text-decoration: underline;
+  font-family: "Rift", sans-serif;
+  color: white;
+  font-size: 1.4em;
+  background: url(../img/logoPainBlanc.svg) 35px 10px no-repeat;
+  background-size: 35px;
+  padding: 5px 80px;
+}
+@media screen and (min-width: 550px) {
+  .Home-sections-title-selected {
+    padding: 25px 5px 5px 5px;
+    background: url(../img/logoPainBlanc.svg) 7px 2px no-repeat;
+    background-size: 35px;
+  }
+}
+.Home .Section-equipe, .Home .Section-gamme, .Home .Section-valeurs, .Home .Section-partenaires {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.Home .Section-equipe-title, .Home .Section-gamme-title, .Home .Section-valeurs-title, .Home .Section-partenaires-title {
+  font-family: "Rift", sans-serif;
+}
+.Home .Section-equipe-imgBox, .Home .Section-gamme-imgBox, .Home .Section-valeurs-imgBox, .Home .Section-partenaires-imgBox {
+  max-height: 280px;
+}
+.Home .Section-equipe-imgBox-img, .Home .Section-gamme-imgBox-img, .Home .Section-valeurs-imgBox-img, .Home .Section-partenaires-imgBox-img {
+  max-width: 325px;
+  max-height: 215px;
+  padding: 15px;
+}
+.Home .Section-equipe-imgBox-legend, .Home .Section-gamme-imgBox-legend, .Home .Section-valeurs-imgBox-legend, .Home .Section-partenaires-imgBox-legend {
+  font-family: "Nunito", sans-serif, regular;
+  font-style: italic;
+}
+.Home .Section-equipe-desc, .Home .Section-gamme-desc, .Home .Section-valeurs-desc, .Home .Section-partenaires-desc {
+  font-family: "Nunito", sans-serif, regular;
+  padding: 10px 15px;
+  font-size: 0.9em;
+}
+.Home .Section-equipe .CTA, .Home .Section-gamme .CTA, .Home .Section-valeurs .CTA, .Home .Section-partenaires .CTA {
+  margin: 5px auto;
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-equipe, .Home .Section-gamme {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-equipe-title, .Home .Section-gamme-title {
+    grid-column: 1/-1;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-equipe-desc, .Home .Section-gamme-desc {
+    font-size: 1.2em;
+    line-height: 2;
+    text-align: start;
+  }
+}
+.Home .Section-gamme #sliderProduct .Card {
+  height: 350px;
+  width: 350px;
+}
+.Home .Section-valeurs .circle {
+  background-color: rgb(51, 26, 17);
+  color: white;
+  border-radius: 50% 50% 0% 0%;
+}
+@media screen and (min-width: 550px) {
+  .Home .Section-valeurs .circle {
+    border-radius: 50% 50% 0 0/100% 100% 0 0;
+    overflow: hidden;
+    min-height: 250px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-valeurs .circle {
+    min-height: 430px;
+  }
+}
+.Home .Section-valeurs-desc {
+  padding: 10px 50px;
+}
+@media screen and (min-width: 550px) {
+  .Home .Section-valeurs-desc {
+    padding: 10px 10%;
+    position: relative;
+    top: 5%;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-valeurs-desc {
+    line-height: 2;
+    font-size: 1.2em;
+    top: 50px;
+  }
+}
+.Home .Section-valeurs-title {
+  margin: 0;
+  padding-top: 60px;
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-valeurs-title {
+    padding-top: 100px;
+  }
+}
+.Home .Section-valeurs-certifications {
+  width: 100%;
+  background-color: rgb(186, 161, 140);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-valeurs-certifications {
+    justify-content: space-evenly;
+  }
+}
+.Home .Section-valeurs-certifications-img {
+  height: 80px;
+  padding: 10px;
+}
+.Home .Section-partenaires {
+  background-color: rgb(166, 52, 27);
+  font-family: "Rift", sans-serif;
+  box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.4588235294);
+}
+.Home .Section-partenaires-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.Home .Section-partenaires-list-supplier {
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -483,7 +711,8 @@ textarea {
   max-width: 1400px;
 }
 
-button {
+button, .CTA {
+  text-decoration: none;
   width: auto;
   height: auto;
   padding: 5px 10px;
@@ -497,7 +726,17 @@ button {
   font-family: "Rift", sans-serif;
   font-size: 1em;
 }
-button:hover {
+@media screen and (min-width: 750px) {
+  button, .CTA {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 750px) {
+  button, .CTA {
+    font-size: 1.4em;
+  }
+}
+button:hover, .CTA:hover {
   background: linear-gradient(163deg, rgb(70, 1, 1) 38%, rgb(166, 52, 27) 100%);
 }
 
@@ -634,9 +873,26 @@ button:hover {
     margin-top: 35px;
   }
 }
+.MainContent-slogan {
+  padding: 25px 15px;
+  margin: 25px 0;
+  background-color: rgb(166, 52, 27);
+  color: white;
+  font-family: "Rift", sans-serif;
+  font-size: 1.4em;
+}
+@media screen and (min-width: 750px) {
+  .MainContent-slogan {
+    padding: 25px 100px;
+  }
+}
+.MainContent-slogan-title {
+  margin: 0;
+  padding: 5px;
+}
 .MainContent-topBack {
   display: block;
-  padding: 20px 60px;
+  padding: 40px 60px;
   font-family: "Nunito", sans-serif, regular;
   font-style: italic;
   text-align: right;

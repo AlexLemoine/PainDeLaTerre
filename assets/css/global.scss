@@ -1,6 +1,7 @@
 @import "mixins";
 @import "adminProducts";
 @import "adminModifyProduct";
+@import "home";
 
 
 // MOBIL-FIRST : MEDIA-SCREEN <= 400px
@@ -46,9 +47,11 @@ textarea {
       margin-left: auto;
       margin-right: auto;
       max-width: 1400px;
+
 }
 
-button {
+button, .CTA {
+      text-decoration: none;
       width: auto;
       height: auto;
       padding: 5px 10px;
@@ -61,6 +64,15 @@ button {
       color: rgb(242, 242, 242);
       font-family: "Rift", sans-serif;
       font-size: 1em;
+      
+      @media screen AND (min-width: 750px) {
+            font-size: 1.2em;
+      }
+      
+      @media screen AND (min-width: 750px) {
+            font-size: 1.4em;
+      }
+
       
       &:hover {
             background: linear-gradient(163deg, $altColor 38%, $secondColor 100%);
@@ -240,9 +252,29 @@ button {
             }
       }
       
+      &-slogan{
+
+            padding: 25px 15px;
+            margin: 25px 0;
+            background-color: $secondColor;
+            color: $whiteColor;
+            font-family: $typoTitre;
+            font-size: 1.4em;
+            
+            @media screen AND (min-width: 750px) {
+
+                  padding: 25px 100px;
+            }
+            
+            &-title{
+                  margin: 0;
+                  padding: 5px;
+            }
+      }
+      
       &-topBack {
             display: block;
-            padding: 20px 60px;
+            padding: 40px 60px;
             font-family: $typoTexte;
             font-style: italic;
             text-align: right;

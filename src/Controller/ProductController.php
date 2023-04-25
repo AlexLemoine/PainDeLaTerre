@@ -2,6 +2,7 @@
 
 namespace Pdlt\Controller;
 
+use Pdlt\Model\Product;
 use Pdlt\Repository\{ProductRepository, ProductCategoryRepository};
 
 class ProductController extends AbstractController
@@ -12,6 +13,7 @@ class ProductController extends AbstractController
             'products.php',
             [
                 'seo_title' => 'Les Produits',
+		    'products' => ProductRepository::findAll(),
                 'categories' => ProductCategoryRepository::findAll(),
             ]
         );
@@ -48,5 +50,23 @@ class ProductController extends AbstractController
         // 2. Récupérer les utilisateurs et renvoyer la vue HTML
         return $this->render('_products.php', $aParams, true);
     }
+	
+	/**
+	 * Afficher en Ajax un slider de produits
+	 * @return string
+	 */
+	public function sliderProduct(): string
+	{
+		$iIdx = intval($_POST['index']);
+		
+		$iOffset = ($iIdx-1);
+		
+		$aCriterias=[];
+		$product = ProductRepository::findBy($aCriterias,$iOffset,1);
+		
+		return $this->render('_product.php',[
+		    'oProduct' => $product,
+		], true);
+	}
 
 }

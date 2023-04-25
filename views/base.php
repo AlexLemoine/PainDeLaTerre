@@ -63,6 +63,7 @@ include 'footer.php';
 
 
 <script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/sliderProducts.js"></script>
 <script type="module" src="assets/js/products.js"></script>
 <script type="module" src="assets/js/functions.js"></script>
 <script type="module" src="assets/js/ajax.js"></script>

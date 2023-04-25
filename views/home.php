@@ -1,6 +1,128 @@
-<main class="MainContent Products layout" id="main">
-    <div class="MainContent-titleWrap">
-        <h1 class="MainContent-title">Qui sommes-nous ?</h1>
-    </div>
+<main class="MainContent Products layout Home" id="main">
+
+	<h1 class="MainContent-title">Qui sommes-nous ?</h1>
+
+
+	<nav class="Home-sections" id="equipe">
+		<a class="Home-sections-title-selected" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
+		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
+		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
+	</nav>
+
+	<div class="Home-sections-section Section">
+		<section class="Section-equipe">
+			<h2 class="Section-equipe-title">Notre équipe</h2>
+			<figure class="Section-equipe-imgBox">
+				<img class="Section-equipe-imgBox-img" src="assets/img/associés.jpg">
+				<legend class="Section-equipe-imgBox-legend">Pascal et Pierre, les joyeux lurons</legend>
+			</figure>
+			<p class="Section-equipe-desc">
+				Formés auprès de l’Ecole Internationale de Boulangerie, nous sommes spécialisés dans les
+				<strong>fermentations au levain naturel</strong>. Nous mettons notre passion et notre
+				savoir-faire au service de <strong>pains goûteux et nutritifs</strong>, à la <strong>conservation
+					hors du commun</strong>.
+			</p>
+			<a class="CTA" href="#">En savoir plus</a>
+		</section>
+	</div>
+
+	<div class="MainContent-titleWrap">
+		<p class="MainContent-slogan">
+			DE JOYEUX LURONS, PASSIONNES DE FERMENTATIONS NATURELLES, AU SERVICE DE PAINS GOÛTEUX, NUTRITIFS ET DE
+			CONSERVATION EXCEPTIONNELLE
+		</p>
+	</div>
+
+
+	<nav class="Home-sections" id="gamme">
+		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title-selected" href="#gamme">Une gamme diversifiée</a>
+		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
+		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
+	</nav>
+
+	<div class="Home-sections-section Section">
+		<section class="Section-gamme">
+			<h2 class="Section-gamme-title">Des produits hors du commun</h2>
+
+			<!-- Slider cards -->
+			<div id="sliderProduct" data-limit="<?= count($products); ?>">
+
+			</div>
+
+			<p class="Section-gamme-desc">
+				Nos pains sont exclusivement fermentés au <strong>levain naturel</strong>, de notre fabrication.
+				Blé, seigle, petit épeautre et farines pauvres en gluten.
+				Découvrez aussi nos brioches régionales et autres petites gourmandises.
+			</p>
+			<a class="CTA" href="?page=<?= PAGE_PRODUCTS ?>">Découvrir nos produits</a>
+		</section>
+	</div>
+
+
+	<div class="MainContent-slogan">
+		<p class="MainContent-slogan-title">FARINES PAUVRES EN GLUTEN</p>
+		<p class="MainContent-slogan-title">LEVAIN NATUREL</p>
+		<p class="MainContent-slogan-title">PETITES GOURMANDISES</p>
+	</div>
+
+
+	<nav class="Home-sections" id="valeurs">
+		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
+		<a class="Home-sections-title-selected" href="#valeurs">Nos valeurs</a>
+		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
+	</nav>
+
+	<div class="Home-sections-section Section">
+		<section class="Section-valeurs">
+			<div class="circle">
+				<h2 class="Section-valeurs-title">Nos valeurs, nos engagements</h2>
+
+				<p class="Section-valeurs-desc">
+					Tous nos produits sont certifiés en <strong>agriculture biologique</strong>. Nos farines
+					sont issues de céréales <strong>locales</strong>, transformées par le Moulin Pichard
+					(Malijai, 04) et la Ferme Pastière (Meyrargues, 13).
+					Nos compositions sont <strong>claires et transparentes, sans améliorant</strong>,
+					uniquement à base de matières premières brutes de <strong>première qualité</strong>.
+				</p>
+			</div>
+			<div class="Section-valeurs-certifications">
+				<img class="Section-valeurs-certifications-img" title="certification agriculture biologique"
+				     alt="certification agriculture biologique" src="assets/img/logoAgricultureBio.svg">
+				<img class="Section-valeurs-certifications-img" title="certification EU Organic"
+				     alt="certification EU Organic" src="assets/img/logoEUOrganic.svg">
+				<img class="Section-valeurs-certifications-img" title="certification Initiative remarquable"
+				     alt="certification Initiative remarquable" src="assets/img/logoInitiativeRemarquable.svg">
+			</div>
+
+			<a class="CTA" href="#">En savoir plus</a>
+		</section>
+	</div>
+
+	<nav class="Home-sections" id="partenaires">
+		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
+		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
+		<a class="Home-sections-title-selected" href="#partenaires">Nos partenaires</a>
+	</nav>
+
+	<div class="Home-sections-section Section">
+		<section class="Section-partenaires">
+
+			<h2 class="Section-partenaires-title">Nos partenaires</h2>
+			<div class="Section-partenaires-list">
+				<p class="Section-partenaires-list-supplier">Moulin Pichard</p>
+				<p class="Section-partenaires-list-supplier">Moulin Chambelland</p>
+				<p class="Section-partenaires-list-supplier">La Ferme Pastière</p>
+				<p class="Section-partenaires-list-supplier">La Fautrière</p>
+				<p class="Section-partenaires-list-supplier">Le Moulin Saint-Vincent</p>
+				<p class="Section-partenaires-list-supplier">Patrick Molle</p>
+				<p class="Section-partenaires-list-supplier">Saunier de Camargue</p>
+			</div>
+			<a class="CTA" href="#">Découvrir nos producteurs</a>
+		</section>
+	</div>
 
 </main>

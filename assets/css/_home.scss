@@ -1,0 +1,229 @@
+@import "mixins";
+
+.Home{
+      
+      .CTA{
+            @media screen AND (min-width: 750px)  {
+                  grid-column: 1/-1;
+            }
+      }
+      
+      .MainContent-slogan{
+            box-shadow: $boxShadow;
+            
+            @media screen AND (min-width: 750px){
+                  display: flex;
+                  justify-content: space-evenly;
+                  flex-wrap: wrap;
+                  align-items: center;
+            }
+
+      }
+      
+      &-sections{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px 5px;
+      
+            box-shadow: 0 9px 15px 2px rgba(0, 0, 0, 0.2);
+            margin: 45px auto;
+      
+            @media screen AND (min-width: 550px){
+                  flex-direction: row;
+                  padding: 20px 0px;
+                  justify-content: space-evenly;
+            }
+      
+            &-title{
+                  padding: 5px;
+                  text-decoration: none;
+                  font-family: $typoTitre;
+                  color: $whiteColor;
+                  @media screen AND (min-width: 550px){
+                        padding: 25px 5px 5px 5px;
+                  }
+                  
+                  &-selected{
+                        text-decoration: underline;
+                        font-family: $typoTitre;
+                        color: $whiteColor;
+                        font-size: 1.4em;
+                        background: url(../img/logoPainBlanc.svg) 35px 10px no-repeat;
+                        background-size: 35px;
+                        padding: 5px 80px;
+      
+                        @media screen AND (min-width: 550px){
+                              padding: 25px 5px 5px 5px;
+                              background: url(../img/logoPainBlanc.svg) 7px 2px no-repeat;
+                              background-size: 35px;
+                        }
+                  }
+            }
+      }
+      
+      & .Section{
+      
+            &-equipe, &-gamme, &-valeurs, &-partenaires{
+                  display: flex;
+                  flex-direction: column;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  align-items: center;
+                  padding-bottom: 30px;
+                  
+                  &-title{
+                        font-family: $typoTitre;
+                  }
+                  
+                  &-slogan{
+
+                  }
+                  &-imgBox{
+                        max-height: 280px;
+            
+                        &-img{
+                              max-width: 325px;
+                              max-height: 215px;
+                              padding: 15px;
+                        }
+                        &-legend{
+                              font-family: $typoTexte;
+                              font-style: italic;
+                        }
+            
+                  }
+                  &-desc{
+                        font-family: $typoTexte;
+                        padding: 10px 15px;
+                        font-size: 0.9em;
+                  }
+                  & .CTA{
+                        margin: 5px auto;
+                  }
+            }
+            
+            &-equipe, &-gamme{
+                  @media screen AND (min-width: 750px)  {
+                        display: grid;
+                        align-items: center;
+                        justify-items: center;
+                        grid-template-columns: 1fr 1fr;
+                  }
+                  
+                  &-title{
+                        @media screen AND (min-width: 750px)  {
+                              grid-column: 1/-1;
+                        }
+                  }
+                  
+                  &-desc{
+                        @media screen AND (min-width: 750px)  {
+                              font-size: 1.2em;
+                              line-height: 2;
+                              text-align: start;
+                        }
+                  }
+                  
+                  
+            }
+            
+            &-gamme{
+                  #sliderProduct{
+                        .Card{
+                              height: 350px;
+                              width: 350px;
+                        }
+                  }
+            }
+            
+            &-valeurs{
+                  
+                  .circle{
+                        background-color: $secondDarkColor;
+                        color: $whiteColor;
+                        border-radius: 50% 50% 0% 0%;
+                        
+                        @media screen AND (min-width: 550px)  {
+                              border-radius: 50% 50% 0 0/100% 100% 0 0;
+                              overflow: hidden;
+                              min-height: 250px;
+                        }
+                        @media screen AND (min-width: 750px)  {
+                              min-height: 430px;
+                        }
+      
+
+                  }
+
+                  &-desc{
+                        padding: 10px 50px;
+                        
+                        @media screen AND (min-width: 550px)  {
+                              padding: 10px 10%;
+                              position: relative;
+                              top: 5%;
+                        }
+                        
+                        @media screen AND (min-width: 750px)  {
+                              line-height: 2;
+                              font-size: 1.2em;
+                              top: 50px;
+                        }
+                  }
+                  
+                  &-title{
+                        margin: 0;
+                        padding-top: 60px;
+                        @media screen AND (min-width: 750px)  {
+                              padding-top: 100px;
+                        }
+
+                  }
+                  
+                  &-certifications{
+                        width: 100%;
+                        background-color: $firstDarkColor;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 15px 0;
+                        margin-bottom: 20px;
+      
+                        @media screen AND (min-width: 750px)  {
+                              justify-content: space-evenly;
+                        }
+                        
+                        &-img{
+                              height: 80px;
+                              padding: 10px;
+                        }
+                  }
+            }
+            
+            &-partenaires{
+                  background-color: $secondColor;
+                  font-family: $typoTitre;
+                  box-shadow: $boxShadow;
+                  
+                  &-list{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        
+                        &-supplier{
+                              margin: 0;
+                              padding: 10px;
+                              font-size: 1.2em;
+                        }
+
+                  }
+            }
+            
+      }
+}

@@ -44,6 +44,10 @@ if(isset($_POST['context'])){
 		case PAGE_ADMIN_DELETE_PRODUCT:
 			echo (new Pdlt\Controller\AdminProductsController)->deleteProduct();
 			break;
+			
+		case PAGE_AJAX_SLIDER_PRODUCTS:
+			echo (new Pdlt\Controller\ProductController)->sliderProduct();
+			break;
 	
 	}
 }

@@ -2,6 +2,8 @@
 
 namespace Pdlt\Controller;
 
+use Pdlt\Repository\ProductRepository;
+
 class DefaultController extends AbstractController
 {
 
@@ -10,9 +12,11 @@ class DefaultController extends AbstractController
      */
     public function home(): string
     {
+	    
         return $this->render('home.php',
             [
                 'seo_title'=>TITLE_HOME,
+			'products' => ProductRepository::findAll(),
             ]);
     }
 
