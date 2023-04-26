@@ -1,4 +1,9 @@
 <main class="MainContent Products layout Home" id="main">
+	
+<!--	<div class="Home-header">-->
+<!--		<img class="Home-header-img" src="assets/img/painsHeader.jpg">-->
+<!--		<p class="Home-header-slogan">Des pains qui ont de la gueule et du goût</p>-->
+<!--	</div>-->
 
 	<h1 class="MainContent-title">Qui sommes-nous ?</h1>
 

@@ -491,6 +491,47 @@ form.Card.ModifyForm .Card-title {
     align-items: center;
   }
 }
+.Home-header {
+  position: relative;
+  max-height: 290px;
+}
+@media screen and (min-width: 550px) {
+  .Home-header {
+    max-height: 370px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Home-header {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 490px;
+    overflow: hidden;
+  }
+}
+.Home-header-img {
+  width: 100%;
+  margin-top: 20px;
+  max-width: 750px;
+  position: relative;
+}
+@media screen and (min-width: 550px) {
+  .Home-header-img {
+    margin-top: 0;
+  }
+}
+.Home-header-slogan {
+  color: rgb(0, 0, 0);
+  font-family: "Rift", sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  padding: 10px;
+  position: relative;
+  top: -190px;
+}
+@media screen and (min-width: 550px) {
+  .Home-header-slogan {
+    font-size: 2em;
+  }
+}
 .Home-sections {
   display: flex;
   flex-direction: column;
@@ -512,6 +553,7 @@ form.Card.ModifyForm .Card-title {
   text-decoration: none;
   font-family: "Rift", sans-serif;
   color: white;
+  font-size: 1.2em;
 }
 @media screen and (min-width: 550px) {
   .Home-sections-title {
@@ -583,6 +625,7 @@ form.Card.ModifyForm .Card-title {
     font-size: 1.2em;
     line-height: 2;
     text-align: start;
+    padding-right: 120px;
   }
 }
 .Home .Section-gamme #sliderProduct .Card {

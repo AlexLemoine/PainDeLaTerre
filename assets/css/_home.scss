@@ -20,6 +20,49 @@
 
       }
       
+      &-header{
+            position: relative;
+            max-height: 290px;
+      
+            @media screen AND (min-width: 550px){
+                  max-height: 370px;
+            }
+            
+            @media screen AND (min-width: 750px){
+                  background-color: rgba(0, 0, 0, 0.3);
+                  height: 490px;
+                  overflow: hidden;
+                  
+            }
+            
+            &-img{
+                  width: 100%;
+                  margin-top: 20px;
+                  max-width: 750px;
+                  position: relative;
+      
+                  @media screen AND (min-width: 550px){
+                        margin-top: 0;
+                  }
+            }
+            
+            &-slogan{
+                  color: $blackColor;
+                  font-family: $typoTitre;
+                  font-weight: bold;
+                  font-size: 1.8em;
+                  padding: 10px;
+                  position: relative;
+                  top: -190px;
+      
+                  @media screen AND (min-width: 550px){
+                        font-size: 2em;
+                  }
+      
+
+            }
+      }
+      
       &-sections{
             display: flex;
             flex-direction: column;
@@ -41,6 +84,8 @@
                   text-decoration: none;
                   font-family: $typoTitre;
                   color: $whiteColor;
+                  font-size: 1.2em;
+                  
                   @media screen AND (min-width: 550px){
                         padding: 25px 5px 5px 5px;
                   }
@@ -123,6 +168,7 @@
                               font-size: 1.2em;
                               line-height: 2;
                               text-align: start;
+                              padding-right: 120px;
                         }
                   }
                   
