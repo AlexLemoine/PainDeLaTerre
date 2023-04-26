@@ -9,7 +9,7 @@
       }
       
       .MainContent-slogan{
-            box-shadow: $boxShadow;
+            //box-shadow: $boxShadow;
             
             @media screen AND (min-width: 750px){
                   display: flex;
@@ -207,7 +207,7 @@
             &-partenaires{
                   background-color: $secondColor;
                   font-family: $typoTitre;
-                  box-shadow: $boxShadow;
+                  //box-shadow: $boxShadow;
                   
                   &-list{
                         display: flex;

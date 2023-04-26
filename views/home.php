@@ -82,7 +82,7 @@
 
 				<p class="Section-valeurs-desc">
 					Tous nos produits sont certifiés en <strong>agriculture biologique</strong>. Nos farines
-					sont issues de céréales <strong>locales</strong>, transformées par le Moulin Pichard
+					sont issues de <strong>céréales locales</strong>, transformées par le Moulin Pichard
 					(Malijai, 04) et la Ferme Pastière (Meyrargues, 13).
 					Nos compositions sont <strong>claires et transparentes, sans améliorant</strong>,
 					uniquement à base de matières premières brutes de <strong>première qualité</strong>.

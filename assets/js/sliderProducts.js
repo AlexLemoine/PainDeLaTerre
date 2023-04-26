@@ -1,5 +1,5 @@
 const container = document.querySelector('#sliderProduct');
-let index = 0;
+let index = 1;
 let maxIndex = container.getAttribute('data-limit');
 
 
@@ -38,7 +38,12 @@ function callAjaxSlider() {
 
 }
 
-if (window.location.search === '?page=home')
+
+
+if (window.location.pathname === '/LEPAINDELATERRE_site/' || window.location.search === '?page=home')
 {
+    // Appeler callAjaxSlider une première fois au chargement du DOM
+    callAjaxSlider();
+
     setInterval(updateSlider, 4000);
 }

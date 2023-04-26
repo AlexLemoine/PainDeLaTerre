@@ -30,7 +30,7 @@ $boxShadow : 0 4px 8px -1px #00000075;
             height: 0;
       }
       100% {
-            height: 170px;
+            height: 100%;
       }
 }
 
@@ -39,13 +39,13 @@ $boxShadow : 0 4px 8px -1px #00000075;
             opacity: 100%;
       }
       100% {
-            opacity: 0%;
+            opacity: 0;
       }
 }
 
 @keyframes showELt {
       0%{
-            opacity: 0%;
+            opacity: 0;
       }
       100% {
             opacity: 100%;
