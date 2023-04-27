@@ -1,6 +1,4 @@
 
-
-
 <tr  class="Table-body-row Partenaire">
 	
 	<td class="Partenaire-name"><?= $oPartenaire->getName(); ?></td>

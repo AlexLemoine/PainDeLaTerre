@@ -1,6 +1,9 @@
 import {toggleClass} from "./functions.js";
 import {callDisplayProductAjax} from "./admin_ajax.js";
 
+// Récupération de la vue
+const main = document.querySelector('main');
+const view = main.getAttribute('id');
 
 // Récupération du bouton de création
 const createBtn = document.querySelector('.Card-create');
@@ -26,7 +29,7 @@ function onClickCreateBtn () {
     })
 }
 
-function listenCreateButton(){
+export function listenCreateButton(){
 
     if(createBtn){
         createBtn.addEventListener('click', onClickCreateBtn);
@@ -34,14 +37,27 @@ function listenCreateButton(){
 
     // Appel ajax en cas de création de produit
     const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
-    targetSaveBtn.addEventListener('click',callCreateProductAjax);
+
+    console.log(view);
+
+    // Si la vue = admin_company
+    if(view === 'admin_products'){
+        targetSaveBtn.addEventListener('click',callCreateProductAjax);
+    }
+
+    if (view === 'admin_company'){
+        targetSaveBtn.addEventListener('click',callCreatePartenaireAjax);
+    }
 
 }
 
+/**
+ * Créer un produit en Ajax
+ */
 function callCreateProductAjax(){
 
     // Création d'un nouvel objet FormData
-    const formData = new FormData(document.querySelector('.Card-create-form .ModifyForm'));
+    const formData = new FormData(document.querySelector('#admin_products .Card-create-form .ModifyForm'));
     formData.append('context', 'admin_update_product');
 
     // Envoi de la requête pour créer le produit
@@ -67,6 +83,31 @@ function callCreateProductAjax(){
 
             listenCreateButton();
         });
+
+}
+
+function callDisplayPartenaireAjax()
+{
+    // Récupération de l'élément qui contiendra les cartes à mettre à jour
+    const table = document.querySelector('.Table-body');
+
+    // Création d'un nouvel objet FormData
+    const formData = new FormData();
+    formData.append('context', table.getAttribute('data-context'));
+
+    // Envoi de la requête pour mettre à jour les cartes
+    fetch('ajax.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log('data = ' + data);
+
+            // Mise à jour des cartes avec les données reçues
+            table.innerHTML += data;
+            listenModifyDeleteBtns();
+        })
 
 }
 
@@ -212,6 +253,38 @@ export function listenModifyDeleteBtns(){
             }
         })
     })
+}
+
+function callCreatePartenaireAjax()
+{
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(document.querySelector('#admin_company .Card-create-form .ModifyForm'));
+    formData.append('context', 'admin_update_partenaires');
+
+    // Envoi de la requête pour créer le partenaire
+    fetch('ajax.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log('data = ' + data);
+
+            // Mise à jour du listing de partenaires
+            callDisplayPartenaireAjax()
+
+            // Suppression du formulaire de création de produit
+            this.parentNode.reset();
+
+            // Ré-afficher le bouton de création de produit
+            createBtn.classList.remove('hidden');
+
+            // Masquer le formulaire
+            formContainer.classList.add('hidden');
+
+            listenCreateButton();
+
+        });
 }
 
 listenModifyDeleteBtns();

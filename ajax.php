@@ -48,6 +48,10 @@ if(isset($_POST['context'])){
 		case PAGE_AJAX_SLIDER_PRODUCTS:
 			echo (new Pdlt\Controller\ProductController)->sliderProduct();
 			break;
+		
+		case PAGE_ADMIN_UPDATE_PARTENAIRES:
+			echo(new \Pdlt\Controller\AdminCompanyController)->updatePartenaire();
+			break;
 	
 	}
 }

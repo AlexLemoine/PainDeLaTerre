@@ -1,4 +1,4 @@
-<table class="Table">
+<table class="Table" data-context="admin_company">
 	<thead class="Table-titles">
 		<tr>
 			<th class="Table-titles-title">Nom</th>

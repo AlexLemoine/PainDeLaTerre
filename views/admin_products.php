@@ -1,5 +1,5 @@
 <?php use Pdlt\Model\Product; ?>
-<main class="MainContent Search layout layout-back" id="main">
+<main class="MainContent Search layout layout-back" id="admin_products">
 	<div class="MainContent-titleWrap">
 		<h1 class="MainContent-title">Gestion des produits</h1>
 	</div>
