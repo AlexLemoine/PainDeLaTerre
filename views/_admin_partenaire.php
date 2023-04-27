@@ -16,7 +16,6 @@
 		<img src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" title="Supprimer" data-action="delete">
 	</td>
 
-
 </tr>
 
 
