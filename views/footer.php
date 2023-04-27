@@ -18,7 +18,7 @@
             <div class="Services-list">
 
                 <a href="#" class="Services-list-title">Nous contacter</a>
-                <a href="#" class="Services-list-title">Nous suivre</a>
+                <p class="Services-list-title">Nous suivre</p>
 
                 <a href="https://www.facebook.com/lepaindelaterre/" target="_blank" class="Services-list-socialNetwork">
                     <img src="assets/img/icon_Facebook.png">

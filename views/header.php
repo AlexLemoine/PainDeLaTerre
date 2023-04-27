@@ -13,11 +13,12 @@
             </div>
 	      
 		<?php //if($_SESSION['user']['role'] == ROLE_ADMIN): ?>
-<!--		  <nav class="Header-menu-links">-->
-<!--		  	<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRODUCTS) ? 'selected' : '' ?><!--"-->
-<!--			   href="?page=--><?php //echo PAGE_ADMIN_PRODUCTS; ?><!--">--><?php //= TITLE_ADMIN_PRODUCTS ?><!--</a>-->
-<!--			<a class="Header-menu-links-link" href="#">Gestion infos entreprise</a>-->
-<!--		  </nav>-->
+		  <nav class="Header-menu-links">
+		  	<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRODUCTS) ? 'selected' : '' ?>"
+			   href="?page=<?php echo PAGE_ADMIN_PRODUCTS; ?>"><?= TITLE_ADMIN_PRODUCTS ?></a>
+			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_COMPANY) ? 'selected' : '' ?>"
+			   href="?page=<?php echo PAGE_ADMIN_COMPANY; ?>"><?= TITLE_ADMIN_COMPANY ?></a>
+		  </nav>
 	      <?php //else: ?>
             <nav class="Header-menu-links">
                 <a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"

@@ -119,11 +119,17 @@
 			<h2 class="Section-partenaires-title">Nos partenaires</h2>
 			<div class="Section-partenaires-list">
 				<p class="Section-partenaires-list-supplier">Moulin Pichard</p>
+				|
 				<p class="Section-partenaires-list-supplier">Moulin Chambelland</p>
+				|
 				<p class="Section-partenaires-list-supplier">La Ferme Pastière</p>
+				|
 				<p class="Section-partenaires-list-supplier">La Fautrière</p>
+				|
 				<p class="Section-partenaires-list-supplier">Le Moulin Saint-Vincent</p>
+				|
 				<p class="Section-partenaires-list-supplier">Patrick Molle</p>
+				|
 				<p class="Section-partenaires-list-supplier">Saunier de Camargue</p>
 			</div>
 			<a class="CTA" href="#">Découvrir nos producteurs</a>

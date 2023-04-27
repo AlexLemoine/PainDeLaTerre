@@ -30,6 +30,8 @@ class AdminProductsController extends AbstractController
 		
 	}
 	
+	
+	
 	/**
 	 * Affiche la vue d'un produit si on clique sur le bouton Cancel
 	 * en mode modification de produit

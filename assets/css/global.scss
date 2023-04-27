@@ -329,7 +329,7 @@ button, .CTA {
                   border: solid 1px $whiteColor;
                   border-radius: 100px;
                   padding: 5px 10px;
-                  margin: 10px;
+                  margin: 15px;
                   text-decoration: none;
                   transition: 0.8s;
                   
@@ -498,6 +498,7 @@ button, .CTA {
       
       &-list {
             &-title {
+                  margin: 0;
                   color: $whiteColor;
                   font-family: $typoTexte;
                   display: block;

@@ -69,7 +69,7 @@ class Product
 					    ProductCategory $category = new ProductCategory(),
 					    ProductFrequency $frequency = new ProductFrequency())
 	{
-		// infos à renseigner par user
+		// infos à renseigner par le user
 		$this->name = $name;
 		$this->description = $description;
 		$this->category = $category;
