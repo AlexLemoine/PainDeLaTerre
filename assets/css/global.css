@@ -715,6 +715,127 @@ form.Card.ModifyForm .Card-title {
   font-size: 1.2em;
 }
 
+@keyframes showMenu {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes displayNav {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes hideELt {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes showELt {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.Partenaire {
+  font-family: "Nunito", sans-serif, regular;
+  font-size: 1em;
+}
+.Partenaire-modify img.Card-modify, .Partenaire-modify img.Card-delete, .Partenaire-delete img.Card-modify, .Partenaire-delete img.Card-delete {
+  position: initial;
+}
+
+.Table-titles-title {
+  font-family: "Rift", sans-serif;
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 750px) {
+  /* Table */
+  .Table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  /* Table head */
+  .Table-titles {
+    display: none;
+  }
+  /* Table body */
+  .Table-body {
+    display: block;
+  }
+  /* Table row */
+  .Table-body-row {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  /* Table cell */
+  .Table-body-row > * {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+  /* Image cell modifier */
+  .Table-body-row > .Partenaire-img {
+    width: auto;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+  /* Header cell modifier */
+  .Table-body-row > .Table-titles-title {
+    font-weight: bold;
+    color: white;
+  }
+  /* Body cell modifier */
+  .Table-body-row > *:not(.Table-titles-title) {
+    font-weight: normal;
+    color: white;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Table {
+    table-layout: auto;
+    width: 100%;
+    padding: 25px;
+  }
+  /* Table row */
+  .Partenaire {
+    border: 1px solid white !important;
+    margin-bottom: 20px !important;
+  }
+  /* Table cell */
+  .Table-body-row > * {
+    padding: 10px;
+  }
+  /* Table body */
+  .Table-body {
+    padding: 20px;
+  }
+  /* Table container */
+  .Table-container {
+    display: flex;
+    justify-content: left;
+  }
+}
 html {
   scroll-behavior: smooth;
 }

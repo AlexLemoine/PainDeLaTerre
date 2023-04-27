@@ -4,7 +4,14 @@
 	</div>
 	
 	<!--  Liste des partenaires -->
-	<div id= "Cards" class="Cards" data-context="<?= PAGE_ADMIN_COMPANY ?>">
+	<h2>Gestion des partenaires</h2>
+
+	<div class="Card-create">
+		<img src="assets/img/addButton.svg" class="Card-create-button" alt="addButton" title="Créer un produit">
+		<p class="Card-create-title">Créer un partenaire</p>
+	</div>
+	
+	<div>
 		<?php include '_admin_partenaires.php'; ?>
 	</div>
 	
