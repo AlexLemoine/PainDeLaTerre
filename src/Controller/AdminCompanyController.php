@@ -120,13 +120,14 @@ class AdminCompanyController extends AbstractController
 			
 		}
 		
-		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->execute($aParams);
 		
 		if (!isset($id)){
 			$id = $oPdo->lastInsertId();
 		}
+		
+		
 		
 		// render pour rafraîchir ma vue (vue partielle texte)
 		return $this->render('_admin_partenaire.php',[

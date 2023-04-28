@@ -89,7 +89,7 @@ function callCreateProductAjax(){
 function callDisplayPartenaireAjax()
 {
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
-    const table = document.querySelector('.Table-body');
+    const table = document.querySelector('.Table');
 
     // Création d'un nouvel objet FormData
     const formData = new FormData();
@@ -257,6 +257,9 @@ export function listenModifyDeleteBtns(){
 
 function callCreatePartenaireAjax()
 {
+    // Récupération de l'élément qui contiendra les cartes à mettre à jour
+    const table = document.querySelector('.Table');
+
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#admin_company .Card-create-form .ModifyForm'));
     formData.append('context', 'admin_update_partenaires');
@@ -270,8 +273,7 @@ function callCreatePartenaireAjax()
         .then(data => {
             console.log('data = ' + data);
 
-            // Mise à jour du listing de partenaires
-            callDisplayPartenaireAjax()
+            table.innerHTML+= data;
 
             // Suppression du formulaire de création de produit
             this.parentNode.reset();

@@ -8,9 +8,8 @@
 			<th class="Table-titles-title">Description</th>
 		</tr>
 	</thead>
-
-
-	<tbody class="Table-body">
+	
+	<tbody class="Table-body" data-context="admin_company">
 
 		<?php foreach ($partenaires as $oPartenaire) : ?>
 		
@@ -19,7 +18,6 @@
 		<?php endforeach; ?>
 
 	</tbody>
-
-
+	
 </table>
 

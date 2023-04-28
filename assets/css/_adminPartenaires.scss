@@ -85,8 +85,9 @@
       
       .Table{
             table-layout: auto;
-            width: 100%;
             padding: 25px;
+            border-collapse: collapse;
+            margin: 30px;
       }
       
       /* Table row */
