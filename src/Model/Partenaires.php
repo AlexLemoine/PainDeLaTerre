@@ -36,6 +36,11 @@ class Partenaires
 	 */
 	private string $picture;
 	
+	/**
+	 * @var string
+	 */
+	private string $site;
+	
 	const DEFAULT_PICTURE_SUPPLIER = 'field.jpg';
 	
 	
@@ -52,6 +57,8 @@ class Partenaires
 		$this->updatedAt = new \DateTime('now');
 		
 	}
+	
+
 
 	/**
 	 * @return int|NULL
@@ -202,6 +209,27 @@ class Partenaires
 		return $this;
 	}
 	
+	/**
+	 * @return string|null
+	 */
+	public function getSite(): string|null
+	{
+		if (!empty($this->site)) {
+			return $this->site;
+		} else {
+			return NULL;
+		}
+	}
+	
+	/**
+	 * @param string $site
+	 * @return Partenaires
+	 */
+	public function setSite(string $site): Partenaires
+	{
+		$this->site = $site;
+		return $this;
+	}
 	
 	
 }

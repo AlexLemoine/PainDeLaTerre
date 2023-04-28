@@ -159,7 +159,6 @@ button, .CTA {
                   height: 0;
                   transition: .3s;
                   
-                  
                   @media screen AND (max-width: 549px) {
                         background-color: rgba(0, 0, 0, .3);
                   }
@@ -173,6 +172,15 @@ button, .CTA {
                         justify-content: space-around;
                         align-items: center;
                         padding: 16px 40px;
+                  }
+      
+      
+                  & .Admin-nav{
+                        @media screen AND (min-width: 550px) {
+                              display: flex;
+                              flex-direction: row;
+                              padding: 5px
+                        }
                   }
                   
                   &-link {
@@ -205,23 +213,31 @@ button, .CTA {
                               padding: 1.5em 0;
                               
                               .Header-menu-links-link {
-                                    &:nth-child(4) {
+                                    &:nth-child(6) {
                                           animation: showMenu .6s forwards;
                                     }
-                                    
-                                    &:nth-child(3) {
+                                    &:nth-child(5) {
                                           animation: showMenu .6s .2s forwards;
                                     }
                                     
-                                    &:nth-child(2) {
+                                    &:nth-child(4) {
                                           animation: showMenu .6s .4s forwards;
                                     }
                                     
-                                    &:nth-child(1) {
+                                    &:nth-child(3) {
                                           animation: showMenu .6s .6s forwards;
+                                    }
+                                    
+                                    &:nth-child(2) {
+                                          animation: showMenu .6s .8s forwards;
+                                    }
+                                    
+                                    &:nth-child(1) {
+                                          animation: showMenu .6s 1s forwards;
                                     }
                               }
                         }
+
                   }
             }
       }

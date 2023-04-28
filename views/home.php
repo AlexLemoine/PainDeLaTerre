@@ -1,12 +1,10 @@
 <main class="MainContent Products layout Home" id="main">
-	
-<!--	<div class="Home-header">-->
-<!--		<img class="Home-header-img" src="assets/img/painsHeader.jpg">-->
-<!--		<p class="Home-header-slogan">Des pains qui ont de la gueule et du goût</p>-->
-<!--	</div>-->
+
+	<div class="Home-header">
+		<p class="Home-header-slogan">Des pains qui ont de la gueule et du goût</p>
+	</div>
 
 	<h1 class="MainContent-title">Qui sommes-nous ?</h1>
-
 
 	<nav class="Home-sections" id="equipe">
 		<a class="Home-sections-title-selected" href="#equipe">Une équipe passionnée</a>
@@ -118,19 +116,14 @@
 
 			<h2 class="Section-partenaires-title">Nos partenaires</h2>
 			<div class="Section-partenaires-list">
-				<p class="Section-partenaires-list-supplier">Moulin Pichard</p>
-				|
-				<p class="Section-partenaires-list-supplier">Moulin Chambelland</p>
-				|
-				<p class="Section-partenaires-list-supplier">La Ferme Pastière</p>
-				|
-				<p class="Section-partenaires-list-supplier">La Fautrière</p>
-				|
-				<p class="Section-partenaires-list-supplier">Le Moulin Saint-Vincent</p>
-				|
-				<p class="Section-partenaires-list-supplier">Patrick Molle</p>
-				|
-				<p class="Section-partenaires-list-supplier">Saunier de Camargue</p>
+				<?php
+				$names = [];
+				foreach ($partenaires as $oPartenaire) {
+					$names[] = '<a target="blank" href="'. (!empty($oPartenaire->getSite()) ? $oPartenaire->getSite() : '#') .'" class="Section-partenaires-list-supplier">'. $oPartenaire->getName() .'</a>';
+				}
+				$names = array_filter($names);
+				echo implode(PHP_EOL . '| ', $names);
+				?>
 			</div>
 			<a class="CTA" href="#">Découvrir nos producteurs</a>
 		</section>

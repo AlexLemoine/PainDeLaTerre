@@ -46,9 +46,9 @@ final class PartenairesRepository extends AbstractRepository
 		$oPdoStatement->bindValue(':id', $iId, \PDO::PARAM_INT);
 		$oPdoStatement->execute();
 		
-		$aDbProduct = $oPdoStatement->fetch();
+		$aDbPartenaire = $oPdoStatement->fetch();
 		
-		return $aDbProduct ? static::hydrate($aDbProduct) : NULL;
+		return $aDbPartenaire ? static::hydrate($aDbPartenaire) : NULL;
 		
 	}
 	
@@ -155,6 +155,10 @@ final class PartenairesRepository extends AbstractRepository
 		if(! empty($aDbPartenaires['picture']))
 		{
 			$oPartenaires->setPicture($aDbPartenaires['picture']);
+		};
+		if(! empty($aDbPartenaires['site']))
+		{
+			$oPartenaires->setSite($aDbPartenaires['site']);
 		};
 		$oPartenaires->setCreatedAt(new \DateTime($aDbPartenaires['created_at']));
 		

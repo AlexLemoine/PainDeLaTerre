@@ -2,6 +2,7 @@
 
 namespace Pdlt\Controller;
 
+use Pdlt\Repository\PartenairesRepository;
 use Pdlt\Repository\ProductRepository;
 
 class DefaultController extends AbstractController
@@ -17,6 +18,7 @@ class DefaultController extends AbstractController
             [
                 'seo_title'=>TITLE_HOME,
 			'products' => ProductRepository::findAll(),
+			'partenaires' => PartenairesRepository::findAll(),
             ]);
     }
 

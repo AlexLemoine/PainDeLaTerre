@@ -495,12 +495,22 @@ form.Card.ModifyForm .Card-title {
   }
 }
 .Home-header {
-  position: relative;
-  max-height: 290px;
+  background-image: url("../img/painsHeader.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 550px) {
+  .Home-header {
+    margin-top: 40px;
+  }
 }
 @media screen and (min-width: 550px) {
   .Home-header {
-    max-height: 370px;
+    min-height: 400px;
   }
 }
 @media screen and (min-width: 750px) {
@@ -510,29 +520,32 @@ form.Card.ModifyForm .Card-title {
     overflow: hidden;
   }
 }
-.Home-header-img {
-  width: 100%;
-  margin-top: 20px;
-  max-width: 750px;
-  position: relative;
-}
-@media screen and (min-width: 550px) {
-  .Home-header-img {
-    margin-top: 0;
+@media screen and (min-width: 1050px) {
+  .Home-header {
+    max-width: 1050px;
+    margin: 95px auto 10px auto;
+    font-size: 1.8em;
   }
 }
 .Home-header-slogan {
   color: rgb(0, 0, 0);
   font-family: "Rift", sans-serif;
   font-weight: bold;
-  font-size: 1.8em;
+  font-size: 2em;
+  margin: 0;
   padding: 10px;
-  position: relative;
-  top: -190px;
 }
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 550px) and (max-width: 1050px) {
   .Home-header-slogan {
-    font-size: 2em;
+    font-size: 2.6em;
+    max-width: 475px;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Home-header-slogan {
+    max-width: 640px;
+    padding: 0;
   }
 }
 .Home-sections {
@@ -585,6 +598,7 @@ form.Card.ModifyForm .Card-title {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  align-content: center;
   padding-bottom: 30px;
 }
 .Home .Section-equipe-title, .Home .Section-gamme-title, .Home .Section-valeurs-title, .Home .Section-partenaires-title {
@@ -713,6 +727,8 @@ form.Card.ModifyForm .Card-title {
   margin: 0;
   padding: 10px;
   font-size: 1.2em;
+  text-decoration: none;
+  color: white;
 }
 
 @keyframes showMenu {
@@ -975,6 +991,13 @@ button:hover, .CTA:hover {
     padding: 16px 40px;
   }
 }
+@media screen and (min-width: 550px) {
+  .Header-menu-links .Admin-nav {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+  }
+}
 .Header-menu-links-link {
   display: block;
   padding: 5px;
@@ -1000,17 +1023,23 @@ button:hover, .CTA:hover {
     animation: displayNav 0.8s both;
     padding: 1.5em 0;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(4) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(6) {
     animation: showMenu 0.6s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(3) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(5) {
     animation: showMenu 0.6s 0.2s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(2) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(4) {
     animation: showMenu 0.6s 0.4s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(1) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(3) {
     animation: showMenu 0.6s 0.6s forwards;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(2) {
+    animation: showMenu 0.6s 0.8s forwards;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(1) {
+    animation: showMenu 0.6s 1s forwards;
   }
 }
 @media screen and (min-width: 550px) {

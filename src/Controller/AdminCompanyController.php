@@ -48,6 +48,7 @@ class AdminCompanyController extends AbstractController
 		    'localisation' => strip_tags($_POST['localisation']),
 		    'supply' => strip_tags($_POST['supply']),
 		    'description' => strip_tags($_POST['description']),
+		    'site' => strip_tags($_POST['site']),
 		];
 		
 		if($_FILES['picture']['error'] === UPLOAD_ERR_OK) {
@@ -74,6 +75,7 @@ class AdminCompanyController extends AbstractController
 		    ':localisation' => $aCriterias['localisation'],
 		    ':supply' => $aCriterias['supply'],
 		    ':description' => $aCriterias['description'],
+		    ':site' => $aCriterias['site'],
 		];
 		
 		// Si l'id existe
@@ -96,6 +98,7 @@ class AdminCompanyController extends AbstractController
 			    p.localisation = :localisation,
 			    p.supply = :supply,
 			    p.description = :description,
+			    p.site = :site,
 			WHERE p.id = :id ;' ;
 		} else {
 			
@@ -108,7 +111,8 @@ class AdminCompanyController extends AbstractController
 				     `picture`,
 				     `localisation`,
 				     `supply`,
-				     `description`)
+				     `description`,
+				     `site`)
 
 				     VALUES
 				     (
@@ -116,7 +120,8 @@ class AdminCompanyController extends AbstractController
 				     :picture,
 				     :localisation,
 				     :supply,
-				    	:description);';
+				    	:description,
+				      :site);';
 			
 		}
 		
