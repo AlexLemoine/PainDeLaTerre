@@ -31,6 +31,20 @@
     opacity: 100%;
   }
 }
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
+  }
+}
 @keyframes showMenu {
   0% {
     transform: translateY(-250px);
@@ -62,6 +76,20 @@
   }
   100% {
     opacity: 100%;
+  }
+}
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
   }
 }
 .layout-back.Header .Header-menu-links {
@@ -360,6 +388,20 @@
     opacity: 100%;
   }
 }
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
+  }
+}
 form.Card.ModifyForm {
   margin: 0;
   padding: 0;
@@ -481,6 +523,20 @@ form.Card.ModifyForm .Card-title {
     opacity: 100%;
   }
 }
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
+  }
+}
 @media screen and (min-width: 750px) {
   .Home .CTA {
     grid-column: 1/-1;
@@ -534,6 +590,7 @@ form.Card.ModifyForm .Card-title {
   font-size: 2em;
   margin: 0;
   padding: 10px;
+  position: relative;
 }
 @media screen and (min-width: 550px) and (max-width: 1050px) {
   .Home-header-slogan {
@@ -729,6 +786,25 @@ form.Card.ModifyForm .Card-title {
   font-size: 1.2em;
   text-decoration: none;
   color: white;
+  position: relative;
+}
+.Home .Section-partenaires-list-supplier::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+.Home .Section-partenaires-list-supplier:hover {
+  font-size: 1.4em;
+}
+.Home .Section-partenaires-list-supplier:hover::before {
+  animation: underline 0.8s ease-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes showMenu {
@@ -762,6 +838,20 @@ form.Card.ModifyForm .Card-title {
   }
   100% {
     opacity: 100%;
+  }
+}
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
   }
 }
 .Partenaire {

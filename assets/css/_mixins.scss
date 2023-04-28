@@ -52,8 +52,36 @@ $boxShadow : 0 4px 8px -1px #00000075;
       }
 }
 
+@keyframes underline {
+      0% {
+            width: 0%;
+            left: 100%;
+      }
+      50% {
+            width: 100%;
+            left: 50%;
+      }
+      100% {
+            width: 100%;
+            left: 50%;
+      }
+}
 
 
+//@keyframes arrow {
+//      0% {
+//            bottom: -60px;
+//            opacity: 1;
+//      }
+//      50% {
+//            bottom: -50px;
+//            opacity: 0.5;
+//      }
+//      100% {
+//            bottom: -60px;
+//            opacity: 1;
+//      }
+//}
       
 
 
