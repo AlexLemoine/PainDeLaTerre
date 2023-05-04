@@ -179,7 +179,8 @@ button, .CTA {
                         @media screen AND (min-width: 550px) {
                               display: flex;
                               flex-direction: row;
-                              padding: 5px
+                              padding: 5px;
+                              align-items: center;
                         }
                   }
                   
@@ -214,7 +215,7 @@ button, .CTA {
                               
                               .Header-menu-links-link {
                                     &:nth-child(6) {
-                                          animation: showMenu .6s forwards;
+                                          animation: showMenu .6s 0s forwards;
                                     }
                                     &:nth-child(5) {
                                           animation: showMenu .6s .2s forwards;

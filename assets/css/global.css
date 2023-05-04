@@ -1086,6 +1086,7 @@ button:hover, .CTA:hover {
     display: flex;
     flex-direction: row;
     padding: 5px;
+    align-items: center;
   }
 }
 .Header-menu-links-link {
@@ -1114,7 +1115,7 @@ button:hover, .CTA:hover {
     padding: 1.5em 0;
   }
   .Header-menu-links.opened .Header-menu-links-link:nth-child(6) {
-    animation: showMenu 0.6s forwards;
+    animation: showMenu 0.6s 0s forwards;
   }
   .Header-menu-links.opened .Header-menu-links-link:nth-child(5) {
     animation: showMenu 0.6s 0.2s forwards;
