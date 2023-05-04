@@ -65,3 +65,5 @@
 	</div>
 
 </main>
+
+<script type="module" src="assets/js/admin_modify_products.js"></script>

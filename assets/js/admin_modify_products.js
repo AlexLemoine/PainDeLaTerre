@@ -1,5 +1,4 @@
 import {toggleClass} from "./functions.js";
-import {callDisplayProductAjax} from "./admin_ajax.js";
 
 // Récupération de la vue
 const main = document.querySelector('main');
@@ -29,7 +28,7 @@ function onClickCreateBtn () {
     })
 }
 
-export function listenCreateButton(){
+function listenCreateButton(){
 
     if(createBtn){
         createBtn.addEventListener('click', onClickCreateBtn);
@@ -40,14 +39,7 @@ export function listenCreateButton(){
 
     console.log(view);
 
-    // Si la vue = admin_company
-    if(view === 'admin_products'){
-        targetSaveBtn.addEventListener('click',callCreateProductAjax);
-    }
-
-    if (view === 'admin_company'){
-        targetSaveBtn.addEventListener('click',callCreatePartenaireAjax);
-    }
+    targetSaveBtn.addEventListener('click',callCreateProductAjax);
 
 }
 
@@ -85,32 +77,6 @@ function callCreateProductAjax(){
         });
 
 }
-
-function callDisplayPartenaireAjax()
-{
-    // Récupération de l'élément qui contiendra les cartes à mettre à jour
-    const table = document.querySelector('.Table');
-
-    // Création d'un nouvel objet FormData
-    const formData = new FormData();
-    formData.append('context', table.getAttribute('data-context'));
-
-    // Envoi de la requête pour mettre à jour les cartes
-    fetch('ajax.php', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.text())
-        .then(data => {
-            console.log('data = ' + data);
-
-            // Mise à jour des cartes avec les données reçues
-            table.innerHTML += data;
-            listenModifyDeleteBtns();
-        })
-
-}
-
 
 function listenCancelSaveBtns(){
     const cancelBtn = document.querySelector('.Cards .Card-cancel');
@@ -206,7 +172,7 @@ function callModifyProductAjax(card){
  * Ajout classe modify ou delete sur la Card cliquée
  * Appel Ajax pour modification du produit
  */
-export function listenModifyDeleteBtns(){
+function listenModifyDeleteBtns(){
     const modifyBtn = document.querySelectorAll('.Card-modify');
     const deleteBtn = document.querySelectorAll('.Card-delete');
 
@@ -255,16 +221,19 @@ export function listenModifyDeleteBtns(){
     })
 }
 
-function callCreatePartenaireAjax()
-{
+
+function callDisplayProductAjax(){
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
-    const table = document.querySelector('.Table');
+    const cards = document.querySelector('#Cards');
+    console.log('cards = ' + cards);
 
     // Création d'un nouvel objet FormData
-    const formData = new FormData(document.querySelector('#admin_company .Card-create-form .ModifyForm'));
-    formData.append('context', 'admin_update_partenaires');
+    const formData = new FormData(document.querySelector('#form'));
+    formData.append('context', cards.getAttribute('data-context'));
 
-    // Envoi de la requête pour créer le partenaire
+    console.log('formData = ' + formData);
+
+    // Envoi de la requête pour mettre à jour les cartes
     fetch('ajax.php', {
         method: 'POST',
         body: formData
@@ -273,21 +242,28 @@ function callCreatePartenaireAjax()
         .then(data => {
             console.log('data = ' + data);
 
-            table.innerHTML+= data;
-
-            // Suppression du formulaire de création de produit
-            this.parentNode.reset();
-
-            // Ré-afficher le bouton de création de produit
-            createBtn.classList.remove('hidden');
-
-            // Masquer le formulaire
-            formContainer.classList.add('hidden');
-
-            listenCreateButton();
-
-        });
+            // Mise à jour des cartes avec les données reçues
+            cards.innerHTML = data;
+            listenModifyDeleteBtns();
+        })
 }
+
+// Récupération des éléments du formulaire
+const form = document.querySelector('.layout-back .Search .Search-form');
+console.log('form = ' + form);
+
+if(form){
+
+    // Ajout d'un écouteur d'événements pour détecter les changements dans le formulaire
+    form.addEventListener('change', (e) => {
+
+        // Empêcher le comportement par défaut du formulaire
+        e.preventDefault();
+
+        callDisplayProductAjax();
+    });
+}
+
 
 listenModifyDeleteBtns();
 if(createBtn){

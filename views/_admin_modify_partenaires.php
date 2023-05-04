@@ -37,5 +37,11 @@
 		<label for="description"></label>
 		<textarea id="description" name="description"><?= !empty($partenaire) ? $partenaire->getDescription() : ''; ?></textarea>
 	</section>
+
+	<section class="Card-desc">
+		<h3 class="Card-desc-title">Site internet</h3>
+		<label for="site"></label>
+		<textarea id="site" name="site"><?= !empty($partenaire) ? $partenaire->getSite() : ''; ?></textarea>
+	</section>
 	
 </form>

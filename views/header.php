@@ -14,14 +14,15 @@
 
 
 		<nav class="Header-menu-links">
-			<div class="Admin-nav">
-				<?php //if($_SESSION['user']['role'] == ROLE_ADMIN): ?>
-				<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRODUCTS) ? 'selected' : '' ?>"
-				   href="?page=<?php echo PAGE_ADMIN_PRODUCTS; ?>"><?= TITLE_ADMIN_PRODUCTS ?></a>
-				<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_COMPANY) ? 'selected' : '' ?>"
-				   href="?page=<?php echo PAGE_ADMIN_COMPANY; ?>"><?= TITLE_ADMIN_COMPANY ?></a>
-				<?php //else: ?>
-			</div>
+			
+			<?php //if($_SESSION['user']['role'] == ROLE_ADMIN): ?>
+<!--				<div class="Admin-nav">-->
+<!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRODUCTS) ? 'selected' : '' ?><!--"-->
+<!--					   href="?page=--><?php //echo PAGE_ADMIN_PRODUCTS; ?><!--">--><?php //= TITLE_ADMIN_PRODUCTS ?><!--</a>-->
+<!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_COMPANY) ? 'selected' : '' ?><!--"-->
+<!--					   href="?page=--><?php //echo PAGE_ADMIN_COMPANY; ?><!--">--><?php //= TITLE_ADMIN_COMPANY ?><!--</a>-->
+<!--				</div>-->
+			<?php //else: ?>
 
 			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
 			   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>

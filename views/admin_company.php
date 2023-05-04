@@ -3,7 +3,6 @@
 		<h1 class="MainContent-title">Gestion entreprise</h1>
 	</div>
 	
-	
 	<h2>Gestion des partenaires</h2>
 
 	<!-- Bouton de création de partenaire -->
@@ -18,12 +17,11 @@
 		<?php include '_admin_modify_partenaires.php'; ?>
 	</div>
 	
-	
-	
-	
 	<!--  Liste des partenaires -->
 	<div>
 		<?php include '_admin_partenaires.php'; ?>
 	</div>
 	
 </main>
+
+<script type="module" src="assets/js/admin_modify_company.js"></script>

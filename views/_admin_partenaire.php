@@ -9,6 +9,7 @@
 	<td class="Partenaire-localisation"><?= $oPartenaire->getLocalisation(); ?></td>
 	<td class="Partenaire-supply"><?= $oPartenaire->getSupply(); ?></td>
 	<td class="Partenaire-desc"><?= $oPartenaire->getDescription(); ?></td>
+	<td class="Partenaire-site"><?= $oPartenaire->getSite(); ?></td>
 	<td class="Partenaire-modify">
 		<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
 	</td>

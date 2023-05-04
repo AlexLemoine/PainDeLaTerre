@@ -62,15 +62,12 @@ include 'footer.php';
 <?php echo $oDebugbarRenderer->render() ?>
 
 
+<!--Ajout des script JS généraux-->
 <script type="module" src="assets/js/main.js"></script>
 <script type="module" src="assets/js/sliderProducts.js"></script>
 <script type="module" src="assets/js/products.js"></script>
 <script type="module" src="assets/js/functions.js"></script>
 <script type="module" src="assets/js/ajax.js"></script>
-<script type="module" src="assets/js/admin_ajax.js"></script>
-<script type="module" src="assets/js/admin_modify_company.js"></script>
-<script type="module" src="assets/js/admin_modify_products.js"></script>
-
 
 
 <script src="https://kit.fontawesome.com/f150580969.js" crossorigin="anonymous"></script>
