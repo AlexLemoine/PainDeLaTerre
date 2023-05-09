@@ -3,8 +3,8 @@
 
 .layout-back.Header{
       .Header-menu-links{
-                  justify-content: space-around;
-            }
+            justify-content: space-around;
+      }
 }
 
 .Search{
@@ -33,25 +33,25 @@
                   justify-content: center;
                   border: solid $firstDarkColor;
                   max-width: 300px;
-
+                  
                   @media screen AND (min-width:550px) {
                         text-align: left;
                         padding: 15px;
                         max-width: 360px;
                   }
-      
+                  
                   @media screen AND (min-width:750px) {
                         position: relative;
                         max-width: 700px;
                   }
-      
+                  
                   & .Card-create-title{
                         width: 100%;
                         text-align: center;
                   }
-      
+                  
                   & .ModifyForm{
-      
+                        
                         @media screen AND (min-width:750px) {
                               width: 100%;
                         }
@@ -61,18 +61,18 @@
                                     display: flex;
                                     flex-direction: row;
                                     justify-content: space-between;
-      
+                                    
                                     textarea{
                                           width: 300px;
                                     }
                               }
                               
-
+                              
                         }
-
-            
+                        
+                        
                         & .Card-Header{
-      
+                              
                               margin: 0;
                               padding-top: 10px;
                               
@@ -148,14 +148,14 @@
             border: solid 2px;
             height: auto;
             width: 320px;
-      
+            
             @media screen AND (min-width:550px) {
                   width: 360px;
                   text-align: left;
                   padding: 15px;
             }
             
-           
+            
             
             &-Header{
                   
@@ -194,21 +194,21 @@
             &-delete, &-save{
                   position: relative;
                   top: 10px;
-      
+                  
                   @media screen AND (min-width:550px) {
                         position: absolute;
                         top: 80px;
                         right: 0;
                   }
             }
-      
+            
             &-title{
                   margin: 5px;
                   position: relative;
                   top: 25px;
                   font-size: 1.6em;
                   padding: 10px;
-      
+                  
                   @media screen AND (min-width:550px) {
                         width: 100%;
                         padding: 5px;
@@ -217,8 +217,8 @@
             
             &-imgBox{
                   padding: 10px 0;
-
-      
+                  
+                  
                   @media screen AND (min-width:550px) {
                         padding: 5px;
                   }
@@ -227,7 +227,7 @@
                         padding: 5px;
                         height: 100px;
                         width: 300px;
-      
+                        
                         @media screen AND (min-width:550px) {
                               padding: 5px;
                               width: 85%;
@@ -243,14 +243,14 @@
                   &-text{
                         text-align: center;
                   }
-
+                  
             }
             
             &-desc{
                   text-shadow: none;
                   position: relative;
                   top: 0;
-
+                  
             }
             
             &-recipe, &-desc {
@@ -264,7 +264,10 @@
             &-recipe,
             &-desc,
             &-status,
-            &-frequency
+            &-frequency,
+            &-localisation,
+            &-supply,
+            &-site
             {
                   display: block;
                   padding: 5px 0;
@@ -278,19 +281,20 @@
                   }
                   
                   &-title, &-text{
-                      margin: 5px;
+                        margin: 5px;
+                        width: 100%;
                   }
                   
                   &-text{
                         font-family: $typoTexte;
                   }
             }
-
+            
       }
 }
 
 .Filters{
-
+      
       &-magic,
       &-category,
       &-status,
@@ -311,5 +315,3 @@
             font-size: 1em;
       }
 }
-
-

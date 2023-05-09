@@ -145,5 +145,79 @@ class AdminCompanyController extends AbstractController
 		
 	}
 	
+	/**
+	 * Fonction appelée en Ajax
+	 * Permet de modifier un partenaire existant
+	 * @return string
+	 */
+	public function modifyPartenaire(): string
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Récupération de l'id de la card sélectionnée
+		if(isset($_POST['id'])) {
+			$id = $_POST['id'];
+			$partenaire = PartenairesRepository::find($id);
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if (!$partenaire instanceof Partenaires) {
+				$this->redirectAndDie();
+			}
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_modify_partenaires.php', [
+			    'partenaire' => $partenaire,
+			],
+			    true
+			);
+		}
+		
+		// Renvoi de la vue partielle de la card en mode formulaire
+		return $this->render('admin_partenaires.php',[
+		    'partenaires' => PartenairesRepository::findAll(),
+		],
+		    true
+		);
+		
+	}
+	
+	/**
+	 * Affiche la vue d'un partenaire si on clique sur le bouton Cancel
+	 * En mode modification de partenaire
+	 * @return string
+	 */
+	public function showPartenaire(): string
+	{
+		
+		// TODO Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Récupération de l'id de la card sélectionnée
+		if(isset($_POST['id'])) {
+			$id = $_POST['id'];
+			$partenaire = PartenairesRepository::find($id);
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if (!$partenaire instanceof Partenaires) {
+				$this->redirectAndDie();
+			}
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_partenaire.php',[
+			    'oPartenaire' => $partenaire,
+			],
+			    true
+			);
+		} else {
+			return $this->render('_admin_partenaire.php',[
+			    'oPartenaire' => new Partenaires(),
+			],
+			    true
+			);
+		}
+		
+	}
+	
 	
 }

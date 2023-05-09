@@ -19,6 +19,13 @@ form.Card.ModifyForm {
                   font-family: $typoTitre;
                   text-shadow: none;
             }
+            
+            &#localisation{
+                  font-family: $typoTexte;
+                  text-shadow: none;
+                  font-size: 0.8em;
+                  font-weight: initial;
+            }
       }
       
       input.Card-title{

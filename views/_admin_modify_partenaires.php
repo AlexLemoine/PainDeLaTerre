@@ -20,14 +20,14 @@
 		<input type="file" id="picture" value="<?= !empty($partenaire) ? $partenaire->getPicture() : ''; ?>" name="picture" accept="image/*">
 	</div>
 		
-	<section class="Card-desc">
-		<h3 class="Card-desc-title">Localisation</h3>
+	<section class="Card-localisation">
+		<h3 class="Card-localisation-title">Localisation</h3>
 		<label for="localisation"></label>
 		<input class="Card-title" type="text" id="localisation" name="localisation" value="<?= !empty($partenaire) ? $partenaire->getLocalisation() : ''; ?>">
 	</section>
 	
-	<section class="Card-desc">
-		<h3 class="Card-desc-title">Type de fourniture</h3>
+	<section class="Card-supply">
+		<h3 class="Card-supply-title">Type de fourniture</h3>
 		<label for="supply"></label>
 		<textarea id="supply" name="supply"><?= !empty($partenaire) ? $partenaire->getSupply() : ''; ?></textarea>
 	</section>
@@ -38,8 +38,8 @@
 		<textarea id="description" name="description"><?= !empty($partenaire) ? $partenaire->getDescription() : ''; ?></textarea>
 	</section>
 
-	<section class="Card-desc">
-		<h3 class="Card-desc-title">Site internet</h3>
+	<section class="Card-site">
+		<h3 class="Card-site-title">Site internet</h3>
 		<label for="site"></label>
 		<textarea id="site" name="site"><?= !empty($partenaire) ? $partenaire->getSite() : ''; ?></textarea>
 	</section>

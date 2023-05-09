@@ -52,6 +52,14 @@ if(isset($_POST['context'])){
 		case PAGE_ADMIN_UPDATE_PARTENAIRES:
 			echo(new \Pdlt\Controller\AdminCompanyController)->updatePartenaire();
 			break;
+			
+		case PAGE_ADMIN_MODIFY_PARTENAIRES:
+			echo(new \Pdlt\Controller\AdminCompanyController)->modifyPartenaire();
+			break;
+			
+		case PAGE_ADMIN_CANCEL_PARTENAIRE:
+			echo(new \Pdlt\Controller\AdminCompanyController)->showPartenaire();
+			break;
 	
 	}
 }

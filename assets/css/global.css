@@ -319,12 +319,12 @@
     transform: translateX(0%);
   }
 }
-.Search .Card-category, .Search .Card-recipe, .Search .Card-desc, .Search .Card-status, .Search .Card-frequency {
+.Search .Card-category, .Search .Card-recipe, .Search .Card-desc, .Search .Card-status, .Search .Card-frequency, .Search .Card-localisation, .Search .Card-supply, .Search .Card-site {
   display: block;
   padding: 5px 0;
 }
 @media screen and (min-width: 550px) {
-  .Search .Card-category, .Search .Card-recipe, .Search .Card-desc, .Search .Card-status, .Search .Card-frequency {
+  .Search .Card-category, .Search .Card-recipe, .Search .Card-desc, .Search .Card-status, .Search .Card-frequency, .Search .Card-localisation, .Search .Card-supply, .Search .Card-site {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -332,10 +332,11 @@
     align-items: center;
   }
 }
-.Search .Card-category-title, .Search .Card-category-text, .Search .Card-recipe-title, .Search .Card-recipe-text, .Search .Card-desc-title, .Search .Card-desc-text, .Search .Card-status-title, .Search .Card-status-text, .Search .Card-frequency-title, .Search .Card-frequency-text {
+.Search .Card-category-title, .Search .Card-category-text, .Search .Card-recipe-title, .Search .Card-recipe-text, .Search .Card-desc-title, .Search .Card-desc-text, .Search .Card-status-title, .Search .Card-status-text, .Search .Card-frequency-title, .Search .Card-frequency-text, .Search .Card-localisation-title, .Search .Card-localisation-text, .Search .Card-supply-title, .Search .Card-supply-text, .Search .Card-site-title, .Search .Card-site-text {
   margin: 5px;
+  width: 100%;
 }
-.Search .Card-category-text, .Search .Card-recipe-text, .Search .Card-desc-text, .Search .Card-status-text, .Search .Card-frequency-text {
+.Search .Card-category-text, .Search .Card-recipe-text, .Search .Card-desc-text, .Search .Card-status-text, .Search .Card-frequency-text, .Search .Card-localisation-text, .Search .Card-supply-text, .Search .Card-site-text {
   font-family: "Nunito", sans-serif, regular;
 }
 
@@ -420,6 +421,12 @@ form.Card.ModifyForm input#name {
   height: 20px;
   font-family: "Rift", sans-serif;
   text-shadow: none;
+}
+form.Card.ModifyForm input#localisation {
+  font-family: "Nunito", sans-serif, regular;
+  text-shadow: none;
+  font-size: 0.8em;
+  font-weight: initial;
 }
 form.Card.ModifyForm input.Card-title {
   background-color: white;

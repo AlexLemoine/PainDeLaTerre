@@ -18,10 +18,10 @@
 	</div>
 	
 	<!--  Liste des partenaires -->
-	<div>
+	<div id= "Cards" class="Cards" data-context="<?= PAGE_ADMIN_COMPANY ?>">
 		<?php include '_admin_partenaires.php'; ?>
 	</div>
-	
+
 </main>
 
 <script type="module" src="assets/js/admin_modify_company.js"></script>
