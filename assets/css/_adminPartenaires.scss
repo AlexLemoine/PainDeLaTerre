@@ -11,108 +11,31 @@
       }
 }
 
-.Table{
-      &-titles{
+#admin_company{
+      
+      .Card{
             &-title{
-                  font-family: $typoTitre;
-                  font-size: 1.2em;
+                  margin: 0;
+                  width: fit-content;
+                  height: auto;
+            }
+            
+
+      }
+      
+      .ModifyForm{
+            
+            & .Card{
+                  
+                  &-Header{
+                        @media screen AND (min-width: 550px) {
+                              display: flex;
+                              flex-direction: column;
+                              flex-wrap: wrap;
+                              align-items: flex-start;
+                        }
+            
+                  }
             }
       }
 }
-
-
-@media screen and (max-width: 750px) {
-      
-      /* Table */
-      .Table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 16px;
-            line-height: 1.4;
-      
-      }
-      
-      /* Table head */
-      .Table-titles {
-            display: none;
-      }
-      
-      /* Table body */
-      .Table-body {
-            display: block;
-      }
-      
-      /* Table row */
-      .Table-body-row {
-            display: block;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-      }
-      
-      /* Table cell */
-      .Table-body-row > * {
-            display: inline-block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            padding-right: 10px;
-            padding-left: 10px;
-            box-sizing: border-box;
-      }
-      
-      /* Image cell modifier */
-      .Table-body-row > .Partenaire-img {
-            width: auto;
-            margin-right: 10px;
-            vertical-align: top;
-      }
-      
-      /* Header cell modifier */
-      .Table-body-row > .Table-titles-title {
-            font-weight: bold;
-            color: $whiteColor;
-      }
-      
-      /* Body cell modifier */
-      .Table-body-row > *:not(.Table-titles-title) {
-            font-weight: normal;
-            color: $whiteColor;
-      }
-}
-
-@media screen and (min-width: 750px) {
-      
-      .Table{
-            table-layout: auto;
-            padding: 25px;
-            border-collapse: collapse;
-            margin: 30px;
-      }
-      
-      /* Table row */
-      .Partenaire {
-            border: 1px solid $whiteColor !important;
-            margin-bottom: 20px !important;
-      }
-      
-      /* Table cell */
-      .Table-body-row > * {
-            padding: 10px;
-      }
-      
-      /* Table body */
-      .Table-body {
-            padding: 20px;
-      }
-      
-      /* Table container */
-      .Table-container {
-            display: flex;
-            justify-content: left;
-      }
-}
-
-
-
-

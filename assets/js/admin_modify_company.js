@@ -88,7 +88,7 @@ function callModifyPartenaireAjax(card){
         .then(data => {
             console.log(data);
             card.innerHTML = data;
-            // listenCancelSaveBtns();
+            listenCancelSaveBtns()
         })
 }
 
@@ -123,12 +123,16 @@ function listenModifyDeleteBtns() {
 
 
 function listenCancelSaveBtns(){
-    const cancelBtn = document.querySelector('.Card-cancel');
+    const cancelBtn = document.querySelector('.Card.modify .Card-cancel');
     const saveBtn = document.querySelector('.Cards .Card-save');
 
-    console.log(cancelBtn);
+    console.log('cancel = ' + cancelBtn);
 
     cancelBtn.addEventListener('click', function (){
+        //
+        // e.preventDefault();
+        console.log("Cancel button clicked");
+
         // Récupération de l'élément qui contiendra les cartes à mettre à jour
         let targetCard = document.querySelector('.Card.modify');
         console.log(targetCard);

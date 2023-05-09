@@ -3,12 +3,6 @@
 	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" title="Annuler" data-action="cancel">
 	<img src="assets/img/saveButton.svg" class="Card-save" alt="save button" title="Enregistrer les modifications" data-action="save">
 	
-	<div class="Card-Header">
-		<h3 class="Card-Header-title">Nom</h3>
-		<label for="name"></label>
-		<input class="Card-title" type="text" id="name" name="name" value="<?= !empty($partenaire) ? $partenaire->getName() : ''; ?>">
-	</div>
-	
 	<div>
 		<label for="picture"></label>
 		<figure class="Card-imgBox">
@@ -18,6 +12,12 @@
 			<?php endif; ?>
 		</figure>
 		<input type="file" id="picture" value="<?= !empty($partenaire) ? $partenaire->getPicture() : ''; ?>" name="picture" accept="image/*">
+	</div>
+
+	<div class="Card-Header">
+		<h3 class="Card-Header-title">Nom</h3>
+		<label for="name"></label>
+		<input class="Card-title" type="text" id="name" name="name" value="<?= !empty($partenaire) ? $partenaire->getName() : ''; ?>">
 	</div>
 		
 	<section class="Card-localisation">
