@@ -25,6 +25,13 @@
       
       .ModifyForm{
             
+            @media screen AND (min-width: 750px) {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  flex-wrap: wrap;
+            }
+            
             & .Card{
                   
                   &-Header{
@@ -36,6 +43,22 @@
                         }
             
                   }
+                  
+                  &-desc{
+                        justify-content: left;
+                  }
+                  
+                  &-Header,
+                  &-localisation,
+                  &-supply,
+                  &-desc,
+                  &-site{
+                        @media screen AND (min-width: 750px) {
+                              flex-direction: column;
+                              align-items: center;
+                        }
+                  }
+                  
             }
       }
 }

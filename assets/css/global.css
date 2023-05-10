@@ -874,12 +874,29 @@ form.Card.ModifyForm .Card-title {
   width: fit-content;
   height: auto;
 }
+@media screen and (min-width: 750px) {
+  #admin_company .ModifyForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
 @media screen and (min-width: 550px) {
   #admin_company .ModifyForm .Card-Header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
+  }
+}
+#admin_company .ModifyForm .Card-desc {
+  justify-content: left;
+}
+@media screen and (min-width: 750px) {
+  #admin_company .ModifyForm .Card-Header, #admin_company .ModifyForm .Card-localisation, #admin_company .ModifyForm .Card-supply, #admin_company .ModifyForm .Card-desc, #admin_company .ModifyForm .Card-site {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

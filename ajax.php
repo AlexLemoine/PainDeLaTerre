@@ -60,6 +60,10 @@ if(isset($_POST['context'])){
 		case PAGE_ADMIN_CANCEL_PARTENAIRE:
 			echo(new \Pdlt\Controller\AdminCompanyController)->showPartenaire();
 			break;
+			
+		case ADMIN_DELETE_PARTENAIRE:
+			echo(new \Pdlt\Controller\AdminCompanyController)->deletePartenaire();
+			break;
 	
 	}
 }

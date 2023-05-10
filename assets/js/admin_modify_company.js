@@ -98,10 +98,13 @@ function listenModifyDeleteBtns() {
     const modifyBtn = document.querySelectorAll('.Card-modify');
     const deleteBtn = document.querySelectorAll('.Card-delete');
 
-    // Partie modify
+    // MODIFIER LES INFOS DU PARTENAIRE
     modifyBtn.forEach(elt=> {
         elt.addEventListener('click', function (){
+
+
             let targetCard = this.parentNode;
+            targetCard.setAttribute('data-form','modifying');
             console.log(targetCard);
 
             // Ne permettre qu'une modification de card à la fois
@@ -110,13 +113,43 @@ function listenModifyDeleteBtns() {
                 toggleClass(targetCard,'modify','unmodified');
                 callModifyPartenaireAjax(targetCard);
                 listenCancelSaveBtns();
+                picturePreview();
             }
 
         })
     })
 
-    // TODO
-    // Partie delete
+
+    // SUPPRIMER UN PARTENAIRE
+    deleteBtn.forEach(elt=> {
+        elt.addEventListener('click', function (){
+            let targetCard = this.parentNode;
+            console.log(targetCard);
+
+            let isToDelete = confirm('Souhaitez-vous supprimer ce partenaire ?');
+            if(isToDelete === true) {
+
+                // Création d'un nouvel objet FormData
+                const formData = new FormData();
+                formData.append('isToDelete','yes');
+                formData.append('context', 'admin_delete_partenaire');
+                formData.append('id',targetCard.getAttribute('data-id'));
+
+                // envoi requête pour maj card
+                fetch('ajax.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(data);
+                        targetCard.remove();
+                    })
+            }
+        })
+    })
+
+
 
 }
 
@@ -128,6 +161,7 @@ function listenCancelSaveBtns(){
 
     console.log('cancel = ' + cancelBtn);
 
+    // ANNULER LES MODIFICATIONS
     cancelBtn.addEventListener('click', function (){
         //
         // e.preventDefault();
@@ -162,11 +196,52 @@ function listenCancelSaveBtns(){
             })
     })
 
+    // SAUVEGARDER LES MODIFICATIONS
+    saveBtn.addEventListener('click',function (event){
+        let targetCard = document.querySelector('.Card.modify');
+        toggleClass(targetCard,'save','unmodified');
 
-    // TODO partie saveBtn
+        event.preventDefault();
 
+        // Création d'un nouvel objet FormData
+        const formData = new FormData(document.querySelector('.Card.modify .ModifyForm'));
+        formData.append('context','admin_update_partenaires');
+        formData.append('id',targetCard.getAttribute('data-id'));
+
+        console.log('formData = ' + formData);
+
+        // Envoi de la requête pour mettre à jour les cartes
+        fetch('ajax.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log('data = ' + data);
+
+                // Mise à jour des cartes avec les données reçues
+                targetCard.innerHTML = data;
+                toggleClass(targetCard,'modify','unmodified');
+
+                // Remettre en place les écouteurs sur modify et delete buttons
+                listenModifyDeleteBtns();
+            })
+    })
 }
 
+
+function picturePreview(){
+    const fileInput = document.querySelector('.ModifyForm[data-form="modifying"] #picture');
+    const image = document.querySelector('.Card.modify[data-form="modifying"] .Card-imgBox-img');
+
+    console.log('picture here');
+
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const url = URL.createObjectURL(file);
+        image.src = url;
+    });
+}
 
 
 listenModifyDeleteBtns();

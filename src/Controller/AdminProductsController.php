@@ -293,7 +293,7 @@ class AdminProductsController extends AbstractController
 			}
 			
 			$sQuery = 'DELETE FROM '. ProductRepository::TABLE .'
-       	WHERE id = :id;';
+       				WHERE id = :id;';
 			
 			
 			$oPdoStatement = $oPdo->prepare($sQuery);

@@ -98,7 +98,7 @@ class AdminCompanyController extends AbstractController
 			    p.localisation = :localisation,
 			    p.supply = :supply,
 			    p.description = :description,
-			    p.site = :site,
+			    p.site = :site
 			WHERE p.id = :id ;' ;
 		} else {
 			
@@ -219,5 +219,42 @@ class AdminCompanyController extends AbstractController
 		
 	}
 	
+	public function deletePartenaire()
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		// Seulement si isToDelete
+		if($_POST['isToDelete'] === 'yes'){
+			
+			// Récupération de l'id de la card sélectionnée
+			$id = $_POST['id'];
+			$partenaire =PartenairesRepository::find($id);
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if(!$partenaire instanceof Partenaires){
+				$this->redirectAndDie();
+			}
+			
+			$sQuery = 'DELETE FROM '. PartenairesRepository::TABLE .'
+       				WHERE id = :id;';
+			
+			$oPdoStatement = $oPdo->prepare($sQuery);
+			$oPdoStatement->bindValue(':id', $id, \PDO::PARAM_INT);
+			$oPdoStatement->execute();
+			
+		}
+		
+		// render (vue partielle texte)
+		return $this->render('_admin_partenaires.php',[
+		    'partenaires' => PartenairesRepository::findAll(),
+		],
+		    true
+		);
+		
+	}
 	
 }
