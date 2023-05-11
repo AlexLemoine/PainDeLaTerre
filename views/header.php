@@ -19,8 +19,8 @@
 <!--				<div class="Admin-nav">-->
 <!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRODUCTS) ? 'selected' : '' ?><!--"-->
 <!--					   href="?page=--><?php //echo PAGE_ADMIN_PRODUCTS; ?><!--">--><?php //= TITLE_ADMIN_PRODUCTS ?><!--</a>-->
-<!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_COMPANY) ? 'selected' : '' ?><!--"-->
-<!--					   href="?page=--><?php //echo PAGE_ADMIN_COMPANY; ?><!--">--><?php //= TITLE_ADMIN_COMPANY ?><!--</a>-->
+<!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PARTENAIRES) ? 'selected' : '' ?><!--"-->
+<!--					   href="?page=--><?php //echo PAGE_ADMIN_PARTENAIRES; ?><!--">--><?php //= TITLE_ADMIN_PARTENAIRES ?><!--</a>-->
 <!--				</div>-->
 			<?php //else: ?>
 

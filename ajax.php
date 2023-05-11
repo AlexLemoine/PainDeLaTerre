@@ -50,20 +50,22 @@ if(isset($_POST['context'])){
 			break;
 		
 		case PAGE_ADMIN_UPDATE_PARTENAIRES:
-			echo(new \Pdlt\Controller\AdminCompanyController)->updatePartenaire();
+			echo(new Pdlt\Controller\AdminPartenairesController)->updatePartenaire();
 			break;
 			
 		case PAGE_ADMIN_MODIFY_PARTENAIRES:
-			echo(new \Pdlt\Controller\AdminCompanyController)->modifyPartenaire();
+			echo(new Pdlt\Controller\AdminPartenairesController)->modifyPartenaire();
 			break;
 			
 		case PAGE_ADMIN_CANCEL_PARTENAIRE:
-			echo(new \Pdlt\Controller\AdminCompanyController)->showPartenaire();
+			echo(new Pdlt\Controller\AdminPartenairesController)->showPartenaire();
 			break;
 			
 		case ADMIN_DELETE_PARTENAIRE:
-			echo(new \Pdlt\Controller\AdminCompanyController)->deletePartenaire();
+			echo(new Pdlt\Controller\AdminPartenairesController)->deletePartenaire();
 			break;
+			
+
 	
 	}
 }

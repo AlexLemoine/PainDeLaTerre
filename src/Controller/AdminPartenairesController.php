@@ -6,7 +6,7 @@ use Pdlt\Manager\DbManager;
 use Pdlt\Model\Partenaires;
 use Pdlt\Repository\PartenairesRepository;
 
-class AdminCompanyController extends AbstractController
+class AdminPartenairesController extends AbstractController
 {
 	
 	public function manageCompany(): string
@@ -14,9 +14,9 @@ class AdminCompanyController extends AbstractController
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
-		return $this->render('admin_company.php',
+		return $this->render('admin_partenaires.php',
 		    [
-			  'seo_title' => TITLE_ADMIN_COMPANY,
+			  'seo_title' => TITLE_ADMIN_PARTENAIRES,
 			  'partenaires' => PartenairesRepository::findAll(),
 		    ]);
 		
@@ -232,7 +232,7 @@ class AdminCompanyController extends AbstractController
 			
 			// Récupération de l'id de la card sélectionnée
 			$id = $_POST['id'];
-			$partenaire =PartenairesRepository::find($id);
+			$partenaire = PartenairesRepository::find($id);
 			
 			// Si le partenaire n'existe pas, redirection vers page d'accueil
 			if(!$partenaire instanceof Partenaires){

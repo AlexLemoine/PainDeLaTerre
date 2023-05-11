@@ -2,7 +2,6 @@ const container = document.querySelector('#sliderProduct');
 let index = 1;
 let maxIndex = container.getAttribute('data-limit');
 
-
 function updateSlider() {
     index ++;
     console.log(index);

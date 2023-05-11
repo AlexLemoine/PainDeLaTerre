@@ -1,9 +1,7 @@
-<main class="MainContent Search layout layout-back" id="admin_company">
+<main class="MainContent Search layout layout-back" id="admin_partenaires">
 	<div class="MainContent-titleWrap">
-		<h1 class="MainContent-title">Gestion entreprise</h1>
+		<h1 class="MainContent-title">Gestion des partenaires</h1>
 	</div>
-	
-	<h2>Gestion des partenaires</h2>
 
 	<!-- Bouton de création de partenaire -->
 	<div class="Card-create">
@@ -18,10 +16,10 @@
 	</div>
 	
 	<!--  Liste des partenaires -->
-	<div id= "Cards" class="Cards" data-context="<?= PAGE_ADMIN_COMPANY ?>">
+	<div id= "Cards" class="Cards" data-context="<?= PAGE_ADMIN_PARTENAIRES ?>">
 		<?php include '_admin_partenaires.php'; ?>
 	</div>
 
 </main>
 
-<script type="module" src="assets/js/admin_modify_company.js"></script>
+<script type="module" src="assets/js/admin_modify_partenaires.js"></script>

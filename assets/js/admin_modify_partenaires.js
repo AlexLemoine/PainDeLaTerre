@@ -1,9 +1,9 @@
 // Récupération du bouton de création
 import {toggleClass} from "./functions.js";
 
-const createBtn = document.querySelector('#admin_company .Card-create');
+const createBtn = document.querySelector('#admin_partenaires .Card-create');
 // Récupération de l'élément qui contient le form de création
-let formContainer = document.querySelector('#admin_company .Card-create-form');
+let formContainer = document.querySelector('#admin_partenaires .Card-create-form');
 
 
 function onClickCreateBtn () {
@@ -40,10 +40,11 @@ function listenCreateButton(){
 function callCreatePartenaireAjax()
 {
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
-    const table = document.querySelector('.Table');
+    const cards = document.querySelector('#admin_partenaires #Cards');
+    console.log('cards = ' + cards);
 
     // Création d'un nouvel objet FormData
-    const formData = new FormData(document.querySelector('#admin_company .Card-create-form .ModifyForm'));
+    const formData = new FormData(document.querySelector('#admin_partenaires .Card-create-form .ModifyForm'));
     formData.append('context', 'admin_update_partenaires');
 
     // Envoi de la requête pour créer le partenaire
@@ -55,7 +56,7 @@ function callCreatePartenaireAjax()
         .then(data => {
             console.log('data = ' + data);
 
-            table.innerHTML+= data;
+            cards.innerHTML += data;
 
             // Suppression du formulaire de création de produit
             this.parentNode.reset();
@@ -67,7 +68,6 @@ function callCreatePartenaireAjax()
             formContainer.classList.add('hidden');
 
             listenCreateButton();
-
         });
 }
 
@@ -102,7 +102,6 @@ function listenModifyDeleteBtns() {
     modifyBtn.forEach(elt=> {
         elt.addEventListener('click', function (){
 
-
             let targetCard = this.parentNode;
             targetCard.setAttribute('data-form','modifying');
             console.log(targetCard);
@@ -113,7 +112,7 @@ function listenModifyDeleteBtns() {
                 toggleClass(targetCard,'modify','unmodified');
                 callModifyPartenaireAjax(targetCard);
                 listenCancelSaveBtns();
-                picturePreview();
+                // picturePreview();
             }
 
         })
@@ -229,19 +228,49 @@ function listenCancelSaveBtns(){
     })
 }
 
+/**
+ * Refresh la liste des partenaires
+ */
+function callDisplayPartenaireAjax(){
+    // Récupération de l'élément qui contiendra les cartes à mettre à jour
+    const cards = document.querySelector('#admin_partenaires #Cards');
+    console.log('cards = ' + cards);
 
-function picturePreview(){
-    const fileInput = document.querySelector('.ModifyForm[data-form="modifying"] #picture');
-    const image = document.querySelector('.Card.modify[data-form="modifying"] .Card-imgBox-img');
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(document.querySelector('.creating form.ModifyForm'));
+    formData.append('context', cards.getAttribute('data-context'));
 
-    console.log('picture here');
+    console.log('formData = ' + formData);
 
-    fileInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        const url = URL.createObjectURL(file);
-        image.src = url;
-    });
+    // Envoi de la requête pour mettre à jour les cartes
+    fetch('ajax.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log('data = ' + data);
+
+            // Mise à jour des cartes avec les données reçues
+            cards.innerHTML = data;
+            listenModifyDeleteBtns();
+        })
+
 }
+
+
+// function picturePreview(){
+//     const fileInput = document.querySelector('.ModifyForm[data-form="modifying"] #picture');
+//     const image = document.querySelector('.Card.modify[data-form="modifying"] .Card-imgBox-img');
+//
+//     console.log('picture here');
+//
+//     fileInput.addEventListener('change', (event) => {
+//         const file = event.target.files[0];
+//         const url = URL.createObjectURL(file);
+//         image.src = url;
+//     });
+// }
 
 
 listenModifyDeleteBtns();

@@ -130,3 +130,5 @@
 	</div>
 
 </main>
+
+<script type="module" src="assets/js/sliderProducts.js"></script>
