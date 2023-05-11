@@ -39,9 +39,6 @@ function listenCreateButton(){
 
 function callCreatePartenaireAjax()
 {
-    // Récupération de l'élément qui contiendra les cartes à mettre à jour
-    const cards = document.querySelector('#admin_partenaires #Cards');
-    console.log('cards = ' + cards);
 
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#admin_partenaires .Card-create-form .ModifyForm'));
@@ -56,7 +53,8 @@ function callCreatePartenaireAjax()
         .then(data => {
             console.log('data = ' + data);
 
-            cards.innerHTML += data;
+            // MAJ listing partenaires
+            callDisplayPartenaireAjax();
 
             // Suppression du formulaire de création de produit
             this.parentNode.reset();
@@ -237,7 +235,7 @@ function callDisplayPartenaireAjax(){
     console.log('cards = ' + cards);
 
     // Création d'un nouvel objet FormData
-    const formData = new FormData(document.querySelector('.creating form.ModifyForm'));
+    const formData = new FormData(document.querySelector('.creating form'));
     formData.append('context', cards.getAttribute('data-context'));
 
     console.log('formData = ' + formData);

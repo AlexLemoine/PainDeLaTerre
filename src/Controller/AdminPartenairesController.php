@@ -135,9 +135,9 @@ class AdminPartenairesController extends AbstractController
 		
 		
 		// render pour rafraîchir ma vue (vue partielle texte)
-		return $this->render('_admin_partenaire.php',[
+		return $this->render('_admin_partenaires.php',[
 			// Rafraîchir les données du produit modifié
-		    'oPartenaire' => PartenairesRepository::find($id),
+		    'partenaires' => PartenairesRepository::find($id),
 		],
 		    true
 		);
