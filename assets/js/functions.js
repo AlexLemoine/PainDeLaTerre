@@ -43,8 +43,6 @@ export function switchDescRecipe(){
             let targetCard = this.parentNode;
             toggleClass(targetCard,'selected','unselected');
 
-            
-
         });
     });
 
@@ -56,3 +54,24 @@ export function switchDescRecipe(){
     });
 }
 
+/**
+ * Au survol de la card, afficher l'image secondaire à la place de l'image principale
+ */
+export function switchMainSecondaryPicture(){
+    const cards = document.querySelectorAll('.Card');
+
+    cards.forEach(function(card) {
+        const img1 = card.querySelector('#img1');
+        const img2 = card.querySelector('#img2');
+
+        card.addEventListener('mouseover', function() {
+
+            console.log('card =' + card);
+            console.log(img1);
+            console.log(img2);
+
+            img1.classList.toggle('hidden');
+            img2.classList.toggle('hidden');
+        });
+    });
+}

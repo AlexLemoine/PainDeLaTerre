@@ -175,6 +175,7 @@ class AdminProductsController extends AbstractController
 		    'description' => strip_tags($_POST['description']),
 		    'status' => strip_tags($_POST['status']),
 		    'picture' => strip_tags($_FILES['picture']['tmp_name']),
+		    'picture_secondary' => strip_tags($_FILES['picture_secondary']['tmp_name']),
 		    'frequency' => strip_tags($_POST['frequency']),
 		];
 		
@@ -196,6 +197,24 @@ class AdminProductsController extends AbstractController
 			}
 		}
 		
+		if($_FILES['picture_secondary']['error'] === UPLOAD_ERR_OK) {
+			// Récupération des informations sur l'image
+			$aPictureInfo2 = getimagesize($_FILES['picture_secondary']['tmp_name']);
+			
+			// Vérification que le fichier est bien une image
+			if($aPictureInfo2) {
+				// Nettoyage du nom de fichier et ajout de l'extension
+				$sFileNameNew2 = uniqid() . '.' . pathinfo($_FILES['picture_secondary']['name'], PATHINFO_EXTENSION);
+				$sFilePathNew2 = DIR_UPLOADS . DIRECTORY_SEPARATOR . $sFileNameNew2;
+				
+				// Déplacement du fichier téléchargé vers le dossier des uploads
+				if (move_uploaded_file($_FILES['picture_secondary']['tmp_name'], $sFilePathNew2)) {
+					// Le fichier a été correctement déplacé, on l'ajoute aux critères de mise à jour
+					$aCriterias['picture_secondary'] = basename($sFilePathNew2);
+				}
+			}
+		}
+		
 		$aParams = [
 		    ':category' => $aCriterias['category'],
 		    ':name' => $aCriterias['name'],
@@ -203,6 +222,7 @@ class AdminProductsController extends AbstractController
 		    ':description' => $aCriterias['description'],
 		    ':status' => $aCriterias['status'],
 		    ':picture' => $aCriterias['picture'],
+		    ':picture_secondary' => $aCriterias['picture_secondary'],
 		    ':frequency' => $aCriterias['frequency']
 		];
 		
@@ -227,6 +247,7 @@ class AdminProductsController extends AbstractController
 			    p.description = :description,
 			    p.status = :status,
 			    p.picture = :picture,
+			    p.picture_secondary = :picture_secondary,
 			    p.frequency = :frequency
 			WHERE p.id = :id ;' ;
 		} else {
@@ -241,6 +262,7 @@ class AdminProductsController extends AbstractController
 				     `description`,
 				     `status`,
 				     `picture`,
+				     `picture_secondary`,
 				     `frequency`)
 
 				     VALUES
@@ -250,6 +272,7 @@ class AdminProductsController extends AbstractController
 				     :description,
 				     :status,
 				    	:picture,
+				      :picture_secondary,
 				      :frequency);';
 		
 		}

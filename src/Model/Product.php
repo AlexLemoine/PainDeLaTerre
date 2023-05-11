@@ -54,6 +54,11 @@ class Product
 	 */
 	private string $picture;
 	
+	/**
+	 * @var string
+	 */
+	private string $picture_secondary;
+	
 	/** @var ProductFrequency  */
 	protected ProductFrequency $frequency;
 	
@@ -230,7 +235,6 @@ class Product
 	 */
 	public function getPicture(): string
 	{
-		// TODO tester existence du fichier de la picture
 		if (!empty($this->picture)) {
 			return $this->picture;
 		} else {
@@ -248,6 +252,30 @@ class Product
 		$this->picture = $picture;
 		return $this;
 	}
+	
+	/**
+	 * @return string
+	 */
+	public function getPictureSecondary(): string
+	{
+		if (!empty($this->picture_secondary)) {
+			return $this->picture_secondary;
+		} else {
+			return self::DEFAULT_PICTURE;
+		}
+	}
+	
+	/**
+	 * @param string $picture_secondary
+	 * @return Product
+	 */
+	public function setPictureSecondary(string $picture_secondary): Product
+	{
+		$this->picture_secondary = $picture_secondary;
+		return $this;
+	}
+	
+	
 	
 	/**
 	 * @return ProductFrequency

@@ -27,6 +27,11 @@
 					hors du commun</strong>.
 			</p>
 			<a class="CTA" href="#">En savoir plus</a>
+			
+<!--			<div class="Section-equipe-slider">-->
+<!--				<img src="../--><?php //= DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_SLIDER; ?><!--">-->
+<!--			</div>-->
+			
 		</section>
 	</div>
 

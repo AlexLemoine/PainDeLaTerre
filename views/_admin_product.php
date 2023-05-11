@@ -6,9 +6,16 @@
 	<div class="Card-Header">
 		<h2 class="Card-title"><?= $oProduct->getName(); ?></h2>
 		<figure class="Card-imgBox">
-			<img class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPicture(); ?>"
+			<img id="img1" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPicture(); ?>"
 			     alt="<?= $oProduct->getName(); ?>">
 		</figure>
+		<?php $picture_secondary = $oProduct->getPictureSecondary();
+		if(isset($picture_secondary)): ?>
+		<figure class="Card-imgBox">
+			<img id="img2" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPictureSecondary(); ?>"
+			     alt="<?= $oProduct->getName(); ?>">
+		</figure>
+		<?php endif; ?>
 	</div>
 	
 	<section class="Card-category">

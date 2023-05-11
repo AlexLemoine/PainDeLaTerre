@@ -1,7 +1,13 @@
-import * as i from './functions.js';
+import {switchDescRecipe} from "./functions.js";
+import {switchMainSecondaryPicture} from "./functions.js";
 
 // Au chargement de la page, placer un écouteur sur les Cards
-i.switchDescRecipe();
+// Au survol, afficher les ingrédients
+switchDescRecipe();
+
+// Au chargement de la page, placer un écouteur sur les Cards
+// Au survol, afficher l'image secondaire (picture_secondary)
+switchMainSecondaryPicture();
 
 // Placer de nouveau l'écouteur lors du chargement du HTML avec ajax
 const containerAjax = document.getElementById('container-ajax');

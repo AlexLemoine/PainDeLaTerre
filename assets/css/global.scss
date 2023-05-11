@@ -314,6 +314,9 @@ button, .CTA {
                         background-color: $blackColor;
                         backdrop-filter: blur(20px);
                         transition: 0.5s;
+                        
+
+                        
                   }
                   
                   .Card-recipe {
@@ -336,6 +339,17 @@ button, .CTA {
                         }
                   }
             }
+            
+            &-imgBox{
+                  &:hover{
+                        & .Card-imgBox{
+                              &-img{
+                                    animation: showELt 0.8s both;
+                              }
+                        }
+                  }
+            }
+            
       }
       
       &-filter {
@@ -409,7 +423,13 @@ button, .CTA {
                   width: 100%;
                   text-align: center;
                   object-fit: cover;
-                  Opacity: 80%
+                  Opacity: 80%;
+                  
+                  &.hidden{
+                        display: none;
+                       opacity: 0;
+                       
+                  }
             }
             
       }

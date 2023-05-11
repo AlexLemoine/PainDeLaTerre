@@ -3,7 +3,9 @@
 <?php foreach ($oProduct as $product): ?>
 <div class="Card">
 	<figure class="Card-imgBox">
-		<img class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
+		<img id="img1" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
+		     alt="<?= $product->getName(); ?>">
+		<img id="img2" class="Card-imgBox-img hidden" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPictureSecondary(); ?>"
 		     alt="<?= $product->getName(); ?>">
 	</figure>
 	<h2 class="Card-title"><?= $product->getName(); ?></h2>

@@ -2,7 +2,9 @@
 
 <div class="Products-list-card Card">
 	<figure class="Card-imgBox">
-		<img class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPicture(); ?>"
+		<img id="img1" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPicture(); ?>"
+		     alt="<?= $oProduct->getName(); ?>">
+		<img id="img2" class="Card-imgBox-img hidden" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $oProduct->getPictureSecondary(); ?>"
 		     alt="<?= $oProduct->getName(); ?>">
 	</figure>
 	<h2 class="Card-title"><?= $oProduct->getName(); ?></h2>

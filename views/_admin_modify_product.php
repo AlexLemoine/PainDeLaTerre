@@ -6,15 +6,28 @@
 	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" title="Annuler" data-action="cancel">
 	<img src="assets/img/saveButton.svg" class="Card-save" alt="save button" title="Enregistrer les modifications" data-action="save">
 	
+	<!-- Image principale -->
 	<div>
 		<label for="picture"></label>
 		<figure class="Card-imgBox">
 			<?php if(!empty($product)): ?>
-			<img class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
+			<img id="img1" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
 			     alt="<?= $product->getName(); ?>">
 			<?php endif; ?>
 		</figure>
 		<input type="file" id="picture" value="<?= !empty($product) ? $product->getPicture() : ''; ?>" name="picture" accept="image/*">
+	</div>
+
+	<!-- Image secondaire -->
+	<div>
+		<label for="picture_secondary"></label>
+		<figure class="Card-imgBox">
+			<?php if(!empty($product)): ?>
+				<img id="img2" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPictureSecondary(); ?>"
+				     alt="<?= $product->getName(); ?>">
+			<?php endif; ?>
+		</figure>
+		<input type="file" id="picture_secondary" value="<?= !empty($product) ? $product->getPictureSecondary() : ''; ?>" name="picture_secondary" accept="image/*">
 	</div>
 
 	<div class="Card-Header">
