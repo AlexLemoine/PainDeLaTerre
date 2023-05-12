@@ -8,29 +8,14 @@ switchDescRecipe();
 // Au survol, afficher l'image secondaire (picture_secondary)
 switchMainSecondaryPicture();
 
-// Placer de nouveau l'écouteur lors du chargement du HTML avec ajax
-// const containerAjax = document.getElementById('container-ajax');
-// if(containerAjax){
-//     containerAjax.addEventListener("click", function (e) {
-//         let target = e.target;
-//         if (target.classList.contains('.Cards')) {
-//             i.switchDescRecipe();
-//         }
-//     });
-// }
-
-
 let filters = document.querySelectorAll('.Products-filter-link');
 
 filters.forEach(elt => {
     elt.addEventListener('click', function () {
         let currentFilter = document.querySelector('.Products-filter-link.filtered');
         if (currentFilter) {
-            console.log('currentFilter' + currentFilter);
             toggleClass(currentFilter,'filtered','unfiltered');
         }
-        console.log('currentFilter' + currentFilter);
-        console.log('elt' + elt);
         toggleClass(elt,'filtered','unfiltered');
     });
 });

@@ -65,11 +65,6 @@ export function switchMainSecondaryPicture(){
         const img2 = card.querySelector('#img2');
 
         card.addEventListener('mouseover', function() {
-
-            console.log('card =' + card);
-            console.log(img1);
-            console.log(img2);
-
             img1.classList.add('hidden');
             img2.classList.remove('hidden');
         });

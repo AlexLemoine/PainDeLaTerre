@@ -28,9 +28,9 @@
 			</p>
 			<a class="CTA" href="#">En savoir plus</a>
 			
-<!--			<div class="Section-equipe-slider">-->
-<!--				<img src="../--><?php //= DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_SLIDER; ?><!--">-->
-<!--			</div>-->
+			<div class="Section-equipe-slider CompanySlider">
+<!--				--><?php //include '_slider_company.php' ?>
+			</div>
 			
 		</section>
 	</div>

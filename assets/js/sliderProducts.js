@@ -6,7 +6,6 @@ let maxIndex = container.getAttribute('data-limit');
 
 function updateSlider() {
     index ++;
-    console.log(index);
     callAjaxSlider();
 
     // Si index atteint le nbre de produits contenus en BDD,
@@ -32,14 +31,19 @@ function callAjaxSlider() {
     })
         .then(response => response.text())
         .then(data => {
-            console.log(data);
             container.innerHTML = data;
             switchMainSecondaryPicture();
-    });
+
+            // Ajouter la classe CSS pour la transition
+            container.classList.add('card-transition');
+
+            // Supprimer la classe CSS après un court délai
+            setTimeout(() => {
+                container.classList.remove('card-transition');
+            }, 1000);
+        });
 
 }
-
-
 
 if (window.location.pathname === '/LEPAINDELATERRE_site/' || window.location.search === '?page=home')
 {
