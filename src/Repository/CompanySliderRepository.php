@@ -10,6 +10,10 @@ final class CompanySliderRepository extends AbstractRepository
 	const TABLE = 'slider_company';
 	const NB_ELT_PER_PAGE = 3;
 	
+	/**
+	 * Récupérer les éléments du slider et les afficher
+	 * @return array
+	 */
 	public static function findAll(): array
 	{
 		$oPdo = DbManager::getInstance();
@@ -21,6 +25,10 @@ final class CompanySliderRepository extends AbstractRepository
 		return static::extracted($oPdoStatement);
 	}
 	
+	/**
+	 * @param int $iId
+	 * @return CompanySlider|null
+	 */
 	public static function find(int $iId): ?CompanySlider
 	{
 		$oPdo = DbManager::getInstance();
@@ -38,6 +46,12 @@ final class CompanySliderRepository extends AbstractRepository
 		return $aDbCompanySlider ? static::hydrate($aDbCompanySlider) : NULL;
 	}
 	
+	/**
+	 * @param array $aCriterias
+	 * @param int $iOffset
+	 * @param int $iNbElts
+	 * @return array
+	 */
 	public static function findBy(array $aCriterias, int $iOffset = 0, int $iNbElts = self::NB_ELT_PER_PAGE): array
 	{
 		$oPdo = DbManager::getInstance();
@@ -72,6 +86,10 @@ final class CompanySliderRepository extends AbstractRepository
 	}
 	
 	
+	/**
+	 * @param array $aDbCompanySlider
+	 * @return CompanySlider
+	 */
 	protected static function hydrate(array $aDbCompanySlider): CompanySlider
 	{
 		$oCompanySlider = new CompanySlider(
@@ -84,7 +102,10 @@ final class CompanySliderRepository extends AbstractRepository
 		return $oCompanySlider;
 	}
 	
-	
+	/**
+	 * @param array $aCriterias
+	 * @return int|array
+	 */
 	protected static function countBy(array $aCriterias): int|array
 	{
 		//Récupère une variable extérieure
@@ -112,7 +133,49 @@ final class CompanySliderRepository extends AbstractRepository
 		
 	}
 	
-	
+	/**
+	 * @param $aCriterias
+	 * @return array
+	 */
+	public static function findCriterias($aCriterias): array
+	{
+		// Tableau des conditions
+		$aWhere = [];
+		//Tableau des paramètres
+		$aParams = [];
+		// requête
+		$sQuery = '';
+		
+		// 1. Si "magic-search" est défini
+		if (!empty($aCriterias['magic-search'])) {
+			$aWhere[] = ' ((`url` LIKE :magicsearch)
+                        OR (`legend` LIKE :magicsearch))';
+			$aParams[':magicsearch'] = '%' . $aCriterias['magic-search'] . '%';
+		};
+		
+		// 2. Si "status" est défini
+		if (!empty($aCriterias['status'])) {
+			$aWhere[] = '(status = :status)';
+			$aParams[':status'] = $aCriterias['status'];
+		};
+		
+		// 3. Si "id" est défini
+		if (!empty($aCriterias['id'])) {
+			$aWhere[] = '(id = :id)';
+			$aParams[':id'] = $aCriterias['id'];
+		};
+		
+		
+		if (count($aWhere) > 0) {
+			$sQuery .= ' WHERE ' . implode(' AND ', $aWhere);
+		};
+		
+		return [
+		    'where' => $aWhere,
+		    'params' => $aParams
+		];
+		
+	}
 	
 	
 }

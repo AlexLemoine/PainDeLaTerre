@@ -30,7 +30,11 @@ final class ProductRepository extends AbstractRepository
 		return static::extracted($oPdoStatement);
 	}
 	
-	
+	/**
+	 * @param int $iId
+	 * @return Product|null
+	 * @throws \Exception
+	 */
 	public static function find(int $iId): ?Product
 	{
 		$oPdo = DbManager::getInstance();
@@ -48,7 +52,12 @@ final class ProductRepository extends AbstractRepository
 		return $aDbProduct ? static::hydrate($aDbProduct) : NULL;
 	}
 	
-	
+	/**
+	 * @param array $aCriterias
+	 * @param int $iOffset
+	 * @param int $iNbElts
+	 * @return array
+	 */
 	public static function findBy(array $aCriterias, int $iOffset = 0, int $iNbElts = self::NB_ELT_PER_PAGE): array
 	{
 		$oPdo = DbManager::getInstance();
@@ -109,7 +118,10 @@ final class ProductRepository extends AbstractRepository
 		return $oProduct;
 	}
 	
-	
+	/**
+	 * @param array $aCriterias
+	 * @return int|array
+	 */
 	public static function countBy(array $aCriterias): int|array
 	{
 		//Récupère une variable extérieure
