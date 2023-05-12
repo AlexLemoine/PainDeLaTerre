@@ -58,7 +58,7 @@ export function switchDescRecipe(){
  * Au survol de la card, afficher l'image secondaire à la place de l'image principale
  */
 export function switchMainSecondaryPicture(){
-    const cards = document.querySelectorAll('.Card');
+    const cards = document.querySelectorAll('.Products .Card, .SliderProduct .Card');
 
     cards.forEach(function(card) {
         const img1 = card.querySelector('#img1');
@@ -70,8 +70,12 @@ export function switchMainSecondaryPicture(){
             console.log(img1);
             console.log(img2);
 
-            img1.classList.toggle('hidden');
-            img2.classList.toggle('hidden');
+            img1.classList.add('hidden');
+            img2.classList.remove('hidden');
+        });
+        card.addEventListener('mouseout', function() {
+            img1.classList.remove('hidden');
+            img2.classList.add('hidden');
         });
     });
 }

@@ -1,3 +1,5 @@
+import {switchMainSecondaryPicture} from "./functions.js";
+
 const container = document.querySelector('#sliderProduct');
 let index = 1;
 let maxIndex = container.getAttribute('data-limit');
@@ -32,7 +34,7 @@ function callAjaxSlider() {
         .then(data => {
             console.log(data);
             container.innerHTML = data;
-
+            switchMainSecondaryPicture();
     });
 
 }
