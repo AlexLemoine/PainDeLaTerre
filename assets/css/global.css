@@ -1163,9 +1163,6 @@ button:hover, .CTA:hover {
   color: rgb(0, 0, 0);
   padding: 5px 15px;
 }
-.Products .Card-imgBox:hover .Card-imgBox-img {
-  animation: showELt 0.8s both;
-}
 .Products-filter-link {
   font-family: "Rift", sans-serif;
   color: white;

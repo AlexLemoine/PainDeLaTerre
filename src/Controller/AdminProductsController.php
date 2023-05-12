@@ -179,7 +179,7 @@ class AdminProductsController extends AbstractController
 		    'frequency' => strip_tags($_POST['frequency']),
 		];
 		
-		if($_FILES['picture']['error'] === UPLOAD_ERR_OK) {
+		if(file_exists($aCriterias['picture'])) {
 			// Récupération des informations sur l'image
 			$aPictureInfo = getimagesize($_FILES['picture']['tmp_name']);
 			
@@ -197,7 +197,7 @@ class AdminProductsController extends AbstractController
 			}
 		}
 		
-		if($_FILES['picture_secondary']['error'] === UPLOAD_ERR_OK) {
+		if(file_exists($aCriterias['picture_secondary'])) {
 			// Récupération des informations sur l'image
 			$aPictureInfo2 = getimagesize($_FILES['picture_secondary']['tmp_name']);
 			

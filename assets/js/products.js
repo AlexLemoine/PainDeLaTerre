@@ -7,18 +7,18 @@ switchDescRecipe();
 
 // Au chargement de la page, placer un écouteur sur les Cards
 // Au survol, afficher l'image secondaire (picture_secondary)
-switchMainSecondaryPicture();
-
-// Placer de nouveau l'écouteur lors du chargement du HTML avec ajax
-const containerAjax = document.getElementById('container-ajax');
-if(containerAjax){
-    containerAjax.addEventListener("click", function (e) {
-        let target = e.target;
-        if (target.classList.contains('.Cards')) {
-            i.switchDescRecipe();
-        }
-    });
-}
+// switchMainSecondaryPicture();
+//
+// // Placer de nouveau l'écouteur lors du chargement du HTML avec ajax
+// const containerAjax = document.getElementById('container-ajax');
+// if(containerAjax){
+//     containerAjax.addEventListener("click", function (e) {
+//         let target = e.target;
+//         if (target.classList.contains('.Cards')) {
+//             i.switchDescRecipe();
+//         }
+//     });
+// }
 
 
 let filters = document.querySelectorAll('.Products-filter-link');
