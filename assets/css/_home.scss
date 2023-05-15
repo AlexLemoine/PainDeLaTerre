@@ -228,6 +228,35 @@
                               font-size: 1.2em;
                         }
                   }
+                  
+                  & .CompanySlider{
+                        
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 30px;
+                        
+                        &-imgBox1, &-imgBox2, &-imgBox3{
+                              padding: 15px;
+                              
+                              &-img{
+                                    max-width: 325px;
+                                    max-height: 215px;
+                                    border-radius: 15px 15px 15px 15px;
+
+                              }
+                              
+                              &-legend{
+                                    margin: 0;
+                                    font-family: $typoTexte;
+                                    font-style: italic;
+                                    padding: 10px;
+                              }
+
+                        }
+                  }
             }
             
             &-gamme{

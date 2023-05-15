@@ -743,6 +743,28 @@ form.Card.ModifyForm .Card-title {
     font-size: 1.2em;
   }
 }
+.Home .Section-savoir_faire .CompanySlider {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.Home .Section-savoir_faire .CompanySlider-imgBox1, .Home .Section-savoir_faire .CompanySlider-imgBox2, .Home .Section-savoir_faire .CompanySlider-imgBox3 {
+  padding: 15px;
+}
+.Home .Section-savoir_faire .CompanySlider-imgBox1-img, .Home .Section-savoir_faire .CompanySlider-imgBox2-img, .Home .Section-savoir_faire .CompanySlider-imgBox3-img {
+  max-width: 325px;
+  max-height: 215px;
+  border-radius: 15px 15px 15px 15px;
+}
+.Home .Section-savoir_faire .CompanySlider-imgBox1-legend, .Home .Section-savoir_faire .CompanySlider-imgBox2-legend, .Home .Section-savoir_faire .CompanySlider-imgBox3-legend {
+  margin: 0;
+  font-family: "Nunito", sans-serif, regular;
+  font-style: italic;
+  padding: 10px;
+}
 .Home .Section-gamme #sliderProduct.card-transition {
   transition: opacity 1s ease-in-out;
 }

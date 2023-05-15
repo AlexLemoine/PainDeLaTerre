@@ -58,7 +58,9 @@
 					hors du commun</strong>.
 			</p>
 			<div class="Section-savoir_faire-slider CompanySlider">
-				<!-- --><?php //include '_slider_company.php' ?>
+				<?php foreach ($sliders as $companySlider): ?>
+					<?php include '_slider_company.php' ?>
+				<?php endforeach; ?>
 			</div>
 			<a class="CTA" href="#">En savoir plus</a>
 
@@ -68,7 +70,9 @@
 	<div class="MainContent-titleWrap">
 		<p class="MainContent-slogan">
 			
-			Le pain gonfle en prenant la forme de la paume du boulanger. Le porter à sa bouche, c'est comme serrer la main de qui l'a pétri.
+			Le pain gonfle en prenant la forme de la paume du boulanger.
+			<br>
+			Le porter à sa bouche, c'est comme serrer la main de qui l'a pétri.
 			<br>
 			<br>
 			<i>Trois Chevaux (1999), par Erri De Luca</i>
