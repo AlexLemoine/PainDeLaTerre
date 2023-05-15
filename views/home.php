@@ -8,6 +8,7 @@
 
 	<nav class="Home-sections" id="equipe">
 		<a class="Home-sections-title-selected" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#savoir_faire">Un savoir-faire</a>
 		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
 		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
 		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
@@ -26,11 +27,7 @@
 				savoir-faire au service de <strong>pains goûteux et nutritifs</strong>, à la <strong>conservation
 					hors du commun</strong>.
 			</p>
-			<a class="CTA" href="#">En savoir plus</a>
-			
-			<div class="Section-equipe-slider CompanySlider">
-<!--				--><?php //include '_slider_company.php' ?>
-			</div>
+			<a class="CTA" href="#">Découvrir l'équipe</a>
 			
 		</section>
 	</div>
@@ -43,8 +40,45 @@
 	</div>
 
 
+	<nav class="Home-sections" id="savoir_faire">
+		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title-selected" href="#savoir_faire">Un savoir-faire</a>
+		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
+		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
+		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
+	</nav>
+
+	<div class="Home-sections-section Section">
+		<section class="Section-savoir_faire">
+			<h2 class="Section-savoir_faire-title">Notre savoir-faire</h2>
+			<p class="Section-savoir_faire-desc">
+				Formés auprès de l’Ecole Internationale de Boulangerie, nous sommes spécialisés dans les
+				<strong>fermentations au levain naturel</strong>. Nous mettons notre passion et notre
+				savoir-faire au service de <strong>pains goûteux et nutritifs</strong>, à la <strong>conservation
+					hors du commun</strong>.
+			</p>
+			<div class="Section-savoir_faire-slider CompanySlider">
+				<!-- --><?php //include '_slider_company.php' ?>
+			</div>
+			<a class="CTA" href="#">En savoir plus</a>
+
+		</section>
+	</div>
+
+	<div class="MainContent-titleWrap">
+		<p class="MainContent-slogan">
+			
+			Le pain gonfle en prenant la forme de la paume du boulanger. Le porter à sa bouche, c'est comme serrer la main de qui l'a pétri.
+			<br>
+			<br>
+			<i>Trois Chevaux (1999), par Erri De Luca</i>
+		</p>
+	</div>
+
+
 	<nav class="Home-sections" id="gamme">
 		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#savoir_faire">Un savoir-faire</a>
 		<a class="Home-sections-title-selected" href="#gamme">Une gamme diversifiée</a>
 		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
 		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
@@ -78,6 +112,7 @@
 
 	<nav class="Home-sections" id="valeurs">
 		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#savoir_faire">Un savoir-faire</a>
 		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
 		<a class="Home-sections-title-selected" href="#valeurs">Nos valeurs</a>
 		<a class="Home-sections-title" href="#partenaires">Nos partenaires</a>
@@ -111,6 +146,7 @@
 
 	<nav class="Home-sections" id="partenaires">
 		<a class="Home-sections-title" href="#equipe">Une équipe passionnée</a>
+		<a class="Home-sections-title" href="#savoir_faire">Un savoir-faire</a>
 		<a class="Home-sections-title" href="#gamme">Une gamme diversifiée</a>
 		<a class="Home-sections-title" href="#valeurs">Nos valeurs</a>
 		<a class="Home-sections-title-selected" href="#partenaires">Nos partenaires</a>

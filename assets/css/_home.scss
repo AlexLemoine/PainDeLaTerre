@@ -155,7 +155,7 @@
       
       & .Section{
       
-            &-equipe, &-gamme, &-valeurs, &-partenaires{
+            &-equipe, &-savoir_faire, &-gamme, &-valeurs, &-partenaires{
                   display: flex;
                   flex-direction: column;
                   flex-wrap: wrap;
@@ -219,6 +219,15 @@
                   }
                   
                   
+            }
+            
+            &-savoir_faire{
+                  &-desc{
+                        @media screen AND (min-width: 550px) {
+                              padding: 10px 50px;
+                              font-size: 1.2em;
+                        }
+                  }
             }
             
             &-gamme{

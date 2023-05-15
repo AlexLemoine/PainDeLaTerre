@@ -684,7 +684,7 @@ form.Card.ModifyForm .Card-title {
     background-size: 35px;
   }
 }
-.Home .Section-equipe, .Home .Section-gamme, .Home .Section-valeurs, .Home .Section-partenaires {
+.Home .Section-equipe, .Home .Section-savoir_faire, .Home .Section-gamme, .Home .Section-valeurs, .Home .Section-partenaires {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -693,27 +693,27 @@ form.Card.ModifyForm .Card-title {
   align-content: center;
   padding-bottom: 30px;
 }
-.Home .Section-equipe-title, .Home .Section-gamme-title, .Home .Section-valeurs-title, .Home .Section-partenaires-title {
+.Home .Section-equipe-title, .Home .Section-savoir_faire-title, .Home .Section-gamme-title, .Home .Section-valeurs-title, .Home .Section-partenaires-title {
   font-family: "Rift", sans-serif;
 }
-.Home .Section-equipe-imgBox, .Home .Section-gamme-imgBox, .Home .Section-valeurs-imgBox, .Home .Section-partenaires-imgBox {
+.Home .Section-equipe-imgBox, .Home .Section-savoir_faire-imgBox, .Home .Section-gamme-imgBox, .Home .Section-valeurs-imgBox, .Home .Section-partenaires-imgBox {
   max-height: 280px;
 }
-.Home .Section-equipe-imgBox-img, .Home .Section-gamme-imgBox-img, .Home .Section-valeurs-imgBox-img, .Home .Section-partenaires-imgBox-img {
+.Home .Section-equipe-imgBox-img, .Home .Section-savoir_faire-imgBox-img, .Home .Section-gamme-imgBox-img, .Home .Section-valeurs-imgBox-img, .Home .Section-partenaires-imgBox-img {
   max-width: 325px;
   max-height: 215px;
   padding: 15px;
 }
-.Home .Section-equipe-imgBox-legend, .Home .Section-gamme-imgBox-legend, .Home .Section-valeurs-imgBox-legend, .Home .Section-partenaires-imgBox-legend {
+.Home .Section-equipe-imgBox-legend, .Home .Section-savoir_faire-imgBox-legend, .Home .Section-gamme-imgBox-legend, .Home .Section-valeurs-imgBox-legend, .Home .Section-partenaires-imgBox-legend {
   font-family: "Nunito", sans-serif, regular;
   font-style: italic;
 }
-.Home .Section-equipe-desc, .Home .Section-gamme-desc, .Home .Section-valeurs-desc, .Home .Section-partenaires-desc {
+.Home .Section-equipe-desc, .Home .Section-savoir_faire-desc, .Home .Section-gamme-desc, .Home .Section-valeurs-desc, .Home .Section-partenaires-desc {
   font-family: "Nunito", sans-serif, regular;
   padding: 10px 15px;
   font-size: 0.9em;
 }
-.Home .Section-equipe .CTA, .Home .Section-gamme .CTA, .Home .Section-valeurs .CTA, .Home .Section-partenaires .CTA {
+.Home .Section-equipe .CTA, .Home .Section-savoir_faire .CTA, .Home .Section-gamme .CTA, .Home .Section-valeurs .CTA, .Home .Section-partenaires .CTA {
   margin: 5px auto;
 }
 @media screen and (min-width: 750px) {
@@ -735,6 +735,12 @@ form.Card.ModifyForm .Card-title {
     line-height: 2;
     text-align: start;
     padding-right: 120px;
+  }
+}
+@media screen and (min-width: 550px) {
+  .Home .Section-savoir_faire-desc {
+    padding: 10px 50px;
+    font-size: 1.2em;
   }
 }
 .Home .Section-gamme #sliderProduct.card-transition {
