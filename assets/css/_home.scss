@@ -13,6 +13,12 @@
             
             @media screen AND (min-width: 550px) {
                   font-size: 1.8em;
+      
+                  &.Citation{
+                        display: flex;
+                        flex-direction: column;
+                  }
+                  
             }
             
             @media screen AND (min-width: 750px){
@@ -21,10 +27,28 @@
                   flex-wrap: wrap;
                   align-items: center;
                   font-size: 2em;
+
+                  &.Citation{
+                        display: flex;
+                        flex-direction: column;
+                  }
+                  
             }
             
             @media screen AND (min-width: 1050px) {
                   font-size: 2.4em;
+      
+                  &.Citation{
+                        display: flex;
+                        flex-direction: column;
+                  }
+                  
+            }
+      
+      
+            .MainContent-slogan.Citation{
+                  display: flex;
+                  flex-direction: column;
             }
 
       }
@@ -111,6 +135,7 @@
                         padding: 0;
                   }
 
+
             }
       }
       
@@ -183,11 +208,12 @@
                         &-img{
                               max-width: 325px;
                               max-height: 215px;
-                              padding: 15px;
+                              border-radius: 15px 15px 15px 15px;
                         }
                         &-legend{
                               font-family: $typoTexte;
                               font-style: italic;
+                              padding: 10px;
                         }
             
                   }
@@ -242,24 +268,34 @@
                         //flex-wrap: wrap;
                         //justify-content: center;
                         //align-items: center;
-                        padding: 30px;
-                        margin-left: 30px;
-                        margin-right: 30px;
       
                         width: 100%;
                         overflow: hidden;
                         //white-space: nowrap;
       
                         .slide-container {
+                              //transition: transform 0.5s ease;
+                              width: 100%;
                               display: flex;
-                              transition: transform 0.5s ease;
+                              transition: transform 0.4s ease-in-out 0s;
+                              transform: translateX(0);
                         }
                         
                         &-imgBox{
-                              flex: 0 0 calc(100% / 3); /* Pour afficher 3 images à la fois */
-                              text-align: center;
+                              //flex: 0 0 calc(100% / 3); /* Pour afficher 3 images à la fois */
+                              //text-align: center;
+                              flex-shrink: 0;
+                              width: 100%;
+      
+                              @media screen and (min-width: 750px) {
+                                          width: 50%;
+                              }
+      
+                              @media screen and (min-width: 1024px) {
+                                          width: 33.33%;
+                              }
                               
-                              padding: 15px;
+                              //padding: 15px;
                               
                               &-img{
                                     max-width: 325px;

@@ -2,6 +2,7 @@
 
 namespace Pdlt\Controller;
 
+use Pdlt\Model\Product;
 use Pdlt\Repository\CompanySliderRepository;
 use Pdlt\Repository\PartenairesRepository;
 use Pdlt\Repository\ProductRepository;
@@ -14,11 +15,14 @@ class DefaultController extends AbstractController
      */
     public function home(): string
     {
+	    $aCriterias = [];
+	    $aCriterias['status'] = Product::STATUS_PUBLISHED;
+	    $products = ProductRepository::findBy($aCriterias);
 	    
         return $this->render('home.php',
             [
                 'seo_title'=>TITLE_HOME,
-			'products' => ProductRepository::findAll(),
+			'products' => $products,
 			'sliders' => CompanySliderRepository::findAll(),
 			'partenaires' => PartenairesRepository::findAll(),
             ]);

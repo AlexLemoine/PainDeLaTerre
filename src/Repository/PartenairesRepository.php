@@ -165,7 +165,7 @@ final class PartenairesRepository extends AbstractRepository
 		return $oPartenaires;
 	}
 	
-	protected static function countBy(array $aCriterias): int|array
+	public static function countBy(array $aCriterias): int|array
 	{
 		//Récupère une variable extérieure
 		$oPdo = DbManager::getInstance();

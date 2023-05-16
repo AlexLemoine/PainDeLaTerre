@@ -77,7 +77,7 @@ class AdminProductsController extends AbstractController
 	 **/
 	public function refreshProducts(): string
 	{
-		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// TODO Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Récupération (+ nettoyage des données POST)

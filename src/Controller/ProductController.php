@@ -9,11 +9,15 @@ class ProductController extends AbstractController
 {
     public function product(): string
     {
+	    $aCriterias = [];
+	    $aCriterias['status'] = Product::STATUS_PUBLISHED;
+	    $products = ProductRepository::findBy($aCriterias);
+	    
         return $this->render(
             'products.php',
             [
                 'seo_title' => 'Les Produits',
-		    'products' => ProductRepository::findAll(),
+		    'products' => $products,
                 'categories' => ProductCategoryRepository::findAll(),
             ]
         );
@@ -26,6 +30,9 @@ class ProductController extends AbstractController
 
         // (3) Récupération (+ nettoyage des données POST ou GET)
         $aCriterias = [];
+
+	    $aCriterias['status'] = Product::STATUS_PUBLISHED;
+
 
         if(array_key_exists('category',$_GET))
         {
@@ -62,6 +69,7 @@ class ProductController extends AbstractController
 		$iOffset = ($iIdx-1);
 		
 		$aCriterias=[];
+		$aCriterias['status'] = Product::STATUS_PUBLISHED;
 		$product = ProductRepository::findBy($aCriterias,$iOffset,1);
 		
 		return $this->render('_product.php',[

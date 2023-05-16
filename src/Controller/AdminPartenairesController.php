@@ -133,11 +133,10 @@ class AdminPartenairesController extends AbstractController
 		}
 		
 		
-		
 		// render pour rafraîchir ma vue (vue partielle texte)
-		return $this->render('_admin_partenaires.php',[
+		return $this->render('_admin_partenaire.php',[
 			// Rafraîchir les données du produit modifié
-		    'partenaires' => PartenairesRepository::find($id),
+		    'oPartenaire' => PartenairesRepository::find($id),
 		],
 		    true
 		);
@@ -254,6 +253,39 @@ class AdminPartenairesController extends AbstractController
 		],
 		    true
 		);
+		
+	}
+	
+	public function refreshPartenaires()
+	{
+		// TODO Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		
+		// Récupération (+ nettoyage des données POST)
+		$aCriterias = [
+		    'magic-search' => strip_tags($_POST['magic-search']),
+		    'status' => strip_tags($_POST['status']),
+		];
+		
+		// Stockage en session des critères (pour pagination ajax par ex)
+		$_SESSION['criterias'] = $aCriterias;
+		
+		// 1. Calculer l'offset
+		$iPage = ($_POST['page'] ?? 1);
+		$iNbEltsPerPage = PartenairesRepository::NB_ELT_PER_PAGE;
+		$iOffset = ($iPage - 1) * $iNbEltsPerPage;
+		
+		$aParams =  [
+		    'partenaires' => PartenairesRepository::findBy($aCriterias, $iOffset, $iNbEltsPerPage),
+		    'currentPage' => $iPage,
+		    'nb_results' => PartenairesRepository::countBy($aCriterias),
+		    'nb_results_per_page' => $iNbEltsPerPage,
+		];
+		
+		
+		// 2. Récupérer les partenaires et les renvoyer à la vue HTML
+		return $this->render('_admin_partenaires.php', $aParams, true);
 		
 	}
 	

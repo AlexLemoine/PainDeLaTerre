@@ -1,9 +1,9 @@
 // Récupération du bouton de création
 import {toggleClass} from "./functions.js";
 
-const createBtn = document.querySelector('#admin_partenaires .Card-create');
+const createBtn = document.querySelector('.Card-create');
 // Récupération de l'élément qui contient le form de création
-let formContainer = document.querySelector('#admin_partenaires .Card-create-form');
+let formContainer = document.querySelector('.Card-create-form');
 
 
 function onClickCreateBtn () {
@@ -51,7 +51,6 @@ function callCreatePartenaireAjax()
     })
         .then(response => response.text())
         .then(data => {
-            console.log('data = ' + data);
 
             // MAJ listing partenaires
             callDisplayPartenaireAjax();
@@ -84,7 +83,6 @@ function callModifyPartenaireAjax(card){
     })
         .then(response => response.text())
         .then(data => {
-            console.log(data);
             card.innerHTML = data;
             listenCancelSaveBtns()
         })
@@ -156,24 +154,16 @@ function listenCancelSaveBtns(){
     const cancelBtn = document.querySelector('.Card.modify .Card-cancel');
     const saveBtn = document.querySelector('.Cards .Card-save');
 
-    console.log('cancel = ' + cancelBtn);
-
     // ANNULER LES MODIFICATIONS
     cancelBtn.addEventListener('click', function (){
-        //
-        // e.preventDefault();
-        console.log("Cancel button clicked");
 
         // Récupération de l'élément qui contiendra les cartes à mettre à jour
         let targetCard = document.querySelector('.Card.modify');
-        console.log(targetCard);
 
         // Création d'un nouvel objet FormData
         const formData = new FormData(document.querySelector('.ModifyForm'));
         formData.append('context', 'admin_cancel_modification_partenaire');
         formData.append('id',targetCard.getAttribute('data-id'));
-
-        console.log('formData = ' + formData);
 
         // Envoi de la requête pour mettre à jour les cartes
         fetch('ajax.php', {
@@ -182,7 +172,6 @@ function listenCancelSaveBtns(){
         })
             .then(response => response.text())
             .then(data => {
-                console.log('data = ' + data);
 
                 // Mise à jour des cartes avec les données reçues
                 targetCard.innerHTML = data;
@@ -205,8 +194,6 @@ function listenCancelSaveBtns(){
         formData.append('context','admin_update_partenaires');
         formData.append('id',targetCard.getAttribute('data-id'));
 
-        console.log('formData = ' + formData);
-
         // Envoi de la requête pour mettre à jour les cartes
         fetch('ajax.php', {
             method: 'POST',
@@ -214,7 +201,6 @@ function listenCancelSaveBtns(){
         })
             .then(response => response.text())
             .then(data => {
-                console.log('data = ' + data);
 
                 // Mise à jour des cartes avec les données reçues
                 targetCard.innerHTML = data;
@@ -231,14 +217,11 @@ function listenCancelSaveBtns(){
  */
 function callDisplayPartenaireAjax(){
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
-    const cards = document.querySelector('#admin_partenaires #Cards');
-    console.log('cards = ' + cards);
+    const cards = document.querySelector('#Cards');
 
     // Création d'un nouvel objet FormData
-    const formData = new FormData(document.querySelector('.creating form'));
+    const formData = new FormData(document.querySelector('#form'));
     formData.append('context', cards.getAttribute('data-context'));
-
-    console.log('formData = ' + formData);
 
     // Envoi de la requête pour mettre à jour les cartes
     fetch('ajax.php', {
@@ -247,7 +230,6 @@ function callDisplayPartenaireAjax(){
     })
         .then(response => response.text())
         .then(data => {
-            console.log('data = ' + data);
 
             // Mise à jour des cartes avec les données reçues
             cards.innerHTML = data;

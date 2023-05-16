@@ -60,20 +60,9 @@
 
 			<div class="Section-savoir_faire-slider CompanySlider">
 				<div class="slide-container">
-<!--					--><?php //foreach ($sliders as $index => $companySlider): ?>
-<!--						--><?php //include '_slider_company.php'; ?>
-<!--					--><?php //endforeach; ?>
-					
-					<?php
-					
-						for($i=0; $i <= count($sliders); $i++ ){
-							include '_slider_company.php';
-							
-							if($i === count($sliders)){
-								$i = 0;
-							}
-						}
-					?>
+					<?php foreach ($sliders as $index => $companySlider): ?>
+						<?php include '_slider_company.php'; ?>
+					<?php endforeach; ?>
 					
 				</div>
 			</div>
@@ -84,8 +73,7 @@
 	</div>
 
 	<div class="MainContent-titleWrap">
-		<p class="MainContent-slogan">
-			
+		<p class="MainContent-slogan Citation">
 			Le pain gonfle en prenant la forme de la paume du boulanger.
 			<br>
 			Le porter à sa bouche, c'est comme serrer la main de qui l'a pétri.
@@ -113,9 +101,11 @@
 			</div>
 
 			<p class="Section-gamme-desc">
-				Nos pains sont exclusivement fermentés au <strong>levain naturel</strong>, de notre fabrication.
-				Blé, seigle, petit épeautre et farines pauvres en gluten.
-				Découvrez aussi nos brioches régionales et autres petites gourmandises.
+				Nos pains sont exclusivement fermentés au <b>levain naturel, de notre fabrication</b>.
+				<br>
+				Blé, seigle, petit épeautre et farines <b>pauvres en gluten</b>.
+				<br>
+				Découvrez aussi nos brioches régionales et autres petites <b>gourmandises</b>.
 			</p>
 			<a class="CTA" href="?page=<?= PAGE_PRODUCTS ?>">Découvrir nos produits</a>
 		</section>

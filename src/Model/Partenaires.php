@@ -6,6 +6,18 @@ class Partenaires
 {
 	use Updatable, Creatable;
 	
+	const STATUS_DRAFT = 1;
+	const STATUS_PUBLISHED = 2;
+	const STATUS_ASLEEP = 3;
+	
+	const STATUS = [
+	    self::STATUS_DRAFT => 'brouillon',
+	    self::STATUS_PUBLISHED => 'publié',
+	    self::STATUS_ASLEEP => 'en sommeil'
+	];
+	
+	
+	
 	// ATTRIBUTS
 	
 	/** @var int|NULL  */

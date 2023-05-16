@@ -37,8 +37,6 @@ function listenCreateButton(){
     // Appel ajax en cas de création de produit
     const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
 
-    console.log(view);
-
     targetSaveBtn.addEventListener('click',callCreateProductAjax);
 
 }
@@ -47,6 +45,7 @@ function listenCreateButton(){
  * Créer un produit en Ajax
  */
 function callCreateProductAjax(){
+
 
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#admin_products .Card-create-form .ModifyForm'));
@@ -59,7 +58,6 @@ function callCreateProductAjax(){
     })
         .then(response => response.text())
         .then(data => {
-            console.log('data = ' + data);
 
             // Mise à jour du listing de produits
             callDisplayProductAjax();
@@ -91,8 +89,6 @@ function listenCancelSaveBtns(){
         formData.append('context', 'admin_cancel_modification');
         formData.append('id',targetCard.getAttribute('data-id'));
 
-        console.log('formData = ' + formData);
-
         // Envoi de la requête pour mettre à jour les cartes
         fetch('ajax.php', {
             method: 'POST',
@@ -100,7 +96,6 @@ function listenCancelSaveBtns(){
         })
             .then(response => response.text())
             .then(data => {
-                console.log('data = ' + data);
 
                 // Mise à jour des cartes avec les données reçues
                 targetCard.innerHTML = data;
@@ -122,8 +117,6 @@ function listenCancelSaveBtns(){
         formData.append('context', 'admin_update_product');
         formData.append('id',targetCard.getAttribute('data-id'));
 
-        console.log('formData = ' + formData);
-
         // Envoi de la requête pour mettre à jour les cartes
         fetch('ajax.php', {
             method: 'POST',
@@ -131,7 +124,6 @@ function listenCancelSaveBtns(){
         })
             .then(response => response.text())
             .then(data => {
-                console.log('data = ' + data);
 
                 // Mise à jour des cartes avec les données reçues
                 targetCard.innerHTML = data;
@@ -161,7 +153,7 @@ function callModifyProductAjax(card){
     })
         .then(response => response.text())
         .then(data => {
-            console.log(data);
+
             card.innerHTML = data;
             listenCancelSaveBtns();
         })
@@ -179,7 +171,6 @@ function listenModifyDeleteBtns(){
     modifyBtn.forEach(elt=> {
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
-            console.log(targetCard);
 
             // Ne permettre qu'une modification de card à la fois
             let modifyCard = document.querySelector('.modify');
@@ -195,7 +186,6 @@ function listenModifyDeleteBtns(){
     deleteBtn.forEach(elt=> {
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
-            console.log(targetCard);
 
             let isToDelete = confirm('Souhaitez-vous supprimer ce produit ?');
             if(isToDelete === true) {
@@ -225,13 +215,10 @@ function listenModifyDeleteBtns(){
 function callDisplayProductAjax(){
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
     const cards = document.querySelector('#Cards');
-    console.log('cards = ' + cards);
 
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#form'));
     formData.append('context', cards.getAttribute('data-context'));
-
-    console.log('formData = ' + formData);
 
     // Envoi de la requête pour mettre à jour les cartes
     fetch('ajax.php', {
@@ -240,7 +227,6 @@ function callDisplayProductAjax(){
     })
         .then(response => response.text())
         .then(data => {
-            console.log('data = ' + data);
 
             // Mise à jour des cartes avec les données reçues
             cards.innerHTML = data;
@@ -250,7 +236,6 @@ function callDisplayProductAjax(){
 
 // Récupération des éléments du formulaire
 const form = document.querySelector('.layout-back .Search .Search-form');
-console.log('form = ' + form);
 
 if(form){
 
