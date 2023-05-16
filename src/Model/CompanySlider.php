@@ -25,9 +25,9 @@ class CompanySlider
 	protected string $url;
 	
 	/**
-	 * @var string
+	 * @var string|NULL
 	 */
-	protected string $legend = '';
+	protected string|NULL $legend = NULL;
 	
 	/**
 	 * @var int
@@ -35,12 +35,11 @@ class CompanySlider
 	private int $status;
 	
 	
-	public function __construct(string $url = '',
-					    string $legend = '')
+	public function __construct(string $url = '')
 	{
 		// infos à renseigner par le user
 		$this->url = $url;
-		$this->legend = $legend;
+		$this->legend = null;
 		
 		// infos calculées en auto
 		$this->status = self::STATUS_DRAFT;
@@ -86,22 +85,24 @@ class CompanySlider
 	}
 	
 	/**
-	 * @return string
+	 * @return string|NULL
 	 */
-	public function getLegend(): string
+	public function getLegend(): ?string
 	{
 		return $this->legend;
 	}
 	
 	/**
-	 * @param string $legend
+	 * @param string|NULL $legend
 	 * @return CompanySlider
 	 */
-	public function setLegend(string $legend): CompanySlider
+	public function setLegend(?string $legend): CompanySlider
 	{
 		$this->legend = $legend;
 		return $this;
 	}
+	
+	
 	
 	/**
 	 * @return int

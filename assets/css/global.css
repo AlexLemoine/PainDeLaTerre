@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes showMenu {
   0% {
     transform: translateY(-250px);
@@ -572,7 +573,9 @@ form.Card.ModifyForm .Card-title {
   background-image: url("../img/painsHeader.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   min-height: 250px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -580,6 +583,8 @@ form.Card.ModifyForm .Card-title {
 @media screen and (max-width: 550px) {
   .Home-header {
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media screen and (min-width: 550px) {
@@ -618,12 +623,13 @@ form.Card.ModifyForm .Card-title {
   }
 }
 .Home-header-slogan {
-  color: rgb(0, 0, 0);
+  color: white;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
   font-family: "Rift", sans-serif;
   font-weight: bold;
   font-size: 2em;
   margin: 0;
-  padding: 10px;
+  padding: 10px 20px;
   position: relative;
   transition: 0.4s;
 }
@@ -744,22 +750,27 @@ form.Card.ModifyForm .Card-title {
   }
 }
 .Home .Section-savoir_faire .CompanySlider {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   padding: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 100%;
+  overflow: hidden;
 }
-.Home .Section-savoir_faire .CompanySlider-imgBox1, .Home .Section-savoir_faire .CompanySlider-imgBox2, .Home .Section-savoir_faire .CompanySlider-imgBox3 {
+.Home .Section-savoir_faire .CompanySlider .slide-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.Home .Section-savoir_faire .CompanySlider-imgBox {
+  flex: 0 0 33.3333333333%; /* Pour afficher 3 images à la fois */
+  text-align: center;
   padding: 15px;
 }
-.Home .Section-savoir_faire .CompanySlider-imgBox1-img, .Home .Section-savoir_faire .CompanySlider-imgBox2-img, .Home .Section-savoir_faire .CompanySlider-imgBox3-img {
+.Home .Section-savoir_faire .CompanySlider-imgBox-img {
   max-width: 325px;
   max-height: 215px;
   border-radius: 15px 15px 15px 15px;
 }
-.Home .Section-savoir_faire .CompanySlider-imgBox1-legend, .Home .Section-savoir_faire .CompanySlider-imgBox2-legend, .Home .Section-savoir_faire .CompanySlider-imgBox3-legend {
+.Home .Section-savoir_faire .CompanySlider-imgBox-legend {
   margin: 0;
   font-family: "Nunito", sans-serif, regular;
   font-style: italic;

@@ -57,11 +57,27 @@
 				savoir-faire au service de <strong>pains goûteux et nutritifs</strong>, à la <strong>conservation
 					hors du commun</strong>.
 			</p>
+
 			<div class="Section-savoir_faire-slider CompanySlider">
-				<?php foreach ($sliders as $companySlider): ?>
-					<?php include '_slider_company.php' ?>
-				<?php endforeach; ?>
+				<div class="slide-container">
+<!--					--><?php //foreach ($sliders as $index => $companySlider): ?>
+<!--						--><?php //include '_slider_company.php'; ?>
+<!--					--><?php //endforeach; ?>
+					
+					<?php
+					
+						for($i=0; $i <= count($sliders); $i++ ){
+							include '_slider_company.php';
+							
+							if($i === count($sliders)){
+								$i = 0;
+							}
+						}
+					?>
+					
+				</div>
 			</div>
+			
 			<a class="CTA" href="#">En savoir plus</a>
 
 		</section>
@@ -94,7 +110,6 @@
 
 			<!-- Slider cards -->
 			<div id="sliderProduct" data-limit="<?= count($products); ?>">
-
 			</div>
 
 			<p class="Section-gamme-desc">
@@ -176,4 +191,5 @@
 
 </main>
 
+<script type="module" src="assets/js/sliderCompany.js"></script>
 <script type="module" src="assets/js/sliderProducts.js"></script>
