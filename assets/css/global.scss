@@ -80,10 +80,6 @@ button, .CTA {
 }
 
 
-.Card-desc {
-      text-shadow: $textShadow;
-}
-
 .Header {
       background-color: $leaflet;
       color: $whiteColor;
@@ -268,7 +264,7 @@ button, .CTA {
             text-decoration: underline;
             
             @media screen AND (min-width: 550px) {
-                  background: url("../img/logoPainBlanc.svg") 7px 8px no-repeat;
+                  background: url("../img/logoPainNoir.png") 7px 8px no-repeat;
                   background-size: 70px;
                   padding-top: 45px;
                   margin-top: 45px;
@@ -300,7 +296,7 @@ button, .CTA {
             font-style: italic;
             text-align: right;
             text-decoration: none;
-            color: $whiteColor;
+            color : $blackColor;
             
             & img {
                   padding-left: 15px;
@@ -314,14 +310,14 @@ button, .CTA {
 .Products {
       
       & .Card {
+            overflow: hidden;
+            max-height: 460px;
             
             &:hover, &.selected {
                   
                   & .Card-imgBox {
-                        background-color: $blackColor;
                         backdrop-filter: blur(20px);
                         transition: 0.5s;
-                        
                   }
                   
                   .Card-recipe {
@@ -330,6 +326,8 @@ button, .CTA {
                         transition: 0.8s;
                         background-color: rgba(255, 255, 255, 0.32);
                         backdrop-filter: blur(4px);
+                        position: relative;
+                        bottom: 135px;
                         
                         &-title {
                               font-family: $typoTitre;
@@ -341,16 +339,7 @@ button, .CTA {
                         &-text {
                               color: $blackColor;
                               padding: 5px 15px;
-                        }
-                  }
-            }
-            
-            &-imgBox{
-                  &:hover{
-                        & .Card-imgBox{
-                              &-img{
-                                    //animation: showELt 0.8s both;
-                              }
+                              min-height: 60px;
                         }
                   }
             }
@@ -361,6 +350,7 @@ button, .CTA {
             
             &-link {
                   font-family: $typoTitre;
+                  background-color: $secondColor;
                   color: $whiteColor;
                   display: inline-block;
                   border: solid 1px $whiteColor;
@@ -380,8 +370,8 @@ button, .CTA {
                   }
                   
                   &.filtered {
-                        background-color: $whiteColor;
-                        color: $blackColor;
+                        background-color: $leaflet;
+                        color: $whiteColor;
                   }
             }
             
@@ -406,21 +396,16 @@ button, .CTA {
 }
 
 .Card {
-      height: 350px;
-      position: relative;
-      overflow: hidden;
-      margin: 20px;
+      padding: 20px;
       border-radius: 15px 15px 15px 15px;
-      
+      overflow: hidden;
       
       &.modify {
             border: solid $secondColor;
       }
       
-      
       &-imgBox {
             margin: 0;
-            
             
             &-img {
                   display: inline-block;
@@ -428,12 +413,11 @@ button, .CTA {
                   width: 100%;
                   text-align: center;
                   object-fit: cover;
-                  Opacity: 80%;
+                  border-radius: 15px 15px 15px 15px;
                   
                   &.hidden{
                         display: none;
                        opacity: 0;
-                       
                   }
             }
             
@@ -441,22 +425,14 @@ button, .CTA {
       
       &-title {
             margin: 0;
-            width: 90%;
+            width: 100%;
             padding: 5px;
-            text-shadow: $textShadow;
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translate(-50%, -50%);
       }
       
       &-desc {
-            position: relative;
-            top: -270px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
+            width: 100%;
             font-family: $typoTexte;
+            min-height: 75px;
             
             &-text {
                   margin: 0;
@@ -472,18 +448,16 @@ button, .CTA {
             
       }
       
-      
       &-recipe {
             display: none;
             opacity: 0;
-            position: absolute;
+            position: relative;
+            bottom: 135px;
             width: 90%;
             min-width: 200px;
             padding: 5px;
-            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            
             
             &-text {
                   font-family: $typoTexte;
@@ -495,7 +469,8 @@ button, .CTA {
 }
 
 .Footer {
-      background-color: $secondDarkColor;
+      background-color: $leaflet;
+      color: $whiteColor;
       padding: 10px;
       
       a {

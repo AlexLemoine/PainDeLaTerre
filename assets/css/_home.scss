@@ -169,7 +169,7 @@
                         text-decoration: underline;
                         font-family: $typoTitre;
                         font-size: 1.4em;
-                        background: url(../img/logoPainBlanc.svg) 35px 10px no-repeat;
+                        background: url(../img/logoPainNoir.png) 35px 10px no-repeat;
                         background-size: 35px;
                         padding: 5px 80px;
                         color: $blackColor;
@@ -177,7 +177,7 @@
       
                         @media screen AND (min-width: 550px){
                               padding: 25px 5px 5px 5px;
-                              background: url(../img/logoPainBlanc.svg) 7px 2px no-repeat;
+                              background: url(../img/logoPainNoir.png) 7px 2px no-repeat;
                               background-size: 35px;
                         }
                   }
@@ -246,7 +246,8 @@
                               font-size: 1.2em;
                               line-height: 2;
                               text-align: start;
-                              padding-right: 120px;
+                              padding: 20px;
+                              margin: 0;
                         }
                   }
                   
@@ -322,9 +323,23 @@
                         }
                         
                         .Card{
-                              height: 350px;
-                              width: 350px;
+                              height: 460px;
+                              width: 460px;
+                              
+                              &-desc{
+                                    bottom: 300px;
+                              }
+                              
+                              &-recipe{
+                                    bottom: 250px;
+                              }
                         }
+                  }
+                  &-aside{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 80%;
                   }
             }
             
@@ -397,7 +412,8 @@
             &-partenaires{
                   background-color: $secondColor;
                   font-family: $typoTitre;
-                  //box-shadow: $boxShadow;
+                  color: $whiteColor;
+                  
                   
                   &-list{
                         display: flex;

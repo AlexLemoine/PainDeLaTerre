@@ -99,15 +99,16 @@
 			<!-- Slider cards -->
 			<div id="sliderProduct" data-limit="<?= count($products); ?>">
 			</div>
-
-			<p class="Section-gamme-desc">
-				Nos pains sont exclusivement fermentés au <b>levain naturel, de notre fabrication</b>.
-				<br>
-				Blé, seigle, petit épeautre et farines <b>pauvres en gluten</b>.
-				<br>
-				Découvrez aussi nos brioches régionales et autres petites <b>gourmandises</b>.
-			</p>
-			<a class="CTA" href="?page=<?= PAGE_PRODUCTS ?>">Découvrir nos produits</a>
+			<div class="Section-gamme-aside">
+				<p class="Section-gamme-desc">
+					Nos pains sont exclusivement fermentés au <b>levain naturel, de notre fabrication</b>.
+					<br>
+					Blé, seigle, petit épeautre et farines <b>pauvres en gluten</b>.
+					<br>
+					Découvrez aussi nos brioches régionales et autres petites <b>gourmandises</b>.
+				</p>
+				<a class="CTA" href="?page=<?= PAGE_PRODUCTS ?>">Découvrir nos produits</a>
+			</div>
 		</section>
 	</div>
 

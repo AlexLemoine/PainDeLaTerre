@@ -692,7 +692,7 @@ form.Card.ModifyForm .Card-title {
   text-decoration: underline;
   font-family: "Rift", sans-serif;
   font-size: 1.4em;
-  background: url(../img/logoPainBlanc.svg) 35px 10px no-repeat;
+  background: url(../img/logoPainNoir.png) 35px 10px no-repeat;
   background-size: 35px;
   padding: 5px 80px;
   color: rgb(0, 0, 0);
@@ -701,7 +701,7 @@ form.Card.ModifyForm .Card-title {
 @media screen and (min-width: 550px) {
   .Home-sections-title-selected {
     padding: 25px 5px 5px 5px;
-    background: url(../img/logoPainBlanc.svg) 7px 2px no-repeat;
+    background: url(../img/logoPainNoir.png) 7px 2px no-repeat;
     background-size: 35px;
   }
 }
@@ -756,7 +756,8 @@ form.Card.ModifyForm .Card-title {
     font-size: 1.2em;
     line-height: 2;
     text-align: start;
-    padding-right: 120px;
+    padding: 20px;
+    margin: 0;
   }
 }
 @media screen and (min-width: 550px) {
@@ -804,8 +805,20 @@ form.Card.ModifyForm .Card-title {
   transition: opacity 1s ease-in-out;
 }
 .Home .Section-gamme #sliderProduct .Card {
-  height: 350px;
-  width: 350px;
+  height: 460px;
+  width: 460px;
+}
+.Home .Section-gamme #sliderProduct .Card-desc {
+  bottom: 300px;
+}
+.Home .Section-gamme #sliderProduct .Card-recipe {
+  bottom: 250px;
+}
+.Home .Section-gamme-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
 }
 .Home .Section-valeurs .circle {
   background-color: rgb(51, 26, 17);
@@ -873,6 +886,7 @@ form.Card.ModifyForm .Card-title {
 .Home .Section-partenaires {
   background-color: rgb(166, 52, 27);
   font-family: "Rift", sans-serif;
+  color: white;
 }
 .Home .Section-partenaires-list {
   display: flex;
@@ -1061,10 +1075,6 @@ button:hover, .CTA:hover {
   background: linear-gradient(163deg, rgb(70, 1, 1) 38%, rgb(166, 52, 27) 100%);
 }
 
-.Card-desc {
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
-}
-
 .Header {
   background-color: #2E3236;
   color: white;
@@ -1214,7 +1224,7 @@ button:hover, .CTA:hover {
 }
 @media screen and (min-width: 550px) {
   .MainContent-title {
-    background: url("../img/logoPainBlanc.svg") 7px 8px no-repeat;
+    background: url("../img/logoPainNoir.png") 7px 8px no-repeat;
     background-size: 70px;
     padding-top: 45px;
     margin-top: 45px;
@@ -1240,7 +1250,7 @@ button:hover, .CTA:hover {
   font-style: italic;
   text-align: right;
   text-decoration: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .MainContent-topBack img {
   padding-left: 15px;
@@ -1248,8 +1258,11 @@ button:hover, .CTA:hover {
   height: 15px;
 }
 
+.Products .Card {
+  overflow: hidden;
+  max-height: 460px;
+}
 .Products .Card:hover .Card-imgBox, .Products .Card.selected .Card-imgBox {
-  background-color: rgb(0, 0, 0);
   backdrop-filter: blur(20px);
   transition: 0.5s;
 }
@@ -1259,6 +1272,8 @@ button:hover, .CTA:hover {
   transition: 0.8s;
   background-color: rgba(255, 255, 255, 0.32);
   backdrop-filter: blur(4px);
+  position: relative;
+  bottom: 135px;
 }
 .Products .Card:hover .Card-recipe-title, .Products .Card.selected .Card-recipe-title {
   font-family: "Rift", sans-serif;
@@ -1269,9 +1284,11 @@ button:hover, .CTA:hover {
 .Products .Card:hover .Card-recipe-text, .Products .Card.selected .Card-recipe-text {
   color: rgb(0, 0, 0);
   padding: 5px 15px;
+  min-height: 60px;
 }
 .Products-filter-link {
   font-family: "Rift", sans-serif;
+  background-color: rgb(166, 52, 27);
   color: white;
   display: inline-block;
   border: solid 1px white;
@@ -1290,8 +1307,8 @@ button:hover, .CTA:hover {
   transition: 0.8s;
 }
 .Products-filter-link.filtered {
-  background-color: white;
-  color: rgb(0, 0, 0);
+  background-color: #2E3236;
+  color: white;
 }
 .Products-list {
   padding: 1em;
@@ -1312,11 +1329,9 @@ button:hover, .CTA:hover {
 }
 
 .Card {
-  height: 350px;
-  position: relative;
-  overflow: hidden;
-  margin: 20px;
+  padding: 20px;
   border-radius: 15px 15px 15px 15px;
+  overflow: hidden;
 }
 .Card.modify {
   border: solid rgb(166, 52, 27);
@@ -1330,7 +1345,7 @@ button:hover, .CTA:hover {
   width: 100%;
   text-align: center;
   object-fit: cover;
-  Opacity: 80%;
+  border-radius: 15px 15px 15px 15px;
 }
 .Card-imgBox-img.hidden {
   display: none;
@@ -1338,21 +1353,13 @@ button:hover, .CTA:hover {
 }
 .Card-title {
   margin: 0;
-  width: 90%;
+  width: 100%;
   padding: 5px;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 .Card-desc {
-  position: relative;
-  top: -270px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
+  width: 100%;
   font-family: "Nunito", sans-serif, regular;
+  min-height: 75px;
 }
 .Card-desc-text {
   margin: 0;
@@ -1367,11 +1374,11 @@ button:hover, .CTA:hover {
 .Card-recipe {
   display: none;
   opacity: 0;
-  position: absolute;
+  position: relative;
+  bottom: 135px;
   width: 90%;
   min-width: 200px;
   padding: 5px;
-  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -1381,7 +1388,8 @@ button:hover, .CTA:hover {
 }
 
 .Footer {
-  background-color: rgb(51, 26, 17);
+  background-color: #2E3236;
+  color: white;
   padding: 10px;
 }
 .Footer a:hover {
