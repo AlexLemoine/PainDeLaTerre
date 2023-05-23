@@ -21,15 +21,14 @@ class AdminProductsController extends AbstractController
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		return $this->render('admin_products.php',
-		[
-		    'seo_title' => TITLE_ADMIN_PRODUCTS,
-			'products' => ProductRepository::findAll(),
-			'categories' => ProductCategoryRepository::findAll(),
-			'frequencies' => ProductFrequencyRepository::findAll(),
-		]);
+		    [
+			  'seo_title' => TITLE_ADMIN_PRODUCTS,
+			  'products' => ProductRepository::findAll(),
+			  'categories' => ProductCategoryRepository::findAll(),
+			  'frequencies' => ProductFrequencyRepository::findAll(),
+		    ]);
 		
 	}
-	
 	
 	
 	/**
@@ -37,30 +36,29 @@ class AdminProductsController extends AbstractController
 	 * en mode modification de produit
 	 * @return string
 	 */
-	public function showProduct():string
+	public function showProduct(): string
 	{
 		// TODO Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Récupération de l'id de la card sélectionnée
-		if(isset($_POST['id'])) {
+		if (isset($_POST['id'])) {
 			$id = $_POST['id'];
 			$product = ProductRepository::find($id);
 			
 			// Si le produit n'existe pas, redirection vers page d'accueil
-			if(!$product instanceof Product)
-			{
+			if (!$product instanceof Product) {
 				$this->redirectAndDie();
 			}
 			
 			// Renvoi de la vue partielle de la card en mode formulaire
-			return $this->render('_admin_product.php',[
+			return $this->render('_admin_product.php', [
 			    'oProduct' => $product,
 			],
 			    true
 			);
 		} else {
-			return $this->render('_admin_product.php',[
+			return $this->render('_admin_product.php', [
 			    'oProduct' => new Product(),
 			],
 			    true
@@ -95,7 +93,7 @@ class AdminProductsController extends AbstractController
 		$iNbEltsPerPage = ProductRepository::NB_ELT_PER_PAGE;
 		$iOffset = ($iPage - 1) * $iNbEltsPerPage;
 		
-		$aParams =  [
+		$aParams = [
 		    'products' => ProductRepository::findBy($aCriterias, $iOffset, $iNbEltsPerPage),
 		    'currentPage' => $iPage,
 		    'nb_results' => ProductRepository::countBy($aCriterias),
@@ -111,23 +109,22 @@ class AdminProductsController extends AbstractController
 	 * Permet de modifier un produit sélectionné
 	 * @return string
 	 */
-	public function modifyProduct():string
+	public function modifyProduct(): string
 	{
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Récupération de l'id de la card sélectionnée
-		if(isset($_POST['id'])){
+		if (isset($_POST['id'])) {
 			$id = $_POST['id'];
 			$product = ProductRepository::find($id);
 			
 			// Si le produit n'existe pas, redirection vers page d'accueil
-			if(!$product instanceof Product)
-			{
+			if (!$product instanceof Product) {
 				$this->redirectAndDie();
 			}
 			// Renvoi de la vue partielle de la card en mode formulaire
-			return $this->render('_admin_modify_product.php',[
+			return $this->render('_admin_modify_product.php', [
 			    'product' => $product,
 			    'categories' => ProductCategoryRepository::findAll(),
 			    'frequencies' => ProductFrequencyRepository::findAll(),
@@ -137,14 +134,14 @@ class AdminProductsController extends AbstractController
 		}
 		
 		// Renvoi de la vue partielle de la card en mode formulaire
-		return $this->render('admin_products.php',[
+		return $this->render('admin_products.php', [
 		    'products' => ProductRepository::findAll(),
 		    'categories' => ProductCategoryRepository::findAll(),
 		    'frequencies' => ProductFrequencyRepository::findAll(),
 		],
 		    true
 		);
-
+		
 	}
 	
 	/**
@@ -152,7 +149,7 @@ class AdminProductsController extends AbstractController
 	 * Retourner la vue partielle du produit modifié en AJAX
 	 * @return string
 	 */
-	public function updateProduct():string
+	public function updateProduct(): string
 	{
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
@@ -168,23 +165,21 @@ class AdminProductsController extends AbstractController
 		// TODO Ajouter fonction save() dans Repo
 		// Gérer la soumission du formulaire
 		// Récupération (+ nettoyage des données POST)
-		$aCriterias = [
-		    'name' => strip_tags($_POST['name']),
-		    'category' => strip_tags($_POST['category']),
-		    'ingredients' => strip_tags($_POST['ingredients']),
-		    'description' => strip_tags($_POST['description']),
-		    'status' => strip_tags($_POST['status']),
-//		    'picture' => strip_tags($_FILES['picture']['tmp_name']),
-//		    'picture_secondary' => strip_tags($_FILES['picture_secondary']['tmp_name']),
-		    'frequency' => strip_tags($_POST['frequency']),
+		$aParams = [
+		    ':name' => strip_tags($_POST['name']),
+		    ':category' => strip_tags($_POST['category']),
+		    ':ingredients' => strip_tags($_POST['ingredients']),
+		    ':description' => strip_tags($_POST['description']),
+		    ':status' => strip_tags($_POST['status']),
+		    ':frequency' => strip_tags($_POST['frequency']),
 		];
 		
-		if($_FILES['picture']['size'] >0) {
+		if ($_FILES['picture']['name'] && $_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
 			// Récupération des informations sur l'image
 			$aPictureInfo = getimagesize($_FILES['picture']['tmp_name']);
 			
 			// Vérification que le fichier est bien une image
-			if($aPictureInfo) {
+			if ($aPictureInfo) {
 				// Nettoyage du nom de fichier et ajout de l'extension
 				$sFileNameNew = uniqid() . '.' . pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
 				$sFilePathNew = DIR_UPLOADS . DIRECTORY_SEPARATOR . $sFileNameNew;
@@ -192,17 +187,18 @@ class AdminProductsController extends AbstractController
 				// Déplacement du fichier téléchargé vers le dossier des uploads
 				if (move_uploaded_file($_FILES['picture']['tmp_name'], $sFilePathNew)) {
 					// Le fichier a été correctement déplacé, on l'ajoute aux critères de mise à jour
-					$aCriterias['picture'] = basename($sFilePathNew);
+					$aParams[':picture'] = basename($sFilePathNew);
+					
 				}
 			}
 		}
 		
-		if($_FILES['picture_secondary']['size'] >0) {
+		if ($_FILES['picture_secondary']['name'] && $_FILES['picture_secondary']['error'] !== UPLOAD_ERR_NO_FILE) {
 			// Récupération des informations sur l'image
 			$aPictureInfo2 = getimagesize($_FILES['picture_secondary']['tmp_name']);
 			
 			// Vérification que le fichier est bien une image
-			if($aPictureInfo2) {
+			if ($aPictureInfo2) {
 				// Nettoyage du nom de fichier et ajout de l'extension
 				$sFileNameNew2 = uniqid() . '.' . pathinfo($_FILES['picture_secondary']['name'], PATHINFO_EXTENSION);
 				$sFilePathNew2 = DIR_UPLOADS . DIRECTORY_SEPARATOR . $sFileNameNew2;
@@ -210,33 +206,20 @@ class AdminProductsController extends AbstractController
 				// Déplacement du fichier téléchargé vers le dossier des uploads
 				if (move_uploaded_file($_FILES['picture_secondary']['tmp_name'], $sFilePathNew2)) {
 					// Le fichier a été correctement déplacé, on l'ajoute aux critères de mise à jour
-					$aCriterias['picture_secondary'] = basename($sFilePathNew2);
+					$aParams[':picture_secondary'] = basename($sFilePathNew2);
 				}
 			}
 		}
 		
-		$aParams = [
-		    ':category' => $aCriterias['category'],
-		    ':name' => $aCriterias['name'],
-		    ':ingredients' => $aCriterias['ingredients'],
-		    ':description' => $aCriterias['description'],
-		    ':status' => $aCriterias['status'],
-		    ':picture' => $aCriterias['picture'],
-		    ':picture_secondary' => $aCriterias['picture_secondary'],
-		    ':frequency' => $aCriterias['frequency']
-		];
-		
-		// Si l'id existe
-		// update en BDD
-		if (isset($id)){
+		// Si l'id existe, update en BDD
+		if (isset($id)) {
 			
 			$aParams[':id'] = $id;
 			
 			$product = ProductRepository::find($id);
 			
 			// Si le produit n'existe pas, redirection vers page d'accueil
-			if(!$product instanceof Product)
-			{
+			if (!$product instanceof Product) {
 				$this->redirectAndDie();
 			}
 			
@@ -246,10 +229,18 @@ class AdminProductsController extends AbstractController
 			    p.ingredients = :ingredients,
 			    p.description = :description,
 			    p.status = :status,
-			    p.picture = :picture,
-			    p.picture_secondary = :picture_secondary,
-			    p.frequency = :frequency
-			WHERE p.id = :id ;' ;
+			    p.frequency = :frequency';
+			
+			if ($_FILES['picture']['name'] && $_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
+				$sQuery .= ', p.picture = :picture';
+			}
+			
+			if ($_FILES['picture_secondary']['name'] && $_FILES['picture_secondary']['error'] !== UPLOAD_ERR_NO_FILE) {
+				$sQuery .= ', p.picture_secondary = :picture_secondary';
+			}
+			
+			$sQuery .= ' WHERE p.id = :id ;';
+			
 		} else {
 			
 			// Si pas d'id,
@@ -274,21 +265,19 @@ class AdminProductsController extends AbstractController
 				    	:picture,
 				      :picture_secondary,
 				      :frequency);';
-		
+			
 		}
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->execute($aParams);
 		
-		if (!isset($id)){
+		if (!isset($id)) {
 			$id = $oPdo->lastInsertId();
 		}
 		
-		var_dump($aCriterias);
-
 		// render (vue partielle texte)
-		return $this->render('_admin_product.php',[
-		    // Rafraîchir les données du produit modifié
+		return $this->render('_admin_product.php', [
+			// Rafraîchir les données du produit modifié
 		    'oProduct' => ProductRepository::find($id),
 		],
 		    true
@@ -305,19 +294,18 @@ class AdminProductsController extends AbstractController
 		$oPdo = DbManager::getInstance();
 		
 		// Seulement si isToDelete
-		if($_POST['isToDelete'] === 'yes'){
+		if ($_POST['isToDelete'] === 'yes') {
 			
 			// Récupération de l'id de la card sélectionnée
 			$id = $_POST['id'];
 			$product = ProductRepository::find($id);
 			
 			// Si le produit n'existe pas, redirection vers page d'accueil
-			if(!$product instanceof Product)
-			{
+			if (!$product instanceof Product) {
 				$this->redirectAndDie();
 			}
 			
-			$sQuery = 'DELETE FROM '. ProductRepository::TABLE .'
+			$sQuery = 'DELETE FROM ' . ProductRepository::TABLE . '
        				WHERE id = :id;';
 			
 			
@@ -327,7 +315,7 @@ class AdminProductsController extends AbstractController
 		}
 		
 		// render (vue partielle texte)
-		return $this->render('_admin_products.php',[
+		return $this->render('_admin_products.php', [
 		    'products' => ProductRepository::findAll(),
 		],
 		    true
@@ -336,6 +324,5 @@ class AdminProductsController extends AbstractController
 		
 	}
 	
-
 	
 }
