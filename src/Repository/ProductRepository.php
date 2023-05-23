@@ -110,7 +110,7 @@ final class ProductRepository extends AbstractRepository
 			$oProduct->setPicture($aDbProduct['picture']);
 		};
 		if (!empty($aDbProduct['picture_secondary'])) {
-			$oProduct->setPicture($aDbProduct['picture_secondary']);
+			$oProduct->setPictureSecondary($aDbProduct['picture_secondary']);
 		};
 		$oProduct->setStatus($aDbProduct['status']);
 		$oProduct->setCreatedAt(new \DateTime($aDbProduct['created_at']));

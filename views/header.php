@@ -26,10 +26,14 @@
 
 			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
 			   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
+			<a class="Header-menu-links-link" href="#">Notre boulangerie</a>
+			<a class="Header-menu-links-link" href="#">Notre équipe</a>
 			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_PRODUCTS) ? 'selected' : '' ?>"
 			   href="?page=<?php echo PAGE_PRODUCTS; ?>"><?= TITLE_PRODUCTS ?></a>
-			<a class="Header-menu-links-link" href="#">Actualités</a>
+			<a class="Header-menu-links-link" href="#">Notre démarche</a>
+			<a class="Header-menu-links-link" href="#">Blog</a>
 			<a class="Header-menu-links-link" href="#">Contact</a>
+			
 		</nav>
 		<?php //endif; ?>
 	</div>

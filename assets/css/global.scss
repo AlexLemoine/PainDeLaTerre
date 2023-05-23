@@ -16,8 +16,8 @@ html {
 }
 
 body {
-      background-color: $backgroundColor;
-      color: $whiteColor;
+      background-color: $lightBackground;
+      color: $blackColor;
       text-align: center;
       margin: 0;
 }
@@ -25,7 +25,6 @@ body {
 h1, h2, h3, .Header {
       font-family: $typoTitre;
       Font-weight: bold;
-      
 }
 
 h1 {
@@ -86,6 +85,8 @@ button, .CTA {
 }
 
 .Header {
+      background-color: $leaflet;
+      color: $whiteColor;
       
       &-logo {
             
@@ -114,12 +115,14 @@ button, .CTA {
       &-menu {
             
             &-burger {
+                  padding: 15px;
                   
                   @media screen AND (min-width: 550px) {
                         display: none;
                   }
                   
                   &.opened {
+                        padding: 0;
                         
                         & img {
                               display: inline-block;
@@ -133,7 +136,6 @@ button, .CTA {
                               display: block;
                               Font-size: 2em;
                               margin: 0;
-                              padding-bottom: 20px;
                         }
                         
                   }
@@ -160,7 +162,7 @@ button, .CTA {
                   transition: .3s;
                   
                   @media screen AND (max-width: 549px) {
-                        background-color: rgba(0, 0, 0, .3);
+                        background-color: $leaflet;
                   }
                   
                   @media screen AND (min-width: 550px) {
@@ -172,6 +174,7 @@ button, .CTA {
                         justify-content: space-around;
                         align-items: center;
                         padding: 16px 40px;
+                        flex-wrap: wrap;
                   }
       
       
@@ -186,7 +189,7 @@ button, .CTA {
                   
                   &-link {
                         display: block;
-                        padding: 5px;
+                        padding: 10px;
                         color: $whiteColor;
                         text-decoration: none;
                         Font-size: 1.4em;
@@ -214,27 +217,30 @@ button, .CTA {
                               padding: 1.5em 0;
                               
                               .Header-menu-links-link {
-                                    &:nth-child(6) {
+                                    &:nth-child(7) {
                                           animation: showMenu .6s 0s forwards;
                                     }
-                                    &:nth-child(5) {
+                                    &:nth-child(6) {
                                           animation: showMenu .6s .2s forwards;
                                     }
-                                    
-                                    &:nth-child(4) {
+                                    &:nth-child(5) {
                                           animation: showMenu .6s .4s forwards;
                                     }
                                     
-                                    &:nth-child(3) {
+                                    &:nth-child(4) {
                                           animation: showMenu .6s .6s forwards;
                                     }
                                     
-                                    &:nth-child(2) {
+                                    &:nth-child(3) {
                                           animation: showMenu .6s .8s forwards;
                                     }
                                     
-                                    &:nth-child(1) {
+                                    &:nth-child(2) {
                                           animation: showMenu .6s 1s forwards;
+                                    }
+                                    
+                                    &:nth-child(1) {
+                                          animation: showMenu .6s 1.2s forwards;
                                     }
                               }
                         }
@@ -244,7 +250,7 @@ button, .CTA {
       }
       
       @media screen AND (min-width: 550px) {
-            background-color: $secondDarkColor;
+            background-color: $leaflet;
       }
       
 }

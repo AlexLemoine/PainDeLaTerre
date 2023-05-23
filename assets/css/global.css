@@ -597,7 +597,6 @@ form.Card.ModifyForm .Card-title {
 }
 @media screen and (max-width: 550px) {
   .Home-header {
-    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -681,7 +680,7 @@ form.Card.ModifyForm .Card-title {
   padding: 5px;
   text-decoration: none;
   font-family: "Rift", sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 1.2em;
 }
 @media screen and (min-width: 550px) {
@@ -692,11 +691,12 @@ form.Card.ModifyForm .Card-title {
 .Home-sections-title-selected {
   text-decoration: underline;
   font-family: "Rift", sans-serif;
-  color: white;
   font-size: 1.4em;
   background: url(../img/logoPainBlanc.svg) 35px 10px no-repeat;
   background-size: 35px;
   padding: 5px 80px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 @media screen and (min-width: 550px) {
   .Home-sections-title-selected {
@@ -999,8 +999,8 @@ html {
 }
 
 body {
-  background-color: rgb(46, 50, 54);
-  color: white;
+  background-color: #F2F2F2;
+  color: rgb(0, 0, 0);
   text-align: center;
   margin: 0;
 }
@@ -1065,6 +1065,10 @@ button:hover, .CTA:hover {
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
 }
 
+.Header {
+  background-color: #2E3236;
+  color: white;
+}
 .Header-logo-img source {
   display: none;
 }
@@ -1081,10 +1085,16 @@ button:hover, .CTA:hover {
     max-height: 170px;
   }
 }
+.Header-menu-burger {
+  padding: 15px;
+}
 @media screen and (min-width: 550px) {
   .Header-menu-burger {
     display: none;
   }
+}
+.Header-menu-burger.opened {
+  padding: 0;
 }
 .Header-menu-burger.opened img {
   display: inline-block;
@@ -1096,7 +1106,6 @@ button:hover, .CTA:hover {
   display: block;
   Font-size: 2em;
   margin: 0;
-  padding-bottom: 20px;
 }
 .Header-menu-burger-img {
   display: inline-block;
@@ -1117,7 +1126,7 @@ button:hover, .CTA:hover {
 }
 @media screen and (max-width: 549px) {
   .Header-menu-links {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #2E3236;
   }
 }
 @media screen and (min-width: 550px) {
@@ -1130,6 +1139,7 @@ button:hover, .CTA:hover {
     justify-content: space-around;
     align-items: center;
     padding: 16px 40px;
+    flex-wrap: wrap;
   }
 }
 @media screen and (min-width: 550px) {
@@ -1142,7 +1152,7 @@ button:hover, .CTA:hover {
 }
 .Header-menu-links-link {
   display: block;
-  padding: 5px;
+  padding: 10px;
   color: white;
   text-decoration: none;
   Font-size: 1.4em;
@@ -1165,28 +1175,31 @@ button:hover, .CTA:hover {
     animation: displayNav 0.8s both;
     padding: 1.5em 0;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(6) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(7) {
     animation: showMenu 0.6s 0s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(5) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(6) {
     animation: showMenu 0.6s 0.2s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(4) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(5) {
     animation: showMenu 0.6s 0.4s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(3) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(4) {
     animation: showMenu 0.6s 0.6s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(2) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(3) {
     animation: showMenu 0.6s 0.8s forwards;
   }
-  .Header-menu-links.opened .Header-menu-links-link:nth-child(1) {
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(2) {
     animation: showMenu 0.6s 1s forwards;
+  }
+  .Header-menu-links.opened .Header-menu-links-link:nth-child(1) {
+    animation: showMenu 0.6s 1.2s forwards;
   }
 }
 @media screen and (min-width: 550px) {
   .Header {
-    background-color: rgb(51, 26, 17);
+    background-color: #2E3236;
   }
 }
 

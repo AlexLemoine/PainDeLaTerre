@@ -157,7 +157,7 @@ class AdminProductsController extends AbstractController
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 //
-//		var_dump($_POST);
+		var_dump($_FILES);
 		
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
@@ -174,12 +174,12 @@ class AdminProductsController extends AbstractController
 		    'ingredients' => strip_tags($_POST['ingredients']),
 		    'description' => strip_tags($_POST['description']),
 		    'status' => strip_tags($_POST['status']),
-		    'picture' => strip_tags($_FILES['picture']['tmp_name']),
-		    'picture_secondary' => strip_tags($_FILES['picture_secondary']['tmp_name']),
+//		    'picture' => strip_tags($_FILES['picture']['tmp_name']),
+//		    'picture_secondary' => strip_tags($_FILES['picture_secondary']['tmp_name']),
 		    'frequency' => strip_tags($_POST['frequency']),
 		];
 		
-		if(file_exists($aCriterias['picture'])) {
+		if($_FILES['picture']['size'] >0) {
 			// Récupération des informations sur l'image
 			$aPictureInfo = getimagesize($_FILES['picture']['tmp_name']);
 			
@@ -197,7 +197,7 @@ class AdminProductsController extends AbstractController
 			}
 		}
 		
-		if(file_exists($aCriterias['picture_secondary'])) {
+		if($_FILES['picture_secondary']['size'] >0) {
 			// Récupération des informations sur l'image
 			$aPictureInfo2 = getimagesize($_FILES['picture_secondary']['tmp_name']);
 			
@@ -283,6 +283,8 @@ class AdminProductsController extends AbstractController
 		if (!isset($id)){
 			$id = $oPdo->lastInsertId();
 		}
+		
+		var_dump($aCriterias);
 
 		// render (vue partielle texte)
 		return $this->render('_admin_product.php',[
