@@ -24,7 +24,7 @@ form.Card.ModifyForm {
       input{
             border: 0;
             background-color: transparent;
-            color: $whiteColor;
+            color: $blackColor;
             font-family: $typoTitre;
             Font-weight: bold;
             
@@ -33,6 +33,7 @@ form.Card.ModifyForm {
                   height: 20px;
                   font-family: $typoTitre;
                   text-shadow: none;
+                  border: solid 1px;
             }
             
             &#localisation{

@@ -67,6 +67,11 @@
                                     textarea{
                                           width: 300px;
                                     }
+                                    
+                                    select{
+                                          border: solid 1px;
+                                    }
+                                    
                               }
                               
                               
@@ -124,11 +129,19 @@
             &-title{
                   padding-left: 5px;
                   font-family: $typoTitre;
+                  font-weight: bold;
             }
       }
       
       &-title{
             font-family: $typoTitre;
+            font-weight: bold;
+      }
+      
+      &-form{
+            input,select{
+                  border: solid 1px;
+            }
       }
       
       .Cards{
@@ -169,6 +182,7 @@
                         display: flex;
                         flex-direction: column-reverse;
                   }
+                  
             }
             
             &-modify, &-delete, &-cancel, &-save{
