@@ -96,6 +96,9 @@
   justify-content: space-around;
 }
 
+.Search {
+  padding: 20px;
+}
 .Search .Card-create {
   display: flex;
   justify-content: center;
@@ -204,6 +207,8 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  row-gap: 20px;
+  column-gap: 20px;
 }
 @media screen and (min-width: 550px) {
   .Search .Cards {
@@ -218,6 +223,7 @@
   border: solid 2px;
   height: auto;
   width: 320px;
+  position: relative;
 }
 @media screen and (min-width: 550px) {
   .Search .Card {
@@ -403,6 +409,12 @@
     left: 50%;
   }
 }
+@media screen and (min-width: 550px) {
+  #admin_product #Cards .Card {
+    position: relative;
+  }
+}
+
 form.Card.ModifyForm {
   margin: 0;
   padding: 0;
