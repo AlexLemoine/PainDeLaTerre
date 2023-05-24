@@ -1,0 +1,24 @@
+@import "mixins";
+
+#boulangerie{
+
+      #gamme{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 20px;
+            
+            p{
+                  font-family: $typoTitre;
+                  font-size: 2em;
+                  padding-right: 33px;
+            }
+            
+            img{
+                  width: 50%;
+            }
+            
+      }
+
+}

@@ -26,7 +26,8 @@
 
 			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
 			   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
-			<a class="Header-menu-links-link" href="#">Notre boulangerie</a>
+			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_BOULANGERIE) ? 'selected' : '' ?>"
+			   href="?page=<?php echo PAGE_BOULANGERIE; ?>"><?= TITLE_BOULANGERIE ?></a>
 			<a class="Header-menu-links-link" href="#">Notre équipe</a>
 			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_PRODUCTS) ? 'selected' : '' ?>"
 			   href="?page=<?php echo PAGE_PRODUCTS; ?>"><?= TITLE_PRODUCTS ?></a>
