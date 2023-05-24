@@ -92,6 +92,10 @@
     left: 50%;
   }
 }
+.Home .Citation {
+  background-color: rgb(186, 161, 140);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
+}
 @media screen and (min-width: 750px) {
   .Home .CTA {
     grid-column: 1/-1;
@@ -517,20 +521,185 @@
     left: 50%;
   }
 }
-#boulangerie #gamme {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
+.Boulangerie {
+  font-family: "Nunito", sans-serif, regular;
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie .CTA {
+    position: relative;
+    bottom: -10px;
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie .CTA {
+    grid-column: 1/3;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.4em;
+  }
+}
+.Boulangerie-media {
+  width: 100%;
+  max-width: 600px;
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie-gamme-text, .Boulangerie-produits-text, .Boulangerie-partenaires-text {
+    font-size: 1.2em;
+  }
+}
+.Boulangerie-encart {
+  background-color: rgb(186, 161, 140);
+  color: white;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.65);
+  padding: 30px;
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie-encart {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.Boulangerie-encart-tag {
+  font-family: "Rift", sans-serif;
+  font-size: 1.8em;
+  margin: 0;
+  padding: 15px 0;
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie-encart-tag {
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Boulangerie-encart-tag {
+    font-size: 2.2em;
+  }
+}
+.Boulangerie-produits, .Boulangerie-partenaires {
+  padding: 40px 0;
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie-produits, .Boulangerie-partenaires {
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.Boulangerie-produits-title, .Boulangerie-partenaires-title {
+  margin: 0;
+}
+.Boulangerie-produits-text, .Boulangerie-partenaires-text {
+  margin: 0;
   padding: 20px;
 }
-#boulangerie #gamme p {
-  font-family: "Rift", sans-serif;
-  font-size: 2em;
-  padding-right: 33px;
+@media screen and (min-width: 550px) {
+  .Boulangerie-produits-text, .Boulangerie-partenaires-text {
+    width: 75%;
+  }
 }
-#boulangerie #gamme img {
-  width: 50%;
+.Boulangerie-produits-img, .Boulangerie-partenaires-img {
+  width: 100%;
+  max-width: 600px;
+  max-height: 250px;
+  padding: 20px 0;
+}
+.Boulangerie-gamme {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.Boulangerie-gamme-text {
+  margin: 0;
+  padding: 50px;
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-produits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: solid 1px;
+    margin: 60px 0;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-produits-title {
+    grid-column: 1/3;
+  }
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie-produits-text {
+    text-align: end;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-produits-text {
+    grid-column: 1/3;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-produits-img {
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    padding: 0;
+    max-width: initial;
+    max-height: initial;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-partenaires {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: solid 1px;
+    margin: 60px 0;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-partenaires-title {
+    grid-column: 3/-1;
+  }
+}
+@media screen and (min-width: 550px) {
+  .Boulangerie-partenaires-text {
+    text-align: start;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-partenaires-text {
+    grid-column: 3/-1;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Boulangerie-partenaires-img {
+    grid-column: 1/3;
+    grid-row: 1/-1;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    padding: 0;
+    max-width: initial;
+    max-height: initial;
+  }
+}
+.Boulangerie-partenaires .CTA {
+  grid-column: 3/-1;
 }
 
 @keyframes showMenu {

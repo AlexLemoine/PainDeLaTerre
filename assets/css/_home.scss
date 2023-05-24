@@ -2,6 +2,11 @@
 
 .Home{
       
+      .Citation{
+            background-color: $firstDarkColor;
+            text-shadow: $textShadow;
+      }
+      
       .CTA{
             @media screen AND (min-width: 750px)  {
                   grid-column: 1/-1;

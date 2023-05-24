@@ -1,24 +1,222 @@
 @import "mixins";
 
-#boulangerie{
-
-      #gamme{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-            padding: 20px;
+.Boulangerie {
+      font-family: $typoTexte;
+      
+      .CTA {
+            @media screen AND (min-width: 550px) {
+                  position: relative;
+                  bottom: -10px;
+                  font-size: 1.2em;
+            }
+      
+            @media screen AND (min-width: 1050px) {
+                  grid-column: 1/3;
+                  width: fit-content;
+                  margin-left: auto;
+                  margin-right: auto;
+                  font-size: 1.4em;
+            }
+      }
+      
+      &-media {
+            width: 100%;
+            max-width: 600px
+      }
+      
+      &-gamme, &-produits, &-partenaires {
+            &-text {
+                  @media screen AND (min-width: 550px) {
+                        font-size: 1.2em;
+                  }
+            }
+      }
+      
+      &-encart {
+            background-color: $firstDarkColor;
+            color: $whiteColor;
+            text-shadow: $textShadow;
+            padding: 30px;
             
-            p{
-                  font-family: $typoTitre;
-                  font-size: 2em;
-                  padding-right: 33px;
+            @media screen AND (min-width: 550px) {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content: space-evenly;
+                  align-items: center;
             }
             
-            img{
-                  width: 50%;
+            &-tag {
+                  font-family: $typoTitre;
+                  font-size: 1.8em;
+                  margin: 0;
+                  padding: 15px 0;
+                  
+                  @media screen AND (min-width: 550px) {
+                        font-size: 2em;
+                  }
+                  
+                  @media screen AND (min-width: 750px) {
+                        font-size: 2.2em;
+                  }
+                  
             }
             
       }
-
+      
+      
+      &-produits, &-partenaires {
+            
+            padding: 40px 0;
+            
+            @media screen AND (min-width: 550px) {
+                  padding: 50px 0;
+                  display: flex;
+                  justify-content: space-evenly;
+                  align-items: center;
+                  flex-direction: column;
+            }
+            
+            &-title {
+                  margin: 0;
+            }
+            
+            &-text {
+                  margin: 0;
+                  padding: 20px;
+                  
+                  @media screen AND (min-width: 550px) {
+                        width: 75%;
+                  }
+                  
+            }
+            
+            &-img {
+                  width: 100%;
+                  max-width: 600px;
+                  max-height: 250px;
+                  padding: 20px 0;
+            }
+            
+      }
+      
+      &-gamme {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            
+            
+            &-text {
+                  margin: 0;
+                  padding: 50px;
+                  
+            }
+            
+      }
+      
+      &-produits {
+            //@media screen AND (min-width: 550px) {
+            //      display: flex;
+            //      justify-content: space-evenly;
+            //      align-items: center;
+            //      flex-direction: column;
+            //}
+            
+            @media screen AND (min-width: 1050px) {
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  grid-template-rows: repeat(3, 1fr);
+                  border: solid 1px;
+                  margin: 60px 0;
+                  padding: 0;
+            }
+            
+            &-title {
+                  @media screen AND (min-width: 1050px) {
+                        grid-column: 1/3;
+                  }
+            }
+            
+            &-text {
+                  @media screen AND (min-width: 550px) {
+                        text-align: end;
+                  }
+                  @media screen AND (min-width: 1050px) {
+                        grid-column: 1/3;
+                  }
+            }
+            
+            &-img {
+                  @media screen AND (min-width: 1050px) {
+                        grid-column: 3/-1;
+                        grid-row: 1/-1;
+                        display: inline-block;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        padding: 0;
+                        max-width: initial;
+                        max-height: initial;
+                  }
+            }
+            
+      }
+      
+      &-partenaires {
+            //@media screen AND (min-width: 550px) {
+            //      display: flex;
+            //      justify-content: space-evenly;
+            //      align-items: center;
+            //      flex-direction: column;
+            //}
+      
+            @media screen AND (min-width: 1050px) {
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  grid-template-rows: repeat(3, 1fr);
+                  border: solid 1px;
+                  margin: 60px 0;
+                  padding: 0;
+            }
+      
+            &-title {
+                  @media screen AND (min-width: 1050px) {
+                        grid-column: 3/-1;
+                  }
+            }
+            
+            &-text {
+                  @media screen AND (min-width: 550px) {
+                        text-align: start;
+                  }
+                  @media screen AND (min-width: 1050px) {
+                        grid-column: 3/-1;
+                        margin-left: auto;
+                        margin-right: auto;
+                  }
+            }
+      
+            &-img {
+                  @media screen AND (min-width: 1050px) {
+                        grid-column: 1/3;
+                        grid-row: 1/-1;
+                        display: inline-block;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        padding: 0;
+                        max-width: initial;
+                        max-height: initial;
+                  }
+            }
+            
+            .CTA{
+                  grid-column: 3/-1;
+            }
+            
+      }
+      
+      
 }
+
