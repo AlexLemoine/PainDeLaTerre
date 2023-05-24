@@ -1,18 +1,41 @@
 @import "mixins";
 
-#admin_product{
+#admin_products{
       
       & #Cards{
             
-            & .Card{
+            .Card{
                   @media screen AND (min-width: 550px) {
                         position: relative;
                   }
-            
+                  &-Header{
+                        
+                        h2.Card-title{
+                              position: initial;
+                              margin: 0;
+                              font-size: 1.6em;
+                              padding: 10px;
+                              width: auto;
+                        }
+                  }
+                  
+                  &.modify{
+                        form.Card.ModifyForm{
+                              .Card{
+                                    &-Header{
+                                          input.Card-title#name{
+                                                position: initial;
+                                          }
+                                    }
+                              }
+                        }
+                  }
+
             }
       }
       
 
+      
 }
 
 form.Card.ModifyForm {
@@ -80,13 +103,16 @@ form.Card.ModifyForm {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 10px 0;
       
             @media screen AND (min-width:550px)  {
                   flex-direction: row;
             }
             
             h3{
-                  margin: 0;
+                  @media screen AND (min-width: 550px) {
+                        margin-right: 5px;
+                  }
             }
 
       }

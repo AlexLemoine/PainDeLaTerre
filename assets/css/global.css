@@ -292,6 +292,8 @@
   .Search .Card-title {
     width: fit-content;
     padding: 5px;
+    position: initial;
+    margin: 0;
   }
 }
 .Search .Card-imgBox {
@@ -418,9 +420,19 @@
   }
 }
 @media screen and (min-width: 550px) {
-  #admin_product #Cards .Card {
+  #admin_products #Cards .Card {
     position: relative;
   }
+}
+#admin_products #Cards .Card-Header h2.Card-title {
+  position: initial;
+  margin: 0;
+  font-size: 1.6em;
+  padding: 10px;
+  width: auto;
+}
+#admin_products #Cards .Card.modify form.Card.ModifyForm .Card-Header input.Card-title#name {
+  position: initial;
 }
 
 form.Card.ModifyForm {
@@ -484,14 +496,17 @@ form.Card.ModifyForm .Card-Header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px 0;
 }
 @media screen and (min-width: 550px) {
   form.Card.ModifyForm .Card-Header {
     flex-direction: row;
   }
 }
-form.Card.ModifyForm .Card-Header h3 {
-  margin: 0;
+@media screen and (min-width: 550px) {
+  form.Card.ModifyForm .Card-Header h3 {
+    margin-right: 5px;
+  }
 }
 @media screen and (min-width: 550px) {
   form.Card.ModifyForm .Card-cancel, form.Card.ModifyForm .Card-save {
@@ -998,13 +1013,15 @@ form.Card.ModifyForm .Card-title {
   position: initial;
 }
 
-#admin_company .Card-title {
-  margin: 0;
-  width: fit-content;
-  height: auto;
+#admin_partenaires .Search-form {
+  padding: 10px 0;
+}
+#admin_partenaires .Card-title {
+  position: initial;
+  width: auto;
 }
 @media screen and (min-width: 750px) {
-  #admin_company .ModifyForm {
+  #admin_partenaires .ModifyForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1012,21 +1029,31 @@ form.Card.ModifyForm .Card-title {
   }
 }
 @media screen and (min-width: 550px) {
-  #admin_company .ModifyForm .Card-Header {
+  #admin_partenaires .ModifyForm .Card-Header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
   }
 }
-#admin_company .ModifyForm .Card-desc {
+#admin_partenaires .ModifyForm .Card-Header-title {
+  padding: 5px 0;
+}
+#admin_partenaires .ModifyForm .Card-Header input#name {
+  position: initial;
+}
+#admin_partenaires .ModifyForm .Card-desc {
   justify-content: left;
 }
 @media screen and (min-width: 750px) {
-  #admin_company .ModifyForm .Card-Header, #admin_company .ModifyForm .Card-localisation, #admin_company .ModifyForm .Card-supply, #admin_company .ModifyForm .Card-desc, #admin_company .ModifyForm .Card-site {
+  #admin_partenaires .ModifyForm .Card-Header, #admin_partenaires .ModifyForm .Card-localisation, #admin_partenaires .ModifyForm .Card-supply, #admin_partenaires .ModifyForm .Card-desc, #admin_partenaires .ModifyForm .Card-site {
     flex-direction: column;
     align-items: center;
   }
+}
+#admin_partenaires .ModifyForm .Card-localisation input.Card-title {
+  position: initial;
+  border: solid 1px;
 }
 
 html {
