@@ -2,6 +2,8 @@
 
 namespace Pdlt\Repository;
 
+use Pdlt\Controller\AbstractController;
+use Pdlt\Controller\AdminPartenairesController;
 use Pdlt\Manager\DbManager;
 use Pdlt\Model\Partenaires;
 
@@ -193,4 +195,66 @@ final class PartenairesRepository extends AbstractRepository
 		return $nbPartenaires;
 		
 	}
+	
+	/**
+	 * Met à jour le fournisseur
+	 * @param $aParams
+	 * @return void
+	 */
+	public static function update($aParams): void
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'UPDATE `partenaires` as p
+			SET p.name = :name,
+			    p.picture = :picture,
+			    p.localisation = :localisation,
+			    p.supply = :supply,
+			    p.description = :description,
+			    p.site = :site
+			WHERE p.id = :id ;' ;
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+	}
+	
+	/**
+	 * Crée un partenaire en BDD
+	 * @param $aParams
+	 * @return int
+	 */
+	public static function create($aParams): int
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'INSERT INTO `partenaires`
+				    (
+				     `name`,
+				     `picture`,
+				     `localisation`,
+				     `supply`,
+				     `description`,
+				     `site`)
+
+				     VALUES
+				     (
+				     :name,
+				     :picture,
+				     :localisation,
+				     :supply,
+				    	:description,
+				      :site);';
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+		return $oPdo->lastInsertId();
+		
+	}
+	
+	
+	
 }

@@ -28,18 +28,11 @@ class AdminPartenairesController extends AbstractController
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
-		// Lien avec la BDD
-		$oPdo = DbManager::getInstance();
-		
-//		var_dump($_POST);
-		
 		// Récupération de l'id du partenaire sélectionné
 		if(isset($_POST['id'])){
 			$id = $_POST['id'];
 		};
-
 		
-		// TODO Ajouter fonction save() dans Repo
 		// Gérer la soumission du formulaire
 		// Récupération (+ nettoyage des données POST)
 		$aCriterias = [
@@ -78,58 +71,24 @@ class AdminPartenairesController extends AbstractController
 		    ':site' => $aCriterias['site'],
 		];
 		
-		// Si l'id existe
-		// update en BDD
+		// Si l'id existe, mise à jour du partenaire en BDD
 		if (isset($id)){
-			
-			$aParams[':id'] = $id;
 			
 			$partenaire = PartenairesRepository::find($id);
 			
 			// Si le partenaire n'existe pas, redirection vers page d'accueil
-			if(!$partenaire instanceof Partenaires)
-			{
+			if (!$partenaire instanceof Partenaires) {
 				$this->redirectAndDie();
 			}
 			
-			$sQuery = 'UPDATE `partenaires` as p
-			SET p.name = :name,
-			    p.picture = :picture,
-			    p.localisation = :localisation,
-			    p.supply = :supply,
-			    p.description = :description,
-			    p.site = :site
-			WHERE p.id = :id ;' ;
-		} else {
-			
-			// Si pas d'id,
-			// création du partenaire en BDD
-			
-			$sQuery = 'INSERT INTO `partenaires`
-				    (
-				     `name`,
-				     `picture`,
-				     `localisation`,
-				     `supply`,
-				     `description`,
-				     `site`)
+			$aParams[':id'] = $id;
+			PartenairesRepository::update($aParams);
 
-				     VALUES
-				     (
-				     :name,
-				     :picture,
-				     :localisation,
-				     :supply,
-				    	:description,
-				      :site);';
-			
-		}
-		
-		$oPdoStatement = $oPdo->prepare($sQuery);
-		$oPdoStatement->execute($aParams);
-		
-		if (!isset($id)){
-			$id = $oPdo->lastInsertId();
+		} else {
+
+			// Si pas d'id, création du partenaire en BDD
+			$id = PartenairesRepository::create($aParams);
+
 		}
 		
 		
@@ -140,7 +99,6 @@ class AdminPartenairesController extends AbstractController
 		],
 		    true
 		);
-		
 		
 	}
 	
