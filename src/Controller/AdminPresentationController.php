@@ -45,4 +45,36 @@ class AdminPresentationController extends AbstractController
 		}
 	}
 	
+	public function showPresentation()
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Récupération de l'id de la card sélectionnée
+		if(isset($_POST['id'])) {
+			$id = $_POST['id'];
+			$presentation = PresentationRepository::find($id);
+			
+			
+			// Si la presentation n'existe pas, redirection vers page d'accueil
+			if (!$presentation instanceof Presentation) {
+				$this->redirectAndDie();
+			}
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_presentation.php',[
+			    'oPresentation' => $presentation,
+			],
+			    true
+			);
+		} else {
+			return $this->render('_admin_presentation.php',[
+			    'oPresentation' => new Presentation(),
+			],
+			    true
+			);
+		}
+		
+	}
+	
 }

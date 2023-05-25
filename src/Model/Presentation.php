@@ -24,7 +24,7 @@ class Presentation
 	
 	// CONSTRUCTEUR
 	
-	public function __construct(string $theme, string $text)
+	public function __construct(string $theme = '', string $text = '')
 	{
 		$this->theme = $theme;
 		$this->text = $text;

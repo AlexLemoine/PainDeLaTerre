@@ -72,6 +72,10 @@ if(isset($_POST['context'])){
 		case PAGE_ADMIN_MODIFY_PRESENTATION:
 			echo(new Pdlt\Controller\AdminPresentationController)->modifyPresentation();
 			break;
+			
+		case PAGE_ADMIN_CANCEL_PRESENTATION:
+			echo(new Pdlt\Controller\AdminPresentationController)->showPresentation();
+			break;
 	
 	}
 }
