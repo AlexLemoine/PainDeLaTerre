@@ -4,7 +4,7 @@ namespace Pdlt\Controller;
 
 use Pdlt\Repository\PresentationRepository;
 
-class BoulangerieController extends AbstractController
+class PresentationController extends AbstractController
 {
 	
 	public function boulangerie(): string
@@ -18,6 +18,9 @@ class BoulangerieController extends AbstractController
 		    ]
 		);
 	}
+	
+	
+	
 	
 	
 }

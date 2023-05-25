@@ -22,6 +22,7 @@
                   &.Citation{
                         display: flex;
                         flex-direction: column;
+                        font-weight: 500;
                   }
                   
             }
@@ -36,6 +37,7 @@
                   &.Citation{
                         display: flex;
                         flex-direction: column;
+                        font-weight: 500;
                   }
                   
             }
@@ -46,6 +48,7 @@
                   &.Citation{
                         display: flex;
                         flex-direction: column;
+                        font-weight: 500;
                   }
                   
             }
@@ -204,9 +207,6 @@
                         font-family: $typoTitre;
                   }
                   
-                  &-slogan{
-
-                  }
                   &-imgBox{
                         max-height: 280px;
             
@@ -259,6 +259,23 @@
                   
             }
             
+            &-equipe{
+                  &-title{
+                        grid-column: 2/2;
+                  }
+                  
+                  &-imgBox{
+                        &-img{
+                              max-width: 380px;
+                              max-height: 380px;
+                        }
+                  }
+                  
+                  .CTA{
+                        grid-column: 2/2;
+                  }
+            }
+            
             &-savoir_faire{
                   &-desc{
                         @media screen AND (min-width: 550px) {
@@ -309,6 +326,10 @@
             }
             
             &-gamme{
+                  &-title{
+                        grid-column: 2/2;
+                  }
+                  
                   #sliderProduct{
                         &.card-transition {
                               transition: opacity 1s ease-in-out;
@@ -327,6 +348,7 @@
                               }
                         }
                   }
+                  
                   &-aside{
                         display: flex;
                         flex-direction: column;

@@ -9,7 +9,7 @@ use Pdlt\Repository\PartenairesRepository;
 class AdminPartenairesController extends AbstractController
 {
 	
-	public function manageCompany(): string
+	public function managePartenaires(): string
 	{
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)

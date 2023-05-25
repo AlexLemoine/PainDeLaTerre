@@ -15,14 +15,16 @@
 
 		<nav class="Header-menu-links">
 			
-			<?php //if($_SESSION['user']['role'] == ROLE_ADMIN): ?>
+<!--			--><?php //if($_SESSION['user']['role'] == ROLE_ADMIN): ?>
 <!--				<div class="Admin-nav">-->
 <!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRODUCTS) ? 'selected' : '' ?><!--"-->
 <!--					   href="?page=--><?php //echo PAGE_ADMIN_PRODUCTS; ?><!--">--><?php //= TITLE_ADMIN_PRODUCTS ?><!--</a>-->
 <!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PARTENAIRES) ? 'selected' : '' ?><!--"-->
 <!--					   href="?page=--><?php //echo PAGE_ADMIN_PARTENAIRES; ?><!--">--><?php //= TITLE_ADMIN_PARTENAIRES ?><!--</a>-->
+<!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRESENTATION) ? 'selected' : '' ?><!--"-->
+<!--					   href="?page=--><?php //echo PAGE_ADMIN_PRESENTATION; ?><!--">--><?php //= TITLE_ADMIN_PRESENTATION ?><!--</a>-->
 <!--				</div>-->
-			<?php //else: ?>
+<!--			--><?php //else: ?>
 
 			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
 			   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
