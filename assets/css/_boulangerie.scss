@@ -63,6 +63,19 @@
                         
                   }
                   
+                  &.left-animation{
+                        transform: translateX(-100%);
+                        &.visible{
+                              animation: leftSlide 1s ease both;
+                        }
+                  }
+                  &.right-animation{
+                        transform: translateX(100%);
+                        &.visible{
+                              animation: rightSlide 1s ease both;
+                        }
+                  }
+                  
             }
             
       }

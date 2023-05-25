@@ -20,8 +20,8 @@
 	</section>
 
 	<div class="Boulangerie-encart">
-		<p class="Boulangerie-encart-tag">Des produits sains</p>
-		<p class="Boulangerie-encart-tag">100% Bio</p>
+		<p class="Boulangerie-encart-tag left-animation">Des produits sains</p>
+		<p class="Boulangerie-encart-tag right-animation">100% Bio</p>
 	</div>
 	
 	
@@ -43,8 +43,8 @@
 	</section>
 	
 	<div class="Boulangerie-encart">
-		<p class="Boulangerie-encart-tag">Développement durable</p>
-		<p class="Boulangerie-encart-tag">Producteurs locaux</p>
+		<p class="Boulangerie-encart-tag left-animation">Développement durable</p>
+		<p class="Boulangerie-encart-tag right-animation">Producteurs locaux</p>
 	</div>
 	
 	
@@ -64,7 +64,6 @@
 		<a class="CTA" href="#">Découvrir nos partenaires</a>
 	</section>
 	
-	
-
-	
 </main>
+
+<script src="assets/js/boulangerieAnimation.js"></script>
