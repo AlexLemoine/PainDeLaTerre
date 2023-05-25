@@ -49,15 +49,18 @@
             &-tag {
                   font-family: $typoTitre;
                   font-size: 1.8em;
+                  font-weight:500;
                   margin: 0;
                   padding: 15px 0;
                   
                   @media screen AND (min-width: 550px) {
                         font-size: 2em;
+                    
                   }
                   
                   @media screen AND (min-width: 750px) {
                         font-size: 2.2em;
+                        
                   }
                   
             }
