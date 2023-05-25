@@ -88,6 +88,23 @@ $boxShadow : 0 4px 8px -1px #00000075;
       }
 }
 
+@keyframes leftSlideReverse {
+      0% {
+            transform: translateX(0);
+      }
+      100% {
+            transform: translateX(-100%);
+      }
+}
+
+@keyframes rightSlideReverse {
+      0% {
+            transform: translateX(0);
+      }
+      100% {
+            transform: translateX(100%);
+      }
+}
 
 
 // Pour ajouter une flèche qui monte et descend

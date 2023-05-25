@@ -61,6 +61,22 @@
     transform: translateX(0);
   }
 }
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 @keyframes showMenu {
   0% {
     transform: translateY(-250px);
@@ -122,6 +138,22 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 .Home .Citation {
@@ -569,6 +601,22 @@
     transform: translateX(0);
   }
 }
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 .Boulangerie {
   font-family: "Nunito", sans-serif, regular;
 }
@@ -631,15 +679,25 @@
 }
 .Boulangerie-encart-tag.left-animation {
   transform: translateX(-100%);
+  opacity: 0;
 }
 .Boulangerie-encart-tag.left-animation.visible {
   animation: leftSlide 1s ease both;
+  opacity: 1;
+}
+.Boulangerie-encart-tag.left-animation:not(.visible) {
+  animation: leftSlideReverse 1s ease both;
 }
 .Boulangerie-encart-tag.right-animation {
   transform: translateX(100%);
+  opacity: 0;
 }
 .Boulangerie-encart-tag.right-animation.visible {
   animation: rightSlide 1s ease both;
+  opacity: 1;
+}
+.Boulangerie-encart-tag.right-animation:not(.visible) {
+  animation: rightSlideReverse 1s ease both;
 }
 .Boulangerie-produits, .Boulangerie-partenaires {
   padding: 40px 0;
@@ -824,6 +882,22 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 .layout-back.Header .Header-menu-links {
@@ -1169,6 +1243,22 @@
     transform: translateX(0);
   }
 }
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 @media screen and (min-width: 550px) {
   #admin_products #Cards .Card {
     position: relative;
@@ -1344,6 +1434,22 @@ form.Card.ModifyForm .Card-title {
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 .Partenaire {

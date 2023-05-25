@@ -65,14 +65,24 @@
                   
                   &.left-animation{
                         transform: translateX(-100%);
-                        &.visible{
+                        opacity: 0;
+                        &.visible {
                               animation: leftSlide 1s ease both;
+                              opacity: 1;
+                        }
+                        &:not(.visible) {
+                              animation: leftSlideReverse 1s ease both;
                         }
                   }
                   &.right-animation{
                         transform: translateX(100%);
-                        &.visible{
+                        opacity: 0;
+                        &.visible {
                               animation: rightSlide 1s ease both;
+                              opacity: 1;
+                        }
+                        &:not(.visible) {
+                              animation: rightSlideReverse 1s ease both;
                         }
                   }
                   
