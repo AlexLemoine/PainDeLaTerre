@@ -107,8 +107,7 @@ function listenModifyDeleteBtns() {
             if(!modifyCard){
                 toggleClass(targetCard,'modify','unmodified');
                 callModifyPartenaireAjax(targetCard);
-                listenCancelSaveBtns();
-                // picturePreview();
+                // listenCancelSaveBtns();
             }
 
         })
@@ -144,15 +143,15 @@ function listenModifyDeleteBtns() {
         })
     })
 
-
-
 }
-
 
 
 function listenCancelSaveBtns(){
     const cancelBtn = document.querySelector('.Card.modify .Card-cancel');
-    const saveBtn = document.querySelector('.Cards .Card-save');
+    const saveBtn = document.querySelector('.Card.modify .Card-save');
+
+    console.log(cancelBtn);
+    console.log(saveBtn);
 
     // ANNULER LES MODIFICATIONS
     cancelBtn.addEventListener('click', function (){
@@ -239,18 +238,20 @@ function callDisplayPartenaireAjax(){
 }
 
 
-// function picturePreview(){
-//     const fileInput = document.querySelector('.ModifyForm[data-form="modifying"] #picture');
-//     const image = document.querySelector('.Card.modify[data-form="modifying"] .Card-imgBox-img');
-//
-//     console.log('picture here');
-//
-//     fileInput.addEventListener('change', (event) => {
-//         const file = event.target.files[0];
-//         const url = URL.createObjectURL(file);
-//         image.src = url;
-//     });
-// }
+// Récupération des éléments du formulaire
+const form = document.querySelector('#admin_partenaires .Search-form-filters.Filters');
+
+if(form){
+
+    // Ajout d'un écouteur d'événements pour détecter les changements dans le formulaire
+    form.addEventListener('change', (e) => {
+
+        // Empêcher le comportement par défaut du formulaire
+        e.preventDefault();
+
+        callDisplayPartenaireAjax();
+    });
+}
 
 
 listenModifyDeleteBtns();

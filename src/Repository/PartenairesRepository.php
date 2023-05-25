@@ -85,6 +85,12 @@ final class PartenairesRepository extends AbstractRepository
 			$aParams[':id'] = $aCriterias['id'];
 		};
 		
+		// 3. Si "status" est défini
+		if (!empty($aCriterias['status'])) {
+			$aWhere[] = '(status = :status)';
+			$aParams[':status'] = $aCriterias['status'];
+		};
+		
 		
 		if(count($aWhere)>0)
 		{
@@ -151,6 +157,7 @@ final class PartenairesRepository extends AbstractRepository
 		    $aDbPartenaires['description']);
 		
 		$oPartenaires->setId($aDbPartenaires['id']);
+		$oPartenaires->setStatus($aDbPartenaires['status']);
 		$oPartenaires->setLocalisation($aDbPartenaires['localisation']);
 		$oPartenaires->setSupply($aDbPartenaires['supply']);
 		$oPartenaires->setDescription($aDbPartenaires['description']);
@@ -208,6 +215,7 @@ final class PartenairesRepository extends AbstractRepository
 		
 		$sQuery = 'UPDATE `partenaires` as p
 			SET p.name = :name,
+			    p.status = :status,
 			    p.picture = :picture,
 			    p.localisation = :localisation,
 			    p.supply = :supply,
@@ -233,6 +241,7 @@ final class PartenairesRepository extends AbstractRepository
 		$sQuery = 'INSERT INTO `partenaires`
 				    (
 				     `name`,
+				     `status`,
 				     `picture`,
 				     `localisation`,
 				     `supply`,
@@ -242,6 +251,7 @@ final class PartenairesRepository extends AbstractRepository
 				     VALUES
 				     (
 				     :name,
+				      :status,
 				     :picture,
 				     :localisation,
 				     :supply,

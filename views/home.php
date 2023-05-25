@@ -60,7 +60,9 @@
 
 			<div class="Section-savoir_faire-slider CompanySlider">
 				<div class="slide-container">
-					<?php foreach ($sliders as $index => $companySlider): ?>
+					<?php use Pdlt\Model\Partenaires;
+					
+					foreach ($sliders as $index => $companySlider): ?>
 						<?php include '_slider_company.php'; ?>
 					<?php endforeach; ?>
 					
@@ -170,7 +172,9 @@
 				<?php
 				$names = [];
 				foreach ($partenaires as $oPartenaire) {
-					$names[] = '<a target="blank" href="'. (!empty($oPartenaire->getSite()) ? $oPartenaire->getSite() : '#') .'" class="Section-partenaires-list-supplier">'. $oPartenaire->getName() .'</a>';
+					if ($oPartenaire->getStatus() == Partenaires::STATUS_PUBLISHED) {
+						$names[] = '<a target="blank" href="' . (!empty($oPartenaire->getSite()) ? $oPartenaire->getSite() : '#') . '" class="Section-partenaires-list-supplier">' . $oPartenaire->getName() . '</a>';
+					}
 				}
 				$names = array_filter($names);
 				echo implode(PHP_EOL . '| ', $names);

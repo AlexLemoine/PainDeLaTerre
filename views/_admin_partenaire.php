@@ -1,3 +1,4 @@
+<?php use Pdlt\Model\Partenaires; ?>
 
 <img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
 <img src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" title="Supprimer" data-action="delete">
@@ -8,6 +9,11 @@
 		     alt="<?= $oPartenaire->getName(); ?>">
 	</figure>
 	<h3 class="Card-title"><?= $oPartenaire->getName(); ?></h3>
+</div>
+
+<div class="Card-status">
+	<h3 class="Card-status-title">Statut</h3>
+	<p class="Card-status-text"><?= Partenaires::STATUS[$oPartenaire->getStatus()]; ?></p>
 </div>
 
 <div class="Card-localisation">

@@ -37,6 +37,7 @@ class AdminPartenairesController extends AbstractController
 		// Récupération (+ nettoyage des données POST)
 		$aCriterias = [
 		    'name' => strip_tags($_POST['name']),
+		    'status' => strip_tags($_POST['status']),
 		    'picture' => strip_tags($_FILES['picture']['tmp_name']),
 		    'localisation' => strip_tags($_POST['localisation']),
 		    'supply' => strip_tags($_POST['supply']),
@@ -64,6 +65,7 @@ class AdminPartenairesController extends AbstractController
 		
 		$aParams = [
 		    ':name' => $aCriterias['name'],
+		    ':status' => $aCriterias['status'],
 		    ':picture' => $aCriterias['picture'],
 		    ':localisation' => $aCriterias['localisation'],
 		    ':supply' => $aCriterias['supply'],

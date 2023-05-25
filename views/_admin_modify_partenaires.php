@@ -1,3 +1,8 @@
+<?php
+
+use Pdlt\Model\Partenaires;
+
+?>
 <form method="post" action="#" enctype="multipart/form-data" class="Card ModifyForm" data-id="<?= !empty($partenaire) ? $partenaire->getId() : ''; ?>">
 	
 	<img src="assets/img/cancelButton.svg" class="Card-cancel" alt="cancel button" title="Annuler" data-action="cancel">
@@ -19,6 +24,21 @@
 		<label for="name"></label>
 		<input class="Card-title" type="text" id="name" name="name" value="<?= !empty($partenaire) ? $partenaire->getName() : ''; ?>">
 	</div>
+
+	<section class="Card-status">
+		<h3 class="Card-status-title">Statut</h3>
+		<select class="Filters-status" id="status" name="status">
+			<?php
+			foreach (Partenaires::STATUS as $key=>$oStatus) {
+				$bSelected = '';
+				    !empty($partenaire) ?? $bSelected = ($partenaire->getStatus() === $key);
+				echo '<option class="Filters-status-option" '. ($bSelected ? ' selected="selected" ' : '') . ' value="'. $key .'">
+								'. $oStatus .'
+							</option>';
+			}
+			?>
+		</select>
+	</section>
 		
 	<section class="Card-localisation">
 		<h3 class="Card-localisation-title">Localisation</h3>

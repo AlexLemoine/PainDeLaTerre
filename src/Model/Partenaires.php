@@ -53,6 +53,12 @@ class Partenaires
 	 */
 	private string $site;
 	
+	/**
+	 * @var int
+	 */
+	private int $status;
+	
+	
 	const DEFAULT_PICTURE_SUPPLIER = 'field.jpg';
 	
 	
@@ -65,6 +71,7 @@ class Partenaires
 		$this->description = $description;
 		
 		// infos calculées en auto
+		$this->status = self::STATUS_DRAFT;
 		$this->createdAt = new \DateTime('now');
 		$this->updatedAt = new \DateTime('now');
 		
@@ -107,6 +114,26 @@ class Partenaires
 		$this->name = $name;
 		return $this;
 	}
+	
+	/**
+	 * @return int
+	 */
+	public function getStatus(): int
+	{
+		return $this->status;
+	}
+	
+	/**
+	 * @param int $status
+	 * @return Partenaires
+	 */
+	public function setStatus(int $status): Partenaires
+	{
+		$this->status = $status;
+		return $this;
+	}
+	
+	
 	
 	/**
 	 * @return string
