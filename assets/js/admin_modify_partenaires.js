@@ -100,14 +100,12 @@ function listenModifyDeleteBtns() {
 
             let targetCard = this.parentNode;
             targetCard.setAttribute('data-form','modifying');
-            console.log(targetCard);
 
             // Ne permettre qu'une modification de card à la fois
             let modifyCard = document.querySelector('.modify');
             if(!modifyCard){
                 toggleClass(targetCard,'modify','unmodified');
                 callModifyPartenaireAjax(targetCard);
-                // listenCancelSaveBtns();
             }
 
         })
@@ -118,7 +116,6 @@ function listenModifyDeleteBtns() {
     deleteBtn.forEach(elt=> {
         elt.addEventListener('click', function (){
             let targetCard = this.parentNode;
-            console.log(targetCard);
 
             let isToDelete = confirm('Souhaitez-vous supprimer ce partenaire ?');
             if(isToDelete === true) {
@@ -136,7 +133,6 @@ function listenModifyDeleteBtns() {
                 })
                     .then(response => response.text())
                     .then(data => {
-                        console.log(data);
                         targetCard.remove();
                     })
             }
@@ -149,9 +145,6 @@ function listenModifyDeleteBtns() {
 function listenCancelSaveBtns(){
     const cancelBtn = document.querySelector('.Card.modify .Card-cancel');
     const saveBtn = document.querySelector('.Card.modify .Card-save');
-
-    console.log(cancelBtn);
-    console.log(saveBtn);
 
     // ANNULER LES MODIFICATIONS
     cancelBtn.addEventListener('click', function (){
