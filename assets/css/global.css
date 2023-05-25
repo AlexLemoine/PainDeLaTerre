@@ -1739,8 +1739,12 @@ button:hover, .CTA:hover {
   padding: 5px;
 }
 .MainContent-topBack {
-  display: block;
-  padding: 40px 60px;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.4588235294);
+  padding: 10px;
   font-family: "Nunito", sans-serif, regular;
   font-style: italic;
   text-align: right;
@@ -1748,9 +1752,12 @@ button:hover, .CTA:hover {
   color: rgb(0, 0, 0);
 }
 .MainContent-topBack img {
-  padding-left: 15px;
-  padding-right: 50px;
   height: 15px;
+  padding-left: 10px;
+}
+.MainContent-topBack:hover {
+  background-color: #373C40;
+  color: white;
 }
 
 .Products .Card {

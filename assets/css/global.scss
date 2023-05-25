@@ -290,8 +290,12 @@ button, .CTA {
       }
       
       &-topBack {
-            display: block;
-            padding: 40px 60px;
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffffff75;
+            padding: 10px;
             font-family: $typoTexte;
             font-style: italic;
             text-align: right;
@@ -299,9 +303,13 @@ button, .CTA {
             color : $blackColor;
             
             & img {
-                  padding-left: 15px;
-                  padding-right: 50px;
                   height: 15px;
+                  padding-left: 10px;
+            }
+            
+            &:hover{
+                  background-color: $leafletLight;
+                  color: $whiteColor;
             }
             
       }
