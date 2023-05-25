@@ -3,12 +3,53 @@
 #admin_presentation{
 
       .Presentation{
-            
-
       
             &-gamme, &-produits, &-partenaires{
                   padding: 20px 10px;
                   text-align: left;
+                  
+                  &.modify{
+                        
+                        & .container-text{
+            
+                              & .ModifyForm{
+                                    
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    
+                                    @media screen AND (min-width: 550px) {
+                                          margin-left: initial;
+                                          margin-right: initial;
+                                          
+                                          & .Card-cancel, & .Card-save{
+                                                position: relative;
+            
+                                          }
+      
+                                          & .Card-cancel{
+
+                                                top: 7px;
+                                                left: -125px;
+                                          }
+                                          
+                                          & .Card-save{
+
+                                                top: 7px;
+                                                left: -115px;
+                                          }
+                                    }
+      
+                                    & .Card-desc{
+            
+                                          & #text{
+                                                width: 90%;
+                                          }
+                                    }
+
+                              }
+            
+                        }
+                  }
                   
                   @media screen AND (min-width: 550px) {
                         position: relative;
@@ -63,6 +104,8 @@
                   }
                   
             }
+            
+
       
       }
 

@@ -1602,6 +1602,30 @@ form.Card.ModifyForm .Card-title {
   padding: 20px 10px;
   text-align: left;
 }
+#admin_presentation .Presentation-gamme.modify .container-text .ModifyForm, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 550px) {
+  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm {
+    margin-left: initial;
+    margin-right: initial;
+  }
+  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-save {
+    position: relative;
+  }
+  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-cancel {
+    top: 7px;
+    left: -125px;
+  }
+  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-save {
+    top: 7px;
+    left: -115px;
+  }
+}
+#admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-desc #text, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-desc #text, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-desc #text {
+  width: 90%;
+}
 @media screen and (min-width: 550px) {
   #admin_presentation .Presentation-gamme, #admin_presentation .Presentation-produits, #admin_presentation .Presentation-partenaires {
     position: relative;
