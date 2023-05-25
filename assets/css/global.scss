@@ -335,7 +335,7 @@ button, .CTA {
                         background-color: rgba(255, 255, 255, 0.32);
                         backdrop-filter: blur(4px);
                         position: relative;
-                        bottom: 135px;
+                        bottom: 160px;
                         
                         &-title {
                               font-family: $typoTitre;
@@ -412,6 +412,37 @@ button, .CTA {
             border: solid $secondColor;
       }
       
+      &:hover, &.selected {
+            
+            & .Card-imgBox {
+                  backdrop-filter: blur(20px);
+                  transition: 0.5s;
+            }
+            
+            .Card-recipe {
+                  display: block;
+                  animation: showELt 0.8s both;
+                  transition: 0.8s;
+                  background-color: rgba(255, 255, 255, 0.32);
+                  backdrop-filter: blur(4px);
+                  position: relative;
+                  bottom: 160px;
+                  
+                  &-title {
+                        font-family: $typoTitre;
+                        position: absolute;
+                        top: -45px;
+                        color: $whiteColor;
+                  }
+                  
+                  &-text {
+                        color: $blackColor;
+                        padding: 5px 15px;
+                        min-height: 60px;
+                  }
+            }
+      }
+      
       &-imgBox {
             margin: 0;
             
@@ -463,6 +494,7 @@ button, .CTA {
             bottom: 135px;
             width: 90%;
             min-width: 200px;
+            min-height: 130px;
             padding: 5px;
             left: 50%;
             transform: translateX(-50%);

@@ -428,7 +428,7 @@
   bottom: 300px;
 }
 .Home .Section-gamme #sliderProduct .Card-recipe {
-  bottom: 250px;
+  bottom: 275px;
 }
 .Home .Section-gamme-aside {
   display: flex;
@@ -1775,7 +1775,7 @@ button:hover, .CTA:hover {
   background-color: rgba(255, 255, 255, 0.32);
   backdrop-filter: blur(4px);
   position: relative;
-  bottom: 135px;
+  bottom: 160px;
 }
 .Products .Card:hover .Card-recipe-title, .Products .Card.selected .Card-recipe-title {
   font-family: "Rift", sans-serif;
@@ -1838,6 +1838,30 @@ button:hover, .CTA:hover {
 .Card.modify {
   border: solid rgb(166, 52, 27);
 }
+.Card:hover .Card-imgBox, .Card.selected .Card-imgBox {
+  backdrop-filter: blur(20px);
+  transition: 0.5s;
+}
+.Card:hover .Card-recipe, .Card.selected .Card-recipe {
+  display: block;
+  animation: showELt 0.8s both;
+  transition: 0.8s;
+  background-color: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(4px);
+  position: relative;
+  bottom: 160px;
+}
+.Card:hover .Card-recipe-title, .Card.selected .Card-recipe-title {
+  font-family: "Rift", sans-serif;
+  position: absolute;
+  top: -45px;
+  color: white;
+}
+.Card:hover .Card-recipe-text, .Card.selected .Card-recipe-text {
+  color: rgb(0, 0, 0);
+  padding: 5px 15px;
+  min-height: 60px;
+}
 .Card-imgBox {
   margin: 0;
 }
@@ -1880,6 +1904,7 @@ button:hover, .CTA:hover {
   bottom: 135px;
   width: 90%;
   min-width: 200px;
+  min-height: 130px;
   padding: 5px;
   left: 50%;
   transform: translateX(-50%);

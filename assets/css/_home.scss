@@ -268,19 +268,10 @@
                   }
                   
                   & .CompanySlider{
-                        //
-                        //display: flex;
-                        //flex-direction: row;
-                        //flex-wrap: wrap;
-                        //justify-content: center;
-                        //align-items: center;
-      
                         width: 100%;
                         overflow: hidden;
-                        //white-space: nowrap;
       
                         .slide-container {
-                              //transition: transform 0.5s ease;
                               width: 100%;
                               display: flex;
                               transition: transform 0.4s ease-in-out 0s;
@@ -288,8 +279,6 @@
                         }
                         
                         &-imgBox{
-                              //flex: 0 0 calc(100% / 3); /* Pour afficher 3 images à la fois */
-                              //text-align: center;
                               flex-shrink: 0;
                               width: 100%;
       
@@ -300,8 +289,6 @@
                               @media screen and (min-width: 1024px) {
                                           width: 33.33%;
                               }
-                              
-                              //padding: 15px;
                               
                               &-img{
                                     max-width: 325px;
@@ -336,7 +323,7 @@
                               }
                               
                               &-recipe{
-                                    bottom: 250px;
+                                    bottom: 275px;
                               }
                         }
                   }
