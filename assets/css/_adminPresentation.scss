@@ -3,6 +3,8 @@
 #admin_presentation{
 
       .Presentation{
+            
+
       
             &-gamme, &-produits, &-partenaires{
                   padding: 20px 10px;
@@ -17,18 +19,19 @@
                               right: 65px;
                         }
                         
-                        .Card-delete{
-                              position: absolute;
-                              top: 28px;
-                              right: 15px;
-                        }
-                        
                   }
                   
                   @media screen AND (min-width: 750px) {
                         width: 80%;
                         margin-left: auto;
                         margin-right: auto;
+                  }
+      
+                  & .Card-modify{
+            
+                        &.hidden{
+                              opacity: 0;
+                        }
                   }
       
                   &-title{

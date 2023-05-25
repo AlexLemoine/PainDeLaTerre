@@ -148,6 +148,7 @@ final class PresentationRepository extends AbstractRepository
 		    $aDbPresentation['theme'],
 		    $aDbPresentation['text']);
 		
+		$oPresentation->setId($aDbPresentation['id']);
 		$oPresentation->setTheme($aDbPresentation['theme']);
 		$oPresentation->setText($aDbPresentation['text']);
 		
@@ -186,4 +187,19 @@ final class PresentationRepository extends AbstractRepository
 		return $nbPresentation;
 		
 	}
+	
+	public static function update($aParams): void
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'UPDATE `presentation` as p
+			SET p.text = :text
+			WHERE p.id = :id ;' ;
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+	}
+	
 }

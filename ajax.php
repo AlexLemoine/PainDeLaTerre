@@ -68,6 +68,10 @@ if(isset($_POST['context'])){
 		case PAGE_ADMIN_PARTENAIRES:
 			echo(new Pdlt\Controller\AdminPartenairesController)->refreshPartenaires();
 			break;
+			
+		case PAGE_ADMIN_MODIFY_PRESENTATION:
+			echo(new Pdlt\Controller\AdminPresentationController)->modifyPresentation();
+			break;
 	
 	}
 }

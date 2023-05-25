@@ -1611,11 +1611,6 @@ form.Card.ModifyForm .Card-title {
     top: 28px;
     right: 65px;
   }
-  #admin_presentation .Presentation-gamme .Card-delete, #admin_presentation .Presentation-produits .Card-delete, #admin_presentation .Presentation-partenaires .Card-delete {
-    position: absolute;
-    top: 28px;
-    right: 15px;
-  }
 }
 @media screen and (min-width: 750px) {
   #admin_presentation .Presentation-gamme, #admin_presentation .Presentation-produits, #admin_presentation .Presentation-partenaires {
@@ -1623,6 +1618,9 @@ form.Card.ModifyForm .Card-title {
     margin-left: auto;
     margin-right: auto;
   }
+}
+#admin_presentation .Presentation-gamme .Card-modify.hidden, #admin_presentation .Presentation-produits .Card-modify.hidden, #admin_presentation .Presentation-partenaires .Card-modify.hidden {
+  opacity: 0;
 }
 #admin_presentation .Presentation-gamme-title, #admin_presentation .Presentation-produits-title, #admin_presentation .Presentation-partenaires-title {
   font-family: "Rift", sans-serif;
