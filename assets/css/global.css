@@ -730,6 +730,16 @@
 .Boulangerie-produits-title, .Boulangerie-partenaires-title {
   margin: 0;
 }
+@media screen and (min-width: 550px) {
+  .Boulangerie-produits-title, .Boulangerie-partenaires-title {
+    font-size: 1.8em;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Boulangerie-produits-title, .Boulangerie-partenaires-title {
+    font-size: 2em;
+  }
+}
 .Boulangerie-produits-text, .Boulangerie-partenaires-text {
   margin: 0;
   padding: 20px;

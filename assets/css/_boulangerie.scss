@@ -105,6 +105,13 @@
             
             &-title {
                   margin: 0;
+                  
+                  @media screen AND (min-width: 550px) {
+                        font-size: 1.8em;
+                  }
+                  @media screen AND (min-width: 750px) {
+                        font-size: 2em;
+                  }
             }
             
             &-text {
