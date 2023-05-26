@@ -1,11 +1,14 @@
 import {toggleClass} from "./functions.js";
 
+const modifyBtn = document.querySelectorAll('.Card-modify');
 
-// TODO
 function listenCancelSaveBtns() {
-    const cancelBtn = document.querySelector('.modify .container-text .ModifyForm .Card-cancel');
-    const saveBtn = document.querySelector('.modify .Card-save');
+
+    const cancelBtn = document.querySelector('.modify .ModifyForm .Card-cancel');
+    const saveBtn = document.querySelector('.modify .ModifyForm .Card-save');
+
     console.log('cancelBtn de fonction listenCancel =' + cancelBtn);
+    console.log('saveBtn de fonction listenCancel =' + saveBtn);
 
     // ANNULER LES MODIFICATIONS
     cancelBtn.addEventListener('click', function (){
@@ -48,9 +51,41 @@ function listenCancelSaveBtns() {
     })
 
 
-    // TODO - SAVE BUTTON
+    // SAUVEGARDER LES MODIFICATIONS
+    saveBtn.addEventListener('click',function (event){
 
+        let targetSection = document.querySelector('.Presentation .modify')
 
+        // Lieu où se trouvera la vue partielle
+        let container = document.querySelector('.modify .container-text');
+        console.log('container = ' + container);
+        toggleClass(container,'save','unmodified');
+
+        // Création d'un nouvel objet FormData
+        const formData = new FormData(document.querySelector('.modify .ModifyForm'));
+        formData.append('context','admin_update_presentation');
+        formData.append('id',targetSection.getAttribute('data-id'));
+        console.log(formData.values());
+
+        // Envoi de la requête pour mettre à jour la présentation
+        fetch('ajax.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+
+                // Mise à jour du partenaire avec les données reçues
+                container.innerHTML = data;
+                toggleClass(targetSection,'modify','unmodified');
+
+                // Remettre en place le bouton modify et son écouteur
+                const modifyBtn = document.querySelector('.Card-modify.hidden')
+                toggleClass(modifyBtn,'hidden','visible');
+                listenModifyBtn();
+
+            })
+    })
 }
 
 
@@ -81,8 +116,6 @@ function callModifyPresentationAjax(targetSection) {
 
 
 function listenModifyBtn() {
-
-    const modifyBtn = document.querySelectorAll('.Card-modify');
 
     // MODIFIER LES INFOS DU PARTENAIRE
     modifyBtn.forEach(elt=> {

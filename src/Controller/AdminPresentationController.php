@@ -77,4 +77,49 @@ class AdminPresentationController extends AbstractController
 		
 	}
 	
+	public function updatePresentation()
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		$id = NULL;
+		
+		// Récupération de l'id du texte de présentation sélectionné
+		if(isset($_POST['id'])){
+			$id = $_POST['id'];
+		};
+		
+		// Gérer la soumission du formulaire
+		// Récupération (+ nettoyage des données POST)
+		$aParams = [
+		    ':text' => strip_tags($_POST['text']),
+		];
+		
+		// Si l'id existe, mise à jour du texte de présentation en BDD
+		if (isset($id)){
+			
+			$presentation = PresentationRepository::find($id);
+			
+			// Si la présentation n'existe pas, redirection vers page d'accueil
+			if (!$presentation instanceof Presentation) {
+				$this->redirectAndDie();
+			}
+			
+			$aParams[':id'] = $id;
+			PresentationRepository::update($aParams);
+			
+		} else {
+			$this->redirectAndDie();
+		}
+		
+		// render pour rafraîchir ma vue (vue partielle texte)
+		return $this->render('_admin_presentation.php',[
+			// Rafraîchir les données du texte modifié
+		    'oPresentation' => PresentationRepository::find($id),
+		],
+		    true
+		);
+		
+	}
+	
 }
