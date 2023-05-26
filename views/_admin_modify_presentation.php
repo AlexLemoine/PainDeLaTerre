@@ -6,7 +6,7 @@
 	<section class="Card-desc">
 		<h3 class="Card-desc-title">Description</h3>
 		<label for="text"></label>
-		<textarea id="text" name="text"><?= !empty($presentation) ? $presentation->getText() : ''; ?></textarea>
+		<textarea id="text" name="text" rows="6"><?= !empty($presentation) ? $presentation->getText() : ''; ?></textarea>
 	</section>
 
 </form>

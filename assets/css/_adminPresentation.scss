@@ -16,33 +16,37 @@
                                     
                                     margin-left: auto;
                                     margin-right: auto;
+                                    width: 100%;
+                                    text-align: left;
                                     
                                     @media screen AND (min-width: 550px) {
                                           margin-left: initial;
                                           margin-right: initial;
                                           
                                           & .Card-cancel, & .Card-save{
-                                                position: relative;
+                                                position: initial;
             
                                           }
-      
-                                          & .Card-cancel{
 
-                                                top: 7px;
-                                                left: -125px;
-                                          }
-                                          
-                                          & .Card-save{
-
-                                                top: 7px;
-                                                left: -115px;
-                                          }
                                     }
       
                                     & .Card-desc{
+                                          
+                                          @media screen AND (min-width: 550px) {
+                                                align-items: flex-start;
+                                                flex-direction: column;
+                                          }
+                                          
+                                          &-title{
+                                                @media screen AND (min-width: 550px) {
+                                                      font-size: 1.4em;
+                                                }
+                                                
+                                          }
             
                                           & #text{
                                                 width: 90%;
+                                                font-size: 1em;
                                           }
                                     }
 

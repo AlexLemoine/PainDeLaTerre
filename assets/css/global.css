@@ -1615,6 +1615,8 @@ form.Card.ModifyForm .Card-title {
 #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  text-align: left;
 }
 @media screen and (min-width: 550px) {
   #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm {
@@ -1622,19 +1624,23 @@ form.Card.ModifyForm .Card-title {
     margin-right: initial;
   }
   #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-save {
-    position: relative;
+    position: initial;
   }
-  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-cancel, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-cancel {
-    top: 7px;
-    left: -125px;
+}
+@media screen and (min-width: 550px) {
+  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-desc, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-desc, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-desc {
+    align-items: flex-start;
+    flex-direction: column;
   }
-  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-save, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-save {
-    top: 7px;
-    left: -115px;
+}
+@media screen and (min-width: 550px) {
+  #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-desc-title, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-desc-title, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-desc-title {
+    font-size: 1.4em;
   }
 }
 #admin_presentation .Presentation-gamme.modify .container-text .ModifyForm .Card-desc #text, #admin_presentation .Presentation-produits.modify .container-text .ModifyForm .Card-desc #text, #admin_presentation .Presentation-partenaires.modify .container-text .ModifyForm .Card-desc #text {
   width: 90%;
+  font-size: 1em;
 }
 @media screen and (min-width: 550px) {
   #admin_presentation .Presentation-gamme, #admin_presentation .Presentation-produits, #admin_presentation .Presentation-partenaires {
