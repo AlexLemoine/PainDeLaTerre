@@ -7,9 +7,12 @@
             <h3 class="SiteMap-title">Plan du site</h3>
             <div class="SiteMap-list">
                 <a href="?page=<?php echo PAGE_HOME; ?>" class="SiteMap-list-title">Qui sommes-nous ?</a>
+			<a href="?page=<?php echo PAGE_BOULANGERIE; ?>" class="SiteMap-list-title">Notre boulangerie</a>
+			<a href="#" class="SiteMap-list-title">L'équipe</a>
                 <a href="?page=<?php echo PAGE_PRODUCTS; ?>" class="SiteMap-list-title">Nos produits</a>
-                <a href="#" class="SiteMap-list-title">Les actualités</a>
-                <a href="#" class="SiteMap-list-title">Où nous trouver ?</a>
+			<a href="#" class="SiteMap-list-title">Notre démarche</a>
+                <a href="#" class="SiteMap-list-title">Consulter le blog</a>
+                <a href="#" class="SiteMap-list-title">Contact</a>
             </div>
         </div>
 

@@ -19,7 +19,7 @@
 			<h2 class="Section-equipe-title">Notre équipe</h2>
 			<figure class="Section-equipe-imgBox">
 				<img class="Section-equipe-imgBox-img" src="assets/img/equipe2023.jpg" alt="image de l'équipe">
-				<figcaption class="Section-equipe-imgBox-legend">Pascal et Pierre, les joyeux lurons</figcaption>
+				<figcaption class="Section-equipe-imgBox-legend">L'équipe réunie</figcaption>
 			</figure>
 			<p class="Section-equipe-desc">
 				Formés auprès de l’Ecole Internationale de Boulangerie, nous sommes spécialisés dans les

@@ -19,13 +19,24 @@
                         }
                   }
                   
+                  &-recipe, &-desc{
+                        min-height: auto;
+                        min-width: auto;
+                  }
+                  
                   &.modify{
                         form.Card.ModifyForm{
-                              .Card{
+                              & .Card{
                                     &-Header{
                                           input.Card-title#name{
                                                 position: initial;
                                           }
+                                    }
+                              }
+                              
+                              & .group-list{
+                                    & select{
+                                          border: solid 1px;
                                     }
                               }
                         }
