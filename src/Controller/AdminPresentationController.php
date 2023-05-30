@@ -3,6 +3,7 @@
 namespace Pdlt\Controller;
 
 use Pdlt\Model\Presentation;
+use Pdlt\Repository\CompanySliderRepository;
 use Pdlt\Repository\PresentationRepository;
 
 class AdminPresentationController extends AbstractController
@@ -13,10 +14,12 @@ class AdminPresentationController extends AbstractController
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
+		
 		return $this->render('admin_presentation.php',
 		    [
 			  'seo_title' => TITLE_ADMIN_PRESENTATION,
 			  'presentation' => PresentationRepository::findAll(),
+			    'sliderCompany' => CompanySliderRepository::findAll(),
 		    ]);
 		
 	}
@@ -116,6 +119,23 @@ class AdminPresentationController extends AbstractController
 		return $this->render('_admin_presentation.php',[
 			// Rafraîchir les données du texte modifié
 		    'oPresentation' => PresentationRepository::find($id),
+		],
+		    true
+		);
+		
+	}
+	
+	/**
+	 * Permettre la modification du slider d'images "savoir-faire"
+	 * @return string
+	 */
+	public function updateSliderCompany(): string
+	{
+		
+		// render pour rafraîchir ma vue (vue partielle texte)
+		return $this->render('_admin_modify_slider_company.php',[
+			// Rafraîchir les données du texte modifié
+		    'oSliderCompany' => CompanySliderRepository::findAll(),
 		],
 		    true
 		);

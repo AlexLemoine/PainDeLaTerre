@@ -6,6 +6,7 @@ const view = main.getAttribute('id');
 
 // Récupération du bouton de création
 const createBtn = document.querySelector('.Card-create');
+
 // Récupération de l'élément qui contient le form de création
 let formContainer = document.querySelector('.Card-create-form');
 

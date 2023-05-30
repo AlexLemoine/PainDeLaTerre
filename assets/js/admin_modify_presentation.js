@@ -1,6 +1,6 @@
 import {toggleClass} from "./functions.js";
 
-const modifyBtn = document.querySelectorAll('.Card-modify');
+const modifyBtn = document.querySelectorAll('#gamme .Card-modify, #produits .Card-modify, #partenaires .Card-modify');
 
 function listenCancelSaveBtns() {
 

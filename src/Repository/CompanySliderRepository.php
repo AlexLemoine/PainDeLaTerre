@@ -97,6 +97,7 @@ final class CompanySliderRepository extends AbstractRepository
 		    $aDbCompanySlider['legend']
 		);
 		
+		$oCompanySlider->setId($aDbCompanySlider['id']);
 		$oCompanySlider->setStatus($aDbCompanySlider['status']);
 		
 		return $oCompanySlider;

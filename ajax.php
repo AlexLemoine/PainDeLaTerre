@@ -80,7 +80,10 @@ if(isset($_POST['context'])){
 		case PAGE_ADMIN_UPDATE_PRESENTATION:
 			echo(new Pdlt\Controller\AdminPresentationController)->updatePresentation();
 			break;
-	
+			
+		case PAGE_ADMIN_MODIFY_SLIDER_COMPANY:
+			echo(new Pdlt\Controller\AdminPresentationController)->updateSliderCompany();
+			break;
 	}
 }
 

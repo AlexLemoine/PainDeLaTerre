@@ -18,11 +18,20 @@ class DefaultController extends AbstractController
 	    $aCriterias = [];
 	    $aCriterias['status'] = Product::STATUS_PUBLISHED;
 	    $products = ProductRepository::findBy($aCriterias);
+	    $filteredProduct = [];
+	    foreach ($products as $item){
+		    $cat = $item->getCategory()->getName();
+		    if($cat !== 'épicerie' && $cat !== 'accessoires')
+		    {
+			    $filteredProduct[] = $item;
+		    }
+	    }
 	    
         return $this->render('home.php',
             [
                 'seo_title'=>TITLE_HOME,
 			'products' => $products,
+			'filteredProducts' => $filteredProduct,
 			'sliders' => CompanySliderRepository::findAll(),
 			'partenaires' => PartenairesRepository::findAll(),
             ]);

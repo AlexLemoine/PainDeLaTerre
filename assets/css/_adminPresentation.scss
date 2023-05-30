@@ -4,7 +4,7 @@
 
       .Presentation{
       
-            &-gamme, &-produits, &-partenaires{
+            &-gamme, &-produits, &-partenaires, &-sliderCompany{
                   padding: 20px 10px;
                   text-align: left;
                   
@@ -109,6 +109,58 @@
                   
             }
             
+            &-sliderCompany{
+                  
+                  &-container{
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        align-content: center;
+                        justify-content: center;
+                        align-items: center;
+                        
+                        @media screen AND (min-width: 550px) {
+                              flex-direction: row;
+                        }
+      
+                        & .Presentation-sliderCompany-imgBox,
+                        & .ModifyForm.Presentation-sliderCompany-imgBox{
+                              margin: 0;
+                              padding: 20px 10px;
+                              text-align: left;
+                              display: flex;
+                              flex-direction: column;
+                              flex-wrap: wrap;
+                              align-content: flex-start;
+                              justify-content: center;
+                              align-items: flex-start;
+            
+                              &-img{
+                                    max-width: 300px;
+                                    max-height: 200px;
+                                    display: block;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                              }
+                        }
+                        
+                        & .ModifyForm{
+                              width: 100%;
+                              
+                              & .Presentation-sliderCompany-list{
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: wrap;
+                                    align-content: center;
+                                    justify-content: center;
+                                    align-items: center;
+                              }
+                              
+                        }
+                        
+                  }
+            
+            }
 
       
       }

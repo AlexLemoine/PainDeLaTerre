@@ -1,6 +1,7 @@
 import {switchMainSecondaryPicture} from "./functions.js";
 
 const container = document.querySelector('#sliderProduct');
+const pageName = 'home';
 let index = 1;
 let maxIndex = container.getAttribute('data-limit');
 
@@ -24,6 +25,7 @@ function callAjaxSlider() {
     const formData = new FormData();
     formData.append('context','ajax_slider_products');
     formData.append('index',index.toString());
+    formData.append('page', pageName);
 
     fetch('ajax.php',{
         method: 'POST',
@@ -32,7 +34,7 @@ function callAjaxSlider() {
         .then(response => response.text())
         .then(data => {
             container.innerHTML = data;
-            switchMainSecondaryPicture();
+            // switchMainSecondaryPicture();
 
             // Ajouter la classe CSS pour la transition
             container.classList.add('card-transition');
@@ -45,6 +47,7 @@ function callAjaxSlider() {
 
 }
 
+// TODO Changer le pathname avant hébergement
 if (window.location.pathname === '/LEPAINDELATERRE_site/' || window.location.search === '?page=home')
 {
     // Appeler callAjaxSlider une première fois au chargement du DOM

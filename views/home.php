@@ -99,7 +99,7 @@
 			<h2 class="Section-gamme-title">Des produits hors du commun</h2>
 
 			<!-- Slider cards -->
-			<div id="sliderProduct" data-limit="<?= count($products); ?>">
+			<div id="sliderProduct" data-limit="<?= count($filteredProducts); ?>">
 			</div>
 			<div class="Section-gamme-aside">
 				<p class="Section-gamme-desc">

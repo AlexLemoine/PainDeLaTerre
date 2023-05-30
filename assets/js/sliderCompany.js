@@ -24,7 +24,3 @@ function startSlider() {
 }
 
 startSlider();
-
-// TODO Prévoir le fait de boucler de nouveau
-//  si le compteur arrive au max du sliders
-//  au lieu de revenir au début du slider tout à gauche

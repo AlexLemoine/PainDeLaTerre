@@ -71,7 +71,29 @@
 		</div>
 
 	</section>
+
+	<section id="sliderCompany"
+		   class="Presentation-sliderCompany">
+
+		<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
+
+		<h2 class="Presentation-sliderCompany-title">Images du slider "savoir-faire"</h2>
+		
+		<div class="Presentation-sliderCompany-container">
+			<?php foreach ($sliderCompany as $item) { ?>
+				<figure data-id="<?php echo $item->getId(); ?>"
+					  class="Presentation-sliderCompany-imgBox">
+					<img class="Presentation-sliderCompany-imgBox-img"
+					     src="<?php echo DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_SLIDER . DIRECTORY_SEPARATOR . $item->getUrl(); ?>"
+					     alt="<?php echo $item->getLegend(); ?>">
+					<figcaption><?php echo $item->getLegend(); ?></figcaption>
+				</figure>
+			<?php } ?>
+		</div>
+		
+	</section>
 	
 </main>
 
 <script type="module" src="assets/js/admin_modify_presentation.js"></script>
+<script type="module" src="assets/js/admin_modify_sliderCompany.js"></script>
