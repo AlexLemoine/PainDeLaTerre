@@ -1,5 +1,23 @@
 import {toggleClass} from "./functions.js";
 
+
+function onCLickCreateBtn() {
+
+    const container = document.querySelector('.Presentation-sliderCompany-container');
+    const creationForm = document.querySelector('.Presentation-sliderCompany-creation');
+    const cancelBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-cancel');
+
+    console.log('click cancelBtn');
+
+    toggleClass(creationForm,'hidden','visible');
+    toggleClass(createBtn,'hidden','visible');
+    toggleClass(modifySliderBtn,'hidden','visible');
+    toggleClass(container,'hidden','visible');
+
+    cancelBtn.removeEventListener('click', onCLickCreateBtn);
+}
+
+
 function listenCreateSliderBtn() {
 
     const container = document.querySelector('.Presentation-sliderCompany-container');
@@ -8,13 +26,18 @@ function listenCreateSliderBtn() {
     // Au click, faire apparaître le formulaire de création de slide
     createBtn.addEventListener('click', function (){
 
+        console.log('click createBtn');
+
         const creationForm = document.querySelector('.Presentation-sliderCompany-creation');
         toggleClass(creationForm,'hidden','visible');
         toggleClass(createBtn,'hidden','visible');
         toggleClass(modifySliderBtn,'hidden','visible');
         toggleClass(container,'hidden','visible');
 
-        // TODO
+        // Au click sur annuler, on recache le formulaire de création
+        // On fait réapparaître les boutons ou on les recache en fonction de leur état
+        const cancelBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-cancel');
+        cancelBtn.addEventListener('click', onCLickCreateBtn);
 
     })
 
@@ -25,7 +48,7 @@ function listenCreateSliderBtn() {
 function listenCancelBtn(container){
     // Ecouteur sur le bouton cancel
     // Au click, faire un refresh du CompanySlider entier
-    const cancelBtn = document.querySelector('#sliderCompany .ModifyForm .Card-cancel');
+    const cancelBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-container .ModifyForm .Card-cancel');
     cancelBtn.addEventListener('click', function () {
 
         // Création d'un nouvel objet FormData
@@ -42,12 +65,14 @@ function listenCancelBtn(container){
 
                 container.innerHTML = data;
 
-                // Faire apparaître le bouton modify de nouveau
+                // Faire apparaître les boutons create et modify de nouveau
+                toggleClass(createBtn,'hidden','visible');
                 toggleClass(modifySliderBtn,'hidden','visible');
             })
 
     })
 }
+
 
 function listenSaveBtn(container) {
     const saveBtn = document.querySelector('#sliderCompany .ModifyForm .Card-save');
@@ -128,6 +153,7 @@ function listenDeleteBtn() {
 
 }
 
+
 /**
  * Ecouter les boutons cancel, save et delete
  */
@@ -143,6 +169,7 @@ function listenCancelDeleteSaveBtn() {
     listenDeleteBtn();
 
 }
+
 
 function callModifySliderCompanyAjax(container) {
 
@@ -166,6 +193,7 @@ function callModifySliderCompanyAjax(container) {
 function listenModifySliderBtn(){
     modifySliderBtn.addEventListener('click', function () {
 
+        toggleClass(createBtn,'hidden','visible');
         toggleClass(modifySliderBtn,'hidden','visible');
 
         let container = document.querySelector('.Presentation-sliderCompany-container');
@@ -175,7 +203,14 @@ function listenModifySliderBtn(){
 }
 
 const createBtn =  document.querySelector('#sliderCompany .Card-create-button');
-listenCreateSliderBtn();
+let addEventCreate = 0;
+
+if(addEventCreate === 0){
+    listenCreateSliderBtn();
+    addEventCreate = 1;
+}
+
+
 
 const modifySliderBtn = document.querySelector('#sliderCompany .Card-modify');
 listenModifySliderBtn();
