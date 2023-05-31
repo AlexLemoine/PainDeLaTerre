@@ -2,6 +2,7 @@
 
 namespace Pdlt\Controller;
 
+use Pdlt\Manager\DbManager;
 use Pdlt\Model\CompanySlider;
 use Pdlt\Model\Presentation;
 use Pdlt\Repository\CompanySliderRepository;
@@ -233,6 +234,48 @@ class AdminPresentationController extends AbstractController
 		    true
 		);
 		
+		
+	}
+	
+	/**
+	 * Supprimer une slide du SliderCompany
+	 * @return string
+	 */
+	public function deleteSlideCompany(): string
+	{
+		// TODO Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		// Seulement si isToDelete
+		if($_POST['isToDelete'] === 'yes'){
+			
+			// Récupération de l'id de la card sélectionnée
+			$id = $_POST['id'];
+			$slide = CompanySliderRepository::find($id);
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if(!$slide instanceof CompanySlider){
+				$this->redirectAndDie();
+			}
+			
+			$sQuery = 'DELETE FROM '. CompanySliderRepository::TABLE .'
+       				WHERE id = :id;';
+			
+			$oPdoStatement = $oPdo->prepare($sQuery);
+			$oPdoStatement->bindValue(':id', $id, \PDO::PARAM_INT);
+			$oPdoStatement->execute();
+			
+		}
+		
+		// render (vue partielle texte)
+		return $this->render('_admin_modify_slider_company.php',[
+		    'oSliderCompany' => CompanySliderRepository::findAll(),
+		],
+		    true
+		);
 		
 	}
 	

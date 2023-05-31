@@ -1752,8 +1752,16 @@ form.Card.ModifyForm .Card-title {
   justify-content: center;
   align-items: center;
 }
+#admin_presentation .Presentation-sliderCompany-container .ModifyForm .Presentation-sliderCompany-imgBox {
+  position: relative;
+  padding: 30px;
+}
 #admin_presentation .Presentation-sliderCompany-container .ModifyForm .Presentation-sliderCompany-imgBox input {
   padding-top: 5px;
+}
+#admin_presentation .Presentation-sliderCompany-container .ModifyForm .Presentation-sliderCompany-imgBox .Card-delete {
+  position: relative;
+  top: 0;
 }
 
 html {

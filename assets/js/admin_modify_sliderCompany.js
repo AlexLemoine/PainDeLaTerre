@@ -1,11 +1,7 @@
 import {toggleClass} from "./functions.js";
 
 
-
-function listenCancelSaveBtn() {
-    // Lieu où va se rafraîchir la vue partielle
-    const container = document.querySelector('.Presentation-sliderCompany-container');
-
+function listenCancelBtn(container){
     // Ecouteur sur le bouton cancel
     // Au click, faire un refresh du CompanySlider entier
     const cancelBtn = document.querySelector('#sliderCompany .ModifyForm .Card-cancel');
@@ -30,7 +26,9 @@ function listenCancelSaveBtn() {
             })
 
     })
+}
 
+function listenSaveBtn(container) {
     const saveBtn = document.querySelector('#sliderCompany .ModifyForm .Card-save');
 
     // Création d'un nouvel objet FormData
@@ -47,6 +45,9 @@ function listenCancelSaveBtn() {
         })
     });
 
+    // Ecouteur sur le bouton cancel
+    // Au click, update en BDD de chaque élémént modifié,
+    // Refresh du CompanySlider entier
     saveBtn.addEventListener('click', function (event) {
 
         event.preventDefault();
@@ -66,6 +67,59 @@ function listenCancelSaveBtn() {
             })
 
     })
+}
+
+
+function listenDeleteBtn() {
+    const deleteBtn = document.querySelectorAll('.Presentation-sliderCompany-imgBox .Card-delete');
+    deleteBtn.forEach(btn => {
+        btn.addEventListener('click', function (event) {
+
+            event.preventDefault();
+
+            const targetSlide = this.parentNode;
+            console.log(targetSlide);
+
+            let isToDelete = confirm('Souhaitez-vous supprimer ce partenaire ?');
+            if(isToDelete === true) {
+
+                // Création d'un nouvel objet FormData
+                const formData = new FormData();
+                formData.append('isToDelete','yes');
+                formData.append('context', 'admin_delete_slide_company');
+                formData.append('id',targetSlide.getAttribute('data-id'));
+
+                // envoi requête pour maj card
+                fetch('ajax.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        targetSlide.remove();
+
+                    })
+
+            }
+
+        })
+    })
+
+}
+
+/**
+ * Ecouter les boutons cancel, save et delete
+ */
+function listenCancelDeleteSaveBtn() {
+
+    // Lieu où va se rafraîchir la vue partielle
+    const container = document.querySelector('.Presentation-sliderCompany-container');
+
+    listenCancelBtn(container);
+
+    listenSaveBtn(container);
+
+    listenDeleteBtn();
 
 }
 
@@ -84,7 +138,7 @@ function callModifySliderCompanyAjax(container) {
         .then(data => {
 
             container.innerHTML = data;
-            listenCancelSaveBtn();
+            listenCancelDeleteSaveBtn();
         })
 }
 

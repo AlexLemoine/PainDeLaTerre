@@ -14,6 +14,7 @@
 					<img class="Presentation-sliderCompany-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_SLIDER . DIRECTORY_SEPARATOR . $slide->getUrl(); ?>"
 					     alt="<?= $slide->getLegend(); ?>">
 				<?php endif; ?>
+				<img data-id="<?= !empty($slide) ? $slide->getId() : ''; ?>" src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" title="Supprimer" data-action="delete">
 				<input type="file" data-id="<?= !empty($slide) ? $slide->getId() : ''; ?>" id="url-<?= !empty($slide) ? $slide->getId() : ''; ?>" value="<?= !empty($slide) ? $slide->getUrl() : ''; ?>" name="url-<?= !empty($slide) ? $slide->getId() : ''; ?>" accept="image/*">
 			</div>
 		<?php endforeach; ?>

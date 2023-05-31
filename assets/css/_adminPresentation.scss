@@ -147,8 +147,6 @@
                         & .ModifyForm{
                               width: 100%;
                               padding-top: 50px;
-                              
-
       
                               & .Card-cancel{
                                     @media screen AND (min-width: 550px) {
@@ -175,9 +173,16 @@
                                     }
                                     
                                     &-imgBox{
+                                          position: relative;
+                                          padding: 30px;
                                     
                                           & input{
                                                 padding-top: 5px;
+                                          }
+                                          
+                                          & .Card-delete{
+                                                position: relative;
+                                                top: 0;
                                           }
                                     }
                                     
