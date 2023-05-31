@@ -146,16 +146,42 @@
                         
                         & .ModifyForm{
                               width: 100%;
+                              padding-top: 50px;
                               
-                              & .Presentation-sliderCompany-list{
-                                    display: flex;
-                                    flex-direction: row;
-                                    flex-wrap: wrap;
-                                    align-content: center;
-                                    justify-content: center;
-                                    align-items: center;
+
+      
+                              & .Card-cancel{
+                                    @media screen AND (min-width: 550px) {
+                                          right: 135px;
+                                    }
+                              }
+      
+                              & .Card-save{
+                                    @media screen AND (min-width: 550px) {
+                                          top: 0;
+                                          right: 65px;
+                                    }
                               }
                               
+                              & .Presentation-sliderCompany{
+                                    
+                                    &-list{
+                                          display: flex;
+                                          flex-direction: row;
+                                          flex-wrap: wrap;
+                                          align-content: center;
+                                          justify-content: center;
+                                          align-items: center;
+                                    }
+                                    
+                                    &-imgBox{
+                                    
+                                          & input{
+                                                padding-top: 5px;
+                                          }
+                                    }
+                                    
+                              }
                         }
                         
                   }
