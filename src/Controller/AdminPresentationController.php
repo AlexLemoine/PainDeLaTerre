@@ -142,4 +142,20 @@ class AdminPresentationController extends AbstractController
 		
 	}
 	
+	/**
+	 * Rafraîchir la vue en Ajax
+	 */
+	public function refreshSliderCompany(): string
+	{
+		
+		// render pour rafraîchir ma vue (vue partielle texte)
+		return $this->render('_admin_companySliders.php',[
+			// Rafraîchir les données du texte modifié
+		    'sliderCompany' => CompanySliderRepository::findAll(),
+		],
+		    true
+		);
+		
+	}
+	
 }

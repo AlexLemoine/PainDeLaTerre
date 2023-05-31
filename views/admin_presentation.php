@@ -80,15 +80,7 @@
 		<h2 class="Presentation-sliderCompany-title">Images du slider "savoir-faire"</h2>
 		
 		<div class="Presentation-sliderCompany-container">
-			<?php foreach ($sliderCompany as $item) { ?>
-				<figure data-id="<?php echo $item->getId(); ?>"
-					  class="Presentation-sliderCompany-imgBox">
-					<img class="Presentation-sliderCompany-imgBox-img"
-					     src="<?php echo DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_SLIDER . DIRECTORY_SEPARATOR . $item->getUrl(); ?>"
-					     alt="<?php echo $item->getLegend(); ?>">
-					<figcaption><?php echo $item->getLegend(); ?></figcaption>
-				</figure>
-			<?php } ?>
+			<?php include '_admin_companySliders.php'; ?>
 		</div>
 		
 	</section>
