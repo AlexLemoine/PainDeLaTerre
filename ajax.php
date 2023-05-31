@@ -82,13 +82,16 @@ if(isset($_POST['context'])){
 			break;
 			
 		case PAGE_ADMIN_MODIFY_SLIDER_COMPANY:
-			echo(new Pdlt\Controller\AdminPresentationController)->updateSliderCompany();
+			echo(new Pdlt\Controller\AdminPresentationController)->modifySliderCompany();
 			break;
 			
 		case PAGE_ADMIN_CANCEL_SLIDER_COMPANY:
 			echo(new Pdlt\Controller\AdminPresentationController)->refreshSliderCompany();
 			break;
 			
+		case PAGE_ADMIN_UPDATE_SLIDER_COMPANY:
+			echo(new Pdlt\Controller\AdminPresentationController)->updateSliderCompany();
+			break;
 			
 	}
 }

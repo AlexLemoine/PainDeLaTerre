@@ -102,6 +102,7 @@ final class CompanySliderRepository extends AbstractRepository
 		
 		return $oCompanySlider;
 	}
+
 	
 	/**
 	 * @param array $aCriterias
@@ -175,6 +176,21 @@ final class CompanySliderRepository extends AbstractRepository
 		    'where' => $aWhere,
 		    'params' => $aParams
 		];
+		
+	}
+	
+	
+	public static function update(array $aParams)
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'UPDATE `'. self::TABLE .'` as s
+			SET s.url = :url
+			WHERE s.id = :id ;' ;
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
 		
 	}
 	
