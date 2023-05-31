@@ -1,5 +1,26 @@
 import {toggleClass} from "./functions.js";
 
+function listenCreateSliderBtn() {
+
+    const container = document.querySelector('.Presentation-sliderCompany-container');
+
+    // Ecouteur sur le bouton create
+    // Au click, faire apparaître le formulaire de création de slide
+    createBtn.addEventListener('click', function (){
+
+        const creationForm = document.querySelector('.Presentation-sliderCompany-creation');
+        toggleClass(creationForm,'hidden','visible');
+        toggleClass(createBtn,'hidden','visible');
+        toggleClass(modifySliderBtn,'hidden','visible');
+        toggleClass(container,'hidden','visible');
+
+        // TODO
+
+    })
+
+}
+
+
 
 function listenCancelBtn(container){
     // Ecouteur sur le bouton cancel
@@ -152,6 +173,9 @@ function listenModifySliderBtn(){
 
     });
 }
+
+const createBtn =  document.querySelector('#sliderCompany .Card-create-button');
+listenCreateSliderBtn();
 
 const modifySliderBtn = document.querySelector('#sliderCompany .Card-modify');
 listenModifySliderBtn();

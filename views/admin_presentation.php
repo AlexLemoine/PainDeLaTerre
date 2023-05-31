@@ -76,8 +76,14 @@
 		   class="Presentation-sliderCompany">
 
 		<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
+		<img src="assets/img/addButton.svg" class="Card-create-button" alt="addButton" title="Créer un produit">
 
 		<h2 class="Presentation-sliderCompany-title">Images du slider "savoir-faire"</h2>
+
+		<div class="Presentation-sliderCompany-creation hidden">
+			<p class="Card-create-title">Ajouter une image</p>
+			<?php include '_admin_create_slider_company.php'; ?>
+		</div>
 		
 		<div class="Presentation-sliderCompany-container">
 			<?php include '_admin_companySliders.php'; ?>

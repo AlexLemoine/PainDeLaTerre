@@ -1698,6 +1698,43 @@ form.Card.ModifyForm .Card-title {
     font-size: 1.4em;
   }
 }
+#admin_presentation .Presentation-sliderCompany .Card-create-button {
+  position: relative;
+  top: 10px;
+}
+@media screen and (min-width: 550px) {
+  #admin_presentation .Presentation-sliderCompany .Card-create-button {
+    position: absolute;
+    top: 28px;
+    right: 3px;
+  }
+}
+#admin_presentation .Presentation-sliderCompany .Card-create-button.hidden {
+  display: none;
+}
+#admin_presentation .Presentation-sliderCompany-creation {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+#admin_presentation .Presentation-sliderCompany-creation.hidden {
+  display: none;
+}
+#admin_presentation .Presentation-sliderCompany-creation .Card-create-title {
+  margin: 0;
+  padding: 15px;
+  font-size: 1.4em;
+}
+@media screen and (min-width: 550px) {
+  #admin_presentation .Presentation-sliderCompany-creation .ModifyForm .Card-cancel, #admin_presentation .Presentation-sliderCompany-creation .ModifyForm .Card-save {
+    position: relative;
+    top: 10px;
+  }
+}
+#admin_presentation .Presentation-sliderCompany-creation .ModifyForm .Presentation-sliderCompany-creation-form {
+  padding: 20px;
+}
 #admin_presentation .Presentation-sliderCompany-container {
   display: flex;
   flex-direction: column;
@@ -1710,6 +1747,9 @@ form.Card.ModifyForm .Card-title {
   #admin_presentation .Presentation-sliderCompany-container {
     flex-direction: row;
   }
+}
+#admin_presentation .Presentation-sliderCompany-container.hidden {
+  display: none;
 }
 #admin_presentation .Presentation-sliderCompany-container .Presentation-sliderCompany-imgBox, #admin_presentation .Presentation-sliderCompany-container .ModifyForm.Presentation-sliderCompany-imgBox {
   margin: 0;

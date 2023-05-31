@@ -178,7 +178,11 @@ class AdminPartenairesController extends AbstractController
 		
 	}
 	
-	public function deletePartenaire()
+	/**
+	 * Supprimer un partenaire en BDD
+	 * @return string
+	 */
+	public function deletePartenaire(): string
 	{
 		// TODO Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
@@ -216,7 +220,7 @@ class AdminPartenairesController extends AbstractController
 		
 	}
 	
-	public function refreshPartenaires()
+	public function refreshPartenaires(): string
 	{
 		// TODO Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
