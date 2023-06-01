@@ -42,7 +42,7 @@ function onClickSaveBtn() {
             container.innerHTML = data;
 
             // Remise à zéro du formulaire de création de produit
-            this.parentNode.reset();
+            creationForm.reset();
 
             // On cache le formulaire de création
             toggleClass(creationSection,'hidden','visible');
@@ -51,6 +51,7 @@ function onClickSaveBtn() {
             toggleClass(container,'hidden','visible');
 
             // On fait réapparaître les boutons ou on les recache en fonction de leur état
+
             toggleClass(createBtn,'hidden','visible');
             toggleClass(modifySliderBtn,'hidden','visible');
 
@@ -90,6 +91,7 @@ function listenCreateSliderBtn() {
         // On cache le formulaire de création
         // On fait réapparaître les boutons ou on les recache en fonction de leur état
         const saveBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-save');
+
         saveBtn.addEventListener('click', onClickSaveBtn);
 
 
@@ -129,7 +131,7 @@ function listenCancelBtn(container){
 
 
 function listenSaveBtn(container) {
-    const saveBtn = document.querySelector('#sliderCompany .ModifyForm .Card-save');
+    const saveBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-container .ModifyForm .Card-save');
 
     // Création d'un nouvel objet FormData
     const formData = new FormData();
@@ -164,6 +166,9 @@ function listenSaveBtn(container) {
 
                 // Faire apparaître le bouton modify de nouveau
                 toggleClass(modifySliderBtn,'hidden','visible');
+
+                // Faire apparaître le bouton create de nouveau
+                toggleClass(createBtn,'hidden','visible');
             })
 
     })
