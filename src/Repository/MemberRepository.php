@@ -9,13 +9,13 @@ use Pdlt\Model\Member;
 final class MemberRepository extends AbstractRepository
 {
 	
-	// CONSTANTES
+	// *** CONSTANTES ***
 	
 	const TABLE = 'member';
 	const NB_ELT_PER_PAGE = 20;
 	
 	
-	// FONCTIONS
+	// *** FONCTIONS ***
 	
 	/**
 	 * Retourne tous les membres en BDD
