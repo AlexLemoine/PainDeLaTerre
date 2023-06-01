@@ -13,9 +13,6 @@ class Team
 	/** @var string  */
 	protected string $descOrigin;
 	
-	/** @var Member  */
-	protected Member $member;
-	
 	/** @var string  */
 	protected string $picture;
 	
@@ -23,17 +20,14 @@ class Team
 	/**
 	 * @param string $descResume
 	 * @param string $descOrigin
-	 * @param Member $member
 	 * @param string $picture
 	 */
 	public function __construct(string $descResume = '',
 					    string $descOrigin = '',
-					    Member $member = new Member(),
 					    string $picture = '') {
 
 		$this->descResume = $descResume;
 		$this->descOrigin = $descOrigin;
-		$this->member = $member;
 		$this->picture = $picture;
 	}
 	
@@ -91,24 +85,6 @@ class Team
 	public function setDescOrigin(string $descOrigin): Team
 	{
 		$this->descOrigin = $descOrigin;
-		return $this;
-	}
-	
-	/**
-	 * @return Member
-	 */
-	public function getMember(): Member
-	{
-		return $this->member;
-	}
-	
-	/**
-	 * @param Member $member
-	 * @return Team
-	 */
-	public function setMember(Member $member): Team
-	{
-		$this->member = $member;
 		return $this;
 	}
 	

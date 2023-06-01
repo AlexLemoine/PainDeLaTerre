@@ -26,11 +26,10 @@ final class MemberRepository extends AbstractRepository
 		$oPdo = DbManager::getInstance();
 		
 		$oPdoStatement = $oPdo->query(
-		    'SELECT *  FROM ' . static::TABLE . ' ORDER BY name'
+		    'SELECT *  FROM ' . static::TABLE . ' ORDER BY `name`'
 		);
 		
 		return static::extracted($oPdoStatement);
-		
 	}
 	
 	/**
@@ -45,7 +44,7 @@ final class MemberRepository extends AbstractRepository
 		
 		$sQuery = 'SELECT *
             FROM ' . static::TABLE .
-		    ' WHERE member.id = :id';
+		    ' WHERE id = :id';
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->bindValue(':id', $iId, \PDO::PARAM_INT);
@@ -110,6 +109,7 @@ final class MemberRepository extends AbstractRepository
 		    $aDbMember['description'],
 		    $aDbMember['picture']);
 		
+		$oMember->setId($aDbMember['id']);
 		$oMember->setEntryDate(new \DateTime($aDbMember['entry_date']));
 		
 		return $oMember;

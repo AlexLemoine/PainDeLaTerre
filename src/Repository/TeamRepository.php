@@ -36,7 +36,8 @@ final class TeamRepository extends AbstractRepository
 	/**
 	 * Retourne une équipe en fonction de son id
 	 * @param int $iId
-	 * @return Team
+	 * @return Team|null
+	 * @throws \Exception
 	 */
 	public static function find(int $iId): ?Team
 	{
@@ -103,9 +104,8 @@ final class TeamRepository extends AbstractRepository
 	protected static function hydrate(array $aDbTeam): Team
 	{
 		$oTeam = new Team(
-		    $aDbTeam['descResume'],
-		    $aDbTeam['descOrigin'],
-		    MemberRepository::find($aDbTeam['member_id']),
+		    $aDbTeam['desc_resume'],
+		    $aDbTeam['desc_origin'],
 		    $aDbTeam['picture']);
 		
 		return $oTeam;
@@ -159,8 +159,8 @@ final class TeamRepository extends AbstractRepository
 		
 		// 1. Si "magic-search" est défini
 		if (!empty($aCriterias['magic-search'])) {
-			$aWhere[] = ' ((`descResume` LIKE :magicsearch)
-                        OR (`descOrigin` LIKE :magicsearch))';
+			$aWhere[] = ' ((`desc_resume` LIKE :magicsearch)
+                        OR (`desc_origin` LIKE :magicsearch))';
 			$aParams[':magicsearch'] = '%' . $aCriterias['magic-search'] . '%';
 		}
 

@@ -1,4 +1,4 @@
-<?php use Pdlt\Repository\ProductRepository; ?>
+
 <main class="MainContent Products layout layout-front" id="main">
 	<div class="MainContent-titleWrap">
 		<h1 class="MainContent-title">Découvrez nos produits</h1>
