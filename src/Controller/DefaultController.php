@@ -15,6 +15,8 @@ class DefaultController extends AbstractController
      */
     public function home(): string
     {
+	    $_GET['page'] = PAGE_HOME;
+	    
 	    $aCriterias = [];
 	    $aCriterias['status'] = Product::STATUS_PUBLISHED;
 	    $products = ProductRepository::findBy($aCriterias);

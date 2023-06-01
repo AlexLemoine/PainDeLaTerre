@@ -83,9 +83,6 @@ function listenCreateSliderBtn() {
         const cancelBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-cancel');
         cancelBtn.addEventListener('click', onCLickCreateBtn);
 
-        // TODO ecouter saveBtn
-        // TODO create en BDD en AJAX
-
         // Au clic sur Enregistrer, on ajoute la slide en BDD
         // On renvoie la vue partielle au container en Ajax
         // On cache le formulaire de création
