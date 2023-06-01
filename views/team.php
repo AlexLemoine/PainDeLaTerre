@@ -15,6 +15,8 @@
 
 	<section class="Members">
 		<h2 class="Members-title">Présentation de l'équipe</h2>
+		<img src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_TEAM . DIRECTORY_SEPARATOR . $team->getPicture(); ?>">
+		
 		<div class="Members-container">
 			<?php include '_members.php'; ?>
 		</div>
