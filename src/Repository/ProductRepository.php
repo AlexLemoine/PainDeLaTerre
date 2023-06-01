@@ -4,7 +4,6 @@ namespace Pdlt\Repository;
 
 use Pdlt\Manager\DbManager;
 use Pdlt\Model\Product;
-use Pdlt\Model\ProductFrequency;
 
 
 final class ProductRepository extends AbstractRepository
@@ -16,7 +15,7 @@ final class ProductRepository extends AbstractRepository
 	// FONCTIONS
 	
 	/**
-	 * Récupérer les produits sous forme d'objet et les afficher
+	 * Récupérer les produits sous forme d'objet
 	 * @return array
 	 */
 	public static function findAll(): array

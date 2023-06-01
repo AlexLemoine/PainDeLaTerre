@@ -2,23 +2,24 @@
 
 namespace Pdlt\Repository;
 
-use Exception;
 use Pdlt\Manager\DbManager;
-use Pdlt\Model\Member;
+use Pdlt\Model\Team;
 
-final class MemberRepository extends AbstractRepository
+
+final class TeamRepository extends AbstractRepository
 {
 	
 	// *** CONSTANTES ***
 	
-	const TABLE = 'member';
+	const TABLE = 'team';
 	const NB_ELT_PER_PAGE = 20;
 	
 	
 	// *** FONCTIONS ***
 	
+	
 	/**
-	 * Retourne tous les membres en BDD
+	 * Retourne l'équipe de la BDD
 	 * @return array
 	 */
 	public static function findAll(): array
@@ -26,39 +27,36 @@ final class MemberRepository extends AbstractRepository
 		$oPdo = DbManager::getInstance();
 		
 		$oPdoStatement = $oPdo->query(
-		    'SELECT *  FROM ' . static::TABLE . ' ORDER BY name'
+		    'SELECT *  FROM ' . static::TABLE
 		);
 		
 		return static::extracted($oPdoStatement);
-		
 	}
 	
 	/**
-	 * Récupère un membre en BDD en fonction de on id
+	 * Retourne une équipe en fonction de son id
 	 * @param int $iId
-	 * @return Member|null
-	 * @throws Exception
+	 * @return Team
 	 */
-	public static function find(int $iId): ?Member
+	public static function find(int $iId): ?Team
 	{
 		$oPdo = DbManager::getInstance();
 		
 		$sQuery = 'SELECT *
             FROM ' . static::TABLE .
-		    ' WHERE member.id = :id';
+		    ' WHERE team.id = :id';
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->bindValue(':id', $iId, \PDO::PARAM_INT);
 		$oPdoStatement->execute();
 		
-		$aDbMember = $oPdoStatement->fetch();
+		$aDbTeam = $oPdoStatement->fetch();
 		
-		return $aDbMember ? static::hydrate($aDbMember) : NULL;
-		
+		return $aDbTeam ? static::hydrate($aDbTeam) : NULL;
 	}
 	
 	/**
-	 * Retourne les membres en BDD en fonction des critères donnés
+	 * Retourne l'équipe' en BDD en fonction des critères donnés
 	 * @param array $aCriterias
 	 * @param int $iOffset
 	 * @param int $iNbElts
@@ -81,7 +79,7 @@ final class MemberRepository extends AbstractRepository
 			$iOffset = 0;
 		};
 		
-		$sQuery .= ' `name`';
+		$sQuery .= ' ORDER BY `id`';
 		$sQuery .= ' LIMIT ' . $iOffset . ' , ' . $iNbElts;
 		
 		// Exécuter la requête
@@ -97,26 +95,24 @@ final class MemberRepository extends AbstractRepository
 	}
 	
 	/**
-	 * Va créer un membre selon les infos données
-	 * @param array $aDbMember
-	 * @return Member
-	 * @throws Exception
+	 * Va créer une équipe selon les infos données
+	 * @param array $aDbTeam
+	 * @return Team
+	 * @throws \Exception
 	 */
-	protected static function hydrate(array $aDbMember): Member
+	protected static function hydrate(array $aDbTeam): Team
 	{
-		$oMember = new Member(
-		    $aDbMember['name'],
-		    $aDbMember['position'],
-		    $aDbMember['description'],
-		    $aDbMember['picture']);
+		$oTeam = new Team(
+		    $aDbTeam['descResume'],
+		    $aDbTeam['descOrigin'],
+		    MemberRepository::find($aDbTeam['member_id']),
+		    $aDbTeam['picture']);
 		
-		$oMember->setEntryDate(new \DateTime($aDbMember['entry_date']));
-		
-		return $oMember;
+		return $oTeam;
 	}
 	
 	/**
-	 * Retourne le nombre de membres en BDD selon les critères
+	 * * Retourne le nombre d'équipes en BDD selon les critères
 	 * @param array $aCriterias
 	 * @return int|array
 	 */
@@ -126,7 +122,7 @@ final class MemberRepository extends AbstractRepository
 		$oPdo = DbManager::getInstance();
 		
 		// Configuration de la requête
-		$sQuery = 'SELECT COUNT(*) AS nbMembers FROM ' . static::TABLE;
+		$sQuery = 'SELECT COUNT(*) AS nbTeam FROM ' . static::TABLE;
 		
 		$aResult = self::findCriterias($aCriterias);
 		
@@ -141,10 +137,9 @@ final class MemberRepository extends AbstractRepository
 		// On récupère le nombre d'articles
 		$result = $oPdoStatement->fetch();
 		
-		$nbMembers = (int)$result['nbMembers'];
+		$nbTeam = (int)$result['nbTeam'];
 		
-		return $nbMembers;
-		
+		return $nbTeam;
 	}
 	
 	/**
@@ -161,19 +156,21 @@ final class MemberRepository extends AbstractRepository
 		// requête
 		$sQuery = '';
 		
-		// 1. Si name est défini dans $aCriterias, ajouter une clause WHERE
-		if (!empty($aCriterias['name'])) {
-			$aWhere[] = ' (name = :name)';
-			$aParams[':name'] = $aCriterias['name'];
+		
+		// 1. Si "magic-search" est défini
+		if (!empty($aCriterias['magic-search'])) {
+			$aWhere[] = ' ((`descResume` LIKE :magicsearch)
+                        OR (`descOrigin` LIKE :magicsearch))';
+			$aParams[':magicsearch'] = '%' . $aCriterias['magic-search'] . '%';
+		}
+
+		
+		// 2. Si "id" est défini
+		if (!empty($aCriterias['id'])) {
+			$aWhere[] = '(id = :id)';
+			$aParams[':id'] = $aCriterias['id'];
 		};
 		
-		// 2. Si "magic-search" est défini
-		if (!empty($aCriterias['magic-search'])) {
-			$aWhere[] = ' ((`name` LIKE :magicsearch)
-                        OR (`position` LIKE :magicsearch)
-                        OR (`entry_date` LIKE :magicsearch))';
-			$aParams[':magicsearch'] = '%' . $aCriterias['magic-search'] . '%';
-		};
 		
 		if (count($aWhere) > 0) {
 			$sQuery .= ' WHERE ' . implode(' AND ', $aWhere);
@@ -183,8 +180,5 @@ final class MemberRepository extends AbstractRepository
 		    'where' => $aWhere,
 		    'params' => $aParams
 		];
-		
 	}
-	
 }
-
