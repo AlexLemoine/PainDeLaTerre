@@ -1717,6 +1717,7 @@ form.Card.ModifyForm .Card-title {
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  border: solid 1px rgb(166, 52, 27);
 }
 #admin_presentation .Presentation-sliderCompany-creation.hidden {
   display: none;

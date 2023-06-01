@@ -4,12 +4,12 @@ import {toggleClass} from "./functions.js";
 function onCLickCreateBtn() {
 
     const container = document.querySelector('.Presentation-sliderCompany-container');
-    const creationForm = document.querySelector('.Presentation-sliderCompany-creation');
+    const creationSection = document.querySelector('.Presentation-sliderCompany-creation');
     const cancelBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-cancel');
 
     console.log('click cancelBtn');
 
-    toggleClass(creationForm,'hidden','visible');
+    toggleClass(creationSection,'hidden','visible');
     toggleClass(createBtn,'hidden','visible');
     toggleClass(modifySliderBtn,'hidden','visible');
     toggleClass(container,'hidden','visible');
@@ -17,6 +17,49 @@ function onCLickCreateBtn() {
     cancelBtn.removeEventListener('click', onCLickCreateBtn);
 }
 
+
+function onClickSaveBtn() {
+
+    // Lieu où on chargera la vue partielle
+    const container = document.querySelector('.Presentation-sliderCompany-container');
+
+    const creationSection = document.querySelector('.Presentation-sliderCompany-creation');
+    const creationForm = document.querySelector('.Presentation-sliderCompany-creation .ModifyForm');
+
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(creationForm);
+    formData.append('context', 'admin_create_slide_company');
+
+    // Envoi de la requête pour créer le produit
+    fetch('ajax.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+
+            // Mise à jour du listing des sliders
+            container.innerHTML = data;
+
+            // Remise à zéro du formulaire de création de produit
+            this.parentNode.reset();
+
+            // On cache le formulaire de création
+            toggleClass(creationSection,'hidden','visible');
+
+            // On réaffiche le container avec le listing des slides
+            toggleClass(container,'hidden','visible');
+
+            // On fait réapparaître les boutons ou on les recache en fonction de leur état
+            toggleClass(createBtn,'hidden','visible');
+            toggleClass(modifySliderBtn,'hidden','visible');
+
+            const saveBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-save');
+            saveBtn.removeEventListener('click',onClickSaveBtn);
+
+        })
+
+}
 
 function listenCreateSliderBtn() {
 
@@ -34,10 +77,21 @@ function listenCreateSliderBtn() {
         toggleClass(modifySliderBtn,'hidden','visible');
         toggleClass(container,'hidden','visible');
 
-        // Au click sur annuler, on recache le formulaire de création
+        // Au clic sur annuler, on recache le formulaire de création
         // On fait réapparaître les boutons ou on les recache en fonction de leur état
         const cancelBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-cancel');
         cancelBtn.addEventListener('click', onCLickCreateBtn);
+
+        // TODO ecouter saveBtn
+        // TODO create en BDD en AJAX
+
+        // Au clic sur Enregistrer, on ajoute la slide en BDD
+        // On renvoie la vue partielle au container en Ajax
+        // On cache le formulaire de création
+        // On fait réapparaître les boutons ou on les recache en fonction de leur état
+        const saveBtn = document.querySelector('#sliderCompany .Presentation-sliderCompany-creation .ModifyForm .Card-save');
+        saveBtn.addEventListener('click', onClickSaveBtn);
+
 
     })
 

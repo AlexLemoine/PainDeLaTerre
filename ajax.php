@@ -97,6 +97,10 @@ if(isset($_POST['context'])){
 			echo(new Pdlt\Controller\AdminPresentationController)->deleteSlideCompany();
 			break;
 			
+		case PAGE_ADMIN_CREATE_SLIDE_COMPANY:
+			echo(new Pdlt\Controller\AdminPresentationController)->createSlideCompany();
+			break;
+			
 	}
 }
 

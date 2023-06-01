@@ -279,5 +279,51 @@ class AdminPresentationController extends AbstractController
 		
 	}
 	
+	public function createSlideCompany()
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Gérer la soumission du formulaire
+		// Récupération (+ nettoyage des données POST)
+		$aCriterias = [
+		    'url' => strip_tags($_FILES['url']['tmp_name']),
+		];
+		
+		if($_FILES['url']['error'] === UPLOAD_ERR_OK) {
+			// Récupération des informations sur l'image
+			$aPictureInfo = getimagesize($_FILES['url']['tmp_name']);
+			
+			// Vérification que le fichier est bien une image
+			if($aPictureInfo) {
+				// Nettoyage du nom de fichier et ajout de l'extension
+				$sFileNameNew = uniqid() . '.' . pathinfo($_FILES['url']['name'], PATHINFO_EXTENSION);
+				$sFilePathNew = DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_SLIDER . DIRECTORY_SEPARATOR . $sFileNameNew;
+				
+				// Déplacement du fichier téléchargé vers le dossier des uploads
+				if (move_uploaded_file($_FILES['url']['tmp_name'], $sFilePathNew)) {
+					// Le fichier a été correctement déplacé, on l'ajoute aux critères de mise à jour
+					$aCriterias['url'] = basename($sFilePathNew);
+				}
+			}
+		}
+		
+		$aParams = [
+		    ':url' => $aCriterias['url'],
+		];
+		
+		// Création du slide en BDD
+		$id = CompanySliderRepository::create($aParams);
+		
+		// render pour rafraîchir ma vue (vue partielle texte)
+		return $this->render('_admin_companySliders.php',[
+			// Rafraîchir les données du texte modifié
+		    'sliderCompany' => CompanySliderRepository::findAll(),
+		],
+		    true
+		);
+		
+	}
+	
 	
 }

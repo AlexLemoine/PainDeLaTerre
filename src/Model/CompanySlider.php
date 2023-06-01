@@ -13,6 +13,7 @@ class CompanySlider
 	    self::STATUS_PUBLISHED => 'publié',
 	    self::STATUS_ASLEEP => 'en sommeil'
 	];
+
 	
 	// ATTRIBUTS
 	

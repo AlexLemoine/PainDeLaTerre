@@ -102,7 +102,9 @@ final class CompanySliderRepository extends AbstractRepository
 		
 		return $oCompanySlider;
 	}
+	
 
+	
 	
 	/**
 	 * @param array $aCriterias
@@ -179,7 +181,11 @@ final class CompanySliderRepository extends AbstractRepository
 		
 	}
 	
-	
+	/**
+	 * Mettre à jour une slide en BDD
+	 * @param array $aParams
+	 * @return void
+	 */
 	public static function update(array $aParams)
 	{
 		// Lien avec la BDD
@@ -191,6 +197,26 @@ final class CompanySliderRepository extends AbstractRepository
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->execute($aParams);
+		
+	}
+	
+	/**
+	 * Créer une slide en BDD
+	 * @param array $aParams
+	 * @return false|string
+	 */
+	public static function create(array $aParams): false|string
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'INSERT INTO `'. self::TABLE .'` (`url`,`status`)
+				VALUES (:url, '. CompanySlider::STATUS_PUBLISHED .');';
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+		return $oPdo->lastInsertId();
 		
 	}
 	
