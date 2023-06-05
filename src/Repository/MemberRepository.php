@@ -26,7 +26,7 @@ final class MemberRepository extends AbstractRepository
 		$oPdo = DbManager::getInstance();
 		
 		$oPdoStatement = $oPdo->query(
-		    'SELECT *  FROM ' . static::TABLE . ' ORDER BY `name`'
+		    'SELECT *  FROM ' . static::TABLE . ' ORDER BY `id`'
 		);
 		
 		return static::extracted($oPdoStatement);
