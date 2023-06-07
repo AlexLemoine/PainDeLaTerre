@@ -949,7 +949,7 @@
 }
 #team .Projet-resume, #team .Members-resume {
   margin: 0;
-  padding: 15px;
+  padding: 25px;
 }
 #team .Projet-resume {
   text-align: left;
@@ -965,6 +965,16 @@
   font-size: 1.2em;
   font-weight: 400;
 }
+@media screen and (min-width: 750px) {
+  #team .Members-container .Members-info-mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 749px) {
+  #team .Members-container .Members-info-desktop {
+    display: none;
+  }
+}
 #team .Members-container .Member {
   padding: 15px;
   display: flex;
@@ -974,49 +984,72 @@
   align-content: center;
   align-items: center;
   row-gap: 15px;
-  min-height: 350px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
+@media screen and (min-width: 750px) {
+  #team .Members-container .Member {
+    padding: 30px;
+  }
+}
 #team .Members-container .Member.hidden {
   display: none;
+}
+#team .Members-container .Member-desc {
+  text-align: left;
 }
 #team .Members-container .Member-imgList {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
   align-items: center;
   row-gap: 15px;
-  background-color: rgb(166, 52, 27);
+  background-color: rgb(186, 161, 140);
 }
 @media screen and (min-width: 550px) {
   #team .Members-container .Member-imgList {
-    flex-direction: row;
+    flex-wrap: wrap;
     column-gap: 15px;
     justify-content: space-evenly;
     padding: 40px;
   }
 }
+@media screen and (min-width: 750px) {
+  #team .Members-container .Member-imgList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1050px) {
+  #team .Members-container .Member-imgList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 #team .Members-container .Member-imgList-img {
-  max-width: 300px;
-  max-height: 550px;
+  padding: 20px;
+}
+#team .Members-container .Member-imgList-img:has(img.selected) {
+  transform: scale(1.2);
+}
+#team .Members-container .Member-imgList-img img {
+  max-width: 200px;
+  max-height: 300px;
   padding: 20px;
 }
 @media screen and (min-width: 550px) {
-  #team .Members-container .Member-imgList-img {
-    max-width: 200px;
-    max-height: 300px;
+  #team .Members-container .Member-imgList-img img {
     width: 100%;
     padding: 50px;
   }
 }
-#team .Members-container .Member-imgList-img.selected {
-  transform: scale(1.2);
-  padding: 10px;
+@media screen and (min-width: 750px) {
+  #team .Members-container .Member-imgList-img img {
+    padding: 0;
+  }
 }
 
 @keyframes showMenu {

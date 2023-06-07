@@ -2,24 +2,26 @@
 // Si la largeur de l'écran est supérieure ou égale à 550px, affichez la première memberDiv
 
 import {toggleClass} from "./functions.js";
-
+//
 const screenWidth = window.innerWidth;
 
-if (screenWidth >= 550) {
 
-    const firstMemberDiv = document.querySelector('.Member:first-of-type');
-    const idFirstMemberDiv = firstMemberDiv.getAttribute('data-id');
-    const imgFirstMemberDiv = document.querySelector(`.Member-imgList-img[data-id="${idFirstMemberDiv}"]`);
-
-    firstMemberDiv.classList.remove('hidden');
-    imgFirstMemberDiv.classList.add('selected');
+let firstMemberDiv = document.querySelector('.Members-info-mobile .Member:first-of-type');
+if(screenWidth >= 750){
+    firstMemberDiv = document.querySelector(`.Members-info-desktop .Member:first-of-type`);
 }
+const idFirstMemberDiv = firstMemberDiv.getAttribute('data-id');
+const imgFirstMemberDiv = document.querySelector(`.Member-imgList-img img[data-id="${idFirstMemberDiv}"]`);
+
+firstMemberDiv.classList.remove('hidden');
+imgFirstMemberDiv.classList.add('selected');
+
 
 
 // *** INTERACTION UTILISATEUR
 
-// Sélectionnez toutes les images de la liste des membres
-const memberImages = document.querySelectorAll('.Member-imgList-img');
+// Sélectionnez toutes les div qui contiennent les images de la liste des membres
+let memberImages = document.querySelectorAll('.Member-imgList-img img');
 
 // Parcourir chaque image et ajoutez un gestionnaire d'événements de clic
 memberImages.forEach((image) => {
@@ -29,7 +31,10 @@ memberImages.forEach((image) => {
         const memberId = image.getAttribute('data-id');
 
         // Sélectionnez la div correspondante au membre en utilisant son attribut data-id
-        const memberDiv = document.querySelector(`.Member[data-id="${memberId}"]`);
+        let memberDiv = document.querySelector(`.Members-info-mobile .Member[data-id="${memberId}"]`);
+        if(screenWidth >= 750){
+            memberDiv = document.querySelector(`.Members-info-desktop .Member[data-id="${memberId}"]`);
+        }
 
         // Ajouter la classe 'hidden' à celle qui n'en comporte pas
         // Enlever la classe underline de son img
@@ -37,7 +42,7 @@ memberImages.forEach((image) => {
 
         if(memberSelected){
             const idMemberSelected = memberSelected.getAttribute('data-id');
-            const imgMemberSelected = document.querySelector(`.Member-imgList-img[data-id="${idMemberSelected}"]`);
+            const imgMemberSelected = document.querySelector(`.Member-imgList-img img[data-id="${idMemberSelected}"]`);
             toggleClass(memberSelected,'hidden','visible');
             toggleClass(imgMemberSelected,'selected','unselected');
         }

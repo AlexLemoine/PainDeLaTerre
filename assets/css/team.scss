@@ -29,7 +29,7 @@
       & .Projet, & .Members{
             &-resume{
                   margin: 0;
-                  padding: 15px;
+                  padding: 25px;
             }
       }
       
@@ -56,6 +56,22 @@
 
             &-container{
                   
+                  & .Members-info{
+                        &-mobile{
+                        
+                              @media screen AND (min-width: 750px) {
+                                    display: none;
+                              }
+                        }
+                        
+                        &-desktop{
+                        
+                              @media screen AND (max-width: 749px) {
+                                    display: none;
+                              }
+                        }
+                  }
+                  
                   & .Member{
                         padding: 15px;
                         display: flex;
@@ -65,51 +81,84 @@
                         align-content: center;
                         align-items: center;
                         row-gap: 15px;
-                        min-height: 350px;
                         max-width: 1200px;
                         margin-left: auto;
                         margin-right: auto;
                         
+                        @media screen AND (min-width: 750px) {
+                              padding: 30px;
+                        }
+                        
                         &.hidden{
                               display: none;
+                        }
+                        
+                        &-desc{
+                              text-align: left;
                         }
                         
                         &-imgList{
                               padding: 15px;
                               display: flex;
                               flex-direction: column;
-                              flex-wrap: wrap;
                               align-content: center;
                               justify-content: center;
                               align-items: center;
                               row-gap: 15px;
-                              
-                              background-color: $secondColor;
+                              background-color: $firstDarkColor;
                               
                               @media screen AND (min-width: 550px) {
-                                    flex-direction: row;
+                                    flex-wrap: wrap;
                                     column-gap: 15px;
                                     justify-content: space-evenly;
                                     padding: 40px;
                               }
                               
-                              &-img{
-                                    
-                                    max-width: 300px;
-                                    max-height: 550px;
-                                    padding: 20px;
+                              @media screen AND (min-width: 750px) {
+                                    display: grid;
+                                    grid-template-columns: repeat(2, 1fr);
+                              }
       
-                                    @media screen AND (min-width: 550px) {
+                              @media screen AND (min-width: 1050px) {
+                                    display: grid;
+                                    grid-template-columns: repeat(4, 1fr);
+                              }
+                              
+                              &-img{
+                                    padding: 20px;
+                                    
+                                    &:has(img.selected){
+                                          transform: scale(1.2);
+                                    }
+                                    
+                                    img{
+      
                                           max-width: 200px;
                                           max-height: 300px;
-                                          width: 100%;
-                                          padding: 50px;
+                                          padding: 20px;
+      
+                                          @media screen AND (min-width: 550px) {
+            
+                                                width: 100%;
+                                                padding: 50px;
+            
+                                                &.selected{
+                                                      
+                                                      //transform: scale(1.2);
+                                                      //padding: 10px;
+                                                }
+            
+                                          }
+                                          
+                                          @media screen AND (min-width: 750px) {
+                                                padding: 0;
+                                                
+                                                
+                                                
+                                          }
+                                          
                                     }
-                                    
-                                    &.selected{
-                                          transform: scale(1.2);
-                                          padding: 10px;
-                                    }
+
                                     
                               }
                               

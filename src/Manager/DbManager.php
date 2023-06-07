@@ -30,7 +30,7 @@ class DbManager {
             $sDSN = 'mysql:dbname='. DB_NAME . ';host='. DB_HOST.';charset=UTF8';
 
             $aOptions = [
-                // Pour mysql, forcer le passage en UTF8
+                // Pour mysql, forcer le passage en UTF8 (encryptage)
                 \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
             ];
 
