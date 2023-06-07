@@ -186,5 +186,87 @@ final class MemberRepository extends AbstractRepository
 		
 	}
 	
+	
+	/**
+	 * Créer un nouveau membre
+	 * @param $aParams
+	 * @return int|false
+	 */
+	public static function create($aParams): int|false
+	{
+		
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'INSERT INTO `'. self::TABLE .'`
+				    (`name`,
+				     `position`,
+				     `description`,
+				     `picture`,
+				     `entry_date`)
+
+				     VALUES
+				     (:name,
+				     :position,
+				     :description,
+				     :picture,
+				     :entry_date);';
+		
+
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+		return $oPdo->lastInsertId();
+		
+	}
+	
+	/**
+	 * Mettre à jour les infos d'un membre
+	 * @param $aParams
+	 * @return void
+	 */
+	public static function update($aParams): void
+	{
+		
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'UPDATE `'. self::TABLE .'` as m
+			SET m.name = :name,
+			m.position = :position,
+			m.description = :description' ;
+		
+		if ($aParams[':picture']) {
+			$sQuery .= ', m.picture = :picture';
+		}
+		
+		$sQuery .= ', m.entry_date = :entry_date
+			WHERE m.id = :id ;';
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+	}
+	
+	/**
+	 * Supprimer un membre de l'équipe
+	 * @param $id
+	 * @return void
+	 */
+	public static function delete($aParams): void
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'DELETE FROM `'. self::TABLE .'`
+			WHERE id = :id;';
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+	}
+	
+	
+	
 }
 

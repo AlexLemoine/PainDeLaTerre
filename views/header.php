@@ -23,6 +23,8 @@
 <!--					   href="?page=--><?php //echo PAGE_ADMIN_PARTENAIRES; ?><!--">--><?php //= TITLE_ADMIN_PARTENAIRES ?><!--</a>-->
 <!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_PRESENTATION) ? 'selected' : '' ?><!--"-->
 <!--					   href="?page=--><?php //echo PAGE_ADMIN_PRESENTATION; ?><!--">--><?php //= TITLE_ADMIN_PRESENTATION ?><!--</a>-->
+<!--					<a class="Header-menu-links-link --><?php //= (isset($_GET['page']) && $_GET['page'] === PAGE_ADMIN_TEAM) ? 'selected' : '' ?><!--"-->
+<!--					   href="?page=--><?php //echo PAGE_ADMIN_TEAM; ?><!--">--><?php //= TITLE_ADMIN_TEAM ?><!--</a>-->
 <!--				</div>-->
 <!--			--><?php //else: ?>
 

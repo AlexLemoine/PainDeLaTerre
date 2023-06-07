@@ -11,3 +11,4 @@
 		  src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_MEMBER . DIRECTORY_SEPARATOR . $oMember->getPicture(); ?>">
 	<?php endif; ?>
 </div>
+

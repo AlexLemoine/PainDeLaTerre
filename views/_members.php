@@ -11,7 +11,7 @@
 		     </div>
 		     
 		     <div style="max-width: 749px" class="Members-info-mobile" data-id="' . $oMember->getId() . '">
-		     		'; include '_member.php'; echo'
+		     			'; include '_member.php'; echo'
 			</div>
 		 
 		';

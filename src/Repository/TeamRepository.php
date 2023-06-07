@@ -181,4 +181,32 @@ final class TeamRepository extends AbstractRepository
 		    'params' => $aParams
 		];
 	}
+	
+	/**
+	 * Mettre à jour les textes de présentation et la photo d'équipe
+	 * @param $aParams
+	 * @return void
+	 */
+	public static function update($aParams): void
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'UPDATE `'. self::TABLE .'` as t
+			SET t.desc_resume = :desc_resume,
+			t.desc_origin = :desc_origin' ;
+		
+		if ($aParams[':picture']) {
+			$sQuery .= ', t.picture = :picture';
+		}
+		
+		$sQuery .= ' WHERE t.id = :id ;';
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->execute($aParams);
+		
+	}
+	
+	
+	
 }

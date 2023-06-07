@@ -929,7 +929,7 @@
 }
 @keyframes underline {
   0% {
-    width: 0%;
+    width: 0;
     left: 100%;
   }
   50% {

@@ -2,7 +2,7 @@
 
 <main class="MainContent Search layout layout-back" id="admin_partenaires">
 	<div class="MainContent-titleWrap">
-		<h1 class="MainContent-title">Gestion des partenaires</h1>
+		<h1 class="MainContent-title"><?= $seo_title; ?></h1>
 	</div>
 
 	<!-- Bouton de création de partenaire -->
