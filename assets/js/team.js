@@ -6,12 +6,17 @@ import {toggleClass} from "./functions.js";
 const screenWidth = window.innerWidth;
 
 
-let firstMemberDiv = document.querySelector('.Members-info-mobile .Member:first-of-type');
+let firstMemberDiv = document.querySelector('.Members-info-mobile');
 if(screenWidth >= 750){
-    firstMemberDiv = document.querySelector(`.Members-info-desktop .Member:first-of-type`);
+    firstMemberDiv = document.querySelector(`.Members-info-desktop`);
 }
+console.log(firstMemberDiv);
+
 const idFirstMemberDiv = firstMemberDiv.getAttribute('data-id');
+console.log(idFirstMemberDiv);
+
 const imgFirstMemberDiv = document.querySelector(`.Member-imgList-img img[data-id="${idFirstMemberDiv}"]`);
+console.log(imgFirstMemberDiv);
 
 firstMemberDiv.classList.remove('hidden');
 imgFirstMemberDiv.classList.add('selected');

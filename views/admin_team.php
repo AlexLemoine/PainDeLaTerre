@@ -12,9 +12,7 @@
 				<img src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" title="Supprimer" data-action="delete">
 				<?php include '_member.php'; ?>
 			</div>
-		<?php endforeach;
-		// TODO en JS, enlever la classe hidden de toutes les div.Member de la vue _member.php
-		?>
+		<?php endforeach;?>
 		
 	</div>
 	
