@@ -17,6 +17,10 @@
             margin-left: auto;
             margin-right: auto;
             
+            @media screen AND (min-width: 550px) {
+                  align-items: center;
+            }
+            
             &-title{
                   margin: 0;
             }
@@ -42,6 +46,10 @@
                   align-items: flex-start;
                   justify-content: center;
                   row-gap: 10px;
+      
+                  @media screen AND (min-width: 550px) {
+                        align-items: center;
+                  }
                   
                   &-title{
                         margin: 0;
@@ -50,6 +58,63 @@
                   & .Card-create-button{
                         position: initial;
                         padding: 0;
+                  }
+                  
+                  &-form{
+                        padding: 30px 0;
+                        
+                        & .ModifyForm{
+                              display: flex;
+                              flex-direction: column;
+                              flex-wrap: wrap;
+                              justify-content: center;
+                              align-content: center;
+                              align-items: flex-start;
+                              padding: 80px 10px 30px 10px;
+                              border: solid 2px $secondColor;
+                              position: relative;
+                              
+                              & .Card{
+                                    
+                                    &-cancel{
+                                          position: absolute;
+                                          top: 20px;
+                                          left: 30px;
+                                    }
+      
+                                    &-save{
+                                          position: absolute;
+                                          top: 20px;
+                                          left: 90px;
+                                    }
+      
+                                    &-Header{
+            
+                                          & .Card-title{
+                                                position: initial;
+                                          }
+            
+                                    }
+      
+                                    &-entry_date{
+                                          display: flex;
+                                          flex-direction: row;
+                                          align-items: center;
+                                          padding: 10px 0;
+                                          justify-content: center;
+                                          flex-wrap: wrap;
+                                          column-gap: 10px;
+                                          margin-left: auto;
+                                          margin-right: auto;
+            
+                                    }
+                                    
+                              }
+                              
+                              
+                        }
+
+                        
                   }
                   
             }

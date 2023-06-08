@@ -21,8 +21,8 @@
 		<div class="Members-creation">
 			<h2 class="Members-creation-title">CREER UN NOUVEAU MEMBRE</h2>
 			<img src="assets/img/addButton.svg" class="Card-create-button" alt="addButton" title="Créer un produit">
-			<div class="members-creation-form">
-			
+			<div class="Members-creation-form">
+				<?php include '_admin_modify_members.php'; ?>
 			</div>
 		</div>
 

@@ -2140,6 +2140,11 @@ form.Card.ModifyForm .Card-title {
   margin-left: auto;
   margin-right: auto;
 }
+@media screen and (min-width: 550px) {
+  #admin_team .Team, #admin_team .Members {
+    align-items: center;
+  }
+}
 #admin_team .Team-title, #admin_team .Members-title {
   margin: 0;
 }
@@ -2159,12 +2164,55 @@ form.Card.ModifyForm .Card-title {
   justify-content: center;
   row-gap: 10px;
 }
+@media screen and (min-width: 550px) {
+  #admin_team .Members-creation {
+    align-items: center;
+  }
+}
 #admin_team .Members-creation-title {
   margin: 0;
 }
 #admin_team .Members-creation .Card-create-button {
   position: initial;
   padding: 0;
+}
+#admin_team .Members-creation-form {
+  padding: 30px 0;
+}
+#admin_team .Members-creation-form .ModifyForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  padding: 80px 10px 30px 10px;
+  border: solid 2px rgb(166, 52, 27);
+  position: relative;
+}
+#admin_team .Members-creation-form .ModifyForm .Card-cancel {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+#admin_team .Members-creation-form .ModifyForm .Card-save {
+  position: absolute;
+  top: 20px;
+  left: 90px;
+}
+#admin_team .Members-creation-form .ModifyForm .Card-Header .Card-title {
+  position: initial;
+}
+#admin_team .Members-creation-form .ModifyForm .Card-entry_date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #admin_team .Members-list {
   width: 100%;
