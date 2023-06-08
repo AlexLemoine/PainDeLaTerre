@@ -45,7 +45,16 @@
       & .Members{
       
             &-img{
-                  max-width: 350px;
+                  width: 350px;
+                  
+                  @media screen AND (min-width: 750px) {
+                        width: 500px;
+                  }
+                  
+                  @media screen AND (min-width: 1050px) {
+                        width: 550px;
+                  }
+                  
             }
             
             &-resume{
@@ -84,6 +93,7 @@
                         max-width: 1200px;
                         margin-left: auto;
                         margin-right: auto;
+                        animation: showELt 1.4s both;
                         
                         @media screen AND (min-width: 750px) {
                               padding: 30px;
@@ -162,6 +172,34 @@
 
             }
       
+      }
+      
+      & .Career{
+            
+            padding: 35px 15px;
+            
+            @media screen AND (min-width: 750px) {
+                  background-color: $secondColor;
+                  color: $whiteColor;
+            }
+            
+            @media screen AND (min-width: 1600px) {
+                  margin: 30px auto;
+            }
+            
+            &-title{
+                  margin: 0;
+                  padding: 10px;
+            }
+            
+            &-msg{
+                  padding: 10px;
+            }
+            
+            & .CTA{
+                  display: inline-block;
+                  margin-top: 20px;
+            }
       }
 
 }

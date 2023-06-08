@@ -6,9 +6,9 @@ import {toggleClass} from "./functions.js";
 const screenWidth = window.innerWidth;
 
 
-let firstMemberDiv = document.querySelector('.Members-info-mobile');
+let firstMemberDiv = document.querySelector('.Members-info-mobile .Member');
 if(screenWidth >= 750){
-    firstMemberDiv = document.querySelector(`.Members-info-desktop`);
+    firstMemberDiv = document.querySelector(`.Members-info-desktop .Member`);
 }
 console.log(firstMemberDiv);
 

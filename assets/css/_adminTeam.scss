@@ -1,0 +1,94 @@
+@import "mixins";
+
+#admin_team{
+      
+      max-width: 1050px;
+      margin-left: auto;
+      margin-right: auto;
+
+      & .Team, & .Members{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 10px;
+            padding: 20px 10px;
+            margin-left: auto;
+            margin-right: auto;
+            
+            &-title{
+                  margin: 0;
+            }
+            
+            & .Card-modify, & .Card-delete{
+                  position: initial;
+                  padding: 0;
+            }
+            
+            &-img{
+                  width: 100%;
+                  max-width: 380px;
+            }
+            
+      }
+      
+      & .Members{
+            
+            &-creation{
+                  display: flex;
+                  flex-direction: column;
+                  flex-wrap: wrap;
+                  align-items: flex-start;
+                  justify-content: center;
+                  row-gap: 10px;
+                  
+                  &-title{
+                        margin: 0;
+                  }
+                  
+                  & .Card-create-button{
+                        position: initial;
+                        padding: 0;
+                  }
+                  
+            }
+            
+            
+            &-list{
+                  width: 100%;
+                  text-align: left;
+                  padding: 30px 0;
+                  
+                  & .Member{
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: flex-start;
+                        row-gap: 20px;
+
+                        @media screen AND (min-width: 550px) {
+                              font-size: 1.2em;
+                        }
+                        
+                        & h3, & p{
+                              margin: 0;
+                        }
+                        
+                        &-imgList{
+                              
+                              &-img{
+                                    width: 100%;
+                                    object-fit: cover;
+                                    max-width: 380px;
+                                    max-height: 450px;
+                              }
+                        }
+                  }
+                  
+            }
+      }
+
+
+}

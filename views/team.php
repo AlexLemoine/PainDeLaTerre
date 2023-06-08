@@ -15,10 +15,17 @@
 		     src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . DIR_TEAM . DIRECTORY_SEPARATOR . $team->getPicture(); ?>">
 		<p class="Members-resume"><?= $team->getDescResume(); ?></p>
 
+		<h2 class="Members-title">Découvrez les membres de l'équipe</h2>
 		<div class="Members-container">
 			<?php include '_members.php'; ?>
-
 		</div>
+	</section>
+	
+	<section class="Career">
+		<h2 class="Career-title">Envie de nous rejoindre ?</h2>
+		<p class="Career-msg">Que vous soyez à la recherche d'un stage ou que vous ayez une envie de
+		nous rejoindre, nous vous invitons à nous contacter. Nous vous rappellerons avec plaisir !</p>
+		<a class="CTA" href="#">Nous contacter</a>
 	</section>
 
 </main>

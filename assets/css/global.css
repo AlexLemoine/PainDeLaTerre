@@ -958,7 +958,17 @@
   margin-right: auto;
 }
 #team .Members-img {
-  max-width: 350px;
+  width: 350px;
+}
+@media screen and (min-width: 750px) {
+  #team .Members-img {
+    width: 500px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  #team .Members-img {
+    width: 550px;
+  }
 }
 #team .Members-resume {
   font-family: "Rift", sans-serif;
@@ -987,6 +997,7 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  animation: showELt 1.4s both;
 }
 @media screen and (min-width: 750px) {
   #team .Members-container .Member {
@@ -1050,6 +1061,31 @@
   #team .Members-container .Member-imgList-img img {
     padding: 0;
   }
+}
+#team .Career {
+  padding: 35px 15px;
+}
+@media screen and (min-width: 750px) {
+  #team .Career {
+    background-color: rgb(166, 52, 27);
+    color: white;
+  }
+}
+@media screen and (min-width: 1600px) {
+  #team .Career {
+    margin: 30px auto;
+  }
+}
+#team .Career-title {
+  margin: 0;
+  padding: 10px;
+}
+#team .Career-msg {
+  padding: 10px;
+}
+#team .Career .CTA {
+  display: inline-block;
+  margin-top: 20px;
 }
 
 @keyframes showMenu {
@@ -2007,6 +2043,155 @@ form.Card.ModifyForm .Card-title {
 #admin_presentation .Presentation-sliderCompany-container .ModifyForm .Presentation-sliderCompany-imgBox .Card-delete {
   position: relative;
   top: 0;
+}
+
+@keyframes showMenu {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes displayNav {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes hideELt {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes showELt {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
+  }
+}
+@keyframes leftSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes rightSlide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+#admin_team {
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#admin_team .Team, #admin_team .Members {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 10px;
+  padding: 20px 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#admin_team .Team-title, #admin_team .Members-title {
+  margin: 0;
+}
+#admin_team .Team .Card-modify, #admin_team .Team .Card-delete, #admin_team .Members .Card-modify, #admin_team .Members .Card-delete {
+  position: initial;
+  padding: 0;
+}
+#admin_team .Team-img, #admin_team .Members-img {
+  width: 100%;
+  max-width: 380px;
+}
+#admin_team .Members-creation {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  row-gap: 10px;
+}
+#admin_team .Members-creation-title {
+  margin: 0;
+}
+#admin_team .Members-creation .Card-create-button {
+  position: initial;
+  padding: 0;
+}
+#admin_team .Members-list {
+  width: 100%;
+  text-align: left;
+  padding: 30px 0;
+}
+#admin_team .Members-list .Member {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+@media screen and (min-width: 550px) {
+  #admin_team .Members-list .Member {
+    font-size: 1.2em;
+  }
+}
+#admin_team .Members-list .Member h3, #admin_team .Members-list .Member p {
+  margin: 0;
+}
+#admin_team .Members-list .Member-imgList-img {
+  width: 100%;
+  object-fit: cover;
+  max-width: 380px;
+  max-height: 450px;
 }
 
 html {

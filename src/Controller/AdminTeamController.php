@@ -20,7 +20,7 @@ class AdminTeamController extends AbstractController
 		return $this->render('admin_team.php',
 		    [
 			  'seo_title' => TITLE_ADMIN_TEAM,
-			  'team' => TeamRepository::findAll(),
+			  'team' => TeamRepository::find(1),
 			  'members' => MemberRepository::findAll()
 		    ]);
 	}
