@@ -46,6 +46,7 @@
                   align-items: flex-start;
                   justify-content: center;
                   row-gap: 10px;
+                  padding: 40px 0;
       
                   @media screen AND (min-width: 550px) {
                         align-items: center;
@@ -58,10 +59,22 @@
                   & .Card-create-button{
                         position: initial;
                         padding: 0;
+                        
+                        &.hidden{
+                              animation: hideElt 1.4s both;
+                              opacity: 0;
+                        }
+                        
                   }
                   
                   &-form{
                         padding: 30px 0;
+                        animation: showElt 1.4s both;
+                        opacity: 100%;
+                        
+                        &.hidden{
+                              display: none;
+                        }
                         
                         & .ModifyForm{
                               display: flex;

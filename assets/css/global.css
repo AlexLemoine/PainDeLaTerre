@@ -2163,6 +2163,7 @@ form.Card.ModifyForm .Card-title {
   align-items: flex-start;
   justify-content: center;
   row-gap: 10px;
+  padding: 40px 0;
 }
 @media screen and (min-width: 550px) {
   #admin_team .Members-creation {
@@ -2176,8 +2177,17 @@ form.Card.ModifyForm .Card-title {
   position: initial;
   padding: 0;
 }
+#admin_team .Members-creation .Card-create-button.hidden {
+  animation: hideElt 1.4s both;
+  opacity: 0;
+}
 #admin_team .Members-creation-form {
   padding: 30px 0;
+  animation: showElt 1.4s both;
+  opacity: 100%;
+}
+#admin_team .Members-creation-form.hidden {
+  display: none;
 }
 #admin_team .Members-creation-form .ModifyForm {
   display: flex;
