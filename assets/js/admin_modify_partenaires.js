@@ -1,12 +1,20 @@
 // Récupération du bouton de création
 import {toggleClass} from "./functions.js";
 
-const createBtn = document.querySelector('.Card-create');
-// Récupération de l'élément qui contient le form de création
-let formContainer = document.querySelector('.Card-create-form');
+
+// ***** CONSTANTES DE PAGE *****
+
+// Constantes pour les chaînes de requêtes et les noms de contexte
+const AJAX_URL = 'ajax.php';
+const CONTEXT_ADMIN_UPDATE_PARTENAIRES = 'admin_update_partenaires';
+const CONTEXT_ADMIN_MODIFY_PARTENAIRES = 'admin_modify_partenaires';
+const CONTEXT_ADMIN_DELETE_PARTENAIRES = 'admin_delete_partenaire';
+const CONTEXT_ADMIN_CANCEL_MODIFICATION_PARTENAIRES = 'admin_cancel_modification_partenaire';
 
 
-function onClickCreateBtn () {
+// ***** CREATION D'UN PARTENAIRE *****
+
+function onClickCreateBtn(){
     createBtn.classList.add('hidden');
 
     // Afficher le formulaire
@@ -20,32 +28,26 @@ function onClickCreateBtn () {
 
         // Masquer le formulaire
         formContainer.classList.add('hidden');
-
     })
 }
 
 function listenCreateButton(){
-
     if(createBtn){
         createBtn.addEventListener('click', onClickCreateBtn);
     }
 
     // Appel ajax en cas de création de produit
     const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
-
     targetSaveBtn.addEventListener('click',callCreatePartenaireAjax);
-
 }
 
-function callCreatePartenaireAjax()
-{
-
+function callCreatePartenaireAjax() {
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#admin_partenaires .Card-create-form .ModifyForm'));
-    formData.append('context', 'admin_update_partenaires');
+    formData.append('context', CONTEXT_ADMIN_UPDATE_PARTENAIRES);
 
     // Envoi de la requête pour créer le partenaire
-    fetch('ajax.php', {
+    fetch(AJAX_URL, {
         method: 'POST',
         body: formData
     })
@@ -69,15 +71,17 @@ function callCreatePartenaireAjax()
 }
 
 
-function callModifyPartenaireAjax(card){
+// ***** MODIFICATION D'UN PARTENAIRE *****
 
+
+function callModifyPartenaireAjax(card){
     // Création d'un nouvel objet FormData
     const formData = new FormData();
-    formData.append('context', 'admin_modify_partenaires');
+    formData.append('context', CONTEXT_ADMIN_MODIFY_PARTENAIRES);
     formData.append('id',card.getAttribute('data-id'));
 
     // envoi requête pour maj card
-    fetch('ajax.php', {
+    fetch(AJAX_URL, {
         method: 'POST',
         body: formData
     })
@@ -89,8 +93,7 @@ function callModifyPartenaireAjax(card){
 }
 
 
-function listenModifyDeleteBtns() {
-
+function listenModifyDeleteBtns(){
     const modifyBtn = document.querySelectorAll('.Card-modify');
     const deleteBtn = document.querySelectorAll('.Card-delete');
 
@@ -111,7 +114,6 @@ function listenModifyDeleteBtns() {
         })
     })
 
-
     // SUPPRIMER UN PARTENAIRE
     deleteBtn.forEach(elt=> {
         elt.addEventListener('click', function (){
@@ -123,11 +125,11 @@ function listenModifyDeleteBtns() {
                 // Création d'un nouvel objet FormData
                 const formData = new FormData();
                 formData.append('isToDelete','yes');
-                formData.append('context', 'admin_delete_partenaire');
+                formData.append('context', CONTEXT_ADMIN_DELETE_PARTENAIRES);
                 formData.append('id',targetCard.getAttribute('data-id'));
 
                 // envoi requête pour maj card
-                fetch('ajax.php', {
+                fetch(AJAX_URL, {
                     method: 'POST',
                     body: formData
                 })
@@ -154,11 +156,11 @@ function listenCancelSaveBtns(){
 
         // Création d'un nouvel objet FormData
         const formData = new FormData(document.querySelector('.ModifyForm'));
-        formData.append('context', 'admin_cancel_modification_partenaire');
+        formData.append('context', CONTEXT_ADMIN_CANCEL_MODIFICATION_PARTENAIRES);
         formData.append('id',targetCard.getAttribute('data-id'));
 
         // Envoi de la requête pour mettre à jour les cartes
-        fetch('ajax.php', {
+        fetch(AJAX_URL, {
             method: 'POST',
             body: formData
         })
@@ -183,11 +185,11 @@ function listenCancelSaveBtns(){
 
         // Création d'un nouvel objet FormData
         const formData = new FormData(document.querySelector('.Card.modify .ModifyForm'));
-        formData.append('context','admin_update_partenaires');
+        formData.append('context',CONTEXT_ADMIN_UPDATE_PARTENAIRES);
         formData.append('id',targetCard.getAttribute('data-id'));
 
         // Envoi de la requête pour mettre à jour les cartes
-        fetch('ajax.php', {
+        fetch(AJAX_URL, {
             method: 'POST',
             body: formData
         })
@@ -204,9 +206,8 @@ function listenCancelSaveBtns(){
     })
 }
 
-/**
- * Refresh la liste des partenaires
- */
+
+/** Refresh la liste des partenaires **/
 function callDisplayPartenaireAjax(){
     // Récupération de l'élément qui contiendra les cartes à mettre à jour
     const cards = document.querySelector('#Cards');
@@ -216,7 +217,7 @@ function callDisplayPartenaireAjax(){
     formData.append('context', cards.getAttribute('data-context'));
 
     // Envoi de la requête pour mettre à jour les cartes
-    fetch('ajax.php', {
+    fetch(AJAX_URL, {
         method: 'POST',
         body: formData
     })
@@ -227,15 +228,22 @@ function callDisplayPartenaireAjax(){
             cards.innerHTML = data;
             listenModifyDeleteBtns();
         })
-
 }
+
+
+// ***** INITIAlISATION APRES CHARGEMENT DU DOM *****
+
+
+// Bouton de création d'un partenaire
+const createBtn = document.querySelector('.Card-create');
+// Récupération de l'élément qui contient le form de création
+let formContainer = document.querySelector('.Card-create-form');
 
 
 // Récupération des éléments du formulaire
 const form = document.querySelector('#admin_partenaires .Search-form-filters.Filters');
 
 if(form){
-
     // Ajout d'un écouteur d'événements pour détecter les changements dans le formulaire
     form.addEventListener('change', (e) => {
 
@@ -245,7 +253,6 @@ if(form){
         callDisplayPartenaireAjax();
     });
 }
-
 
 listenModifyDeleteBtns();
 

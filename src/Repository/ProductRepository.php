@@ -9,7 +9,7 @@ use Pdlt\Model\Product;
 final class ProductRepository extends AbstractRepository
 {
 	const TABLE = 'product';
-	const NB_ELT_PER_PAGE = 20;
+	const NB_ELT_PER_PAGE = 30;
 	
 	
 	// FONCTIONS

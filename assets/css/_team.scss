@@ -46,6 +46,7 @@
       
             &-img{
                   width: 350px;
+                  border-radius: 15px 15px 15px 15px;
                   
                   @media screen AND (min-width: 750px) {
                         width: 500px;
@@ -108,7 +109,7 @@
                         }
                         
                         &-imgList{
-                              padding: 15px;
+                              padding: 40px 15px;
                               display: flex;
                               flex-direction: column;
                               align-content: center;
@@ -142,23 +143,17 @@
                                     }
                                     
                                     img{
-      
                                           max-width: 200px;
                                           max-height: 300px;
-                                          padding: 20px;
+                                          border-radius: 15px;
       
                                           @media screen AND (min-width: 550px) {
-            
                                                 width: 100%;
                                                 padding: 50px;
-            
                                           }
                                           
                                           @media screen AND (min-width: 750px) {
                                                 padding: 0;
-                                                
-                                                
-                                                
                                           }
                                           
                                     }

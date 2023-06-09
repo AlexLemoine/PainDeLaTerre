@@ -959,6 +959,7 @@
 }
 #team .Members-img {
   width: 350px;
+  border-radius: 15px 15px 15px 15px;
 }
 @media screen and (min-width: 750px) {
   #team .Members-img {
@@ -1011,7 +1012,7 @@
   text-align: left;
 }
 #team .Members-container .Member-imgList {
-  padding: 15px;
+  padding: 40px 15px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -1049,7 +1050,7 @@
 #team .Members-container .Member-imgList-img img {
   max-width: 200px;
   max-height: 300px;
-  padding: 20px;
+  border-radius: 15px;
 }
 @media screen and (min-width: 550px) {
   #team .Members-container .Member-imgList-img img {
