@@ -8,7 +8,7 @@
             <div class="SiteMap-list">
                 <a href="?page=<?php echo PAGE_HOME; ?>" class="SiteMap-list-title"><?= TITLE_HOME ?></a>
 			<a href="?page=<?php echo PAGE_BOULANGERIE; ?>" class="SiteMap-list-title"><?= TITLE_BOULANGERIE ?></a>
-			<a href="#" class="SiteMap-list-title">L'équipe</a>
+			<a href="?page=<?php echo PAGE_TEAM; ?>" class="SiteMap-list-title">L'équipe</a>
                 <a href="?page=<?php echo PAGE_PRODUCTS; ?>" class="SiteMap-list-title"><?= TITLE_PRODUCTS ?></a>
 			<a href="#" class="SiteMap-list-title">Notre démarche</a>
                 <a href="#" class="SiteMap-list-title">Consulter le blog</a>

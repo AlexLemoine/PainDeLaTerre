@@ -27,7 +27,7 @@
 				savoir-faire au service de <strong>pains goûteux et nutritifs</strong>, à la <strong>conservation
 					hors du commun</strong>.
 			</p>
-			<a class="CTA" href="#">Découvrir l'équipe</a>
+			<a class="CTA" href="?page=<?php echo PAGE_TEAM; ?>">Découvrir l'équipe</a>
 			
 		</section>
 	</div>
@@ -69,7 +69,7 @@
 				</div>
 			</div>
 			
-			<a class="CTA" href="#">En savoir plus</a>
+			<a class="CTA" href="?page=<?php echo PAGE_TEAM; ?>">En savoir plus</a>
 
 		</section>
 	</div>
