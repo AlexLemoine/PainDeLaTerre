@@ -1,5 +1,5 @@
 // *** MISE EN FORME
-// Si la largeur de l'écran est supérieure ou égale à 550px, affichez la première memberDiv
+// Si la largeur de l'écran est supérieure ou égale à 550px, afficher la première memberDiv
 
 import {toggleClass} from "./functions.js";
 //

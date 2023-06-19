@@ -1,4 +1,4 @@
-<main class="MainContent Products layout layout-front" id="team">
+<main class="MainContent Products layout layout-front" id="<?= PAGE_TEAM; ?>">
 	<div class="MainContent-titleWrap">
 		<h1 class="MainContent-title">Découvrez notre équipe</h1>
 	</div>

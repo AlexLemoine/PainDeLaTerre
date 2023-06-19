@@ -22,8 +22,10 @@
 require 'vendor/autoload.php';
 // Toutes les librairies seront accessibles en auto.
 
+
 //On indique à PHP que l'on veut utiliser le concept des sessions
 session_start();
+
 
 require_once 'lib/config.php';
 //require_once 'lib/functions.php';
@@ -86,3 +88,4 @@ if (!array_key_exists($sPage,ROUTING)){
 
 [$sClass, $sFunction] = explode('::', ROUTING[$sPage]);
 echo (new $sClass())->$sFunction();
+

@@ -19,5 +19,3 @@ filters.forEach(elt => {
         toggleClass(elt,'filtered','unfiltered');
     });
 });
-
-

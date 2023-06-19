@@ -25,5 +25,3 @@ for (const link of categoryLinks)
     });
 
 }
-
-

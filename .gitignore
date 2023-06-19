@@ -11,6 +11,8 @@ data/pictures/*
 # Fichiers sensibles
 config.php
 
+# Dépendances
 vendor/*
 
 .idea
+

@@ -1,5 +1,3 @@
-import {switchMainSecondaryPicture} from "./functions.js";
-
 const container = document.querySelector('#sliderProduct');
 const pageName = 'home';
 let index = 1;

@@ -1,6 +1,7 @@
 <a href="#" class="layout MainContent-topBack">Haut de page<img src="assets/img/FlecheHautDePage.png"></a>
 
 <footer class="Footer">
+	
     <div class="layout">
 
         <div class="Footer-SiteMap SiteMap">
