@@ -17,7 +17,6 @@
 //});
 
 // Chargement de l'autoload de Composer
-// remplace spl_autoload:
 // va charger la librairie composer:
 require 'vendor/autoload.php';
 // Toutes les librairies seront accessibles en auto.

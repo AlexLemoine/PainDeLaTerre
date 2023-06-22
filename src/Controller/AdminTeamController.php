@@ -14,7 +14,7 @@ class AdminTeamController extends AbstractController
 	 */
 	public function manageTeam(): string
 	{
-		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// TODO  - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		return $this->render('admin_team.php',

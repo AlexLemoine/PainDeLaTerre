@@ -17,10 +17,11 @@ class DbManager {
 
 
     // FONCTIONS
-
-    /**
-     * Créer une connexion à ma BDD
-     */
+	
+	/**
+	 * Créer une connexion à ma BDD
+	 * @return \PDO
+	 */
     public static function getInstance(): \PDO
     {
         // Pour ne le faire qu'une seule fois :
@@ -40,7 +41,6 @@ class DbManager {
             if (ENV === 'development') {
                 $oPdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING);
             }
-
             static::$instance = $oPdo;
         }
 

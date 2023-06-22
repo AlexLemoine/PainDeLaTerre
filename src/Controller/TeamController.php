@@ -2,12 +2,18 @@
 
 namespace Pdlt\Controller;
 
+use Exception;
 use Pdlt\Repository\MemberRepository;
 use Pdlt\Repository\TeamRepository;
 
 class TeamController extends AbstractController
 {
-	
+	/**
+	 * Charger la vue "team.php"
+	 * et afficher les données transmises en paramètres
+	 * @return string
+	 * @throws Exception
+	 */
 	public function team(): string
 	{
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur

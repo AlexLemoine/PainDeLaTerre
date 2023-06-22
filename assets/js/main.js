@@ -1,14 +1,12 @@
 // *** MENU BURGER ***
-function toggleClassOpened(element){
-    element.classList.toggle('opened');
-}
+import {toggleClass} from "./functions.js";
 
-let burgerMenu = document.querySelector('div.Header-menu-burger');
-let burgerMenuLinks = document.querySelector('nav.Header-menu-links');
+const burgerMenu = document.querySelector('div.Header-menu-burger');
+const burgerMenuLinks = document.querySelector('nav.Header-menu-links');
 
 burgerMenu.addEventListener('click', function() {
-    toggleClassOpened(burgerMenu);
-    toggleClassOpened(burgerMenuLinks);
+    toggleClass(burgerMenu,'opened','closed');
+    toggleClass(burgerMenuLinks,'opened','closed');
 });
 
 

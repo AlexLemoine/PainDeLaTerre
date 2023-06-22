@@ -19,7 +19,7 @@ class AbstractController
      */
     public function render(string $sView, array $aParams = [], $bAjax = false): string
     {
-        // On génère les variables correspondantes ($h1, $title, $sView)
+        // On génère les variables correspondantes ($h1, $title, $sView,...)
         extract($aParams);
 
         // ob_start() permet de démarrer un buffer tampon dans la mémoire de php

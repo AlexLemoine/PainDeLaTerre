@@ -7,26 +7,26 @@ use DateTime;
 class Member {
 	
 	/** @var int  */
-	protected int $id;
+	private int $id;
 	
 	/** @var string  */
-	protected string $name;
+	private string $name;
 	
 	/** @var string  */
-	protected string $position;
+	private string $position;
 	
 	/** @var string  */
-	protected string $description;
+	private string $description;
 	
 	/** @var string  */
-	protected string $picture;
+	private string $picture;
 	
 	/** @var DateTime  */
-	protected DateTime $entryDate;
+	private DateTime $entryDate;
 	
 	
 	/**
-	 * @param int $id
+	 * Construction d'un membre
 	 * @param string $name
 	 * @param string $position
 	 * @param string $description

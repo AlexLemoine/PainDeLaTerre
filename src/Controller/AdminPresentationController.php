@@ -13,7 +13,7 @@ class AdminPresentationController extends AbstractController
 	
 	public function managePresentation(): string
 	{
-		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// TODO  - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		

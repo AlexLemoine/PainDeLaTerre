@@ -26,7 +26,7 @@ $oDebugbar['messages']->addMessage('hello world!');
 
     <!-- font-family: 'Nunito', sans-serif; -->
     <!-- font-family: 'Rift', sans-serif; -->
-    <link rel="stylesheet" href="https://use.typekit.net/kxn4jzs.css »>
+    <link rel="stylesheet" href="https://use.typekit.net/kxn4jzs.css">
    
     <link rel="icon" type="image/vnd.icon" href="Logo_pain.ico">
 

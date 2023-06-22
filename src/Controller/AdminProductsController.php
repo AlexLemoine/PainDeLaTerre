@@ -285,7 +285,7 @@ class AdminProductsController extends AbstractController
 	
 	public function deleteProduct(): string
 	{
-		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// TODO  - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Lien avec la BDD

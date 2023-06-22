@@ -1,11 +1,16 @@
 <header class="Header layout-back">
-
+	<?php
+	// TODO séparer attribut onclick sur un fichier js
+	// data-url sur balise HTML
+	// addEventListener sur fichier JS
+	?>
 	<div class="Header-logo" onclick="window.location.href='?page=<?= PAGE_HOME; ?>'">
 		<picture class="Header-logo-img">
 			<source srcset="assets/img/logoBlancHorizontal.png" media="(min-width: 550px)">
 			<img src="assets/img/logoBlanc.png" alt="logo pain de la terre">
 		</picture>
 	</div>
+	
 	<div class="Header-menu">
 		<div class="Header-menu-burger">
 			<img class="Header-menu-burger-img" src="assets/img/logoPainBlanc.svg" alt="logo pain blanc">
@@ -28,20 +33,22 @@
 <!--				</div>-->
 <!--			--><?php //else: ?>
 
-			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
-			   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
-			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_BOULANGERIE) ? 'selected' : '' ?>"
-			   href="?page=<?php echo PAGE_BOULANGERIE; ?>"><?= TITLE_BOULANGERIE ?></a>
-			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_TEAM) ? 'selected' : '' ?>"
-			   href="?page=<?php echo PAGE_TEAM; ?>"><?= TITLE_TEAM ?></a>
-			<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_PRODUCTS) ? 'selected' : '' ?>"
-			   href="?page=<?php echo PAGE_PRODUCTS; ?>"><?= TITLE_PRODUCTS ?></a>
-			<a class="Header-menu-links-link" href="#">Notre démarche</a>
-			<a class="Header-menu-links-link" href="#">Blog</a>
-			<a class="Header-menu-links-link" href="#">Contact</a>
+				<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_HOME) ? 'selected' : '' ?>"
+				   href="?page=<?php echo PAGE_HOME; ?>"><?= TITLE_HOME ?></a>
+				<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_BOULANGERIE) ? 'selected' : '' ?>"
+				   href="?page=<?php echo PAGE_BOULANGERIE; ?>"><?= TITLE_BOULANGERIE ?></a>
+				<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_TEAM) ? 'selected' : '' ?>"
+				   href="?page=<?php echo PAGE_TEAM; ?>"><?= TITLE_TEAM ?></a>
+				<a class="Header-menu-links-link <?= (isset($_GET['page']) && $_GET['page'] === PAGE_PRODUCTS) ? 'selected' : '' ?>"
+				   href="?page=<?php echo PAGE_PRODUCTS; ?>"><?= TITLE_PRODUCTS ?></a>
+				<a class="Header-menu-links-link" href="#">Notre démarche</a>
+				<a class="Header-menu-links-link" href="#">Blog</a>
+				<a class="Header-menu-links-link" href="#">Contact</a>
+			
+			<?php //endif; ?>
 			
 		</nav>
-		<?php //endif; ?>
+
 	</div>
 
 </header>
