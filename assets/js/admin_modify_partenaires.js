@@ -93,54 +93,114 @@ function callModifyPartenaireAjax(card){
 }
 
 
+function onClickModifyBtn (){
+
+    let targetCard = this.parentNode;
+    targetCard.setAttribute('data-form','modifying');
+
+    // Ne permettre qu'une modification de card à la fois
+    let modifyCard = document.querySelector('.modify');
+    if(!modifyCard){
+        toggleClass(targetCard,'modify','unmodified');
+        callModifyPartenaireAjax(targetCard);
+    }
+
+}
+
+function onClickDeleteBtn (){
+    let targetCard = this.parentNode;
+
+    let isToDelete = confirm('Souhaitez-vous supprimer ce partenaire ?');
+    if(isToDelete === true) {
+
+        // Création d'un nouvel objet FormData
+        const formData = new FormData();
+        formData.append('isToDelete','yes');
+        formData.append('context', CONTEXT_ADMIN_DELETE_PARTENAIRES);
+        formData.append('id',targetCard.getAttribute('data-id'));
+
+        // envoi requête pour maj card
+        fetch(AJAX_URL, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                targetCard.remove();
+            })
+    }
+}
+
+
 function listenModifyDeleteBtns(){
     const modifyBtn = document.querySelectorAll('.Card-modify');
     const deleteBtn = document.querySelectorAll('.Card-delete');
 
     // MODIFIER LES INFOS DU PARTENAIRE
     modifyBtn.forEach(elt=> {
-        elt.addEventListener('click', function (){
-
-            let targetCard = this.parentNode;
-            targetCard.setAttribute('data-form','modifying');
-
-            // Ne permettre qu'une modification de card à la fois
-            let modifyCard = document.querySelector('.modify');
-            if(!modifyCard){
-                toggleClass(targetCard,'modify','unmodified');
-                callModifyPartenaireAjax(targetCard);
-            }
-
-        })
+        elt.addEventListener('click',onClickModifyBtn)
     })
 
     // SUPPRIMER UN PARTENAIRE
     deleteBtn.forEach(elt=> {
-        elt.addEventListener('click', function (){
-            let targetCard = this.parentNode;
-
-            let isToDelete = confirm('Souhaitez-vous supprimer ce partenaire ?');
-            if(isToDelete === true) {
-
-                // Création d'un nouvel objet FormData
-                const formData = new FormData();
-                formData.append('isToDelete','yes');
-                formData.append('context', CONTEXT_ADMIN_DELETE_PARTENAIRES);
-                formData.append('id',targetCard.getAttribute('data-id'));
-
-                // envoi requête pour maj card
-                fetch(AJAX_URL, {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.text())
-                    .then(data => {
-                        targetCard.remove();
-                    })
-            }
-        })
+        elt.addEventListener('click',onClickDeleteBtn)
     })
 
+}
+
+function onClickCancelBtn (){
+
+    // Récupération de l'élément qui contiendra les cartes à mettre à jour
+    let targetCard = document.querySelector('.Card.modify');
+
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(document.querySelector('.ModifyForm'));
+    formData.append('context', CONTEXT_ADMIN_CANCEL_MODIFICATION_PARTENAIRES);
+    formData.append('id',targetCard.getAttribute('data-id'));
+
+    // Envoi de la requête pour mettre à jour les cartes
+    fetch(AJAX_URL, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+
+            // Mise à jour des cartes avec les données reçues
+            targetCard.innerHTML = data;
+            toggleClass(targetCard,'modify','unmodified');
+
+            // Remettre en place les écouteurs sur modify et delete buttons
+            listenModifyDeleteBtns();
+        })
+}
+
+function onClickSaveBtn (event){
+    let targetCard = document.querySelector('.Card.modify');
+    toggleClass(targetCard,'save','unmodified');
+
+    event.preventDefault();
+
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(document.querySelector('.Card.modify .ModifyForm'));
+    formData.append('context',CONTEXT_ADMIN_UPDATE_PARTENAIRES);
+    formData.append('id',targetCard.getAttribute('data-id'));
+
+    // Envoi de la requête pour mettre à jour les cartes
+    fetch(AJAX_URL, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+
+            // Mise à jour des cartes avec les données reçues
+            targetCard.innerHTML = data;
+            toggleClass(targetCard,'modify','unmodified');
+
+            // Remettre en place les écouteurs sur modify et delete buttons
+            listenModifyDeleteBtns();
+        })
 }
 
 
@@ -149,61 +209,10 @@ function listenCancelSaveBtns(){
     const saveBtn = document.querySelector('.Card.modify .Card-save');
 
     // ANNULER LES MODIFICATIONS
-    cancelBtn.addEventListener('click', function (){
-
-        // Récupération de l'élément qui contiendra les cartes à mettre à jour
-        let targetCard = document.querySelector('.Card.modify');
-
-        // Création d'un nouvel objet FormData
-        const formData = new FormData(document.querySelector('.ModifyForm'));
-        formData.append('context', CONTEXT_ADMIN_CANCEL_MODIFICATION_PARTENAIRES);
-        formData.append('id',targetCard.getAttribute('data-id'));
-
-        // Envoi de la requête pour mettre à jour les cartes
-        fetch(AJAX_URL, {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.text())
-            .then(data => {
-
-                // Mise à jour des cartes avec les données reçues
-                targetCard.innerHTML = data;
-                toggleClass(targetCard,'modify','unmodified');
-
-                // Remettre en place les écouteurs sur modify et delete buttons
-                listenModifyDeleteBtns();
-            })
-    })
+    cancelBtn.addEventListener('click',onClickCancelBtn)
 
     // SAUVEGARDER LES MODIFICATIONS
-    saveBtn.addEventListener('click',function (event){
-        let targetCard = document.querySelector('.Card.modify');
-        toggleClass(targetCard,'save','unmodified');
-
-        event.preventDefault();
-
-        // Création d'un nouvel objet FormData
-        const formData = new FormData(document.querySelector('.Card.modify .ModifyForm'));
-        formData.append('context',CONTEXT_ADMIN_UPDATE_PARTENAIRES);
-        formData.append('id',targetCard.getAttribute('data-id'));
-
-        // Envoi de la requête pour mettre à jour les cartes
-        fetch(AJAX_URL, {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.text())
-            .then(data => {
-
-                // Mise à jour des cartes avec les données reçues
-                targetCard.innerHTML = data;
-                toggleClass(targetCard,'modify','unmodified');
-
-                // Remettre en place les écouteurs sur modify et delete buttons
-                listenModifyDeleteBtns();
-            })
-    })
+    saveBtn.addEventListener('click',onClickSaveBtn)
 }
 
 
