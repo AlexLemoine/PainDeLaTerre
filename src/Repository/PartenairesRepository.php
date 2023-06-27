@@ -265,6 +265,24 @@ final class PartenairesRepository extends AbstractRepository
 		
 	}
 	
+	/**
+	 * Supprimer un partenaire
+	 * @param $id
+	 * @return void
+	 */
+	public static function delete($id): void
+	{
+		// Lien avec la BDD
+		$oPdo = DbManager::getInstance();
+		
+		$sQuery = 'DELETE FROM '. PartenairesRepository::TABLE .'
+       				WHERE id = :id;';
+		
+		$oPdoStatement = $oPdo->prepare($sQuery);
+		$oPdoStatement->bindValue(':id', $id, \PDO::PARAM_INT);
+		$oPdoStatement->execute();
+	}
+	
 	
 	
 }

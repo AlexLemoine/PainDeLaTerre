@@ -4,7 +4,7 @@ import {toggleClass} from "./functions.js";
 
 // ***** CONSTANTES DE PAGE *****
 
-// Constantes pour les chaînes de requêtes et les noms de contexte
+// Constantes pour les noms de contexte
 const AJAX_URL = 'ajax.php';
 const CONTEXT_ADMIN_UPDATE_PARTENAIRES = 'admin_update_partenaires';
 const CONTEXT_ADMIN_MODIFY_PARTENAIRES = 'admin_modify_partenaires';
@@ -23,10 +23,10 @@ function onClickCreateBtn(){
     const targetCancelBtn = document.querySelector('.Card-create-form .Card-cancel');
     targetCancelBtn.addEventListener('click', function(){
 
-        // Ré-afficher le bouton de création de produit
+        // Ré-afficher le bouton de création d'un partenaire
         createBtn.classList.remove('hidden');
 
-        // Masquer le formulaire
+        // Masquer le formulaire de création
         formContainer.classList.add('hidden');
     })
 }
@@ -42,11 +42,13 @@ function listenCreateButton(){
 }
 
 function callCreatePartenaireAjax() {
+
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#admin_partenaires .Card-create-form .ModifyForm'));
     formData.append('context', CONTEXT_ADMIN_UPDATE_PARTENAIRES);
 
     // Envoi de la requête pour créer le partenaire
+    // Récupération des données du formulaire en POST
     fetch(AJAX_URL, {
         method: 'POST',
         body: formData
@@ -54,18 +56,19 @@ function callCreatePartenaireAjax() {
         .then(response => response.text())
         .then(data => {
 
-            // MAJ listing partenaires
+            // Mise à jour du listing des partenaires
             callDisplayPartenaireAjax();
 
-            // Suppression du formulaire de création de produit
+            // Suppression des données du formulaire de création
             this.parentNode.reset();
 
-            // Ré-afficher le bouton de création de produit
-            createBtn.classList.remove('hidden');
-
-            // Masquer le formulaire
+            // Masquer le formulaire de création
             formContainer.classList.add('hidden');
 
+            // Ré-afficher le bouton de création
+            createBtn.classList.remove('hidden');
+
+            // Ré-écouter les éléments
             listenCreateButton();
         });
 }
@@ -245,9 +248,13 @@ function callDisplayPartenaireAjax(){
 
 // Bouton de création d'un partenaire
 const createBtn = document.querySelector('.Card-create');
+
+if(createBtn){
+    listenCreateButton();
+}
+
 // Récupération de l'élément qui contient le form de création
 let formContainer = document.querySelector('.Card-create-form');
-
 
 // Récupération des éléments du formulaire
 const form = document.querySelector('#admin_partenaires .Search-form-filters.Filters');
@@ -264,7 +271,3 @@ if(form){
 }
 
 listenModifyDeleteBtns();
-
-if(createBtn){
-    listenCreateButton();
-}

@@ -187,9 +187,6 @@ class AdminPartenairesController extends AbstractController
 		// TODO Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
-		// Lien avec la BDD
-		$oPdo = DbManager::getInstance();
-		
 		// Seulement si isToDelete
 		if($_POST['isToDelete'] === 'yes'){
 			
@@ -201,17 +198,9 @@ class AdminPartenairesController extends AbstractController
 			if(!$partenaire instanceof Partenaires){
 				$this->redirectAndDie();
 			}
-			
-			$sQuery = 'DELETE FROM '. PartenairesRepository::TABLE .'
-       				WHERE id = :id;';
-			
-			$oPdoStatement = $oPdo->prepare($sQuery);
-			$oPdoStatement->bindValue(':id', $id, \PDO::PARAM_INT);
-			$oPdoStatement->execute();
-			
+			PartenairesRepository::delete($id);
 		}
 		
-		// render (vue partielle texte)
 		return $this->render('_admin_partenaires.php',[
 		    'partenaires' => PartenairesRepository::findAll(),
 		],

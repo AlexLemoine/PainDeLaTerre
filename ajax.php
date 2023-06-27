@@ -11,96 +11,111 @@ session_start();
 
 require_once 'lib/config.php';
 
-// Appeler le controller
+// Appeler la fonction du Controller selon le contexte AJAX
 if(isset($_POST['context'])){
-	switch ($_POST['context'])
-	{
-		// Retourne la vue lors de la sélection de filtres
-		// Vue: _admin_products
-		case PAGE_ADMIN_PRODUCTS:
-			echo (new Pdlt\Controller\AdminProductsController)->refreshProducts();
-			break;
-			
-		// Retourne la vue d'un produit en mode formulaire pour la modification
-		// Vue: _admin_modify_product
-		case PAGE_ADMIN_MODIFY_PRODUCTS:
-			echo (new Pdlt\Controller\AdminProductsController)->modifyProduct();
-			break;
-		
-		// Met à jour le produit et affiche la vue du produit modifié
-		// Vue: _admin_product
-		case PAGE_ADMIN_UPDATE_PRODUCT:
-			echo (new Pdlt\Controller\AdminProductsController)->updateProduct();
-			break;
-			
-		// Retourne la vue d'un produit
-		// Vue: _admin_product
-		case PAGE_ADMIN_CANCEL_PRODUCT:
-			echo (new Pdlt\Controller\AdminProductsController)->showProduct();
-			break;
-		
-		// Retourne la vue d'un produit
-		// Vue: _admin_product
-		case PAGE_ADMIN_DELETE_PRODUCT:
-			echo (new Pdlt\Controller\AdminProductsController)->deleteProduct();
-			break;
-			
-		case PAGE_AJAX_SLIDER_PRODUCTS:
-			echo (new Pdlt\Controller\ProductController)->sliderProduct();
-			break;
-		
-		case PAGE_ADMIN_UPDATE_PARTENAIRES:
-			echo(new Pdlt\Controller\AdminPartenairesController)->updatePartenaire();
-			break;
-			
-		case PAGE_ADMIN_MODIFY_PARTENAIRES:
-			echo(new Pdlt\Controller\AdminPartenairesController)->modifyPartenaire();
-			break;
-			
-		case PAGE_ADMIN_CANCEL_PARTENAIRE:
-			echo(new Pdlt\Controller\AdminPartenairesController)->showPartenaire();
-			break;
-			
-		case ADMIN_DELETE_PARTENAIRE:
-			echo(new Pdlt\Controller\AdminPartenairesController)->deletePartenaire();
-			break;
-		
-		case PAGE_ADMIN_PARTENAIRES:
-			echo(new Pdlt\Controller\AdminPartenairesController)->refreshPartenaires();
-			break;
-			
-		case PAGE_ADMIN_MODIFY_PRESENTATION:
-			echo(new Pdlt\Controller\AdminPresentationController)->modifyPresentation();
-			break;
-			
-		case PAGE_ADMIN_CANCEL_PRESENTATION:
-			echo(new Pdlt\Controller\AdminPresentationController)->showPresentation();
-			break;
-			
-		case PAGE_ADMIN_UPDATE_PRESENTATION:
-			echo(new Pdlt\Controller\AdminPresentationController)->updatePresentation();
-			break;
-			
-		case PAGE_ADMIN_MODIFY_SLIDER_COMPANY:
-			echo(new Pdlt\Controller\AdminPresentationController)->modifySliderCompany();
-			break;
-			
-		case PAGE_ADMIN_CANCEL_SLIDER_COMPANY:
-			echo(new Pdlt\Controller\AdminPresentationController)->refreshSliderCompany();
-			break;
-			
-		case PAGE_ADMIN_UPDATE_SLIDER_COMPANY:
-			echo(new Pdlt\Controller\AdminPresentationController)->updateSliderCompany();
-			break;
-			
-		case PAGE_ADMIN_DELETE_SLIDE_COMPANY:
-			echo(new Pdlt\Controller\AdminPresentationController)->deleteSlideCompany();
-			break;
-			
-		case PAGE_ADMIN_CREATE_SLIDE_COMPANY:
-			echo(new Pdlt\Controller\AdminPresentationController)->createSlideCompany();
-			break;
-			
-	}
+	
+	$result = match ($_POST['context']) {
+		PAGE_ADMIN_PRODUCTS => (new Pdlt\Controller\AdminProductsController)->refreshProducts(),
+		PAGE_ADMIN_MODIFY_PRODUCTS => (new Pdlt\Controller\AdminProductsController)->modifyProduct(),
+		PAGE_ADMIN_UPDATE_PRODUCT => (new Pdlt\Controller\AdminProductsController)->updateProduct(),
+		PAGE_ADMIN_CANCEL_PRODUCT => (new Pdlt\Controller\AdminProductsController)->showProduct(),
+		PAGE_ADMIN_DELETE_PRODUCT => (new Pdlt\Controller\AdminProductsController)->deleteProduct(),
+		PAGE_AJAX_SLIDER_PRODUCTS => (new Pdlt\Controller\ProductController)->sliderProduct(),
+		PAGE_ADMIN_UPDATE_PARTENAIRES => (new Pdlt\Controller\AdminPartenairesController)->updatePartenaire(),
+		PAGE_ADMIN_MODIFY_PARTENAIRES => (new Pdlt\Controller\AdminPartenairesController)->modifyPartenaire(),
+		PAGE_ADMIN_CANCEL_PARTENAIRE => (new Pdlt\Controller\AdminPartenairesController)->showPartenaire(),
+		ADMIN_DELETE_PARTENAIRE => (new Pdlt\Controller\AdminPartenairesController)->deletePartenaire(),
+		PAGE_ADMIN_PARTENAIRES => (new Pdlt\Controller\AdminPartenairesController)->refreshPartenaires(),
+		PAGE_ADMIN_MODIFY_PRESENTATION => (new Pdlt\Controller\AdminPresentationController)->modifyPresentation(),
+		PAGE_ADMIN_CANCEL_PRESENTATION => (new Pdlt\Controller\AdminPresentationController)->showPresentation(),
+		PAGE_ADMIN_UPDATE_PRESENTATION => (new Pdlt\Controller\AdminPresentationController)->updatePresentation(),
+		PAGE_ADMIN_MODIFY_SLIDER_COMPANY => (new Pdlt\Controller\AdminPresentationController)->modifySliderCompany(),
+		PAGE_ADMIN_CANCEL_SLIDER_COMPANY => (new Pdlt\Controller\AdminPresentationController)->refreshSliderCompany(),
+		PAGE_ADMIN_UPDATE_SLIDER_COMPANY => (new Pdlt\Controller\AdminPresentationController)->updateSliderCompany(),
+		PAGE_ADMIN_DELETE_SLIDE_COMPANY => (new Pdlt\Controller\AdminPresentationController)->deleteSlideCompany(),
+		PAGE_ADMIN_CREATE_SLIDE_COMPANY => (new Pdlt\Controller\AdminPresentationController)->createSlideCompany(),
+	};
+	
+	echo $result;
 }
+
+//	switch ($_POST['context'])
+//	{
+//		case PAGE_ADMIN_PRODUCTS:
+//			echo (new Pdlt\Controller\AdminProductsController)->refreshProducts();
+//			break;
+//
+//		case PAGE_ADMIN_MODIFY_PRODUCTS:
+//			echo (new Pdlt\Controller\AdminProductsController)->modifyProduct();
+//			break;
+//
+//		case PAGE_ADMIN_UPDATE_PRODUCT:
+//			echo (new Pdlt\Controller\AdminProductsController)->updateProduct();
+//			break;
+//
+//		case PAGE_ADMIN_CANCEL_PRODUCT:
+//			echo (new Pdlt\Controller\AdminProductsController)->showProduct();
+//			break;
+//
+//		case PAGE_ADMIN_DELETE_PRODUCT:
+//			echo (new Pdlt\Controller\AdminProductsController)->deleteProduct();
+//			break;
+//
+//		case PAGE_AJAX_SLIDER_PRODUCTS:
+//			echo (new Pdlt\Controller\ProductController)->sliderProduct();
+//			break;
+//
+//		case PAGE_ADMIN_UPDATE_PARTENAIRES:
+//			echo(new Pdlt\Controller\AdminPartenairesController)->updatePartenaire();
+//			break;
+//
+//		case PAGE_ADMIN_MODIFY_PARTENAIRES:
+//			echo(new Pdlt\Controller\AdminPartenairesController)->modifyPartenaire();
+//			break;
+//
+//		case PAGE_ADMIN_CANCEL_PARTENAIRE:
+//			echo(new Pdlt\Controller\AdminPartenairesController)->showPartenaire();
+//			break;
+//
+//		case ADMIN_DELETE_PARTENAIRE:
+//			echo(new Pdlt\Controller\AdminPartenairesController)->deletePartenaire();
+//			break;
+//
+//		case PAGE_ADMIN_PARTENAIRES:
+//			echo(new Pdlt\Controller\AdminPartenairesController)->refreshPartenaires();
+//			break;
+//
+//		case PAGE_ADMIN_MODIFY_PRESENTATION:
+//			echo(new Pdlt\Controller\AdminPresentationController)->modifyPresentation();
+//			break;
+//
+//		case PAGE_ADMIN_CANCEL_PRESENTATION:
+//			echo(new Pdlt\Controller\AdminPresentationController)->showPresentation();
+//			break;
+//
+//		case PAGE_ADMIN_UPDATE_PRESENTATION:
+//			echo(new Pdlt\Controller\AdminPresentationController)->updatePresentation();
+//			break;
+//
+//		case PAGE_ADMIN_MODIFY_SLIDER_COMPANY:
+//			echo(new Pdlt\Controller\AdminPresentationController)->modifySliderCompany();
+//			break;
+//
+//		case PAGE_ADMIN_CANCEL_SLIDER_COMPANY:
+//			echo(new Pdlt\Controller\AdminPresentationController)->refreshSliderCompany();
+//			break;
+//
+//		case PAGE_ADMIN_UPDATE_SLIDER_COMPANY:
+//			echo(new Pdlt\Controller\AdminPresentationController)->updateSliderCompany();
+//			break;
+//
+//		case PAGE_ADMIN_DELETE_SLIDE_COMPANY:
+//			echo(new Pdlt\Controller\AdminPresentationController)->deleteSlideCompany();
+//			break;
+//
+//		case PAGE_ADMIN_CREATE_SLIDE_COMPANY:
+//			echo(new Pdlt\Controller\AdminPresentationController)->createSlideCompany();
+//			break;
+//
+//	}
 

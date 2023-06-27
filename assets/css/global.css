@@ -2296,6 +2296,7 @@ textarea {
 }
 
 button, .CTA {
+  cursor: pointer;
   text-decoration: none;
   width: auto;
   height: auto;
@@ -2322,6 +2323,10 @@ button, .CTA {
 }
 button:hover, .CTA:hover {
   background: linear-gradient(163deg, rgb(70, 1, 1) 38%, rgb(166, 52, 27) 100%);
+}
+
+.Card-modify, .Card-cancel, .Card-save, .Card-delete, .Card-create-button {
+  cursor: pointer;
 }
 
 .Header {

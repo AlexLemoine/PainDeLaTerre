@@ -57,6 +57,7 @@ textarea {
 }
 
 button, .CTA {
+      cursor: pointer;
       text-decoration: none;
       width: auto;
       height: auto;
@@ -82,6 +83,16 @@ button, .CTA {
       
       &:hover {
             background: linear-gradient(163deg, $altColor 38%, $secondColor 100%);
+      }
+}
+
+.Card{
+      &-modify,
+      &-cancel,
+      &-save,
+      &-delete,
+      &-create-button {
+            cursor: pointer;
       }
 }
 
