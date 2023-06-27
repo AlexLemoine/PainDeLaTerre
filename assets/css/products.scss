@@ -1,0 +1,97 @@
+@import "mixins";
+
+.Products {
+      
+      & .Card {
+            overflow: hidden;
+            max-height: 460px;
+            
+            &:hover, &.selected {
+                  
+                  & .Card-imgBox {
+                        backdrop-filter: blur(20px);
+                        transition: 0.5s;
+                  }
+                  
+                  .Card-recipe {
+                        display: block;
+                        animation: showELt 0.8s both;
+                        transition: 0.8s;
+                        background-color: rgba(255, 255, 255, 0.32);
+                        backdrop-filter: blur(4px);
+                        position: relative;
+                        bottom: 160px;
+                        
+                        &-title {
+                              font-family: $typoTitre;
+                              position: absolute;
+                              top: -45px;
+                              color: $whiteColor;
+                        }
+                        
+                        &-text {
+                              color: $blackColor;
+                              padding: 5px 15px;
+                              min-height: 60px;
+                        }
+                  }
+            }
+            
+      }
+      
+      &-filter {
+            
+            &-link {
+                  font-family: $typoTitre;
+                  font-size: 1.2em;
+                  background-color: $secondColor;
+                  color: $whiteColor;
+                  display: inline-block;
+                  border: solid 1px $whiteColor;
+                  border-radius: 100px;
+                  padding: 5px 10px;
+                  margin: 15px;
+                  text-decoration: none;
+                  transition: 0.8s;
+                  
+                  @media screen AND (min-width: 550px) {
+                        font-size: 1.4em;
+                  }
+                  @media screen AND (min-width: 750px) {
+                        font-size: 1.6em;
+                  }
+                  
+                  &:hover {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        margin-top: -10px;
+                        margin-bottom: -10px;
+                        box-sizing: border-box;
+                        transition: 0.8s;
+                        position: relative;
+                  }
+                  
+                  &.filtered {
+                        background-color: $leaflet;
+                        color: $whiteColor;
+                  }
+            }
+      }
+      
+      &-list {
+            padding: 1em;
+            
+            @media screen AND (min-width: 750px) {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  grid-gap: 10px;
+            }
+            
+            @media screen AND (min-width: 1050px) {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                  grid-gap: 20px;
+            }
+      }
+      
+}

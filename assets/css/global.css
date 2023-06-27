@@ -1172,6 +1172,167 @@
     transform: translateX(100%);
   }
 }
+.Products .Card {
+  overflow: hidden;
+  max-height: 460px;
+}
+.Products .Card:hover .Card-imgBox, .Products .Card.selected .Card-imgBox {
+  backdrop-filter: blur(20px);
+  transition: 0.5s;
+}
+.Products .Card:hover .Card-recipe, .Products .Card.selected .Card-recipe {
+  display: block;
+  animation: showELt 0.8s both;
+  transition: 0.8s;
+  background-color: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(4px);
+  position: relative;
+  bottom: 160px;
+}
+.Products .Card:hover .Card-recipe-title, .Products .Card.selected .Card-recipe-title {
+  font-family: "Rift", sans-serif;
+  position: absolute;
+  top: -45px;
+  color: white;
+}
+.Products .Card:hover .Card-recipe-text, .Products .Card.selected .Card-recipe-text {
+  color: rgb(0, 0, 0);
+  padding: 5px 15px;
+  min-height: 60px;
+}
+.Products-filter-link {
+  font-family: "Rift", sans-serif;
+  font-size: 1.2em;
+  background-color: rgb(166, 52, 27);
+  color: white;
+  display: inline-block;
+  border: solid 1px white;
+  border-radius: 100px;
+  padding: 5px 10px;
+  margin: 15px;
+  text-decoration: none;
+  transition: 0.8s;
+}
+@media screen and (min-width: 550px) {
+  .Products-filter-link {
+    font-size: 1.4em;
+  }
+}
+@media screen and (min-width: 750px) {
+  .Products-filter-link {
+    font-size: 1.6em;
+  }
+}
+.Products-filter-link:hover {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  box-sizing: border-box;
+  transition: 0.8s;
+  position: relative;
+}
+.Products-filter-link.filtered {
+  background-color: #2E3236;
+  color: white;
+}
+.Products-list {
+  padding: 1em;
+}
+@media screen and (min-width: 750px) {
+  .Products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .Products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 20px;
+  }
+}
+
+@keyframes showMenu {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes displayNav {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes hideELt {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes showELt {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes underline {
+  0% {
+    width: 0%;
+    left: 100%;
+  }
+  50% {
+    width: 100%;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 50%;
+  }
+}
+@keyframes leftSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes rightSlide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes leftSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes rightSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 .layout-back.Header .Header-menu-links {
   justify-content: space-around;
 }
@@ -2517,87 +2678,6 @@ button:hover, .CTA:hover {
 .MainContent-topBack:hover {
   background-color: #373C40;
   color: white;
-}
-
-.Products .Card {
-  overflow: hidden;
-  max-height: 460px;
-}
-.Products .Card:hover .Card-imgBox, .Products .Card.selected .Card-imgBox {
-  backdrop-filter: blur(20px);
-  transition: 0.5s;
-}
-.Products .Card:hover .Card-recipe, .Products .Card.selected .Card-recipe {
-  display: block;
-  animation: showELt 0.8s both;
-  transition: 0.8s;
-  background-color: rgba(255, 255, 255, 0.32);
-  backdrop-filter: blur(4px);
-  position: relative;
-  bottom: 160px;
-}
-.Products .Card:hover .Card-recipe-title, .Products .Card.selected .Card-recipe-title {
-  font-family: "Rift", sans-serif;
-  position: absolute;
-  top: -45px;
-  color: white;
-}
-.Products .Card:hover .Card-recipe-text, .Products .Card.selected .Card-recipe-text {
-  color: rgb(0, 0, 0);
-  padding: 5px 15px;
-  min-height: 60px;
-}
-.Products-filter-link {
-  font-family: "Rift", sans-serif;
-  background-color: rgb(166, 52, 27);
-  color: white;
-  display: inline-block;
-  border: solid 1px white;
-  border-radius: 100px;
-  padding: 5px 10px;
-  margin: 15px;
-  text-decoration: none;
-  transition: 0.8s;
-}
-@media screen and (min-width: 550px) {
-  .Products-filter-link {
-    font-size: 1.2em;
-  }
-}
-@media screen and (min-width: 750px) {
-  .Products-filter-link {
-    font-size: 1.4em;
-  }
-}
-.Products-filter-link:hover {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  box-sizing: border-box;
-  transition: 0.8s;
-  position: relative;
-}
-.Products-filter-link.filtered {
-  background-color: #2E3236;
-  color: white;
-}
-.Products-list {
-  padding: 1em;
-}
-@media screen and (min-width: 750px) {
-  .Products-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-  }
-}
-@media screen and (min-width: 1050px) {
-  .Products-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 20px;
-  }
 }
 
 .Card {
