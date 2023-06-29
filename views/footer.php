@@ -48,7 +48,7 @@
     </div>
 
     <div class="Footer-mentions">
-        <p>Copyright - Le Pain de la Terre 2023</p>
+        <p>© Le Pain de la Terre 2023</p>
         <nav>
             <a href="#">Politique de confidentialité</a>
             <a href="#">Mentions légales</a>

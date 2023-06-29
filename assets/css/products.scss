@@ -17,7 +17,7 @@
                         display: block;
                         animation: showELt 0.8s both;
                         transition: 0.8s;
-                        background-color: rgba(255, 255, 255, 0.32);
+                        background-color: rgba(0, 0, 0, 0.32);
                         backdrop-filter: blur(4px);
                         position: relative;
                         bottom: 160px;
@@ -27,10 +27,11 @@
                               position: absolute;
                               top: -45px;
                               color: $whiteColor;
+                              background-color: rgba(0, 0, 0, 0.32);
                         }
                         
                         &-text {
-                              color: $blackColor;
+                              color: rgb(255, 255, 255);
                               padding: 5px 15px;
                               min-height: 60px;
                         }

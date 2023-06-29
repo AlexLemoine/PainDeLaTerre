@@ -18,6 +18,12 @@
       }
       
       .Card{
+            &-Header{
+                  &-title{
+                        margin: 5px;
+                        width: auto;
+                  }
+            }
             &-title{
                   position: initial;
                   width: auto;

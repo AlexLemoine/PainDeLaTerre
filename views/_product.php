@@ -4,10 +4,17 @@
 <div class="Card">
 
 	<figure class="Card-imgBox">
-		<img id="img1" class="Card-imgBox-img" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
+		
+		<img id="img1"
+		     class="Card-imgBox-img"
+		     src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPicture(); ?>"
 		     alt="<?= $product->getName(); ?>">
-		<img id="img2" class="Card-imgBox-img hidden" src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPictureSecondary(); ?>"
+		
+		<img id="img2"
+		     class="Card-imgBox-img hidden"
+		     src="<?= DIR_UPLOADS . DIRECTORY_SEPARATOR . $product->getPictureSecondary(); ?>"
 		     alt="<?= $product->getName(); ?>">
+		
 	</figure>
 	
 	<?php if(isset($page) && $page !== PAGE_HOME): ?>
@@ -26,3 +33,6 @@
 	
 </div>
 <?php endforeach; ?>
+
+
+

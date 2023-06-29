@@ -13,8 +13,8 @@
 		     alt="<?= $oProduct->getName(); ?>">
 	</figure>
 	<section class="Card-recipe">
-		<h3 class="Card-recipe-title">Ingrédients</h3>
-		<p class="Card-recipe-text"><?= $oProduct->getIngredients(); ?></p>
+<!--		<h3 class="Card-recipe-title">Ingrédients</h3>-->
+		<p class="Card-recipe-text"><?= 'INGREDIENTS <br><br>' . $oProduct->getIngredients(); ?></p>
 	</section>
 </div>
 
