@@ -60,7 +60,7 @@
 
 	<!--  Liste produits -->
 
-	<div id= "Cards" class="Cards" data-context="<?= PAGE_ADMIN_PRODUCTS ?>">
+	<div id="Cards" class="Cards" data-context="<?= PAGE_ADMIN_PRODUCTS ?>">
 		<?php include '_admin_products.php'; ?>
 	</div>
 

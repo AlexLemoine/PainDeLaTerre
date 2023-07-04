@@ -50,35 +50,51 @@
 		<section class="Card-category">
 			<h3 class="Card-category-title">Catégorie</h3>
 			<select class="Filters-category" id="category" name="category">
+				
 				<?php foreach ($categories as $oCategory): ?>
 
 					<option class="Filters-category-option"
 					    <?php if (!empty($product)) : ?>
-					    <?= $oCategory->getId() == $product->getCategory()->getId() ? 'selected="selected" ' : ''; ?>
+					    <?= ( $oCategory->getId() == $product->getCategory()->getId()) ? 'selected="selected" ' : ''; ?>
 
 						  value="<?= $oCategory->getId(); ?>">
 						
 						<?= $oCategory->getName(); ?>
 						
+						<?php else: echo  'value="' . $oCategory->getId() . '">';
+							
+							echo $oCategory->getName();
+							
+							?>
+						
 						<?php endif; ?>
+
+
 					</option>
 				
 				<?php endforeach; ?>
+				
 			</select>
 		</section>
 
 		<section class="Card-status">
 			<h3 class="Card-status-title">Statut</h3>
 			<select class="Filters-status" id="status" name="status">
-				<?php foreach (Product::STATUS as $key => $oStatus) : ?>
+				<?php foreach (Product::STATUS as $key => $oStatus) :?>
 
 					<option class="Filters-status-option"
 					    <?php if (!empty($product)) : ?>
-					    <?= $product->getStatus() == $key ? 'selected="selected" ' : ''; ?>
+					    <?= $product->getStatus() === $key ? 'selected="selected" ' : ''; ?>
 
 						  value="<?= $key; ?>">
 						
 						<?= $oStatus; ?>
+						
+						<?php else: echo  'value="' . $key . '">';
+
+							echo $oStatus;
+
+						?>
 						
 						<?php endif; ?>
 					</option>
@@ -95,13 +111,21 @@
 
 					<option class="Filters-frequency-option"
 					    <?php if (!empty($product)) : ?>
-					    <?= $product->getFrequency()->getDesignation() == $oFrequency->getDesignation() ? 'selected="selected" ' : ''; ?>
+					    <?= ($product->getFrequency()->getDesignation() == $oFrequency->getDesignation()) ? 'selected="selected" ' : ''; ?>
 
 						  value="<?= $oFrequency->getId(); ?>">
 						
 						<?= $oFrequency->getDesignation(); ?>
 						
+						<?php else: echo  'value="' . $oFrequency->getId() . '">';
+							
+							echo $oFrequency->getDesignation();
+						
+						?>
+						
 						<?php endif; ?>
+						
+						
 					</option>
 				
 				<?php endforeach; ?>

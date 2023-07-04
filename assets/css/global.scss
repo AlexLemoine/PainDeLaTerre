@@ -10,12 +10,13 @@
 @import "adminTeam";
 
 
-
-
 // MOBIL-FIRST : MEDIA-SCREEN <= 400px
 // 1er point de rupture : MEDIA MEDIA-SCREEN <=550px
 // 2e point de rupture  : MEDIA-SCREEN <= 750px
 // 3e point de rupture : MEDIA-SCREEN <= 1050px
+
+
+
 
 // Pour atténuer le comportement brutal du bouton "Remonter en haut de page"
 html {
@@ -73,7 +74,7 @@ button, .CTA {
       font-family: "Rift", sans-serif;
       font-size: 1em;
       
-      @media screen AND (min-width: 750px) {
+      @media screen AND (min-width: 550px) {
             font-size: 1.2em;
       }
       
@@ -103,9 +104,7 @@ button, .CTA {
       color: $whiteColor;
       
       &-logo {
-            
             &-img {
-                  
                   source {
                         display: none;
                   }
@@ -122,7 +121,6 @@ button, .CTA {
                               max-height: 170px;
                         }
                   }
-                  
             }
       }
       

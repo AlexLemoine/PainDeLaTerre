@@ -1,7 +1,6 @@
 
 <?php
 // lien avec la librairie DebugBar
-
 use DebugBar\StandardDebugBar;
 
 $oDebugbar = new StandardDebugBar();

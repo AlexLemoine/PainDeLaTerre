@@ -3,15 +3,15 @@ const slideContainer = slider.querySelector('.slide-container');
 const slides = slideContainer.querySelectorAll('.CompanySlider-imgBox');
 const slideCount = slides.length;
 const slideWidth = slides[0].getBoundingClientRect().width;
-let counter1 = 0;
+let counter = 0;
 
 function startSlider() {
 
     setInterval(() => {
-        counter1++;
+        counter++;
 
-        if (counter1 === slideCount - 2) {
-            counter1 = 0;
+        if (counter === slideCount - 2) {
+            counter = 0;
         }
 
         updateSlide();
@@ -20,7 +20,8 @@ function startSlider() {
 
 function updateSlide() {
     slideContainer.style.transition = 'transform 0.4s ease-in-out';
-    slideContainer.style.transform = `translateX(-${slideWidth * counter1}px)`;
+    slideContainer.style.transform = `translateX(-${slideWidth * counter}px)`;
 }
 
 startSlider();
+

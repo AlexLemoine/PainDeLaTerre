@@ -18,6 +18,7 @@ function onClickCreateBtn () {
     formContainer.classList.remove('hidden');
 
     const targetCancelBtn = document.querySelector('.Card-create-form .Card-cancel');
+
     targetCancelBtn.addEventListener('click', function(){
 
         // Ré-afficher le bouton de création de produit
@@ -47,10 +48,10 @@ function listenCreateButton(){
  */
 function callCreateProductAjax(){
 
-
     // Création d'un nouvel objet FormData
     const formData = new FormData(document.querySelector('#admin_products .Card-create-form .ModifyForm'));
     formData.append('context', 'admin_update_product');
+    console.log('coucou');
 
     // Envoi de la requête pour créer le produit
     fetch('ajax.php', {
@@ -59,6 +60,8 @@ function callCreateProductAjax(){
     })
         .then(response => response.text())
         .then(data => {
+
+            console.log('ici');
 
             // Mise à jour du listing de produits
             callDisplayProductAjax();
@@ -78,8 +81,8 @@ function callCreateProductAjax(){
 }
 
 function listenCancelSaveBtns(){
-    const cancelBtn = document.querySelector('.Cards .Card-cancel');
-    const saveBtn = document.querySelector('.Cards .Card-save');
+    const cancelBtn = document.querySelector('.modify .Card-cancel');
+    const saveBtn = document.querySelector('.modify .Card-save');
 
     cancelBtn.addEventListener('click', function (){
         // Récupération de l'élément qui contiendra les cartes à mettre à jour
@@ -108,13 +111,15 @@ function listenCancelSaveBtns(){
     })
 
     saveBtn.addEventListener('click', function (event){
-        let targetCard = document.querySelector('.Card.modify');
-        toggleClass(targetCard,'save','unmodified');
-
         event.preventDefault();
 
+        let targetCard = document.querySelector('.modify');
+        toggleClass(targetCard,'save','unmodified');
+
+        console.log(targetCard);
+
         // Création d'un nouvel objet FormData
-        const formData = new FormData(document.querySelector('.Card.modify .ModifyForm'));
+        const formData = new FormData(document.querySelector('.modify .ModifyForm'));
         formData.append('context', 'admin_update_product');
         formData.append('id',targetCard.getAttribute('data-id'));
 
@@ -126,6 +131,7 @@ function listenCancelSaveBtns(){
             .then(response => response.text())
             .then(data => {
 
+                console.log(data);
                 // Mise à jour des cartes avec les données reçues
                 targetCard.innerHTML = data;
                 toggleClass(targetCard,'modify','unmodified');
@@ -154,10 +160,9 @@ function callModifyProductAjax(card){
     })
         .then(response => response.text())
         .then(data => {
-
             card.innerHTML = data;
-            listenCancelSaveBtns();
         })
+        .then(() => listenCancelSaveBtns())
 }
 
 /**
@@ -178,7 +183,7 @@ function listenModifyDeleteBtns(){
             if(!modifyCard){
                 toggleClass(targetCard,'modify','unmodified');
                 callModifyProductAjax(targetCard);
-                listenCancelSaveBtns();
+                // listenCancelSaveBtns();
             }
 
         })

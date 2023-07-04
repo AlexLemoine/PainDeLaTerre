@@ -151,14 +151,23 @@ class AdminProductsController extends AbstractController
 	 */
 	public function updateProduct(): string
 	{
+		session_destroy();
+		session_start();
+		
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
 		
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
 		
+		$sQuery = '';
+
+		
 		// Récupération de l'id de la card sélectionnée
 		$id = $_POST['id'];
+		
+		$product = ProductRepository::find($id);
+		$_SESSION['produit 1'] = $product;
 		
 		// TODO Ajouter fonction save() dans Repo
 		// Gérer la soumission du formulaire
@@ -171,6 +180,8 @@ class AdminProductsController extends AbstractController
 		    ':status' => strip_tags($_POST['status']),
 		    ':frequency' => strip_tags($_POST['frequency']),
 		];
+		
+		$_SESSION['flashes'] = $aParams;
 		
 		if ($_FILES['picture']['name'] && $_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
 			// Récupération des informations sur l'image
@@ -210,11 +221,10 @@ class AdminProductsController extends AbstractController
 		}
 		
 		// Si l'id existe, update en BDD
-		if (isset($id)) {
+		if(!empty($id)) {
 			
 			$aParams[':id'] = $id;
-			
-			$product = ProductRepository::find($id);
+
 			
 			// Si le produit n'existe pas, redirection vers page d'accueil
 			if (!$product instanceof Product) {
@@ -239,6 +249,9 @@ class AdminProductsController extends AbstractController
 			
 			$sQuery .= ' WHERE p.id = :id ;';
 			
+			$product = ProductRepository::find($id);
+			$_SESSION['produit 2'] = $product;
+			
 		} else {
 			
 			// Si pas d'id,
@@ -250,8 +263,8 @@ class AdminProductsController extends AbstractController
 				     `ingredients`,
 				     `description`,
 				     `status`,
-				     `picture`,
-				     `picture_secondary`,
+//				     `picture`,
+//				     `picture_secondary`,
 				     `frequency`)
 
 				     VALUES
@@ -260,23 +273,26 @@ class AdminProductsController extends AbstractController
 				     :ingredients,
 				     :description,
 				     :status,
-				    	:picture,
-				      :picture_secondary,
+//				    	:picture,
+//				      :picture_secondary,
 				      :frequency);';
 			
+			$id = $oPdo->lastInsertId();
+
+			$product = ProductRepository::find($id);
+			$_SESSION['produit 3'] = $product;
+			
 		}
+		
+		$_SESSION['product final'] = $product;
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->execute($aParams);
 		
-		if (!isset($id)) {
-			$id = $oPdo->lastInsertId();
-		}
-		
 		// render (vue partielle texte)
 		return $this->render('_admin_product.php', [
 			// Rafraîchir les données du produit modifié
-		    'oProduct' => ProductRepository::find($id),
+		    'oProduct' => $product,
 		],
 		    true
 		);

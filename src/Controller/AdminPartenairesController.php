@@ -19,7 +19,7 @@ class AdminPartenairesController extends AbstractController
 			  'seo_title' => TITLE_ADMIN_PARTENAIRES,
 			  'partenaires' => PartenairesRepository::findAll(),
 		    ]);
-		
+
 	}
 	
 	
