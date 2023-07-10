@@ -1,4 +1,4 @@
-import {toggleClass, switchMainSecondaryPicture} from "./functions.js";
+import {switchMainSecondaryPicture} from "./functions.js";
 
 
 // **** MISE EN FORME DES FILTRES SELECTIONNES ****
@@ -9,9 +9,9 @@ filters.forEach(filter => {
     filter.addEventListener('click', function () {
         let activeFilter = document.querySelector('.Products-filter-link.filtered');
         if (activeFilter) {
-            toggleClass(activeFilter,'filtered','unfiltered');
+            activeFilter.classList.remove('filtered');
         }
-        toggleClass(filter,'filtered','unfiltered');
+        filter.classList.add('filtered');
     });
 });
 
@@ -46,3 +46,4 @@ for (const link of categoryLinks)
 // placer un écouteur sur les Cards
 // Au survol, afficher l'image secondaire (picture_secondary)
 switchMainSecondaryPicture();
+

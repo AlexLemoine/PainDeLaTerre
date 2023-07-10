@@ -270,3 +270,18 @@ final class MemberRepository extends AbstractRepository
 	
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

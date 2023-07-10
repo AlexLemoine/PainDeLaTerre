@@ -180,7 +180,7 @@
 				echo implode(PHP_EOL . '| ', $names);
 				?>
 			</div>
-			<a class="CTA" href="#">Découvrir nos producteurs</a>
+			<a class="CTA" href="#">Découvrir nos partenaires</a>
 		</section>
 	</div>
 
