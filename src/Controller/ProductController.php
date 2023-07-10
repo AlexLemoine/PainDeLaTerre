@@ -31,7 +31,7 @@ class ProductController extends AbstractController
 		// Debug : On force un délai d'attente pour laisser le loader s'afficher
 		// sleep(1);
 		
-		// (3) Récupération (+ nettoyage des données POST ou GET)
+		// Récupération (+ nettoyage des données POST ou GET)
 		$aCriterias = [];
 		
 		$aCriterias['status'] = Product::STATUS_PUBLISHED;
