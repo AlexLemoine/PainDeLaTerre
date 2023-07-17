@@ -5,6 +5,7 @@ namespace Pdlt\Controller;
 use Pdlt\Model\Product;
 use Pdlt\Repository\CompanySliderRepository;
 use Pdlt\Repository\PartenairesRepository;
+use Pdlt\Repository\PresentationRepository;
 use Pdlt\Repository\ProductRepository;
 
 class DefaultController extends AbstractController
@@ -35,6 +36,7 @@ class DefaultController extends AbstractController
 			'products' => $products,
 			'filteredProducts' => $filteredProduct,
 			'sliders' => CompanySliderRepository::findAll(),
+		    	'presentation' => PresentationRepository::findAll(),
 			'partenaires' => PartenairesRepository::findAll(),
             ]);
     }

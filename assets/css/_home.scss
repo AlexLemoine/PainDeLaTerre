@@ -227,6 +227,12 @@
                         font-family: $typoTexte;
                         padding: 10px 15px;
                         font-size: 0.9em;
+      
+                        @media screen AND (min-width: 550px) {
+                              padding: 10px 50px;
+                              font-size: 1.2em;
+                        }
+                        
                   }
                   & .CTA{
                         margin: 5px auto;
@@ -428,6 +434,11 @@
                   font-family: $typoTitre;
                   color: $whiteColor;
                   
+                  &-desc{
+                        @media screen AND (min-width: 750px) {
+                              line-height: 2;
+                        }
+                  }
                   
                   &-list{
                         display: flex;

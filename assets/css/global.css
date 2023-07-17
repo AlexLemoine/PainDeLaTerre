@@ -358,6 +358,12 @@
   padding: 10px 15px;
   font-size: 0.9em;
 }
+@media screen and (min-width: 550px) {
+  .Home .Section-equipe-desc, .Home .Section-savoir_faire-desc, .Home .Section-gamme-desc, .Home .Section-valeurs-desc, .Home .Section-partenaires-desc {
+    padding: 10px 50px;
+    font-size: 1.2em;
+  }
+}
 .Home .Section-equipe .CTA, .Home .Section-savoir_faire .CTA, .Home .Section-gamme .CTA, .Home .Section-valeurs .CTA, .Home .Section-partenaires .CTA {
   margin: 5px auto;
 }
@@ -524,6 +530,11 @@
   background-color: rgb(166, 52, 27);
   font-family: "Rift", sans-serif;
   color: white;
+}
+@media screen and (min-width: 750px) {
+  .Home .Section-partenaires-desc {
+    line-height: 2;
+  }
 }
 .Home .Section-partenaires-list {
   display: flex;

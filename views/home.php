@@ -168,7 +168,18 @@
 		<section class="Section-partenaires">
 
 			<h2 class="Section-partenaires-title">Nos partenaires</h2>
+
+			<p class="Section-partenaires-desc"><?php foreach ($presentation as $item) {
+					if ($item->getTheme() === 'partenaires') {
+						echo $item->getText();
+					}
+				}; ?>
+			</p>
+
+			<a class="CTA" href="#">Découvrez nos partenaires</a>
+
 			<div class="Section-partenaires-list">
+				
 				<?php
 				$names = [];
 				foreach ($partenaires as $oPartenaire) {
@@ -180,7 +191,7 @@
 				echo implode(PHP_EOL . '| ', $names);
 				?>
 			</div>
-			<a class="CTA" href="#">Découvrir nos partenaires</a>
+			
 		</section>
 	</div>
 

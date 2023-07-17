@@ -193,6 +193,10 @@ class AdminProductsController extends AbstractController
 				$sFileNameNew = uniqid() . '.' . pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
 				$sFilePathNew = DIR_UPLOADS . DIRECTORY_SEPARATOR . $sFileNameNew;
 				
+				// TODO - type-mime à vérifier
+				// plus efficace que getimagesize
+				
+				
 				// Déplacement du fichier téléchargé vers le dossier des uploads
 				if (move_uploaded_file($_FILES['picture']['tmp_name'], $sFilePathNew)) {
 					// Le fichier a été correctement déplacé, on l'ajoute aux critères de mise à jour
