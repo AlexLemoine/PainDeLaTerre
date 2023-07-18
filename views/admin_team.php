@@ -5,7 +5,7 @@
 	
 	
 	<!-- Affichage de la photo d'équipe -->
-	<section class="Team">
+	<section id="team" class="Team">
 		<h2 class="Team-title">GERER LA PHOTO DE L'EQUIPE</h2>
 		<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
 		<img class="Team-img"

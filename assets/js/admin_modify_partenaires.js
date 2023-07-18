@@ -36,7 +36,7 @@ function listenCreateButton(){
         createBtn.addEventListener('click', onClickCreateBtn);
     }
 
-    // Appel ajax en cas de création de produit
+    // Appel ajax en cas de création de partenaire
     const targetSaveBtn = document.querySelector('.Card-create-form .Card-save');
     targetSaveBtn.addEventListener('click',callCreatePartenaireAjax);
 }
