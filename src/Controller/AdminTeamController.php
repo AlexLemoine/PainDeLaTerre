@@ -105,5 +105,18 @@ class AdminTeamController extends AbstractController
 		
 	}
 	
+	public function refreshMember()
+	{
+		// TODO Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		$members = MemberRepository::findAll();
+		
+		return $this->render('_admin_team_members.php', [
+		    'members' => $members,
+		], true);
+		
+	}
+	
 }
 

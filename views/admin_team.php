@@ -26,14 +26,12 @@
 			</div>
 		</div>
 
+		
 		<h2 class="Members-title">GERER LES MEMBRES DE L'EQUIPE</h2>
-		<?php foreach ($members as $oMember): ?>
-			<div class="Members-list" data-id="<?= $oMember->getId(); ?>">
-				<img src="assets/img/modifyButton.svg" class="Card-modify" alt="modify button" title="Modifier" data-action="modify">
-				<img src="assets/img/deleteButton.svg" class="Card-delete" alt="delete button" title="Supprimer" data-action="delete">
-				<?php include '_member.php'; ?>
-			</div>
-		<?php endforeach;?>
+		<!-- Liste des membres -->
+		<div class="container-ajax-member" data-context="<?= PAGE_ADMIN_MEMBERS; ?>">
+			<?php include '_admin_team_members.php'; ?>
+		</div>
 		
 	</section>
 	

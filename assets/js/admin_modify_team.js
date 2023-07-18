@@ -46,8 +46,28 @@ function onClickCreateBtn()
 
 function callDisplayMembersAjax() {
 
+    const membersList = document.querySelector('.container-ajax-member');
 
+    const formData = new FormData();
+    const context = membersList.getAttribute('data-context')
+    formData.append('context', context);
+    console.log(context);
 
+    // Envoi de la requête pour mettre à jour les cartes
+    fetch(AJAX_URL, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+
+            console.log('data' + data);
+            // Mise à jour des cartes avec les données reçues
+            membersList.innerHTML = data;
+
+            console.log('modifyDeleteBtn TODO');
+            // listenModifyDeleteBtns();
+        })
 
 }
 

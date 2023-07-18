@@ -35,6 +35,7 @@ if(isset($_POST['context'])){
 		PAGE_ADMIN_DELETE_SLIDE_COMPANY => (new Pdlt\Controller\AdminPresentationController)->deleteSlideCompany(),
 		PAGE_ADMIN_CREATE_SLIDE_COMPANY => (new Pdlt\Controller\AdminPresentationController)->createSlideCompany(),
 		PAGE_ADMIN_UPDATE_MEMBERS => (new Pdlt\Controller\AdminTeamController)->updateMember(),
+		PAGE_ADMIN_MEMBERS => (new Pdlt\Controller\AdminTeamController)->refreshMember(),
 	};
 	
 	echo $result;
