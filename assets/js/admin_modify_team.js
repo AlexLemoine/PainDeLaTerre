@@ -3,6 +3,8 @@ import {toggleClass} from "./functions.js";
 // **** CONSTANTES DE PAGES
 const AJAX_URL = 'ajax.php';
 const CONTEXT_ADMIN_UPDATE_MEMBERS = 'admin_update_members';
+const CONTEXT_ADMIN_MODIFY_MEMBER = 'admin_modify_members';
+const CONTEXT_ADMIN_DELETE_PARTENAIRES = 'admin_delete_members';
 
 
 // **** CREATION D'UN MEMBRE
@@ -44,6 +46,103 @@ function onClickCreateBtn()
 
 }
 
+
+function onClickCancelBtn() {
+    // TODO
+}
+
+function onClickSaveBtn() {
+    // TODO
+}
+
+function listenCancelSaveBtns() {
+    const cancelBtn = document.querySelector('.Card.modify .Card-cancel');
+    const saveBtn = document.querySelector('.Card.modify .Card-save');
+
+    // ANNULER LES MODIFICATIONS
+    cancelBtn.addEventListener('click',onClickCancelBtn)
+
+    // SAUVEGARDER LES MODIFICATIONS
+    saveBtn.addEventListener('click',onClickSaveBtn)
+}
+
+function callModifyMemberAjax(targetCard) {
+    // Création d'un nouvel objet FormData
+    const formData = new FormData();
+    formData.append('context', CONTEXT_ADMIN_MODIFY_MEMBER);
+    formData.append('id',targetCard.getAttribute('data-id'));
+
+    // envoi requête pour maj card
+    fetch(AJAX_URL, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            targetCard.innerHTML = data;
+            listenCancelSaveBtns()
+        })
+
+}
+
+function onClickModifyBtn() {
+    let targetCard = this.parentNode;
+    targetCard.setAttribute('data-form','modifying');
+
+    // Ne permettre qu'une modification de card à la fois
+    let modifyCard = document.querySelector('.modify');
+    if(!modifyCard){
+        toggleClass(targetCard,'modify','unmodified');
+        callModifyMemberAjax(targetCard);
+    }
+}
+
+function onClickDeleteBtn() {
+    let targetCard = this.parentNode;
+
+    let isToDelete = confirm('Souhaitez-vous supprimer ce membre ?');
+    if(isToDelete === true) {
+
+        // Création d'un nouvel objet FormData
+        const formData = new FormData();
+        formData.append('isToDelete','yes');
+        formData.append('context', CONTEXT_ADMIN_DELETE_PARTENAIRES);
+        const id = targetCard.getAttribute('data-id');
+        console.log(id);
+        formData.append('id',targetCard.getAttribute('data-id'));
+
+        // envoi requête pour maj card
+        fetch(AJAX_URL, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                targetCard.remove();
+            })
+    }
+}
+
+function listenModifyDeleteBtns() {
+
+    const modifyBtn = document.querySelectorAll('.Card-modify');
+    const deleteBtn = document.querySelectorAll('.Card-delete');
+
+    console.log(deleteBtn);
+
+    // MODIFIER LES INFOS DU PARTENAIRE
+    modifyBtn.forEach(elt=> {
+        elt.addEventListener('click',onClickModifyBtn);
+    })
+
+    // SUPPRIMER UN PARTENAIRE
+    deleteBtn.forEach(elt=> {
+        console.log('delete btn listened');
+        elt.addEventListener('click',onClickDeleteBtn);
+    })
+
+}
+
 function callDisplayMembersAjax() {
 
     const membersList = document.querySelector('.container-ajax-member');
@@ -66,7 +165,7 @@ function callDisplayMembersAjax() {
             membersList.innerHTML = data;
 
             console.log('modifyDeleteBtn TODO');
-            // listenModifyDeleteBtns();
+            listenModifyDeleteBtns();
         })
 
 }
@@ -120,4 +219,5 @@ function listenCreateBtn() {
 // **** APRES CHARGEMENT DE LA PAGE
 
 listenCreateBtn();
+listenModifyDeleteBtns();
 

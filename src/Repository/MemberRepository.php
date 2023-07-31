@@ -36,7 +36,6 @@ final class MemberRepository extends AbstractRepository
 	 * Récupère un membre en BDD en fonction de on id
 	 * @param int $iId
 	 * @return Member|null
-	 * @throws Exception
 	 */
 	public static function find(int $iId): ?Member
 	{
@@ -253,7 +252,7 @@ final class MemberRepository extends AbstractRepository
 	 * @param $id
 	 * @return void
 	 */
-	public static function delete($aParams): void
+	public static function delete($id): void
 	{
 		// Lien avec la BDD
 		$oPdo = DbManager::getInstance();
@@ -262,7 +261,8 @@ final class MemberRepository extends AbstractRepository
 			WHERE id = :id;';
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
-		$oPdoStatement->execute($aParams);
+		$oPdoStatement->bindValue(':id', $id, \PDO::PARAM_INT);
+		$oPdoStatement->execute();
 		
 	}
 	

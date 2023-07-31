@@ -118,5 +118,48 @@ class AdminTeamController extends AbstractController
 		
 	}
 	
+	/**
+	 * Supprimer un membre
+	 * @return string
+	 */
+	public function deleteMember(): string
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		
+		// Seulement si isToDelete
+		if($_POST['isToDelete'] == 'yes'){
+			
+			$_SESSION['delete0'] = 'delete in progress';
+			
+			// Récupération de l'id de la card sélectionnée
+			$id = $_POST['id'];
+			$member = MemberRepository::find($id);
+			$_SESSION['member'] = $member;
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if(!$member instanceof Member){
+				$this->redirectAndDie();
+				$_SESSION['redirect'] = 'redirectAndDie pb';
+			}
+			MemberRepository::delete($id);
+			$_SESSION['delete1'] = 'ok';
+			
+			$_SESSION['post1'] = $_POST;
+		}
+		
+		$_SESSION['delete2'] = 'ok';
+		
+		$_SESSION['post2'] = $_POST;
+		
+		return $this->render('_admin_team_members.php',[
+		    'members' => MemberRepository::findAll(),
+		],
+		    true
+		);
+		
+	}
+	
 }
 
