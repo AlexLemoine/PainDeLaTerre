@@ -151,8 +151,6 @@ class AdminProductsController extends AbstractController
 	 */
 	public function updateProduct(): string
 	{
-		session_destroy();
-		session_start();
 		
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
@@ -267,8 +265,6 @@ class AdminProductsController extends AbstractController
 				     `ingredients`,
 				     `description`,
 				     `status`,
-//				     `picture`,
-//				     `picture_secondary`,
 				     `frequency`)
 
 				     VALUES
@@ -277,9 +273,7 @@ class AdminProductsController extends AbstractController
 				     :ingredients,
 				     :description,
 				     :status,
-//				    	:picture,
-//				      :picture_secondary,
-				      :frequency);';
+				      :frequency)';
 			
 			$id = $oPdo->lastInsertId();
 

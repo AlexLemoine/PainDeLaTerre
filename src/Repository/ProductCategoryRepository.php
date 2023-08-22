@@ -8,7 +8,6 @@ final class ProductCategoryRepository extends AbstractRepository
 {
     const TABLE = 'productcategory';
 
-
     /**
      * @return array
      */
