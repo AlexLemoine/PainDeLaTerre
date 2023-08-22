@@ -37,6 +37,8 @@ if(isset($_POST['context'])){
 		PAGE_ADMIN_UPDATE_MEMBERS => (new Pdlt\Controller\AdminTeamController)->updateMember(),
 		PAGE_ADMIN_MEMBERS => (new Pdlt\Controller\AdminTeamController)->refreshMember(),
 		PAGE_ADMIN_DELETE_MEMBERS => (new Pdlt\Controller\AdminTeamController)->deleteMember(),
+		PAGE_ADMIN_MODIFY_MEMBERS => (new Pdlt\Controller\AdminTeamController)->modifyMember(),
+		PAGE_ADMIN_CANCEL_MODIFICATION_MEMBER => (new Pdlt\Controller\AdminTeamController)->showMember(),
 	};
 	
 	echo $result;

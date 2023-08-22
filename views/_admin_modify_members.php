@@ -42,7 +42,7 @@
 	<div class="Card-entry_date">
 		<h3 class="Card-entry_date-title">Date d'entrée</h3>
 		<label for="entry_date"></label>
-		<input id="entry_date" type="date" name="entry_date"><?= !empty($oMember) ? $oMember->getEntryDate() : ''; ?></input>
+		<input id="entry_date" type="date" name="entry_date"><?= !empty($oMember) ? $oMember->getEntryDate()->format('d/m/Y') : ''; ?></input>
 	</div>
 	
 </form>

@@ -4,7 +4,8 @@ import {toggleClass} from "./functions.js";
 const AJAX_URL = 'ajax.php';
 const CONTEXT_ADMIN_UPDATE_MEMBERS = 'admin_update_members';
 const CONTEXT_ADMIN_MODIFY_MEMBER = 'admin_modify_members';
-const CONTEXT_ADMIN_DELETE_PARTENAIRES = 'admin_delete_members';
+const CONTEXT_ADMIN_DELETE_MEMBERS = 'admin_delete_members';
+const CONTEXT_ADMIN_CANCEL_MODIFICATION_MEMBERS = 'admin_cancel_modification_member';
 
 
 // **** CREATION D'UN MEMBRE
@@ -48,28 +49,58 @@ function onClickCreateBtn()
 
 
 function onClickCancelBtn() {
-    // TODO
+
+    // Récupération de l'élément qui contiendra les cartes à mettre à jour
+    let targetCard = document.querySelector('.Members-list.modify');
+
+    // Création d'un nouvel objet FormData
+    const formData = new FormData(document.querySelector('.ModifyForm'));
+    formData.append('context', CONTEXT_ADMIN_CANCEL_MODIFICATION_MEMBERS);
+    formData.append('id',targetCard.getAttribute('data-id'));
+
+    // Envoi de la requête pour mettre à jour les cartes
+    fetch(AJAX_URL, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+
+            // Mise à jour des cartes avec les données reçues
+            targetCard.innerHTML = data;
+            toggleClass(targetCard,'modify','unmodified');
+
+            // Remettre en place les écouteurs sur modify et delete buttons
+            listenModifyDeleteBtns();
+        })
+
 }
 
 function onClickSaveBtn() {
-    // TODO
+    // TODO - onClickSaveBtn
+
+
+
 }
 
 function listenCancelSaveBtns() {
-    const cancelBtn = document.querySelector('.Card.modify .Card-cancel');
-    const saveBtn = document.querySelector('.Card.modify .Card-save');
+    const cancelBtn = document.querySelector('.modify .Card-cancel');
+    const saveBtn = document.querySelector('.modify .Card-save');
 
     // ANNULER LES MODIFICATIONS
-    cancelBtn.addEventListener('click',onClickCancelBtn)
+    cancelBtn.addEventListener('click',onClickCancelBtn);
 
     // SAUVEGARDER LES MODIFICATIONS
-    saveBtn.addEventListener('click',onClickSaveBtn)
+    saveBtn.addEventListener('click',onClickSaveBtn);
 }
 
 function callModifyMemberAjax(targetCard) {
     // Création d'un nouvel objet FormData
     const formData = new FormData();
     formData.append('context', CONTEXT_ADMIN_MODIFY_MEMBER);
+
+    const id = targetCard.getAttribute('data-id');
+    console.log(id);
     formData.append('id',targetCard.getAttribute('data-id'));
 
     // envoi requête pour maj card
@@ -80,7 +111,7 @@ function callModifyMemberAjax(targetCard) {
         .then(response => response.text())
         .then(data => {
             targetCard.innerHTML = data;
-            listenCancelSaveBtns()
+            listenCancelSaveBtns();
         })
 
 }
@@ -106,7 +137,7 @@ function onClickDeleteBtn() {
         // Création d'un nouvel objet FormData
         const formData = new FormData();
         formData.append('isToDelete','yes');
-        formData.append('context', CONTEXT_ADMIN_DELETE_PARTENAIRES);
+        formData.append('context', CONTEXT_ADMIN_DELETE_MEMBERS);
         const id = targetCard.getAttribute('data-id');
         console.log(id);
         formData.append('id',targetCard.getAttribute('data-id'));
@@ -132,12 +163,13 @@ function listenModifyDeleteBtns() {
 
     // MODIFIER LES INFOS DU PARTENAIRE
     modifyBtn.forEach(elt=> {
+        console.log('modify btn listened');
         elt.addEventListener('click',onClickModifyBtn);
     })
 
     // SUPPRIMER UN PARTENAIRE
     deleteBtn.forEach(elt=> {
-        console.log('delete btn listened');
+
         elt.addEventListener('click',onClickDeleteBtn);
     })
 

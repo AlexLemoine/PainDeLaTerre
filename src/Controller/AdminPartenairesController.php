@@ -242,4 +242,5 @@ class AdminPartenairesController extends AbstractController
 		
 	}
 	
+
 }

@@ -161,5 +161,77 @@ class AdminTeamController extends AbstractController
 		
 	}
 	
+	/**
+	 * @return string
+	 */
+	public function modifyMember(): string
+	{
+		// TODO - Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Récupération de l'id de la card sélectionnée
+		if(isset($_POST['id'])) {
+			$id = $_POST['id'];
+			$member = MemberRepository::find($id);
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if (!$member instanceof Member) {
+				$this->redirectAndDie();
+			}
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_modify_members.php', [
+			    'oMember' => $member,
+			],
+			    true
+			);
+		}
+		
+		// Renvoi de la vue partielle des membres
+		return $this->render('_admin_team_members.php',[
+		    'members' => MemberRepository::findAll(),
+		],
+		    true
+		);
+		
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function showMember(): string
+	{
+		// TODO Sécuriser en s'assurant que le user est bien administrateur
+		// if($_SESSION['user']['role'] === ROLE_ADMIN)
+		
+		// Récupération de l'id de la card sélectionnée
+		if(isset($_POST['id'])) {
+			$id = $_POST['id'];
+			$member = MemberRepository::find($id);
+			
+			// Si le partenaire n'existe pas, redirection vers page d'accueil
+			if (!$member instanceof Member) {
+				$this->redirectAndDie();
+			}
+			
+			$_SESSION['showMember'] = $member;
+			
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_team_member.php',[
+			    'oMember' => $member,
+			],
+			    true
+			);
+		} else {
+			// Renvoi de la vue partielle de la card en mode formulaire
+			return $this->render('_admin_team_member.php',[
+			    'oMember' => new Member(),
+			],
+			    true
+			);
+		}
+		
+	}
+	
 }
 
