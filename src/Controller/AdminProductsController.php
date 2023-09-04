@@ -151,6 +151,8 @@ class AdminProductsController extends AbstractController
 	 */
 	public function updateProduct(): string
 	{
+//		session_destroy();
+//		session_start();
 		
 		// TODO - Sécuriser en s'assurant que le user est bien administrateur
 		// if($_SESSION['user']['role'] === ROLE_ADMIN)
@@ -159,12 +161,12 @@ class AdminProductsController extends AbstractController
 		$oPdo = DbManager::getInstance();
 		
 		$sQuery = '';
+		$product = '';
 		
 		// Récupération de l'id de la card sélectionnée
 		$id = $_POST['id'];
 		
-		$product = ProductRepository::find($id);
-		$_SESSION['produit 1'] = $product;
+		$_SESSION['id ???'] = $id;
 		
 		// TODO Ajouter fonction save() dans Repo
 		// Gérer la soumission du formulaire
@@ -222,7 +224,10 @@ class AdminProductsController extends AbstractController
 		}
 		
 		// Si l'id existe, update en BDD
-		if(!empty($id)) {
+		if ($id !== null) {
+			
+			$product = ProductRepository::find($id);
+			$_SESSION['produit 1'] = $product;
 			
 			$aParams[':id'] = $id;
 			
@@ -249,48 +254,77 @@ class AdminProductsController extends AbstractController
 			
 			$sQuery .= ' WHERE p.id = :id ;';
 			
-
+			$oPdoStatement = $oPdo->prepare($sQuery);
+			$oPdoStatement->execute($aParams);
 			
-		} else {
+			$product = ProductRepository::find($id);
+			$_SESSION['produit 2'] = $product;
+			
+		}
+		
+		if ($id == null) {
+			
+			$_SESSION['creation'] = 'IN PROGRESS';
 			
 			// Si pas d'id,
 			// création du produit en BDD
 			
+//			$sQuery = 'INSERT INTO `product`
+//				    (`productCategory_id`,
+//				     `name`,
+//				     `ingredients`,
+//				     `description`,
+//				     `status`,
+//				     `frequency`,
+//				     `picture`,
+//				     `picture_secondary`)
+//				     VALUES
+//				     (:category,
+//				     :name,
+//				     :ingredients,
+//				     :description,
+//				     :status,
+//				      :frequency,
+//				      :picture,
+//				      :picture_secondary)';
+			
 			$sQuery = 'INSERT INTO `product`
-				    (`productCategory_id`,
-				     `name`,
-				     `ingredients`,
-				     `description`,
-				     `status`,
-				     `frequency`,
-				     `picture`,
-				     `picture_secondary`)
-
-				     VALUES
-				     (:category,
-				     :name,
-				     :ingredients,
-				     :description,
-				     :status,
-				      :frequency,
-				      :picture,
-				      :picture_secondary)';
-
+            (`productCategory_id`,
+             `name`,
+             `ingredients`,
+             `description`,
+             `status`,
+             `frequency`';
 			
-		}
-		
-		$oPdoStatement = $oPdo->prepare($sQuery);
-		$oPdoStatement->execute($aParams);
-		
-		if(!empty($id)){
-			$product = ProductRepository::find($id);
-			$_SESSION['produit 2'] = $product;
-		}else{
+			if ($_FILES['picture']['name'] && $_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
+				$sQuery .= ', `picture`';
+			}
 			
-			$id = $oPdo->lastInsertId();
+			if ($_FILES['picture_secondary']['name'] && $_FILES['picture_secondary']['error'] !== UPLOAD_ERR_NO_FILE) {
+				$sQuery .= ', `picture_secondary`';
+			}
 			
-			$product = ProductRepository::find($id);
+			$sQuery .= ') VALUES (:category, :name, :ingredients, :description, :status, :frequency';
+			
+			if ($_FILES['picture']['name'] && $_FILES['picture']['error'] !== UPLOAD_ERR_NO_FILE) {
+				$sQuery .= ', :picture';
+			}
+			
+			if ($_FILES['picture_secondary']['name'] && $_FILES['picture_secondary']['error'] !== UPLOAD_ERR_NO_FILE) {
+				$sQuery .= ', :picture_secondary';
+			}
+			
+			$sQuery .= ')';
+			
+			$oPdoStatement = $oPdo->prepare($sQuery);
+			
+			$_SESSION['query creation'] = $sQuery;
+			$oPdoStatement->execute($aParams);
+			
+			$idCreated = $oPdo->lastInsertId();
+			$product = ProductRepository::find($idCreated);
 			$_SESSION['product creation'] = $product;
+			
 		}
 		
 		// render (vue partielle texte)
