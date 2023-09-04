@@ -142,6 +142,7 @@ function listenCancelSaveBtns(){
     });
 }
 
+
 /**
  * Appel Ajax pour mettre à jour la card sélectionnée à modifier
  * @param card
@@ -164,6 +165,7 @@ function callModifyProductAjax(card){
         })
         .then(() => listenCancelSaveBtns())
 }
+
 
 /**
  * Ecouteur sur bouton modify ou delete

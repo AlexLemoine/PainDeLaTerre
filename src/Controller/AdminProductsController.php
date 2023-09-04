@@ -159,7 +159,6 @@ class AdminProductsController extends AbstractController
 		$oPdo = DbManager::getInstance();
 		
 		$sQuery = '';
-
 		
 		// Récupération de l'id de la card sélectionnée
 		$id = $_POST['id'];
@@ -226,7 +225,6 @@ class AdminProductsController extends AbstractController
 		if(!empty($id)) {
 			
 			$aParams[':id'] = $id;
-
 			
 			// Si le produit n'existe pas, redirection vers page d'accueil
 			if (!$product instanceof Product) {
@@ -251,8 +249,7 @@ class AdminProductsController extends AbstractController
 			
 			$sQuery .= ' WHERE p.id = :id ;';
 			
-			$product = ProductRepository::find($id);
-			$_SESSION['produit 2'] = $product;
+
 			
 		} else {
 			
@@ -265,7 +262,9 @@ class AdminProductsController extends AbstractController
 				     `ingredients`,
 				     `description`,
 				     `status`,
-				     `frequency`)
+				     `frequency`,
+				     `picture`,
+				     `picture_secondary`)
 
 				     VALUES
 				     (:category,
@@ -273,19 +272,26 @@ class AdminProductsController extends AbstractController
 				     :ingredients,
 				     :description,
 				     :status,
-				      :frequency)';
+				      :frequency,
+				      :picture,
+				      :picture_secondary)';
 			
-			$id = $oPdo->lastInsertId();
-
-			$product = ProductRepository::find($id);
-			$_SESSION['produit 3'] = $product;
+//			$id = $oPdo->lastInsertId();
+//
+//			$product = ProductRepository::find($id);
+			$_SESSION['query creation'] = $sQuery;
 			
 		}
 		
-		$_SESSION['product final'] = $product;
+//		$_SESSION['product final'] = $product;
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->execute($aParams);
+		
+		if(!empty($id)){
+			$product = ProductRepository::find($id);
+			$_SESSION['produit 2'] = $product;
+		}
 		
 		// render (vue partielle texte)
 		return $this->render('_admin_product.php', [
