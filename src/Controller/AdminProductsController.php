@@ -275,15 +275,9 @@ class AdminProductsController extends AbstractController
 				      :frequency,
 				      :picture,
 				      :picture_secondary)';
-			
-//			$id = $oPdo->lastInsertId();
-//
-//			$product = ProductRepository::find($id);
-			$_SESSION['query creation'] = $sQuery;
+
 			
 		}
-		
-//		$_SESSION['product final'] = $product;
 		
 		$oPdoStatement = $oPdo->prepare($sQuery);
 		$oPdoStatement->execute($aParams);
@@ -291,6 +285,12 @@ class AdminProductsController extends AbstractController
 		if(!empty($id)){
 			$product = ProductRepository::find($id);
 			$_SESSION['produit 2'] = $product;
+		}else{
+			
+			$id = $oPdo->lastInsertId();
+			
+			$product = ProductRepository::find($id);
+			$_SESSION['product creation'] = $product;
 		}
 		
 		// render (vue partielle texte)
